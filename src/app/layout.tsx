@@ -21,7 +21,7 @@ import type { Metadata } from 'next'
 import './globals.css'
 
 export const metadata: Metadata = {
-  title: 'Oatmeal Kit Demo',
+  title: 'EON BioSystem',
 }
 
 export default function RootLayout({
@@ -32,13 +32,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
-        <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
-          rel="stylesheet"
-        />
+        <link rel="stylesheet" href="https://use.typekit.net/xsn1nhj.css" />
       </head>
       <body>
         <>
@@ -57,15 +51,15 @@ export default function RootLayout({
             logo={
               <NavbarLogo href="/">
                 <Image
-                  src="/img/logos/oatmeal-instrument-color-olive-950.svg"
-                  alt="Oatmeal"
+                  src="/logo-eon.svg"
+                  alt="EON BioSystem"
                   className="dark:hidden"
                   width={85}
                   height={28}
                 />
                 <Image
-                  src="/img/logos/oatmeal-instrument-color-white.svg"
-                  alt="Oatmeal"
+                  src="/logo-eon.white.svg"
+                  alt="EON BioSystem"
                   className="not-dark:hidden"
                   width={85}
                   height={28}

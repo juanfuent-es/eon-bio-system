@@ -1,32 +1,129 @@
 @import 'tailwindcss';
 
 @theme {
-  --font-display: 'Instrument Serif', serif;
-  --font-sans: 'Inter', system-ui, sans-serif;
+  /* Tipografía */
+  --font-display: 'freight-neo-pro', serif;
+  --font-sans: 'the-seasons', serif;
 
-  --color-olive-50: oklch(98.8% 0.003 106.5);
-  --color-olive-100: oklch(96.6% 0.005 106.5);
-  --color-olive-200: oklch(93% 0.007 106.5);
-  --color-olive-300: oklch(88% 0.011 106.6);
-  --color-olive-400: oklch(73.7% 0.021 106.9);
-  --color-olive-500: oklch(58% 0.031 107.3);
-  --color-olive-600: oklch(46.6% 0.025 107.3);
-  --color-olive-700: oklch(39.4% 0.023 107.4);
-  --color-olive-800: oklch(28.6% 0.016 107.4);
-  --color-olive-900: oklch(22.8% 0.013 107.4);
-  --color-olive-950: oklch(15.3% 0.006 107.1);
+  /* Obsidian Black - Lectura Clínica: Precisión & profundidad */
+  --color-obsidian-50: oklch(97.8% 0.002 0);
+  --color-obsidian-100: oklch(95.2% 0.003 0);
+  --color-obsidian-200: oklch(91.5% 0.004 0);
+  --color-obsidian-300: oklch(85.8% 0.005 0);
+  --color-obsidian-400: oklch(70.2% 0.006 0);
+  --color-obsidian-500: oklch(50.5% 0.008 0);
+  --color-obsidian-600: oklch(36.8% 0.007 0);
+  --color-obsidian-700: oklch(28.5% 0.006 0);
+  --color-obsidian-800: oklch(18.2% 0.004 0);
+  --color-obsidian-900: oklch(10.8% 0.002 0);
+  --color-obsidian-950: oklch(5.5% 0.001 0);
+
+  /* Vital Amber - Energía & activación */
+  --color-vital-50: oklch(97.8% 0.008 55.3);
+  --color-vital-100: oklch(95.2% 0.015 55.2);
+  --color-vital-200: oklch(90.5% 0.028 54.8);
+  --color-vital-300: oklch(82.8% 0.043 54.2);
+  --color-vital-400: oklch(71.2% 0.062 53.6);
+  --color-vital-500: oklch(58.5% 0.075 53.2);
+  --color-vital-600: oklch(48.2% 0.068 52.8);
+  --color-vital-700: oklch(40.5% 0.058 52.5);
+  --color-vital-800: oklch(30.8% 0.042 52.2);
+  --color-vital-900: oklch(22.5% 0.028 52.1);
+  --color-vital-950: oklch(14.2% 0.015 52.0);
+
+  /* Renewal Green - Equilibrio & regeneración */
+  --color-renewal-50: oklch(97.2% 0.005 142.8);
+  --color-renewal-100: oklch(94.5% 0.010 142.5);
+  --color-renewal-200: oklch(89.8% 0.018 142.2);
+  --color-renewal-300: oklch(82.5% 0.028 141.8);
+  --color-renewal-400: oklch(70.8% 0.040 141.2);
+  --color-renewal-500: oklch(57.8% 0.048 140.8);
+  --color-renewal-600: oklch(48.2% 0.042 140.5);
+  --color-renewal-700: oklch(40.8% 0.035 140.2);
+  --color-renewal-800: oklch(31.2% 0.025 139.8);
+  --color-renewal-900: oklch(23.5% 0.018 139.5);
+  --color-renewal-950: oklch(15.2% 0.010 139.2);
+
+  /* Bone White - Neutralidad: Claridad & espacio */
+  --color-bone-50: oklch(99.8% 0.001 0);
+  --color-bone-100: oklch(98.5% 0.002 0);
+  --color-bone-200: oklch(96.8% 0.003 0);
+  --color-bone-300: oklch(94.2% 0.004 0);
+  --color-bone-400: oklch(88.5% 0.005 0);
+  --color-bone-500: oklch(96.2% 0.006 60.5);
+  --color-bone-600: oklch(92.8% 0.005 60.2);
+  --color-bone-700: oklch(88.5% 0.004 60.0);
+  --color-bone-800: oklch(82.2% 0.003 59.8);
+  --color-bone-900: oklch(75.5% 0.002 59.5);
+  --color-bone-950: oklch(68.2% 0.001 59.2);
+
+  /* Mineral Gray - Información Secundaria & Soporte */
+  --color-mineral-50: oklch(98.2% 0.001 0);
+  --color-mineral-100: oklch(96.5% 0.002 0);
+  --color-mineral-200: oklch(93.5% 0.003 0);
+  --color-mineral-300: oklch(89.2% 0.004 0);
+  --color-mineral-400: oklch(80.5% 0.005 0);
+  --color-mineral-500: oklch(62.8% 0.008 0);
+  --color-mineral-600: oklch(52.5% 0.007 0);
+  --color-mineral-700: oklch(44.2% 0.006 0);
+  --color-mineral-800: oklch(34.5% 0.005 0);
+  --color-mineral-900: oklch(26.8% 0.004 0);
+  --color-mineral-950: oklch(18.5% 0.002 0);
 }
 
 @layer base {
   html {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    background-color: var(--color-olive-100);
+    /* Fondo claro: Bone White con excelente contraste */
+    background-color: var(--color-bone-50);
+    color: var(--color-obsidian-900);
     --scroll-padding-top: 0;
     scroll-padding-top: var(--scroll-padding-top);
 
     @variant dark {
-      background-color: var(--color-olive-950);
+      background-color: var(--color-obsidian-950);
+      color: var(--color-bone-50);
     }
+  }
+
+  /* Definir colores por defecto para accesibilidad */
+  body {
+    @apply bg-bone-50 text-obsidian-900 dark:bg-obsidian-950 dark:text-bone-50;
+  }
+
+  /* Encabezados: Obsidian Black para máxima legibilidad */
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-display text-obsidian-900 dark:text-bone-100;
+  }
+
+  /* Enlaces: Vital Amber con estado hover en Renewal Green */
+  a {
+    @apply text-vital-600 hover:text-vital-700 dark:text-vital-400 dark:hover:text-vital-300;
+  }
+
+  /* Texto secundario: Mineral Gray */
+  small,
+  .text-muted {
+    @apply font-sans text-mineral-600 dark:text-mineral-400;
+  }
+
+  /* Asegurar que el cuerpo de texto use la tipografía correcta */
+  p,
+  li,
+  span,
+  div {
+    @apply font-sans;
+  }
+
+  /* Énfasis: Renewal Green para información positiva */
+  mark,
+  .highlight {
+    @apply bg-renewal-100 text-renewal-900 dark:bg-renewal-900 dark:text-renewal-100;
   }
 }

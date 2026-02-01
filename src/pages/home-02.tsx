@@ -40,14 +40,14 @@ export default function Page() {
           <NavbarLogo href="#">
             <img
               src="https://assets.tailwindplus.com/logos/oatmeal-instrument.svg?color=olive-950"
-              alt="Oatmeal"
+              alt="EON BioSystem"
               className="dark:hidden"
               width={85}
               height={28}
             />
             <img
               src="https://assets.tailwindplus.com/logos/oatmeal-instrument.svg?color=white"
-              alt="Oatmeal"
+              alt="EON BioSystem"
               className="not-dark:hidden"
               width={85}
               height={28}
