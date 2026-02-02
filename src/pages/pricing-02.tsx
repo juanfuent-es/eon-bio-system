@@ -11,7 +11,6 @@ import {
 } from '@/components/sections/navbar-with-logo-actions-and-centered-links'
 import { PricingSingleTierTwoColumn } from '@/components/sections/pricing-single-tier-two-column'
 import { TestimonialLargeQuote } from '@/components/sections/testimonial-with-large-quote'
-import { Example as Hero } from '@/examples/hero-simple-centered-pricing'
 
 export default function Page() {
   return (
@@ -57,9 +56,6 @@ export default function Page() {
       />
 
       <Main>
-        {/* Hero */}
-        <Hero />
-
         {/* Pricing */}
         <PricingSingleTierTwoColumn
           id="pricing"

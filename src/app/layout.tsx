@@ -1,6 +1,6 @@
 import Image from 'next/image'
 
-import { ButtonLink, PlainButtonLink } from '@/components/elements/button'
+import { ButtonLink } from '@/components/elements/button'
 import { Main } from '@/components/elements/main'
 import { FacebookIcon } from '@/components/icons/social/facebook-icon'
 import { InstagramIcon } from '@/components/icons/social/instagram-icon'
@@ -13,13 +13,13 @@ import {
   FooterWithNewsletterFormCategoriesAndSocialIcons,
   SocialLink,
 } from '@/components/sections/footer-with-newsletter-form-categories-and-social-icons'
+import type { Metadata } from 'next'
+import './globals.css'
 import {
   NavbarLink,
   NavbarLogo,
   NavbarWithLinksActionsAndCenteredLogo,
 } from '@/components/sections/navbar-with-links-actions-and-centered-logo'
-import type { Metadata } from 'next'
-import './globals.css'
 
 export const metadata: Metadata = {
   title: 'EON BioSystem',
@@ -39,13 +39,6 @@ export default function RootLayout({
         <>
           <NavbarWithLinksActionsAndCenteredLogo
             id="navbar"
-            links={
-              <>
-                <NavbarLink href="/sistema">Sistema</NavbarLink>
-                <NavbarLink href="/acerca">Acerca</NavbarLink>
-                <NavbarLink href="/aplica">Aplica</NavbarLink>
-              </>
-            }
             logo={
               <NavbarLogo href="/">
                 <Image
@@ -63,6 +56,13 @@ export default function RootLayout({
                   height={28}
                 />
               </NavbarLogo>
+            }
+            links={
+              <>
+                <NavbarLink href="/sistema">El Sistema</NavbarLink>
+                <NavbarLink href="/acerca">Acerca de</NavbarLink>
+                <NavbarLink href="/precio">Precio</NavbarLink>
+              </>
             }
             actions={
               <>
