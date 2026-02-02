@@ -4,29 +4,41 @@
   --font-display: 'the-seasons', serif;
   --font-sans: 'freight-neo-pro', system-ui, sans-serif;
 
-  --color-olive-50: oklch(98.8% 0.003 106.5);
-  --color-olive-100: oklch(96.6% 0.005 106.5);
-  --color-olive-200: oklch(93% 0.007 106.5);
-  --color-olive-300: oklch(88% 0.011 106.6);
-  --color-olive-400: oklch(73.7% 0.021 106.9);
-  --color-olive-500: oklch(58% 0.031 107.3);
-  --color-olive-600: oklch(46.6% 0.025 107.3);
-  --color-olive-700: oklch(39.4% 0.023 107.4);
-  --color-olive-800: oklch(28.6% 0.016 107.4);
-  --color-olive-900: oklch(22.8% 0.013 107.4);
-  --color-olive-950: oklch(15.3% 0.006 107.1);
+  --color-green-50:  oklch(98%  0.008 164);
+  --color-green-100: oklch(95%  0.015 164);
+  --color-green-200: oklch(90%  0.025 164);
+  --color-green-300: oklch(83%  0.035 164);
+  --color-green-400: oklch(70%  0.045 164);
+  --color-green-500: oklch(58%  0.055 164); /* base #4E7F6A */
+  --color-green-600: oklch(48%  0.050 164);
+  --color-green-700: oklch(40%  0.042 164);
+  --color-green-800: oklch(30%  0.030 164);
+  --color-green-900: oklch(22%  0.020 164);
+  --color-green-950: oklch(15%  0.012 164);
+  /* Orange */
+  --color-orange-50:  oklch(97%  0.020 55);
+  --color-orange-100: oklch(93%  0.035 55);
+  --color-orange-200: oklch(88%  0.060 55);
+  --color-orange-300: oklch(80%  0.090 55);
+  --color-orange-400: oklch(72%  0.120 55);
+  --color-orange-500: oklch(65%  0.145 55); /* base #E07A2F */
+  --color-orange-600: oklch(56%  0.135 55);
+  --color-orange-700: oklch(46%  0.115 55);
+  --color-orange-800: oklch(34%  0.085 55);
+  --color-orange-900: oklch(24%  0.060 55);
+  --color-orange-950: oklch(16%  0.035 55);
 }
 
 @layer base {
   html {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    background-color: var(--color-olive-100);
+    background-color: var(--color-green-100);
     --scroll-padding-top: 0;
     scroll-padding-top: var(--scroll-padding-top);
 
     @variant dark {
-      background-color: var(--color-olive-950);
+      background-color: var(--color-green-950);
     }
   }
 }

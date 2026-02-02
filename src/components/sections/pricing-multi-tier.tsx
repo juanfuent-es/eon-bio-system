@@ -24,29 +24,29 @@ export function Plan({
  return (
   <div
    className={clsx(
-    'flex flex-col justify-between gap-6 rounded-xl bg-olive-950/2.5 p-6 sm:items-start
+    'flex flex-col justify-between gap-6 rounded-xl bg-green-950/2.5 p-6 sm:items-start
     className,
    )}
   >
    <div className="self-stretch">
     <div className="flex items-center justify-between">
      {badge && (
-      <div className="order-last inline-flex rounded-full bg-olive-950/10 px-2 text-xs/6 font-medium text-olive-950">
+      <div className="order-last inline-flex rounded-full bg-green-950/10 px-2 text-xs/6 font-medium text-green-950">
        {badge}
       </div>
      )}
 
-     <h3 className="text-2xl/8 tracking-tight text-olive-950">{name}</h3>
+     <h3 className="text-2xl/8 tracking-tight text-green-950">{name}</h3>
     </div>
     <p className="mt-1 inline-flex gap-1 text-base/7">
-     <span className="text-olive-950">{price}</span>
-     {period && <span className="text-olive-500">{period}</span>}
+     <span className="text-green-950">{price}</span>
+     {period && <span className="text-green-500">{period}</span>}
     </p>
-    <div className="mt-4 flex flex-col gap-4 text-sm/6 text-olive-700">{subheadline}</div>
-    <ul className="mt-4 space-y-2 text-sm/6 text-olive-700">
+    <div className="mt-4 flex flex-col gap-4 text-sm/6 text-green-700">{subheadline}</div>
+    <ul className="mt-4 space-y-2 text-sm/6 text-green-700">
      {features.map((feature, index) => (
       <li key={index} className="flex gap-4">
-       <CheckmarkIcon className="h-lh shrink-0 stroke-olive-950" />
+       <CheckmarkIcon className="h-lh shrink-0 stroke-green-950" />
        <p>{feature}</p>
       </li>
      ))}

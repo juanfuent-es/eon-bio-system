@@ -5,7 +5,7 @@ export function Document({ children, className, ...props }: ComponentProps<'div'
  return (
   <div
    className={clsx(
-    'space-y-4 text-sm/7 text-olive-700 [&_a]:font-semibold [&_a]:text-olive-950 [&_a]:underline [&_a]:underline-offset-4 [&_h2]:text-base/8 [&_h2]:font-medium [&_h2]:text-olive-950 [&_h2]:not-first:mt-8 [&_li]:pl-2 [&_ol]:list-decimal [&_ol]:pl-6 [&_strong]:font-semibold [&_strong]:text-olive-950 [&_ul]:list-[square] [&_ul]:pl-6 [&_ul]:marker:text-olive-400',
+    'space-y-4 text-sm/7 text-green-700 [&_a]:font-semibold [&_a]:text-green-950 [&_a]:underline [&_a]:underline-offset-4 [&_h2]:text-base/8 [&_h2]:font-medium [&_h2]:text-green-950 [&_h2]:not-first:mt-8 [&_li]:pl-2 [&_ol]:list-decimal [&_ol]:pl-6 [&_strong]:font-semibold [&_strong]:text-green-950 [&_ul]:list-[square] [&_ul]:pl-6 [&_ul]:marker:text-green-400',
     className,
    )}
    {...props}

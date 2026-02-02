@@ -28,7 +28,7 @@ export function EmailSignupForm({
    <input
     className={clsx(
      'min-w-0 flex-1 px-3 text-sm/7 focus:outline-hidden',
-     variant === 'normal' && 'text-olive-950',
+     variant === 'normal' && 'text-green-950',
      variant === 'overlay' && 'text-white placeholder:text-white/60',
     )}
     type="email"

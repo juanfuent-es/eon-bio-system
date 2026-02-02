@@ -48,13 +48,6 @@ export default function RootLayout({
          width={85}
          height={28}
         />
-        <Image
-         src="/logo-eon.white.svg"
-         alt="EON BioSystem"
-         className=""
-         width={85}
-         height={28}
-        />
        </NavbarLogo>
       }
       links={
@@ -79,12 +72,12 @@ export default function RootLayout({
        <div className="flex flex-col gap-6">
         <div>
          <h3 className="text-lg font-semibold mb-2">Visítanos</h3>
-         <address className="not-italic text-sm/7 text-olive-700">
+         <address className="not-italic text-sm/7 text-green-700">
           <p className="font-medium">Alotepec #50, Coapa, Villa Quietud</p>
           <p>Alcaldía Coyoacán. CP #04918</p>
           <p>Ciudad de México, CDMX</p>
           <div className="mt-4">
-           <p className="font-medium text-olive-800">Horario de atención:</p>
+           <p className="font-medium text-green-800">Horario de atención:</p>
            <p>Lunes a viernes de 10:00 am - 7:00 pm</p>
            <p>Sábado de 8:00 am - 4:00 pm</p>
           </div>
@@ -111,19 +104,19 @@ export default function RootLayout({
       fineprint="© 2025 EON BioSystem. Todos los derechos reservados."
       socialLinks={
        <>
-        <SocialLink href="https://www.facebook.com/eonbiosystem" name="Facebook">
+        <SocialLink href="https://www.facebook.com/eonbiosystem" name="Facebook" target='_blank'>
          <FacebookIcon />
         </SocialLink>
-        <SocialLink href="https://www.instagram.com/eonbiosystem" name="Instagram">
+        <SocialLink href="https://www.instagram.com/eonbiosystem" name="Instagram" target='_blank'>
          <InstagramIcon />
         </SocialLink>
-        <SocialLink href="https://x.com/eonbiosystem" name="X">
+        <SocialLink href="https://x.com/eonbiosystem" name="X" target='_blank'>
          <XIcon />
         </SocialLink>
-        <SocialLink href="mailto:contacto@eonbiosystem.com" name="Email">
+        <SocialLink href="mailto:contacto@eonbiosystem.com" name="Email" target='_blank'>
          <MailIcon />
         </SocialLink>
-        <SocialLink href="https://wa.me/5215545848965" name="WhatsApp">
+        <SocialLink href="https://wa.me/5215545848965" name="WhatsApp" target='_blank'>
          <WhatsAppIcon />
         </SocialLink>
        </>

@@ -15,14 +15,14 @@ export function Feature({
  cta: ReactNode
 } & Omit<ComponentProps<'div'>, 'children'>) {
  return (
-  <div className={clsx('rounded-lg bg-olive-950/2.5 p-2 className)}>
+  <div className={clsx('rounded-lg bg-green-950/2.5 p-2 className)}>
    <div className="relative overflow-hidden rounded-sm">
     {demo}
    </div>
    <div className="flex flex-col gap-4 p-6 sm:p-10 lg:p-6">
     <div>
-     <h3 className="text-base/8 font-medium text-olive-950">{headline}</h3>
-     <div className="mt-2 flex flex-col gap-4 text-sm/7 text-olive-700">{subheadline}</div>
+     <h3 className="text-base/8 font-medium text-green-950">{headline}</h3>
+     <div className="mt-2 flex flex-col gap-4 text-sm/7 text-green-700">{subheadline}</div>
     </div>
     {cta}
    </div>

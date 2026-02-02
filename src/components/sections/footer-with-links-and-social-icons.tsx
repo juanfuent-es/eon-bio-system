@@ -6,7 +6,7 @@ import { Container } from '../elements/container'
 
 export function FooterLink({ href, className, ...props }: { href: string } & Omit<ComponentProps<'a'>, 'href'>) {
  return (
-  <li className={clsx('text-olive-700 className)}>
+  <li className={clsx('text-green-700', className)}>
    <Link href={href} {...props} />
   </li>
  )
@@ -26,7 +26,7 @@ export function SocialLink({
    href={href}
    target="_blank"
    aria-label={name}
-   className={clsx('text-olive-950 *:size-6', className)}
+   className={clsx('text-green-950 *:size-6', className)}
    {...props}
   />
  )
@@ -45,7 +45,7 @@ export function FooterWithLinksAndSocialIcons({
 } & ComponentProps<'footer'>) {
  return (
   <footer className={clsx('pt-16', className)} {...props}>
-   <div className="bg-olive-950/2.5 py-16 text-olive-950">
+   <div className="bg-green-950/2.5 py-16 text-green-950">
     <Container className="flex flex-col gap-10 text-center text-sm/7">
      <div className="flex flex-col gap-6">
       <nav>
@@ -53,7 +53,7 @@ export function FooterWithLinksAndSocialIcons({
       </nav>
       {socialLinks && <div className="flex items-center justify-center gap-10">{socialLinks}</div>}
      </div>
-     <div className="text-olive-600">{fineprint}</div>
+     <div className="text-green-600">{fineprint}</div>
     </Container>
    </div>
   </footer>
