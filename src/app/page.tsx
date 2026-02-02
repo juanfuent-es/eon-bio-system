@@ -3,6 +3,7 @@ import { ArrowNarrowRightIcon } from '@/components/icons/arrow-narrow-right-icon
 import { CallToActionSimple } from '@/components/sections/call-to-action-simple'
 import { Container } from '@/components/elements/container'
 import { Heading } from '@/components/elements/heading'
+import { Subheading } from '@/components/elements/subheading'
 import { Text } from '@/components/elements/text'
 import { Document } from '@/components/elements/document'
 import type { ReactNode } from 'react'
@@ -22,10 +23,10 @@ function SectionWithHeading({
 }) {
  return (
   <section className="py-16 sm:py-24">
-   <Container className="flex flex-col gap-10 sm:gap-16">
-    <div className="flex max-w-3xl flex-col gap-6">
-     <Heading>{headline}</Heading>
-     <Text size="lg" className="flex max-w-2xl flex-col gap-4">
+   <Container className="flex flex-col gap-10 sm:gap-16 items-center text-center">
+    <div className="flex max-w-6xl flex-col gap-6">
+     <Subheading>{headline}</Subheading>
+     <Text size="lg" className="flex max-w-2xl flex-col gap-4 mx-auto text-center">
       {subheadline}
      </Text>
      {cta && <div className="pt-2">{cta}</div>}

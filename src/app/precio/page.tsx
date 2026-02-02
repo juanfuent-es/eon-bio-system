@@ -16,7 +16,7 @@ export default function Page() {
           subheadline={
             <p>Biosistema de Longevidad - Seguimiento metabólico y funcional. <br />Contrata tu plan de seguimiento mensual.</p>
           }
-          price="$99"
+          price="$2200"
           period="/mes"
           features={[
             'Análisis de biomarcadores completo',

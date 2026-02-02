@@ -1,16 +1,21 @@
 import { clsx } from 'clsx/lite'
-import { type ComponentProps } from 'react'
+import type { ComponentProps } from 'react'
 
-export function Subheading({ children, className, ...props }: ComponentProps<'h2'>) {
+export function Subheading({
+ children,
+ color = 'dark/light',
+ className,
+ ...props
+}: { color?: 'dark/light' | 'light' } & ComponentProps<'h1'>) {
  return (
-  <h2
+  <h1
    className={clsx(
-    'font-display text-[2rem]/10 tracking-tight text-pretty text-green-950 sm:text-5xl/14',
+    'font-display text-4xl/12 tracking-tight text-balance sm:text-[4rem]/20 text-green-900',
     className,
    )}
    {...props}
   >
    {children}
-  </h2>
+  </h1>
  )
 }
