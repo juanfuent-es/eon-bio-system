@@ -75,55 +75,27 @@
   html {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    /* Fondo claro: Bone White con excelente contraste */
-    background-color: var(--color-bone-50);
-    color: var(--color-obsidian-900);
     --scroll-padding-top: 0;
     scroll-padding-top: var(--scroll-padding-top);
-
-    @variant dark {
-      background-color: var(--color-obsidian-950);
-      color: var(--color-bone-50);
-    }
   }
 
-  /* Definir colores por defecto para accesibilidad */
-  body {
-    @apply bg-bone-50 text-obsidian-900 dark:bg-obsidian-950 dark:text-bone-50;
+  .dark {
+    background-color: var(--color-obsidian-950);
+    color: var(--color-bone-50);
   }
 
-  /* Encabezados: Obsidian Black para máxima legibilidad */
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    @apply font-display text-obsidian-900 dark:text-bone-100;
+  html:not(.dark) {
+    background-color: var(--color-bone-50);
+    color: var(--color-obsidian-900);
   }
 
-  /* Enlaces: Vital Amber con estado hover en Renewal Green */
-  a {
-    @apply text-vital-600 hover:text-vital-700 dark:text-vital-400 dark:hover:text-vital-300;
+  /* Encabezados */
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
   }
 
-  /* Texto secundario: Mineral Gray */
-  small,
-  .text-muted {
-    @apply font-sans text-mineral-600 dark:text-mineral-400;
-  }
-
-  /* Asegurar que el cuerpo de texto use la tipografía correcta */
-  p,
-  li,
-  span,
-  div {
-    @apply font-sans;
-  }
-
-  /* Énfasis: Renewal Green para información positiva */
-  mark,
-  .highlight {
-    @apply bg-renewal-100 text-renewal-900 dark:bg-renewal-900 dark:text-renewal-100;
+  /* Texto del cuerpo */
+  p, li, span, div {
+    font-family: var(--font-sans);
   }
 }

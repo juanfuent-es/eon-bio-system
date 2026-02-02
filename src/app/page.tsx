@@ -1,14 +1,6 @@
 import { ButtonLink, PlainButtonLink } from '@/components/elements/button'
 import { ArrowNarrowRightIcon } from '@/components/icons/arrow-narrow-right-icon'
 import { CallToActionSimple } from '@/components/sections/call-to-action-simple'
-import {
-  FooterCategory,
-  FooterLink,
-  FooterWithNewsletterFormCategoriesAndSocialIcons,
-  NewsletterForm,
-  SocialLink,
-} from '@/components/sections/footer-with-newsletter-form-categories-and-social-icons'
-import { HeroSimpleLeftAligned } from '@/components/sections/hero-simple-left-aligned'
 import { Container } from '@/components/elements/container'
 import { Heading } from '@/components/elements/heading'
 import { Text } from '@/components/elements/text'
@@ -16,318 +8,216 @@ import { Document } from '@/components/elements/document'
 import type { ReactNode } from 'react'
 import { HeroWithDemoOnBackground } from '@/components/sections/hero-with-demo-on-background'
 import { AnnouncementBadge } from '@/components/elements/announcement-badge'
-import { EmailSignupForm } from '@/components/elements/email-signup-form'
-import { Logo, LogoGrid } from '@/components/elements/logo-grid'
 
 function SectionWithHeading({
-  headline,
-  subheadline,
-  cta,
-  children,
+ headline,
+ subheadline,
+ cta,
+ children,
 }: {
-  headline: ReactNode
-  subheadline: ReactNode
-  cta?: ReactNode
-  children?: ReactNode
+ headline: ReactNode
+ subheadline: ReactNode
+ cta?: ReactNode
+ children?: ReactNode
 }) {
-  return (
-    <section className="py-16 sm:py-24">
-      <Container className="flex flex-col gap-10 sm:gap-16">
-        <div className="flex max-w-3xl flex-col gap-6">
-          <Heading>{headline}</Heading>
-          <Text size="lg" className="flex max-w-2xl flex-col gap-4">
-            {subheadline}
-          </Text>
-          {cta && <div className="pt-2">{cta}</div>}
-        </div>
-        {children}
-      </Container>
-    </section>
-  )
+ return (
+  <section className="py-16 sm:py-24">
+   <Container className="flex flex-col gap-10 sm:gap-16">
+    <div className="flex max-w-3xl flex-col gap-6">
+     <Heading>{headline}</Heading>
+     <Text size="lg" className="flex max-w-2xl flex-col gap-4">
+      {subheadline}
+     </Text>
+     {cta && <div className="pt-2">{cta}</div>}
+    </div>
+    {children}
+   </Container>
+  </section>
+ )
 }
 
 export default function Page() {
-  return (
-    <>
-      {/* Hero */}
-      <HeroWithDemoOnBackground
-          id="hero"
-          eyebrow={
-            <AnnouncementBadge href="/sistema" text="Seguimiento metabólico y funcional" cta="Conoce más" variant="overlay" />
-          }
-          headline="Un sistema de longevidad diseñado desde la ciencia."
-          subheadline={
-            <p>Un sistema de ciencia aplicada que integra fuerza, nutrición y biomarcadores para optimizar tu biología de forma sostenible.</p>
-          }
-          cta={
-            <ButtonLink href="/aplica" size="lg">
-              Aplica al sistema <ArrowNarrowRightIcon />
-            </ButtonLink>
-          }
-          footer={
-            <LogoGrid>
-              <Logo>
-                <img
-                  src="https://assets.tailwindplus.com/logos/9.svg?color=black&height=32"
-                  className="dark:hidden"
-                  alt=""
-                  width={51}
-                  height={32}
-                />
-                <img
-                  src="https://assets.tailwindplus.com/logos/9.svg?color=white&height=32"
-                  className="bg-black/75 not-dark:hidden"
-                  alt=""
-                  width={51}
-                  height={32}
-                />
-              </Logo>
-              <Logo>
-                <img
-                  src="https://assets.tailwindplus.com/logos/10.svg?color=black&height=32"
-                  className="dark:hidden"
-                  alt=""
-                  width={70}
-                  height={32}
-                />
-                <img
-                  src="https://assets.tailwindplus.com/logos/10.svg?color=white&height=32"
-                  className="bg-black/75 not-dark:hidden"
-                  alt=""
-                  width={70}
-                  height={32}
-                />
-              </Logo>
-              <Logo>
-                <img
-                  src="https://assets.tailwindplus.com/logos/11.svg?color=black&height=32"
-                  className="dark:hidden"
-                  alt=""
-                  width={100}
-                  height={32}
-                />
-                <img
-                  src="https://assets.tailwindplus.com/logos/11.svg?color=white&height=32"
-                  className="bg-black/75 not-dark:hidden"
-                  alt=""
-                  width={100}
-                  height={32}
-                />
-              </Logo>
-              <Logo>
-                <img
-                  src="https://assets.tailwindplus.com/logos/12.svg?color=black&height=32"
-                  className="dark:hidden"
-                  alt=""
-                  width={85}
-                  height={32}
-                />
-                <img
-                  src="https://assets.tailwindplus.com/logos/12.svg?color=white&height=32"
-                  className="bg-black/75 not-dark:hidden"
-                  alt=""
-                  width={85}
-                  height={32}
-                />
-              </Logo>
-              <Logo>
-                <img
-                  src="https://assets.tailwindplus.com/logos/13.svg?color=black&height=32"
-                  className="dark:hidden"
-                  alt=""
-                  width={75}
-                  height={32}
-                />
-                <img
-                  src="https://assets.tailwindplus.com/logos/13.svg?color=white&height=32"
-                  className="bg-black/75 not-dark:hidden"
-                  alt=""
-                  width={75}
-                  height={32}
-                />
-              </Logo>
-              <Logo>
-                <img
-                  src="https://assets.tailwindplus.com/logos/8.svg?color=black&height=32"
-                  className="dark:hidden"
-                  alt=""
-                  width={85}
-                  height={32}
-                />
-                <img
-                  src="https://assets.tailwindplus.com/logos/8.svg?color=white&height=32"
-                  className="bg-black/75 not-dark:hidden"
-                  alt=""
-                  width={85}
-                  height={32}
-                />
-              </Logo>
-            </LogoGrid>
-          }
-        />
+ return (
+  <>
+   {/* Hero */}
+   <HeroWithDemoOnBackground
+     id="hero"
+     eyebrow={
+      <AnnouncementBadge href="/sistema" text="Seguimiento metabólico y funcional" cta="Conoce más" variant="overlay" />
+     }
+     headline="Un sistema de longevidad diseñado desde la ciencia."
+     subheadline={
+      <p>Un sistema de ciencia aplicada que integra fuerza, nutrición y biomarcadores para optimizar tu biología de forma sostenible.</p>
+     }
+     cta={
+      <ButtonLink href="/aplica" size="lg">
+       Aplica al sistema <ArrowNarrowRightIcon />
+      </ButtonLink>
+     }
+    />
 
-      {/* Sección 2: Contexto / Problema */}
-      <SectionWithHeading
-        headline="La longevidad no se trata de hacer más, sino de hacer lo correcto."
-        subheadline={
-          <>
-            <p>
-              Con el tiempo, el cuerpo cambia. La recuperación, el metabolismo y el rendimiento dejan de responder
-              igual. Sin datos claros, la mayoría de las decisiones sobre salud se basan en intuición, tendencias o
-              ensayo y error.
-            </p>
-            <p>
-              EON Bio nace para reemplazar la improvisación por un sistema diseñado desde la ciencia.
-            </p>
-          </>
-        }
-        cta={
-          <PlainButtonLink href="/sistema">
-            Conocer el método <ArrowNarrowRightIcon />
-          </PlainButtonLink>
-        }
-      />
+   {/* Sección 2: Contexto / Problema */}
+   <SectionWithHeading
+    headline="La longevidad no se trata de hacer más, sino de hacer lo correcto."
+    subheadline={
+     <>
+      <p>
+       Con el tiempo, el cuerpo cambia. La recuperación, el metabolismo y el rendimiento dejan de responder
+       igual. Sin datos claros, la mayoría de las decisiones sobre salud se basan en intuición, tendencias o
+       ensayo y error.
+      </p>
+      <p>
+       EON Bio nace para reemplazar la improvisación por un sistema diseñado desde la ciencia.
+      </p>
+     </>
+    }
+    cta={
+     <PlainButtonLink href="/sistema">
+      Conoce el método <ArrowNarrowRightIcon />
+     </PlainButtonLink>
+    }
+   />
 
-      {/* Sección 3: Qué es EON BioSystem */}
-      <SectionWithHeading
-        headline="Un enfoque estructurado para optimizar tu biología."
-        subheadline={
-          <>
-            <p>
-              EON BioSystem es un sistema de longevidad y antiaging que parte del análisis de biomarcadores clave
-              para diseñar estrategias personalizadas de entrenamiento, alimentación y suplementación.
-            </p>
-            <p>
-              No es un plan genérico. No es una solución rápida. Es un sistema diseñado para acompañar tu biología
-              a largo plazo.
-            </p>
-          </>
-        }
-        cta={
-          <PlainButtonLink href="/sistema">
-            Ver cómo funciona <ArrowNarrowRightIcon />
-          </PlainButtonLink>
-        }
-      />
+   {/* Sección 3: Qué es EON BioSystem */}
+   <SectionWithHeading
+    headline="Un enfoque estructurado para optimizar tu biología."
+    subheadline={
+     <>
+      <p>
+       EON BioSystem es un sistema de longevidad y antiaging que parte del análisis de biomarcadores clave
+       para diseñar estrategias personalizadas de entrenamiento, alimentación y suplementación.
+      </p>
+      <p>
+       No es un plan genérico. No es una solución rápida. Es un sistema diseñado para acompañar tu biología
+       a largo plazo.
+      </p>
+     </>
+    }
+    cta={
+     <PlainButtonLink href="/sistema">
+      Ver cómo funciona <ArrowNarrowRightIcon />
+     </PlainButtonLink>
+    }
+   />
 
-      {/* Sección 4: Cómo funciona */}
-      <SectionWithHeading
-        headline="Cómo funciona el sistema EON Bio"
-        subheadline={
-          <p>
-            El sistema se construye sobre una secuencia clara y medible:
-          </p>
-        }
-      >
-        <Document className="max-w-2xl">
-          <ul>
-            <li>
-              <strong>Evaluación inicial</strong> — Analítica de laboratorio y contexto individual.
-            </li>
-            <li>
-              <strong>Diseño del sistema</strong> — Integración de fuerza, nutrición y hábitos según tus
-              biomarcadores.
-            </li>
-            <li>
-              <strong>Ejecución estructurada</strong> — Implementación guiada, sin improvisaciones.
-            </li>
-            <li>
-              <strong>Seguimiento y ajustes</strong> — Optimización continua basada en datos reales.
-            </li>
-          </ul>
-          <p>Cada decisión tiene un porqué. Cada ajuste tiene sustento.</p>
-        </Document>
-        <div className="pt-6">
-          <PlainButtonLink href="/sistema">
-            Explorar el sistema <ArrowNarrowRightIcon />
-          </PlainButtonLink>
-        </div>
-      </SectionWithHeading>
+   {/* Sección 4: Cómo funciona */}
+   <SectionWithHeading
+    headline="Cómo funciona el sistema EON Bio"
+    subheadline={
+     <p>
+      El sistema se construye sobre una secuencia clara y medible:
+     </p>
+    }
+   >
+    <Document className="max-w-2xl">
+     <ul>
+      <li>
+       <strong>Evaluación inicial</strong> — Analítica de laboratorio y contexto individual.
+      </li>
+      <li>
+       <strong>Diseño del sistema</strong> — Integración de fuerza, nutrición y hábitos según tus
+       biomarcadores.
+      </li>
+      <li>
+       <strong>Ejecución estructurada</strong> — Implementación guiada, sin improvisaciones.
+      </li>
+      <li>
+       <strong>Seguimiento y ajustes</strong> — Optimización continua basada en datos reales.
+      </li>
+     </ul>
+     <p>Cada decisión tiene un porqué. Cada ajuste tiene sustento.</p>
+    </Document>
+    <div className="pt-6">
+     <PlainButtonLink href="/sistema">
+      Explorar el sistema <ArrowNarrowRightIcon />
+     </PlainButtonLink>
+    </div>
+   </SectionWithHeading>
 
-      {/* Sección 5: Qué incluye */}
-      <SectionWithHeading
-        headline="Qué integra el sistema EON Bio"
-        subheadline={
-          <p>
-            EON Bio reúne los pilares fundamentales de la longevidad en un solo sistema coherente:
-          </p>
-        }
-      >
-        <Document className="max-w-2xl">
-          <ul>
-            <li>
-              <strong>Analítica de biomarcadores</strong> — Paneles personalizados e interpretación avanzada.
-            </li>
-            <li>
-              <strong>Entrenamiento de fuerza estructurado</strong> — Diseñado para función, masa muscular y
-              longevidad.
-            </li>
-            <li>
-              <strong>Nutrición orientada a optimización biológica</strong> — Alimentación adaptada a tu contexto y
-              objetivos.
-            </li>
-            <li>
-              <strong>Suplementación premium</strong> — Seleccionada por evidencia, calidad y necesidad real.
-            </li>
-          </ul>
-          <p>Todo trabaja de forma integrada, no aislada.</p>
-        </Document>
-        <div className="pt-6">
-          <PlainButtonLink href="/aplica">
-            Aplica al sistema <ArrowNarrowRightIcon />
-          </PlainButtonLink>
-        </div>
-      </SectionWithHeading>
+   {/* Sección 5: Qué incluye */}
+   <SectionWithHeading
+    headline="Qué integra el sistema EON Bio"
+    subheadline={
+     <p>
+      EON Bio reúne los pilares fundamentales de la longevidad en un solo sistema coherente:
+     </p>
+    }
+   >
+    <Document className="max-w-2xl">
+     <ul>
+      <li>
+       <strong>Analítica de biomarcadores</strong> — Paneles personalizados e interpretación avanzada.
+      </li>
+      <li>
+       <strong>Entrenamiento de fuerza estructurado</strong> — Diseñado para función, masa muscular y
+       longevidad.
+      </li>
+      <li>
+       <strong>Nutrición orientada a optimización biológica</strong> — Alimentación adaptada a tu contexto y
+       objetivos.
+      </li>
+      <li>
+       <strong>Suplementación premium</strong> — Seleccionada por evidencia, calidad y necesidad real.
+      </li>
+     </ul>
+     <p>Todo trabaja de forma integrada, no aislada.</p>
+    </Document>
+    <div className="pt-6">
+     <PlainButtonLink href="/aplica">
+      Aplica al sistema <ArrowNarrowRightIcon />
+     </PlainButtonLink>
+    </div>
+   </SectionWithHeading>
 
-      {/* Sección 6: Para quién es */}
-      <SectionWithHeading
-        headline="EON Bio no es para todos. Y eso es parte del sistema."
-        subheadline={
-          <>
-            <p>
-              EON Bio es para personas que valoran la ciencia, buscan estructura y están dispuestas a seguir un
-              sistema con criterio y constancia.
-            </p>
-            <p>
-              No es para quienes buscan soluciones rápidas, atajos o resultados sin compromiso. Trabajamos con un
-              número limitado de personas para asegurar calidad, seguimiento y profundidad real.
-            </p>
-          </>
-        }
-        cta={
-          <PlainButtonLink href="/aplica">
-            Ver si califico <ArrowNarrowRightIcon />
-          </PlainButtonLink>
-        }
-      />
+   {/* Sección 6: Para quién es */}
+   <SectionWithHeading
+    headline="EON Bio no es para todos. Y eso es parte del sistema."
+    subheadline={
+     <>
+      <p>
+       EON Bio es para personas que valoran la ciencia, buscan estructura y están dispuestas a seguir un
+       sistema con criterio y constancia.
+      </p>
+      <p>
+       No es para quienes buscan soluciones rápidas, atajos o resultados sin compromiso. Trabajamos con un
+       número limitado de personas para asegurar calidad, seguimiento y profundidad real.
+      </p>
+     </>
+    }
+    cta={
+     <PlainButtonLink href="/aplica">
+      Ver si califico <ArrowNarrowRightIcon />
+     </PlainButtonLink>
+    }
+   />
 
-      {/* Sección 7: Respaldo clínico */}
-      <SectionWithHeading
-        headline="Respaldo clínico cuando el proceso lo requiere."
-        subheadline={
-          <>
-            <p>
-              Cuando el sistema exige profundidad clínica, EON Bio cuenta con el respaldo profesional de NTS Clinic,
-              donde se ejecutan y supervisan los aspectos clínicos con rigor y responsabilidad.
-            </p>
-            <p>El sistema diseña. La clínica respalda.</p>
-          </>
-        }
-        cta={
-          <PlainButtonLink href="/acerca">
-            Conocer más <ArrowNarrowRightIcon />
-          </PlainButtonLink>
-        }
-      />
+   {/* Sección 7: Respaldo clínico */}
+   <SectionWithHeading
+    headline="Respaldo clínico cuando el proceso lo requiere."
+    subheadline={
+     <>
+      <p>
+       Cuando el sistema exige profundidad clínica, EON Bio cuenta con el respaldo profesional de NTS Clinic,
+       donde se ejecutan y supervisan los aspectos clínicos con rigor y responsabilidad.
+      </p>
+      <p>El sistema diseña. La clínica respalda.</p>
+     </>
+    }
+    cta={
+     <PlainButtonLink href="/acerca">
+      Conocer más <ArrowNarrowRightIcon />
+     </PlainButtonLink>
+    }
+   />
 
-      {/* Sección 8: CTA Final */}
-      <CallToActionSimple
-        id="cta"
-        headline="La longevidad se diseña con intención."
-        subheadline="EON BioSystem está pensado para quienes entienden que optimizar su biología es una decisión estratégica, no una moda. El acceso al sistema es mediante evaluación previa."
-        cta={<ButtonLink href="/aplica">Aplica al sistema</ButtonLink>}
-      />
+   {/* Sección 8: CTA Final */}
+   <CallToActionSimple
+    id="cta"
+    headline="La longevidad se diseña con intención."
+    subheadline="EON BioSystem está pensado para quienes entienden que optimizar su biología es una decisión estratégica, no una moda. El acceso al sistema es mediante evaluación previa."
+    cta={<ButtonLink href="/aplica">Aplica al sistema</ButtonLink>}
+   />
 
-    </>
-  )
+  </>
+ )
 }
