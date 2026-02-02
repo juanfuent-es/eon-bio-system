@@ -8,14 +8,14 @@ export function Subheading({
  ...props
 }: { color?: 'dark/light' | 'light' } & ComponentProps<'h1'>) {
  return (
-  <h1
+  <h2
    className={clsx(
     'font-display text-4xl/12 tracking-tight text-balance sm:text-[4rem]/20 text-green-900',
     className,
    )}
    {...props}
   >
-   {children}
-  </h1>
+   { children }
+  </h2>
  )
 }

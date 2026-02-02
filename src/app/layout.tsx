@@ -56,7 +56,7 @@ export default function RootLayout({
       }
       actions={
        <>
-        <ButtonLink href="https://wa.me/5215545848965" target="_blank" className='min-w-20'>Aplica <ArrowNarrowRightIcon /></ButtonLink>
+        <ButtonLink href="/aplica" className='min-w-20'>Aplica <ArrowNarrowRightIcon /></ButtonLink>
        </>
       }
      />

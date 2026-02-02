@@ -43,32 +43,31 @@ export default function Page() {
    <Hero
      id="hero"
      eyebrow={
-      <AnnouncementBadge href="/sistema" text="Seguimiento metabólico y funcional" cta="Conoce más" variant="overlay" />
+      <AnnouncementBadge href="/sistema" text="Un sistema de longevidad basado en ciencia aplicada." cta="Conoce más" variant="overlay" />
      }
-     headline="Un sistema de longevidad diseñado desde la ciencia."
      subheadline={
-      <p>Un sistema de ciencia aplicada que integra fuerza, nutrición y biomarcadores para optimizar tu biología de forma sostenible.</p>
+      <p>Un sistema antiaging que integra <strong>fuerza, nutrición y biomarcadores</strong> para optimizar tu biología de forma sostenible.</p>
      }
      cta={
       <ButtonLink href="/aplica" size="lg">
-       Aplica al sistema <ArrowNarrowRightIcon />
+       *Aplica al sistema <ArrowNarrowRightIcon />
       </ButtonLink>
      }
     />
 
    {/* Sección 2: Contexto / Problema */}
    <SectionWithHeading
-    headline="La longevidad no se trata de hacer más, sino de hacer lo correcto."
+    headline={
+     <>
+      La longevidad se construye,<br /> no se improvisa.
+     </>
+    }
     subheadline={
      <>
-      <p>
-       Con el tiempo, el cuerpo cambia. La recuperación, el metabolismo y el rendimiento dejan de responder
-       igual. Sin datos claros, la mayoría de las decisiones sobre salud se basan en intuición, tendencias o
-       ensayo y error.
-      </p>
-      <p>
-       EON Bio nace para reemplazar la improvisación por un sistema diseñado desde la ciencia.
-      </p>
+      <p className="italic">Con el tiempo, el cuerpo cambia.</p>
+      <p>La recuperación, el metabolismo y el rendimiento dejan de responder igual. <br />  
+      Sin datos claros, la mayoría de las decisiones sobre salud se basan en intuición, tendencias o ensayo y error.</p>
+      <p>EON BioSystem existe para reemplazar la improvisación por un sistema diseñado desde la ciencia.</p>
      </>
     }
     cta={
@@ -88,7 +87,7 @@ export default function Page() {
        para diseñar estrategias personalizadas de entrenamiento, alimentación y suplementación.
       </p>
       <p>
-       No es un plan genérico. No es una solución rápida. Es un sistema diseñado para acompañar tu biología
+       No es un plan genérico. No es una solución rápida. <br />Es un sistema diseñado para acompañar tu biología
        a largo plazo.
       </p>
      </>
@@ -100,88 +99,17 @@ export default function Page() {
     }
    />
 
-   {/* Sección 4: Cómo funciona */}
-   <SectionWithHeading
-    headline="Cómo funciona el sistema EON Bio"
-    subheadline={
-     <p>
-      El sistema se construye sobre una secuencia clara y medible:
-     </p>
-    }
-   >
-    <Document className="max-w-2xl">
-     <ul>
-      <li>
-       <strong>Evaluación inicial</strong> — Analítica de laboratorio y contexto individual.
-      </li>
-      <li>
-       <strong>Diseño del sistema</strong> — Integración de fuerza, nutrición y hábitos según tus
-       biomarcadores.
-      </li>
-      <li>
-       <strong>Ejecución estructurada</strong> — Implementación guiada, sin improvisaciones.
-      </li>
-      <li>
-       <strong>Seguimiento y ajustes</strong> — Optimización continua basada en datos reales.
-      </li>
-     </ul>
-     <p>Cada decisión tiene un porqué. Cada ajuste tiene sustento.</p>
-    </Document>
-    <div className="pt-6">
-     <PlainButtonLink href="/sistema">
-      Explorar el sistema <ArrowNarrowRightIcon />
-     </PlainButtonLink>
-    </div>
-   </SectionWithHeading>
-
-   {/* Sección 5: Qué incluye */}
-   <SectionWithHeading
-    headline="Qué integra el sistema EON Bio"
-    subheadline={
-     <p>
-      EON Bio reúne los pilares fundamentales de la longevidad en un solo sistema coherente:
-     </p>
-    }
-   >
-    <Document className="max-w-2xl">
-     <ul>
-      <li>
-       <strong>Analítica de biomarcadores</strong> — Paneles personalizados e interpretación avanzada.
-      </li>
-      <li>
-       <strong>Entrenamiento de fuerza estructurado</strong> — Diseñado para función, masa muscular y
-       longevidad.
-      </li>
-      <li>
-       <strong>Nutrición orientada a optimización biológica</strong> — Alimentación adaptada a tu contexto y
-       objetivos.
-      </li>
-      <li>
-       <strong>Suplementación premium</strong> — Seleccionada por evidencia, calidad y necesidad real.
-      </li>
-     </ul>
-     <p>Todo trabaja de forma integrada, no aislada.</p>
-    </Document>
-    <div className="pt-6">
-     <PlainButtonLink href="/aplica">
-      Aplica al sistema <ArrowNarrowRightIcon />
-     </PlainButtonLink>
-    </div>
-   </SectionWithHeading>
-
    {/* Sección 6: Para quién es */}
    <SectionWithHeading
-    headline="EON Bio no es para todos. Y eso es parte del sistema."
+    headline={
+      <>
+        EON BioSystem no es para todos. <br /> <small>*Esto es parte del sistema*</small>
+      </>
+    }
     subheadline={
      <>
-      <p>
-       EON Bio es para personas que valoran la ciencia, buscan estructura y están dispuestas a seguir un
-       sistema con criterio y constancia.
-      </p>
-      <p>
-       No es para quienes buscan soluciones rápidas, atajos o resultados sin compromiso. Trabajamos con un
-       número limitado de personas para asegurar calidad, seguimiento y profundidad real.
-      </p>
+      <p>Nuestro sistema está diseñado para personas que valoran la ciencia, buscan estructura y están dispuestas a seguir un sistema con criterio y constancia.</p>
+      <p>No es para quienes buscan soluciones rápidas o atajos. Trabajamos con un número limitado de personas para asegurar seguimiento, profundidad y calidad real.</p>
      </>
     }
     cta={
@@ -196,28 +124,19 @@ export default function Page() {
     headline="Respaldo clínico cuando el proceso lo requiere."
     subheadline={
      <>
-      <p>
-       Cuando el sistema exige profundidad clínica, EON Bio cuenta con el respaldo profesional de NTS Clinic,
-       donde se ejecutan y supervisan los aspectos clínicos con rigor y responsabilidad.
-      </p>
-      <p>El sistema diseña. La clínica respalda.</p>
+      <p>EON BioSystem cuenta con respaldo clínico profesional a través de NTS Clinic, donde se ejecutan y supervisan los aspectos clínicos con rigor y responsabilidad.</p>
+      <p>EON BioSystem diseña el sistema. NTS Clinic respalda cuando es necesario.</p>
      </>
     }
     cta={
-     <PlainButtonLink href="/acerca">
-      Conocer más <ArrowNarrowRightIcon />
-     </PlainButtonLink>
+      <>
+        <PlainButtonLink href="/acerca">
+          Agenda una cita <ArrowNarrowRightIcon />
+        </PlainButtonLink>
+        <p className='italic mt-2 text-green-800/80'>*El acceso a EON BioSystem requiere evaluación previa.</p>
+      </>
     }
    />
-
-   {/* Sección 8: CTA Final */}
-   <CallToActionSimple
-    id="cta"
-    headline="La longevidad se diseña con intención."
-    subheadline="EON BioSystem está pensado para quienes entienden que optimizar su biología es una decisión estratégica, no una moda. El acceso al sistema es mediante evaluación previa."
-    cta={<ButtonLink href="/aplica">Aplica al sistema</ButtonLink>}
-   />
-
   </>
  )
 }
