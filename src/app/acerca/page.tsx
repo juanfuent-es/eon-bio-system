@@ -143,7 +143,7 @@ export default function Acerca() {
         id="cta"
         headline="¿Listo para comenzar?"
         subheadline="Aplica al sistema y conoce cómo EON BioSystem puede acompañarte en tu proceso de optimización biológica."
-        cta={<ButtonLink href="/aplica">Aplicar al sistema</ButtonLink>}
+        cta={<ButtonLink href="/aplica">Aplica al sistema</ButtonLink>}
       />
 
       {/* Footer */}

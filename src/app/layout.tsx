@@ -2,14 +2,15 @@ import Image from 'next/image'
 
 import { ButtonLink, PlainButtonLink } from '@/components/elements/button'
 import { Main } from '@/components/elements/main'
-import { GitHubIcon } from '@/components/icons/social/github-icon'
+import { FacebookIcon } from '@/components/icons/social/facebook-icon'
+import { InstagramIcon } from '@/components/icons/social/instagram-icon'
+import { WhatsAppIcon } from '@/components/icons/social/whatsapp-icon'
 import { XIcon } from '@/components/icons/social/x-icon'
-import { YouTubeIcon } from '@/components/icons/social/youtube-icon'
+import { MailIcon } from '@/components/icons/mail-icon'
 import {
   FooterCategory,
   FooterLink,
   FooterWithNewsletterFormCategoriesAndSocialIcons,
-  NewsletterForm,
   SocialLink,
 } from '@/components/sections/footer-with-newsletter-form-categories-and-social-icons'
 import {
@@ -65,9 +66,6 @@ export default function RootLayout({
             }
             actions={
               <>
-                <PlainButtonLink href="#" className="max-sm:hidden">
-                  Log in
-                </PlainButtonLink>
                 <ButtonLink href="https://wa.me/5215545848965" target="_blank">Aplica</ButtonLink>
               </>
             }
@@ -78,54 +76,55 @@ export default function RootLayout({
           <FooterWithNewsletterFormCategoriesAndSocialIcons
             id="footer"
             cta={
-              <NewsletterForm
-                headline="Stay in the loop"
-                subheadline={
-                  <p>
-                    Get customer support tips, product updates and customer stories that you can archive as soon as they
-                    arrive.
-                  </p>
-                }
-                action="#"
-              />
+              <div className="flex flex-col gap-6">
+                <div>
+                  <h3 className="text-lg font-semibold mb-2">Visítanos</h3>
+                  <address className="not-italic text-sm/7 text-olive-700 dark:text-olive-400">
+                    <p className="font-medium">Alotepec #50, Coapa, Villa Quietud</p>
+                    <p>Alcaldía Coyoacán. CP #04918</p>
+                    <p>Ciudad de México, CDMX</p>
+                    <div className="mt-4">
+                      <p className="font-medium text-olive-800 dark:text-olive-200">Horario de atención:</p>
+                      <p>Lunes a viernes de 10:00 am - 7:00 pm</p>
+                      <p>Sábado de 8:00 am - 4:00 pm</p>
+                    </div>
+                  </address>
+                </div>
+              </div>
             }
             links={
               <>
-                <FooterCategory title="Product">
-                  <FooterLink href="#">Features</FooterLink>
-                  <FooterLink href="#">Pricing</FooterLink>
-                  <FooterLink href="#">Integrations</FooterLink>
-                </FooterCategory>
-                <FooterCategory title="Company">
-                  <FooterLink href="#">About</FooterLink>
-                  <FooterLink href="#">Careers</FooterLink>
-                  <FooterLink href="#">Blog</FooterLink>
-                  <FooterLink href="#">Press Kit</FooterLink>
-                </FooterCategory>
-                <FooterCategory title="Resources">
-                  <FooterLink href="#">Help Center</FooterLink>
-                  <FooterLink href="#">API Docs</FooterLink>
-                  <FooterLink href="#">Status</FooterLink>
-                  <FooterLink href="#">Contact</FooterLink>
+                <FooterCategory title="Navegación">
+                  <FooterLink href="/sistema">Sistema</FooterLink>
+                  <FooterLink href="/acerca">Acerca</FooterLink>
+                  <FooterLink href="/aplica">Aplica</FooterLink>
                 </FooterCategory>
                 <FooterCategory title="Legal">
-                  <FooterLink href="/privacy-policy">Privacy Policy</FooterLink>
-                  <FooterLink href="#">Terms of Service</FooterLink>
-                  <FooterLink href="#">Security</FooterLink>
+                  <FooterLink href="/privacy-policy">Aviso de Privacidad</FooterLink>
+                </FooterCategory>
+                <FooterCategory title="Contacto">
+                  <FooterLink href="mailto:contacto@eonbiosystem.com">Email</FooterLink>
+                  <FooterLink href="https://wa.me/5215545848965">WhatsApp</FooterLink>
                 </FooterCategory>
               </>
             }
-            fineprint="© 2025 EON BioSystem."
+            fineprint="© 2025 EON BioSystem. Todos los derechos reservados."
             socialLinks={
               <>
-                <SocialLink href="https://x.com" name="X">
+                <SocialLink href="https://www.facebook.com/eonbiosystem" name="Facebook">
+                  <FacebookIcon />
+                </SocialLink>
+                <SocialLink href="https://www.instagram.com/eonbiosystem" name="Instagram">
+                  <InstagramIcon />
+                </SocialLink>
+                <SocialLink href="https://x.com/eonbiosystem" name="X">
                   <XIcon />
                 </SocialLink>
-                <SocialLink href="https://github.com" name="GitHub">
-                  <GitHubIcon />
+                <SocialLink href="mailto:contacto@eonbiosystem.com" name="Email">
+                  <MailIcon />
                 </SocialLink>
-                <SocialLink href="https://www.youtube.com" name="YouTube">
-                  <YouTubeIcon />
+                <SocialLink href="https://wa.me/5215545848965" name="WhatsApp">
+                  <WhatsAppIcon />
                 </SocialLink>
               </>
             }

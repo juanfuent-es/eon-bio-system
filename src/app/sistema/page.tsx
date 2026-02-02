@@ -57,7 +57,7 @@ export default function Sistema() {
         }
         cta={
           <ButtonLink href="/aplica" size="lg">
-            Aplicar al sistema
+            Aplica al sistema
           </ButtonLink>
         }
       />
@@ -169,7 +169,7 @@ export default function Sistema() {
         id="cta"
         headline="La longevidad se diseña con método."
         subheadline="El acceso a EON BioSystem es mediante evaluación previa."
-        cta={<ButtonLink href="/aplica">Aplicar al sistema</ButtonLink>}
+        cta={<ButtonLink href="/aplica">Aplica al sistema</ButtonLink>}
       />
 
       {/* Footer */}

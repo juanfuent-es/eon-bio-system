@@ -55,7 +55,7 @@ export default function Aplica() {
         }
         cta={
           <ButtonLink href="#form" size="lg">
-            Aplicar al sistema
+            Aplica al sistema
           </ButtonLink>
         }
       />
