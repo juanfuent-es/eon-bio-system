@@ -30,8 +30,8 @@ Add the following CSS to your global stylesheet:
 @import 'tailwindcss';
 
 @theme {
-  --font-display: 'Instrument Serif', serif;
-  --font-sans: 'Inter', system-ui, sans-serif;
+  --font-display: 'freight-neo-pro', serif;
+  --font-sans: 'the-seasons', system-ui, sans-serif;
 
   --color-olive-50: oklch(98.8% 0.003 106.5);
   --color-olive-100: oklch(96.6% 0.005 106.5);
