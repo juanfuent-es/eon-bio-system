@@ -15,7 +15,7 @@ export function Feature({
  cta: ReactNode
 } & Omit<ComponentProps<'div'>, 'children'>) {
  return (
-  <div className={clsx('rounded-lg bg-green-950/2.5 p-2 className)}>
+  <div className={clsx('rounded-lg bg-green-600/2.5 p-2 className)}>
    <div className="relative overflow-hidden rounded-sm">
     {demo}
    </div>

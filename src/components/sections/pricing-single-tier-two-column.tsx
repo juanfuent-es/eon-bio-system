@@ -25,7 +25,7 @@ export function PricingSingleTierTwoColumn({
  return (
   <section className={clsx('py-16', className)} {...props}>
    <Container>
-    <div className="grid grid-cols-1 gap-x-2 rounded-xl bg-green-950/2.5 p-2 lg:grid-cols-2">
+    <div className="grid grid-cols-1 gap-x-2 rounded-xl bg-green-600/2.5 p-2 lg:grid-cols-2">
      <div className="flex flex-col items-start justify-between gap-10 p-6 sm:p-10">
       <div className="flex flex-col gap-6">
        <Subheading>{headline}</Subheading>
@@ -43,7 +43,7 @@ export function PricingSingleTierTwoColumn({
       <ul className="mt-6 grid grid-cols-1 gap-3 md:grid-cols-2 lg:grid-cols-1">
        {features.map((feature, index) => (
         <li key={index} className="flex gap-3 text-sm/5">
-         <span className="flex size-5 shrink-0 items-center justify-center rounded-xs bg-green-950">
+         <span className="flex size-5 shrink-0 items-center justify-center rounded-xs bg-green-600">
           <CheckmarkIcon className="size-3 stroke-white" />
          </span>
          <p className="text-green-700">{feature}</p>

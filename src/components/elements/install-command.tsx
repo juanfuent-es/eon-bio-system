@@ -31,7 +31,7 @@ export function InstallCommand({
     command="--copy"
     commandfor="snippet"
     type="button"
-    className="group relative flex size-9 items-center justify-center rounded-full after:absolute after:-inset-1 hover:bg-green-950/10 after:pointer-fine:hidden"
+    className="group relative flex size-9 items-center justify-center rounded-full after:absolute after:-inset-1 hover:bg-green-900/10 after:pointer-fine:hidden"
    >
     <Squares2StackedIcon className="group-data-copied:hidden" />
     <CheckmarkIcon className="not-group-data-copied:hidden" />
