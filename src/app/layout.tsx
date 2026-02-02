@@ -40,12 +40,9 @@ export default function RootLayout({
             id="navbar"
             links={
               <>
-                <NavbarLink href="/pricing">Pricing</NavbarLink>
-                <NavbarLink href="/about">About</NavbarLink>
-                <NavbarLink href="#">Docs</NavbarLink>
-                <NavbarLink href="#" className="sm:hidden">
-                  Log in
-                </NavbarLink>
+                <NavbarLink href="/sistema">Sistema</NavbarLink>
+                <NavbarLink href="/acerca">Acerca</NavbarLink>
+                <NavbarLink href="/aplica">Aplica</NavbarLink>
               </>
             }
             logo={
@@ -71,7 +68,7 @@ export default function RootLayout({
                 <PlainButtonLink href="#" className="max-sm:hidden">
                   Log in
                 </PlainButtonLink>
-                <ButtonLink href="#">Get started</ButtonLink>
+                <ButtonLink href="https://wa.me/5215545848965" target="_blank">Aplica</ButtonLink>
               </>
             }
           />
@@ -118,7 +115,7 @@ export default function RootLayout({
                 </FooterCategory>
               </>
             }
-            fineprint="© 2025 Oatmeal, Inc."
+            fineprint="© 2025 EON BioSystem."
             socialLinks={
               <>
                 <SocialLink href="https://x.com" name="X">

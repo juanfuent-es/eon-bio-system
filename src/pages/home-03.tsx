@@ -67,7 +67,7 @@ export default function Page() {
             <PlainButtonLink href="#" className="max-sm:hidden">
               Log in
             </PlainButtonLink>
-            <ButtonLink href="#">Get started</ButtonLink>
+            <ButtonLink href="https://wa.me/5215545848965" target="_blank">Aplica</ButtonLink>
           </>
         }
       />
@@ -586,7 +586,7 @@ export default function Page() {
             </SocialLink>
           </>
         }
-        fineprint="© 2025 Oatmeal, Inc."
+        fineprint="© 2025 EON BioSystem."
       />
     </>
   )
