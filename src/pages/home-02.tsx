@@ -11,7 +11,7 @@ import { CallToActionSimple } from '@/components/sections/call-to-action-simple'
 import { FAQsTwoColumnAccordion, Faq } from '@/components/sections/faqs-two-column-accordion'
 import { FeatureThreeColumnWithDemos, Features } from '@/components/sections/features-three-column-with-demos'
 import { FooterCategory, FooterLink, FooterWithLinkCategories } from '@/components/sections/footer-with-link-categories'
-import { HeroWithDemoOnBackground } from '@/components/sections/hero-with-demo-on-background'
+import { HeroWithDemoOnBackground } from '@/components/sections/hero'
 import {
  NavbarLink,
  NavbarLogo,

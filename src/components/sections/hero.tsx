@@ -4,12 +4,11 @@ import { Container } from '../elements/container'
 import { Heading } from '../elements/heading'
 import { Wallpaper } from '../elements/wallpaper'
 
-export function HeroWithDemoOnBackground({
+export function Hero({
  eyebrow,
  headline,
  subheadline,
  cta,
- demo,
  footer,
  className,
  ...props
@@ -18,7 +17,6 @@ export function HeroWithDemoOnBackground({
  headline: ReactNode
  subheadline: ReactNode
  cta?: ReactNode
- demo?: ReactNode
  footer?: ReactNode
 } & ComponentProps<'section'>) {
  return (

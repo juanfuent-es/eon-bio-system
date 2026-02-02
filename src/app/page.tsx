@@ -2,12 +2,11 @@ import { ButtonLink, PlainButtonLink } from '@/components/elements/button'
 import { ArrowNarrowRightIcon } from '@/components/icons/arrow-narrow-right-icon'
 import { CallToActionSimple } from '@/components/sections/call-to-action-simple'
 import { Container } from '@/components/elements/container'
-import { Heading } from '@/components/elements/heading'
 import { Subheading } from '@/components/elements/subheading'
 import { Text } from '@/components/elements/text'
 import { Document } from '@/components/elements/document'
 import type { ReactNode } from 'react'
-import { HeroWithDemoOnBackground } from '@/components/sections/hero-with-demo-on-background'
+import { Hero } from '@/components/sections/hero'
 import { AnnouncementBadge } from '@/components/elements/announcement-badge'
 
 function SectionWithHeading({
@@ -41,7 +40,7 @@ export default function Page() {
  return (
   <>
    {/* Hero */}
-   <HeroWithDemoOnBackground
+   <Hero
      id="hero"
      eyebrow={
       <AnnouncementBadge href="/sistema" text="Seguimiento metabólico y funcional" cta="Conoce más" variant="overlay" />

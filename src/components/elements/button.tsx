@@ -128,7 +128,7 @@ export function PlainButtonLink({
   <Link
    href={href}
    className={clsx(
-    'inline-flex shrink-0 items-center justify-center gap-2 rounded-full text-sm/7 font-medium text-green-950 hover:bg-green-900/10',
+    'inline-flex shrink-0 items-center justify-center gap-2 rounded-full text-sm/7 font-medium text-green-950 bg-green-800/10 md:hover:text-white hover:bg-orange-500 transition-colors duration-500 md:hover:duration-300',
     sizes[size],
     className,
    )}
