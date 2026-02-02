@@ -45,7 +45,7 @@ export function FooterWithLinksAndSocialIcons({
 } & ComponentProps<'footer'>) {
  return (
   <footer className={clsx('pt-16', className)} {...props}>
-   <div className="bg-green-600/2.5 py-16 text-green-950">
+   <div className="bg-green-800/2.5 py-16 text-green-950">
     <Container className="flex flex-col gap-10 text-center text-sm/7">
      <div className="flex flex-col gap-6">
       <nav>

@@ -24,14 +24,14 @@ export function Plan({
  return (
   <div
    className={clsx(
-    'flex flex-col justify-between gap-6 rounded-xl bg-green-600/2.5 p-6 sm:items-start
+    'flex flex-col justify-between gap-6 rounded-xl bg-green-800/2.5 p-6 sm:items-start
     className,
    )}
   >
    <div className="self-stretch">
     <div className="flex items-center justify-between">
      {badge && (
-      <div className="order-last inline-flex rounded-full bg-green-600/10 px-2 text-xs/6 font-medium text-green-950">
+      <div className="order-last inline-flex rounded-full bg-green-800/10 px-2 text-xs/6 font-medium text-green-950">
        {badge}
       </div>
      )}

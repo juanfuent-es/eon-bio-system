@@ -89,7 +89,7 @@ export default function Page() {
           cta={
             <div className="flex items-center gap-4">
               <ButtonLink href="/aplica" size="lg">
-                Aplicar al sistema
+                Aplica al sistema
               </ButtonLink>
 
               <PlainButtonLink href="#" size="lg">

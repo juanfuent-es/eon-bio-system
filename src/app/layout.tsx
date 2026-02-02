@@ -20,6 +20,7 @@ import {
  NavbarLogo,
  NavbarWithLinksActionsAndCenteredLogo,
 } from '@/components/sections/navbar-with-links-actions-and-centered-logo'
+import { ArrowNarrowRightIcon } from '@/components/icons/arrow-narrow-right-icon'
 
 export const metadata: Metadata = {
  title: 'EON BioSystem',
@@ -55,7 +56,7 @@ export default function RootLayout({
       }
       actions={
        <>
-        <ButtonLink href="https://wa.me/5215545848965" target="_blank">Aplica</ButtonLink>
+        <ButtonLink href="https://wa.me/5215545848965" target="_blank" className='min-w-20'>Aplica <ArrowNarrowRightIcon /></ButtonLink>
        </>
       }
      />

@@ -27,14 +27,14 @@ export function Plan({
  return (
   <div
    className={clsx(
-    'flex flex-col justify-between gap-6 rounded-xl bg-green-600/2.5 p-6 sm:items-start
+    'flex flex-col justify-between gap-6 rounded-xl bg-green-800/2.5 p-6 sm:items-start
     className,
    )}
   >
    <div className="self-stretch">
     <div className="flex items-center justify-between">
      {badge && (
-      <div className="order-last inline-flex rounded-full bg-green-600/10 px-2 text-xs/6 font-medium text-green-950">
+      <div className="order-last inline-flex rounded-full bg-green-800/10 px-2 text-xs/6 font-medium text-green-950">
        {badge}
       </div>
      )}
@@ -87,12 +87,12 @@ export function PricingHeroMultiTier<T extends string>({
       <Text size="lg" className="flex max-w-xl flex-col gap-4 text-center">
        {subheadline}
       </Text>
-      <ElTabList className="flex items-center gap-1 rounded-full bg-green-600/5 p-1">
+      <ElTabList className="flex items-center gap-1 rounded-full bg-green-800/5 p-1">
        {options.map((option) => (
         <button
          key={option}
          type="button"
-         className="rounded-full px-4 py-1 text-sm/7 font-medium text-green-950 aria-selected:bg-green-600 aria-selected:text-white"
+         className="rounded-full px-4 py-1 text-sm/7 font-medium text-green-950 aria-selected:bg-green-800 aria-selected:text-white"
         >
          {option}
         </button>

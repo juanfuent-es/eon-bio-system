@@ -25,9 +25,9 @@ export function AnnouncementBadge({
    className={clsx(
     'group relative inline-flex max-w-full gap-x-3 overflow-hidden rounded-md px-3.5 py-2 text-sm/6 max-sm:flex-col sm:items-center sm:rounded-full sm:px-3 sm:py-0.5',
     variant === 'normal' &&
-     'bg-green-600/5 text-green-950 hover:bg-green-900/10',
+     'bg-green-800/5 text-green-950 hover:bg-green-900/10',
     variant === 'overlay' &&
-     'bg-green-600/15 text-white hover:bg-green-900/20',
+     'bg-green-800/15 text-white hover:bg-green-900/20',
     className,
    )}
   >
@@ -35,7 +35,7 @@ export function AnnouncementBadge({
    <span
     className={clsx(
      'h-3 w-px max-sm:hidden',
-     variant === 'normal' && 'bg-green-600/20',
+     variant === 'normal' && 'bg-green-800/20',
      variant === 'overlay' && 'bg-white/20',
     )}
    />

@@ -17,7 +17,7 @@ export function Feature({
  return (
   <div
    className={clsx(
-    'group grid grid-flow-dense grid-cols-1 gap-2 rounded-lg bg-green-600/2.5 p-2 lg:grid-cols-2
+    'group grid grid-flow-dense grid-cols-1 gap-2 rounded-lg bg-green-800/2.5 p-2 lg:grid-cols-2
     className,
    )}
   >

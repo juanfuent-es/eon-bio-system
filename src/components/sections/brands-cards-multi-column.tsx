@@ -15,7 +15,7 @@ export function BrandCard({
 } & ComponentProps<'div'>) {
  return (
   <div
-   className={clsx('flex flex-col justify-between gap-6 rounded-xl bg-green-600/2.5 p-6 className)}
+   className={clsx('flex flex-col justify-between gap-6 rounded-xl bg-green-800/2.5 p-6 className)}
    {...props}
   >
    <div className="flex flex-col items-start gap-2">

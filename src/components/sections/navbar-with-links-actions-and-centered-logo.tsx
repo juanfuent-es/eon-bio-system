@@ -14,7 +14,7 @@ export function NavbarLink({
   <Link
    href={href}
    className={clsx(
-    'group inline-flex items-center justify-between gap-2 text-3xl/10 font-medium text-green-950 lg:text-sm/7',
+    'group inline-flex items-center justify-between gap-2 font-medium text-green-950 text-base uppercase hover:text-orange-600 transition-colors',
     className,
    )}
    {...props}
