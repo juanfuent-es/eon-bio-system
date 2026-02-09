@@ -131,7 +131,7 @@ export default function Page() {
     cta={
       <>
         <PlainButtonLink href="/acerca">
-          Agenda una cita <ArrowNarrowRightIcon />
+          Conoce más <ArrowNarrowRightIcon />
         </PlainButtonLink>
         <p className='italic mt-2 text-green-800/80'>*El acceso a EON BioSystem requiere evaluación previa.</p>
       </>

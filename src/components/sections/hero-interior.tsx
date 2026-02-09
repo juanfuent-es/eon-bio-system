@@ -1,0 +1,41 @@
+import { clsx } from 'clsx/lite'
+import type { ComponentProps, ReactNode } from 'react'
+import { Container } from '../elements/container'
+import { Heading } from '../elements/heading'
+
+export function HeroInterior({
+ eyebrow,
+ subheadline,
+ cta,
+ headline,
+ footer,
+ className,
+ ...props
+}: {
+ eyebrow?: ReactNode
+ headline: ReactNode
+ subheadline: ReactNode
+ cta?: ReactNode
+ footer?: ReactNode
+} & ComponentProps<'section'>) {
+ return (
+  <section className={clsx('flex flex-col gap-16 px-2 pb-16', className)} {...props}>
+    <div className="-mx-2 sm:px-6 md:px-12 lg:px-0">
+     <Container className="flex flex-col gap-16 items-center">
+      <div className="flex gap-x-10 gap-y-16 max-lg:flex-col sm:gap-y-24">
+       <div className="flex shrink-0 flex-col items-center gap-6 py-16 sm:py-32 lg:basis-5xl lg:py-40">
+        {eyebrow}
+        <Heading className="max-w-7xl text-center text-green-500">
+            {headline}
+        </Heading>
+        <div className="flex max-w-lg flex-col gap-4 text-lg/8 text-center">{subheadline}</div>
+        {cta}
+        <p className="text-sm font-light italic text-green-200">*Requiere evaluación previa</p>
+       </div>
+      </div>
+     </Container>
+    </div>
+   <Container>{footer}</Container>
+  </section>
+ )
+}

@@ -1,0 +1,251 @@
+name: Build and Deploy to Self-Hosted Server
+
+on:
+  push:
+    branches:
+      - main
+      - production
+  workflow_dispatch:
+    inputs:
+      clean_deploy:
+        description: 'Perform clean deploy (removes node_modules and .next)'
+        required: false
+        default: 'true'
+
+env:
+  NODE_VERSION: '20'
+  NODE_ENV: production
+  DEPLOY_PATH: '/var/www/eon'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    name: Build Next.js Project for Self-Hosted
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Clean previous build artifacts
+        run: |
+          echo "🧹 Cleaning previous build artifacts..."
+          rm -rf .next
+          rm -rf dist
+          rm -rf out
+          rm -rf coverage
+          rm -rf build
+          echo "✅ Build artifacts cleaned"
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: 'npm'
+          cache-dependency-path: '**/package-lock.json'
+
+      - name: Clean npm cache
+        run: |
+          echo "🧹 Cleaning npm cache..."
+          npm cache clean --force
+          echo "✅ npm cache cleaned"
+
+      - name: Remove node_modules
+        run: |
+          echo "🧹 Removing node_modules from build environment..."
+          rm -rf node_modules
+          rm -rf package-lock.json
+          echo "✅ node_modules removed"
+
+      - name: Install dependencies fresh
+        run: |
+          echo "📦 Installing fresh dependencies..."
+          npm install --prefer-offline --no-audit
+          echo "✅ Dependencies installed"
+
+      - name: Run ESLint
+        run: npm run lint
+        continue-on-error: true
+
+      - name: Build Next.js
+        run: |
+          echo "🔨 Building Next.js project..."
+          npm run build
+          echo "✅ Build completed"
+        env:
+          NEXT_PUBLIC_API_URL: ${{ secrets.NEXT_PUBLIC_API_URL || 'http://localhost:3000' }}
+
+      - name: Create deployment package
+        run: |
+          echo "📦 Creating deployment package..."
+          mkdir -p deploy-package
+          cp -r .next deploy-package/
+          cp -r public deploy-package/ 2>/dev/null || true
+          cp -r src deploy-package/ 2>/dev/null || true
+          cp package.json deploy-package/
+          cp package-lock.json deploy-package/
+          cp next.config.ts deploy-package/
+          cp tsconfig.json deploy-package/
+          cp .env.example deploy-package/ 2>/dev/null || true
+          echo "✅ Deployment package created"
+
+      - name: Upload deployment artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: deployment-package
+          path: deploy-package/
+          retention-days: 7
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    name: Deploy to Self-Hosted Server (/var/www/eon)
+    if: github.event_name == 'push' || github.event_name == 'workflow_dispatch'
+    
+    steps:
+      - name: Download deployment artifacts
+        uses: actions/download-artifact@v4
+        with:
+          name: deployment-package
+          path: ./deploy-artifacts
+
+      - name: Deploy via SSH
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.SERVER_HOST }}
+          username: ${{ secrets.SERVER_USER }}
+          key: ${{ secrets.SERVER_SSH_KEY }}
+          port: ${{ secrets.SERVER_PORT || 22 }}
+          script: |
+            #!/bin/bash
+            set -e
+            
+            echo "🚀 Starting deployment to ${{ env.DEPLOY_PATH }}..."
+            
+            # Create backup of current deployment
+            if [ -d "${{ env.DEPLOY_PATH }}/.next" ]; then
+              echo "💾 Creating backup of previous build..."
+              BACKUP_TIME=$(date +%Y%m%d_%H%M%S)
+              mkdir -p "${{ env.DEPLOY_PATH }}/backups"
+              cp -r "${{ env.DEPLOY_PATH }}/.next" "${{ env.DEPLOY_PATH }}/backups/.next_${BACKUP_TIME}"
+              echo "✅ Backup created: backups/.next_${BACKUP_TIME}"
+            fi
+            
+            # Clean old build artifacts on server
+            echo "🧹 Cleaning previous build artifacts on server..."
+            rm -rf "${{ env.DEPLOY_PATH }}/.next"
+            rm -rf "${{ env.DEPLOY_PATH }}/out"
+            rm -rf "${{ env.DEPLOY_PATH }}/.next_cache"
+            echo "✅ Old build artifacts removed"
+            
+            # Option for clean deploy
+            if [ "${{ github.event.inputs.clean_deploy }}" == "true" ] || [ "${{ github.event_name }}" == "workflow_dispatch" ]; then
+              echo "🧹 Performing clean deploy: Removing node_modules and package-lock.json..."
+              rm -rf "${{ env.DEPLOY_PATH }}/node_modules"
+              rm -f "${{ env.DEPLOY_PATH }}/package-lock.json"
+              echo "✅ Clean deploy: node_modules and package-lock.json removed"
+            fi
+            
+            # Copy new build
+            echo "📦 Copying new build artifacts..."
+            cp -r deploy-artifacts/.next "${{ env.DEPLOY_PATH }}/"
+            cp -r deploy-artifacts/public "${{ env.DEPLOY_PATH }}/" 2>/dev/null || true
+            cp deploy-artifacts/package.json "${{ env.DEPLOY_PATH }}/"
+            cp deploy-artifacts/package-lock.json "${{ env.DEPLOY_PATH }}/"
+            cp deploy-artifacts/next.config.ts "${{ env.DEPLOY_PATH }}/"
+            cp deploy-artifacts/tsconfig.json "${{ env.DEPLOY_PATH }}/"
+            echo "✅ Build artifacts copied"
+            
+            # Install dependencies on server
+            echo "📦 Installing dependencies on server..."
+            cd "${{ env.DEPLOY_PATH }}"
+            npm ci --prefer-offline --no-audit
+            echo "✅ Dependencies installed on server"
+            
+            # Change permissions
+            echo "🔐 Setting permissions..."
+            chmod -R 755 "${{ env.DEPLOY_PATH }}/.next"
+            chmod -R 755 "${{ env.DEPLOY_PATH }}/node_modules"
+            echo "✅ Permissions set"
+            
+            # Restart application (if using PM2 or systemd)
+            if command -v pm2 &> /dev/null; then
+              echo "🔄 Restarting application with PM2..."
+              cd "${{ env.DEPLOY_PATH }}"
+              pm2 restart eon-bio-system || pm2 start npm --name "eon-bio-system" -- start
+              pm2 save
+              echo "✅ Application restarted with PM2"
+            fi
+            
+            # If using systemd
+            if systemctl is-active --quiet eon-bio-system; then
+              echo "🔄 Restarting application with systemd..."
+              sudo systemctl restart eon-bio-system
+              echo "✅ Application restarted with systemd"
+            fi
+            
+            # Verify deployment
+            echo "✅ Deployment completed successfully!"
+            echo "📍 Deployed to: ${{ env.DEPLOY_PATH }}"
+            echo "📅 Deployment time: $(date)"
+
+      - name: Verify deployment
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.SERVER_HOST }}
+          username: ${{ secrets.SERVER_USER }}
+          key: ${{ secrets.SERVER_SSH_KEY }}
+          port: ${{ secrets.SERVER_PORT || 22 }}
+          script: |
+            echo "🔍 Verifying deployment..."
+            
+            # Check if .next directory exists
+            if [ -d "${{ env.DEPLOY_PATH }}/.next" ]; then
+              echo "✅ Build directory exists"
+            else
+              echo "❌ Build directory missing!"
+              exit 1
+            fi
+            
+            # Check if node_modules exists
+            if [ -d "${{ env.DEPLOY_PATH }}/node_modules" ]; then
+              echo "✅ Dependencies installed"
+            else
+              echo "❌ Dependencies not installed!"
+              exit 1
+            fi
+            
+            # Check package.json
+            if [ -f "${{ env.DEPLOY_PATH }}/package.json" ]; then
+              echo "✅ package.json exists"
+            else
+              echo "❌ package.json missing!"
+              exit 1
+            fi
+            
+            # List recent builds
+            echo ""
+            echo "📦 Recent builds:"
+            ls -lh "${{ env.DEPLOY_PATH }}/backups/.next_"* 2>/dev/null | tail -5 || echo "No backups found"
+            
+            echo ""
+            echo "✅ Deployment verification completed!"
+
+  notify:
+    needs: [build, deploy]
+    runs-on: ubuntu-latest
+    name: Deployment Notification
+    if: always()
+    
+    steps:
+      - name: Deployment Status
+        run: |
+          if [ "${{ needs.build.result }}" == "success" ] && [ "${{ needs.deploy.result }}" == "success" ]; then
+            echo "✅ Deployment successful!"
+            echo "Deployed to: ${{ env.DEPLOY_PATH }}"
+            exit 0
+          else
+            echo "❌ Deployment failed!"
+            echo "Build status: ${{ needs.build.result }}"
+            echo "Deploy status: ${{ needs.deploy.result }}"
+            exit 1
+          fi

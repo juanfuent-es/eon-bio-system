@@ -1,8 +1,8 @@
 import { ButtonLink } from '@/components/elements/button'
 import { CallToActionSimple } from '@/components/sections/call-to-action-simple'
-import { Hero } from '@/components/sections/hero'
+import { HeroInterior } from '@/components/sections/hero-interior'
 import { Container } from '@/components/elements/container'
-import { Heading } from '@/components/elements/heading'
+import { Subheading } from '@/components/elements/subheading'
 import { Text } from '@/components/elements/text'
 import { Document } from '@/components/elements/document'
 import type { ReactNode } from 'react'
@@ -22,7 +22,7 @@ function SectionWithHeading({
   <section className="py-16 sm:py-24">
    <Container className="flex flex-col gap-10 sm:gap-16">
     <div className="flex max-w-3xl flex-col gap-6">
-     <Heading>{headline}</Heading>
+     <Subheading>{headline}</Subheading>
      <Text size="lg" className="flex max-w-2xl flex-col gap-4">
       {subheadline}
      </Text>
@@ -38,15 +38,14 @@ export default function Sistema() {
  return (
   <>
    {/* Hero */}
-   <Hero
+   <HeroInterior
     id="hero"
-    headline="EON BioSystem: longevidad diseñada como sistema."
+    headline="Un método estructurado, no un plan genérico."
     subheadline={
-     <p>
-      EON BioSystem es un método de ciencia aplicada que integra fuerza, nutrición y biomarcadores en una
-      estructura clara para optimizar la biología humana de forma sostenible. No trabaja con acciones aisladas,
-      sino con decisiones conectadas entre sí.
-     </p>
+        <>
+            <p>EON BioSystem organiza todas las decisiones sobre entrenamiento, alimentación y suplementación dentro de una misma lógica: entender la biología individual y actuar en consecuencia.</p>
+            <p>Cada componente del sistema responde a datos reales y se ajusta conforme el cuerpo cambia.</p>
+        </>
     }
     cta={
      <ButtonLink href="/aplica" size="lg">
