@@ -1,124 +1,26 @@
-name: Build and Deploy
+name: Deploy eonbiosystem.com
 
 on:
   push:
     branches:
       - main
-      - develop
-  pull_request:
-    branches:
-      - main
   workflow_dispatch:
 
-env:
-  NODE_VERSION: '20'
-  NODE_ENV: production
-
 jobs:
-  build:
-    runs-on: ubuntu-latest
-    name: Build Next.js Project
-    
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-
-      - name: Clean previous build artifacts
-        run: |
-          echo "Cleaning previous build artifacts..."
-          rm -rf .next
-          rm -rf dist
-          rm -rf out
-          rm -rf coverage
-          echo "✅ Build artifacts cleaned"
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: ${{ env.NODE_VERSION }}
-          cache: 'npm'
-          cache-dependency-path: '**/package-lock.json'
-
-      - name: Clean npm cache
-        run: npm cache clean --force
-
-      - name: Install dependencies
-        run: npm ci
-
-      - name: Run ESLint
-        run: npm run lint
-        continue-on-error: true
-
-      - name: Build Next.js
-        run: npm run build
-        env:
-          NEXT_PUBLIC_API_URL: ${{ secrets.NEXT_PUBLIC_API_URL || 'http://localhost:3000' }}
-
-      - name: Upload build artifacts
-        uses: actions/upload-artifact@v4
-        with:
-          name: next-build
-          path: .next
-          retention-days: 5
-
-      - name: Upload standalone
-        uses: actions/upload-artifact@v4
-        with:
-          name: standalone-build
-          path: .next/standalone
-          retention-days: 5
-
   deploy:
-    needs: build
     runs-on: ubuntu-latest
-    name: Deploy to Vercel
-    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
-    
+
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: ${{ env.NODE_VERSION }}
-          cache: 'npm'
-
-      - name: Install dependencies
-        run: npm ci
-
-      - name: Install Vercel CLI
-        run: npm install -g vercel
-
-      - name: Deploy to Vercel (Production)
-        if: github.ref == 'refs/heads/main'
+      - name: Setup SSH
         run: |
-          vercel deploy \
-            --token ${{ secrets.VERCEL_TOKEN }} \
-            --project-id ${{ secrets.VERCEL_PROJECT_ID }} \
-            --org-id ${{ secrets.VERCEL_ORG_ID }} \
-            --prod
+          mkdir -p ~/.ssh
+          echo "${{ secrets.DIGITALOCEAN_SSH_KEY }}" > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
+          ssh-keyscan -p ${{ secrets.DIGITALOCEAN_PORT }} \
+            ${{ secrets.DIGITALOCEAN_HOST }} >> ~/.ssh/known_hosts
 
-      - name: Deploy to Vercel (Preview)
-        if: github.ref == 'refs/heads/develop'
+      - name: Deploy via SSH
         run: |
-          vercel deploy \
-            --token ${{ secrets.VERCEL_TOKEN }} \
-            --project-id ${{ secrets.VERCEL_PROJECT_ID }} \
-            --org-id ${{ secrets.VERCEL_ORG_ID }}
-
-  notify:
-    needs: [build, deploy]
-    runs-on: ubuntu-latest
-    name: Notify Build Status
-    if: always()
-    
-    steps:
-      - name: Build Status Check
-        run: |
-          if [ "${{ needs.build.result }}" == "success" ]; then
-            echo "✅ Build successful"
-          else
-            echo "❌ Build failed"
-            exit 1
-          fi
+          ssh -p ${{ secrets.DIGITALOCEAN_PORT }} \
+            ${{ secrets.DIGITALOCEAN_USER }}@${{ secrets.DIGITALOCEAN_HOST }} \
+            "bash /var/www/eon/deploy.sh"
