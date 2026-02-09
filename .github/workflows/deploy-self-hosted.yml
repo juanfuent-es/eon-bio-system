@@ -1,4 +1,4 @@
-name: Build and Deploy to Self-Hosted Server
+name: Build and Deploy to Apache Server (DigitalOcean)
 
 on:
   push:
@@ -16,6 +16,7 @@ env:
   NODE_VERSION: '20'
   NODE_ENV: production
   DEPLOY_PATH: '/var/www/eon'
+  APACHE_USER: 'www-data'
 
 jobs:
   build:
@@ -130,6 +131,12 @@ jobs:
               echo "✅ Backup created: backups/.next_${BACKUP_TIME}"
             fi
             
+            # Stop Node.js application (kill process on port 3000)
+            echo "⏹️  Stopping Node.js application..."
+            pkill -f "npm start" || pkill -f "node" || true
+            sleep 2
+            echo "✅ Application stopped"
+            
             # Clean old build artifacts on server
             echo "🧹 Cleaning previous build artifacts on server..."
             rm -rf "${{ env.DEPLOY_PATH }}/.next"
@@ -161,32 +168,39 @@ jobs:
             npm ci --prefer-offline --no-audit
             echo "✅ Dependencies installed on server"
             
-            # Change permissions
-            echo "🔐 Setting permissions..."
+            # Change permissions for Apache
+            echo "🔐 Setting Apache permissions..."
+            sudo chown -R ${{ env.APACHE_USER }}:${{ env.APACHE_USER }} "${{ env.DEPLOY_PATH }}"
             chmod -R 755 "${{ env.DEPLOY_PATH }}/.next"
             chmod -R 755 "${{ env.DEPLOY_PATH }}/node_modules"
-            echo "✅ Permissions set"
+            echo "✅ Permissions set for Apache"
             
-            # Restart application (if using PM2 or systemd)
-            if command -v pm2 &> /dev/null; then
-              echo "🔄 Restarting application with PM2..."
-              cd "${{ env.DEPLOY_PATH }}"
-              pm2 restart eon-bio-system || pm2 start npm --name "eon-bio-system" -- start
-              pm2 save
-              echo "✅ Application restarted with PM2"
+            # Start Node.js application in background
+            echo "🚀 Starting Node.js application..."
+            cd "${{ env.DEPLOY_PATH }}"
+            nohup npm start > /var/log/eon-bio-system.log 2>&1 &
+            sleep 3
+            
+            # Verify application is running
+            if pgrep -f "npm start" > /dev/null || lsof -i :3000 > /dev/null 2>&1; then
+              echo "✅ Application started successfully on port 3000"
+            else
+              echo "⚠️  Warning: Application may not have started. Check logs:"
+              echo "tail -50 /var/log/eon-bio-system.log"
             fi
             
-            # If using systemd
-            if systemctl is-active --quiet eon-bio-system; then
-              echo "🔄 Restarting application with systemd..."
-              sudo systemctl restart eon-bio-system
-              echo "✅ Application restarted with systemd"
-            fi
+            # Verify Apache reverse proxy is working
+            echo "🔍 Verifying Apache configuration..."
+            sudo apache2ctl configtest || echo "⚠️  Apache config test failed"
+            sudo systemctl restart apache2
+            echo "✅ Apache restarted"
             
-            # Verify deployment
-            echo "✅ Deployment completed successfully!"
+            echo ""
+            echo "✅ Deployment completed!"
             echo "📍 Deployed to: ${{ env.DEPLOY_PATH }}"
             echo "📅 Deployment time: $(date)"
+            echo "🌐 Application running on port 3000"
+            echo "📊 Apache forwarding traffic via reverse proxy"
 
       - name: Verify deployment
         uses: appleboy/ssh-action@master
