@@ -11,7 +11,7 @@ import { CallToActionSimple } from '@/components/sections/call-to-action-simple'
 import { FAQsTwoColumnAccordion, Faq } from '@/components/sections/faqs-two-column-accordion'
 import { FeatureThreeColumnWithDemos, Features } from '@/components/sections/features-three-column-with-demos'
 import { FooterCategory, FooterLink, FooterWithLinkCategories } from '@/components/sections/footer-with-link-categories'
-import { HeroWithDemoOnBackground } from '@/components/sections/hero'
+import { Hero } from '@/components/sections/hero'
 import {
  NavbarLink,
  NavbarLogo,
@@ -66,7 +66,7 @@ export default function Page() {
 
    <Main>
     {/* Hero */}
-    <HeroWithDemoOnBackground
+    <Hero
      id="hero"
      eyebrow={
       <AnnouncementBadge href="#" text="Oatmeal raises 80M Series A funding" cta="Learn more" variant="overlay" />
