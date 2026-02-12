@@ -14,8 +14,8 @@ import { HeroSimpleCentered } from '@/components/sections/hero-simple-centered'
 import {
  NavbarLink,
  NavbarLogo,
- NavbarWithLogoActionsAndLeftAlignedLinks,
-} from '@/components/sections/navbar-with-logo-actions-and-left-aligned-links'
+ NavbarWithLinksActionsAndCenteredLogo,
+} from '@/components/sections/navbar-with-links-actions-and-centered-logo'
 import { Stat, StatsThreeColumnWithDescription } from '@/components/sections/stats-three-column-with-description'
 import { TeamFourColumnGrid, TeamMember } from '@/components/sections/team-four-column-grid'
 import { TestimonialLargeQuote } from '@/components/sections/testimonial-with-large-quote'
@@ -23,7 +23,7 @@ import { TestimonialLargeQuote } from '@/components/sections/testimonial-with-la
 export default function Page() {
  return (
   <>
-   <NavbarWithLogoActionsAndLeftAlignedLinks
+    <NavbarWithLinksActionsAndCenteredLogo
     id="navbar"
     logo={
      <NavbarLogo href="#">

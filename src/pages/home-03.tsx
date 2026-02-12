@@ -24,15 +24,15 @@ import { HeroCenteredWithDemo } from '@/components/sections/hero-centered-with-d
 import {
  NavbarLink,
  NavbarLogo,
- NavbarWithLogoActionsAndLeftAlignedLinks,
-} from '@/components/sections/navbar-with-logo-actions-and-left-aligned-links'
+ NavbarWithLinksActionsAndCenteredLogo,
+} from '@/components/sections/navbar-with-links-actions-and-centered-logo'
 import { Stat, StatsWithGraph } from '@/components/sections/stats-with-graph'
 import { TestimonialTwoColumnWithLargePhoto } from '@/components/sections/testimonial-two-column-with-large-photo'
 
 export default function Page() {
  return (
   <>
-   <NavbarWithLogoActionsAndLeftAlignedLinks
+    <NavbarWithLinksActionsAndCenteredLogo
     id="navbar"
     logo={
      <NavbarLogo href="#">
