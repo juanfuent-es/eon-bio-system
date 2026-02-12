@@ -27,7 +27,7 @@ export function Plan({
  return (
   <div
    className={clsx(
-    'flex flex-col justify-between gap-6 rounded-xl bg-green-800/2.5 p-6 sm:items-start
+    'flex flex-col justify-between gap-6 rounded-xl bg-green-800/2.5 p-6 sm:items-start',
     className,
    )}
   >
