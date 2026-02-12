@@ -15,8 +15,8 @@ import { Hero } from '@/components/sections/hero'
 import {
  NavbarLink,
  NavbarLogo,
- NavbarWithLogoActionsAndCenteredLinks,
-} from '@/components/sections/navbar-with-logo-actions-and-centered-links'
+ NavbarWithLinksActionsAndCenteredLogo,
+} from '@/components/sections/navbar-with-links-actions-and-centered-logo'
 import { Plan, PricingMultiTier } from '@/components/sections/pricing-multi-tier'
 import { Stat, StatsWithGraph } from '@/components/sections/stats-with-graph'
 import { TestimonialLargeQuote } from '@/components/sections/testimonial-with-large-quote'
@@ -24,7 +24,7 @@ import { TestimonialLargeQuote } from '@/components/sections/testimonial-with-la
 export default function Page() {
  return (
   <>
-   <NavbarWithLogoActionsAndCenteredLinks
+    <NavbarWithLinksActionsAndCenteredLogo
     id="navbar"
     links={
      <>

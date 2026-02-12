@@ -16,14 +16,14 @@ import { HeroTwoColumnWithPhoto } from '@/components/sections/hero-two-column-wi
 import {
  NavbarLink,
  NavbarLogo,
- NavbarWithLogoActionsAndCenteredLinks,
-} from '@/components/sections/navbar-with-logo-actions-and-centered-links'
+ NavbarWithLinksActionsAndCenteredLogo,
+} from '@/components/sections/navbar-with-links-actions-and-centered-logo'
 import { TeamMember, TeamThreeColumnGrid } from '@/components/sections/team-three-column-grid'
 
 export default function Page() {
  return (
   <>
-   <NavbarWithLogoActionsAndCenteredLinks
+    <NavbarWithLinksActionsAndCenteredLogo
     id="navbar"
     links={
      <>
