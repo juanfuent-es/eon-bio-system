@@ -18,7 +18,7 @@ export function Testimonial({
  return (
   <figure
    className={clsx(
-    'flex flex-col justify-between gap-10 rounded-md bg-green-800/2.5 p-6 text-sm/7 text-green-950
+    'flex flex-col justify-between gap-10 rounded-md bg-green-800/2.5 p-6 text-sm/7 text-green-950',
     className,
    )}
    {...props}
