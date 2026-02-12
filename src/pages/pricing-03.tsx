@@ -8,15 +8,15 @@ import { HeroSimpleCentered } from '@/components/sections/hero-simple-centered'
 import {
  NavbarLink,
  NavbarLogo,
- NavbarWithLogoActionsAndCenteredLinks,
-} from '@/components/sections/navbar-with-logo-actions-and-centered-links'
+ NavbarWithLinksActionsAndCenteredLogo,
+} from '@/components/sections/navbar-with-links-actions-and-centered-logo'
 import { Plan, PricingMultiTier } from '@/components/sections/pricing-multi-tier'
 import { Testimonial, TestimonialThreeColumnGrid } from '@/components/sections/testimonials-three-column-grid'
 
 export default function Page() {
  return (
   <>
-   <NavbarWithLogoActionsAndCenteredLinks
+    <NavbarWithLinksActionsAndCenteredLogo
     id="navbar"
     links={
      <>
