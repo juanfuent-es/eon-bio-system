@@ -14,7 +14,7 @@ export function FeatureThreeColumnWithDemos({
  subheadline: ReactNode
 } & ComponentProps<'div'>) {
  return (
-  <div className={clsx('rounded-lg bg-green-800/2.5 p-2 className)} {...props}>
+  <div className={clsx('rounded-lg bg-green-800/2.5 p-2', className)} {...props}>
    <div className="relative overflow-hidden rounded-sm">
     {demo}
    </div>
