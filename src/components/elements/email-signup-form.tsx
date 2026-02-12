@@ -18,7 +18,7 @@ export function EmailSignupForm({
  return (
   <form
    className={clsx(
-    'flex rounded-full p-1 inset-ring-1
+    'flex rounded-full p-1 inset-ring-1',
     variant === 'normal' && 'bg-white inset-ring-black/10',
     variant === 'overlay' && 'bg-white/15 inset-ring-white/10',
     className,
