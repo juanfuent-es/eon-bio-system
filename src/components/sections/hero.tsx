@@ -6,6 +6,7 @@ import { Wallpaper } from '../elements/wallpaper'
 
 export function Hero({
  eyebrow,
+ headline,
  subheadline,
  cta,
  footer,
@@ -27,7 +28,7 @@ export function Hero({
        <div className="flex shrink-0 flex-col items-center gap-6 py-16 sm:py-32 lg:basis-5xl lg:py-40">
         {eyebrow}
         <Heading className="max-w-7xl text-center" color="light">
-            EON BioSystem <small className="block">Seguimiento metabólico y funcional.</small>
+         {headline}
         </Heading>
         <div className="flex max-w-lg flex-col gap-4 text-lg/8 text-white/80 text-center">{subheadline}</div>
         {cta}

@@ -42,6 +42,11 @@ export default function Page() {
    {/* Hero */}
    <Hero
      id="hero"
+     headline={
+      <>
+         EON BioSystem <small className="block">Seguimiento metabólico y funcional.</small>
+      </>
+     }
      eyebrow={
       <AnnouncementBadge href="/sistema" text="Un sistema de longevidad basado en ciencia aplicada." cta="Conoce más" variant="overlay" />
      }
