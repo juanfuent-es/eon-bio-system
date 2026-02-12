@@ -7,15 +7,15 @@ import { FooterCategory, FooterLink, FooterWithLinkCategories } from '@/componen
 import {
  NavbarLink,
  NavbarLogo,
- NavbarWithLogoActionsAndCenteredLinks,
-} from '@/components/sections/navbar-with-logo-actions-and-centered-links'
+ NavbarWithLinksActionsAndCenteredLogo,
+} from '@/components/sections/navbar-with-links-actions-and-centered-logo'
 import { PricingSingleTierTwoColumn } from '@/components/sections/pricing-single-tier-two-column'
 import { TestimonialLargeQuote } from '@/components/sections/testimonial-with-large-quote'
 
 export default function Page() {
  return (
   <>
-   <NavbarWithLogoActionsAndCenteredLinks
+    <NavbarWithLinksActionsAndCenteredLogo
     id="navbar"
     links={
      <>
