@@ -30,7 +30,6 @@ export function HeroInterior({
         </Heading>
         <div className="flex max-w-lg flex-col gap-4 text-lg/8 text-center">{subheadline}</div>
         {cta}
-        <p className="text-sm font-light italic text-green-200">*Requiere evaluación previa</p>
        </div>
       </div>
      </Container>

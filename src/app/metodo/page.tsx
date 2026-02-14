@@ -34,7 +34,7 @@ function SectionWithHeading({
  )
 }
 
-export default function About() {
+export default function Metodo() {
  return (
   <>
    {/* Hero */}
@@ -42,14 +42,14 @@ export default function About() {
      id="hero"
      headline={
       <>
-         Dirección, criterio y respaldo clínico.
+         EON BioSystem: longevidad diseñada como sistema.
       </>
      }
      eyebrow={
-      <AnnouncementBadge href="/aplicar" text="Sobre EON" cta="Iniciar evaluación" variant="overlay" />
+      <AnnouncementBadge href="/aplicar" text="Método EON" cta="Iniciar evaluación" variant="overlay" />
      }
      subheadline={
-      <p>EON BioSystem y NTS Clinic operan bajo una misma dirección profesional, integrando sistema estructurado y supervisión clínica cuando es necesario.</p>
+      <p>Un método estructurado que integra fuerza, nutrición y biomarcadores en una arquitectura coherente de largo plazo.</p>
      }
      cta={
       <ButtonLink href="/aplicar" size="lg">
@@ -58,54 +58,52 @@ export default function About() {
      }
     />
 
-   {/* Sección 1: Origen del sistema */}
+   {/* Sección 1: Estructura antes que intervención */}
    <SectionWithHeading
-    headline="Origen del sistema."
+    headline="Estructura antes que intervención."
     subheadline={
      <>
-      <p>EON surge de más de dos décadas de experiencia en entrenamiento de fuerza, nutrición funcional y salud basada en evidencia.</p>
+      <p>Las decisiones no se toman de forma aislada. Se organizan dentro de un sistema coherente.</p>
      </>
     }
    />
 
-   {/* Sección 2: Ricardo Sánchez */}
+   {/* Sección 2: Secuencia de implementación */}
    <SectionWithHeading
-    headline="Ricardo Sánchez."
+    headline="Secuencia de implementación."
     subheadline={
      <>
-      <p>Fundador de EON y director de NTS Clinic. Su enfoque integra ciencia aplicada, criterio clínico y estructura a largo plazo.</p>
+      <p>Evaluación inicial → Diseño personalizado → Ejecución estructurada → Ajustes periódicos.</p>
      </>
     }
    />
 
-   {/* Sección 3: Relación entre EON y NTS Clinic */}
+   {/* Sección 3: Pilares del sistema */}
    <SectionWithHeading
-    headline="Relación entre EON y NTS Clinic."
+    headline="Pilares del sistema."
     subheadline={
      <>
-      <p>EON estructura el sistema.<br />
-      NTS Clinic respalda cuando la profundidad médica lo requiere.<br />
-      Ambas operan bajo una misma dirección estratégica.</p>
+      <p>Fuerza, nutrición, biomarcadores y suplementación como componentes integrados.</p>
      </>
     }
    />
 
-   {/* Sección 4: Supervisión clínica responsable */}
+   {/* Sección 4: Optimización basada en datos */}
    <SectionWithHeading
-    headline="Supervisión clínica responsable."
+    headline="Optimización basada en datos."
     subheadline={
      <>
-      <p>La interpretación de biomarcadores y decisiones médicas se realizan bajo estándares clínicos rigurosos.</p>
+      <p>Los biomarcadores guían decisiones y permiten ajustes responsables.</p>
      </>
     }
    />
 
-   {/* Sección 5: Sistema antes que volumen */}
+   {/* Sección 5: Diseñado para evolucionar */}
    <SectionWithHeading
-    headline="Sistema antes que volumen."
+    headline="Diseñado para evolucionar."
     subheadline={
      <>
-      <p>El modelo prioriza seguimiento real, precisión y coherencia sobre expansión masiva.</p>
+      <p>El sistema se adapta conforme cambia la biología individual.</p>
      </>
     }
     cta={

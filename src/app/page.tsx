@@ -51,12 +51,17 @@ export default function Page() {
       <AnnouncementBadge href="/sistema" text="Un sistema de longevidad basado en ciencia aplicada." cta="Conoce más" variant="overlay" />
      }
      subheadline={
-      <p>Un sistema antiaging que integra <strong>fuerza, nutrición y biomarcadores</strong> para optimizar tu biología de forma sostenible.</p>
+      <>
+        <p>Un sistema antiaging que integra <strong>fuerza, nutrición y biomarcadores</strong> para optimizar tu biología de forma sostenible.</p>
+      </>
      }
      cta={
-      <ButtonLink href="/aplica" size="lg">
-       *Aplica al sistema <ArrowNarrowRightIcon />
-      </ButtonLink>
+      <>
+        <ButtonLink href="/aplica" size="lg">
+          Aplica al sistema <ArrowNarrowRightIcon />
+          </ButtonLink>
+        <p className="text-sm font-light italic text-green-200">*Requiere evaluación previa</p>
+      </>
      }
     />
 

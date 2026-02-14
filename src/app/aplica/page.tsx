@@ -46,54 +46,54 @@ export default function Aplica() {
    {/* Hero */}
    <HeroSimpleLeftAligned
     id="hero"
-    headline="Aplica al Sistema EON Bio"
+    headline="Evaluación inicial EON BioSystem."
     subheadline={
      <p>
-      Este formulario nos permite entender tu nivel de interés y compromiso antes de contactarte para
-      explicarte el funcionamiento completo de EON BioSystem. Completarlo no garantiza el ingreso al sistema.
+      Solicitud de acceso al sistema. El proceso comienza con una evaluación de compatibilidad y compromiso.
      </p>
     }
     cta={
      <ButtonLink href="#form" size="lg">
-      Aplica al sistema
+      Enviar solicitud
      </ButtonLink>
     }
    />
 
-   {/* Sección 1: Qué es este paso */}
+   {/* Sección 1: Qué significa aplicar */}
    <SectionWithHeading
     headline="Qué significa aplicar."
     subheadline={
      <>
       <p>
-       Aplicar a EON Bio es iniciar una evaluación inicial, no inscribirte a un programa ni realizar un pago.
-      </p>
-      <p>
-       Revisamos tu información para determinar si el sistema puede aportarte valor y si existe alineación
-       para avanzar al siguiente paso, donde se explican expectativas, metodología y forma de trabajo.
+       No es inscripción automática ni pago. Es una evaluación de alineación.
       </p>
      </>
     }
    />
 
-   {/* Sección 2: A quién suele servir */}
+   {/* Sección 2: Perfil adecuado */}
    <SectionWithHeading
-    headline="Este enfoque suele ser adecuado si:"
+    headline="Perfil adecuado."
     subheadline={
-     <p>
-      Si este enfoque resuena contigo, continúa con el registro.
-     </p>
+     <>
+      <p>
+       Personas que valoran estructura, seguimiento y decisiones basadas en datos.
+      </p>
+     </>
     }
-   >
-    <Document className="max-w-2xl">
-     <ul>
-      <li>Buscas un sistema estructurado, no recomendaciones aisladas</li>
-      <li>Estás abierto(a) a entrenar fuerza y ajustar hábitos</li>
-      <li>Valoras la ciencia, los datos y el seguimiento</li>
-      <li>Te interesa un proceso diseñado para el largo plazo</li>
-     </ul>
-    </Document>
-   </SectionWithHeading>
+   />
+
+   {/* Sección 3: Compromiso requerido */}
+   <SectionWithHeading
+    headline="Compromiso requerido."
+    subheadline={
+     <>
+      <p>
+       Disposición para constancia, comunicación honesta y analíticas periódicas.
+      </p>
+     </>
+    }
+   />
 
    {/* Sección 3: Formulario */}
    <section id="form" className="py-16 sm:py-24">
@@ -289,26 +289,29 @@ export default function Aplica() {
     </Container>
    </section>
 
-   {/* Sección 4: Qué sucede después */}
+   {/* Sección 4: Qué ocurre después */}
    <SectionWithHeading
     headline="Qué ocurre después."
     subheadline={
-     <p>
-      Si tu perfil es compatible con el enfoque de EON BioSystem, nos pondremos en contacto contigo para
-      explicarte el sistema con mayor detalle y definir el siguiente paso.
-     </p>
+     <>
+      <p>
+       Si existe alineación, se agenda una conversación para revisar funcionamiento y modalidad.
+      </p>
+     </>
     }
-   >
-    <Document className="max-w-2xl">
-     <p>En esa etapa se revisan:</p>
-     <ul>
-      <li>Funcionamiento completo del sistema</li>
-      <li>Expectativas de compromiso</li>
-      <li>Modalidad de trabajo</li>
-      <li>Acuerdo de colaboración</li>
-     </ul>
-    </Document>
-   </SectionWithHeading>
+   />
+
+   {/* Sección 5: Confidencialidad */}
+   <SectionWithHeading
+    headline="Confidencialidad."
+    subheadline={
+     <>
+      <p>
+       La información se utiliza únicamente para evaluación interna.
+      </p>
+     </>
+    }
+   />
 
    {/* Footer */}
    <FooterWithNewsletterFormCategoriesAndSocialIcons
