@@ -70,9 +70,10 @@ export default function Page() {
     subheadline={
      <>
       <p className="italic">Con el tiempo, el cuerpo cambia.</p>
-      <p>La recuperación, el metabolismo y el rendimiento dejan de responder igual. <br />  
+      {/* <p>La recuperación, el metabolismo y el rendimiento dejan de responder igual. <br />  
       Sin datos claros, la mayoría de las decisiones sobre salud se basan en intuición, tendencias o ensayo y error.</p>
-      <p>EON BioSystem existe para reemplazar la improvisación por un sistema diseñado desde la ciencia.</p>
+      <p>EON BioSystem existe para reemplazar la improvisación por un sistema diseñado desde la ciencia.</p> */}
+      <p>Sin estructura ni datos, las decisiones sobre salud se basan en intuición, tendencias o ensayo y error. <strong>EON BioSystem</strong> reemplaza la improvisación por un sistema medible.</p>      
      </>
     }
     cta={
@@ -84,17 +85,11 @@ export default function Page() {
 
    {/* Sección 3: Qué es EON BioSystem */}
    <SectionWithHeading
-    headline="Un enfoque estructurado para optimizar tu biología."
+    headline="Un sistema, no un plan."
     subheadline={
      <>
-      <p>
-       EON BioSystem es un sistema de longevidad y antiaging que parte del análisis de biomarcadores clave
-       para diseñar estrategias personalizadas de entrenamiento, alimentación y suplementación.
-      </p>
-      <p>
-       No es un plan genérico. No es una solución rápida. <br />Es un sistema diseñado para acompañar tu biología
-       a largo plazo.
-      </p>
+      <p>EON BioSystem es un sistema de longevidad basado en el análisis de biomarcadores para diseñar estrategias personalizadas de entrenamiento, nutrición y suplementación.</p>
+      <p>No es genérico ni una solución rápida.<br />Es un sistema pensado para acompañar tu biología a largo plazo.</p>
      </>
     }
     cta={
@@ -113,8 +108,9 @@ export default function Page() {
     }
     subheadline={
      <>
-      <p>Nuestro sistema está diseñado para personas que valoran la ciencia, buscan estructura y están dispuestas a seguir un sistema con criterio y constancia.</p>
-      <p>No es para quienes buscan soluciones rápidas o atajos. Trabajamos con un número limitado de personas para asegurar seguimiento, profundidad y calidad real.</p>
+      <p>Diseñado para quienes valoran la valoran la ciencia, buscan estructura y están dispuestas a seguir un sistema con criterio y constancia.</p>
+      <p>No es para quienes buscan soluciones rápidas o atajos.</p>
+      <p><small><i>*Trabajamos con un número limitado de personas para asegurar seguimiento, profundidad y calidad real.</i></small></p>
      </>
     }
     cta={
@@ -126,19 +122,18 @@ export default function Page() {
 
    {/* Sección 7: Respaldo clínico */}
    <SectionWithHeading
-    headline="Respaldo clínico cuando el proceso lo requiere."
+    headline="Dirección y respaldo profesional."
     subheadline={
      <>
-      <p>EON BioSystem cuenta con respaldo clínico profesional a través de NTS Clinic, donde se ejecutan y supervisan los aspectos clínicos con rigor y responsabilidad.</p>
-      <p>EON BioSystem diseña el sistema. NTS Clinic respalda cuando es necesario.</p>
+      <p className=''>EON BioSystem opera con respaldo clínico de <a href="https://ntsclinic.com" title="Visita el sitio de NTS Clinic" target='_blank' className='text-green-800 transition-colors underline hover:text-orange-500'>NTS Clinic</a>, que supervisa los aspectos médicos cuando el proceso lo exige.</p>
+      <p className='italic mt-2 text-green-800/80'>*El acceso requiere evaluación previa.</p>
      </>
     }
     cta={
       <>
         <PlainButtonLink href="/acerca">
-          Conoce más <ArrowNarrowRightIcon />
+          Aplica ahora <ArrowNarrowRightIcon />
         </PlainButtonLink>
-        <p className='italic mt-2 text-green-800/80'>*El acceso a EON BioSystem requiere evaluación previa.</p>
       </>
     }
    />
