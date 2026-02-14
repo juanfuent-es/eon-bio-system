@@ -35,6 +35,12 @@ export default function RootLayout({
   <html lang="en" className="bg-neutral-200 text-neutral-900">
    <head>
     <link rel="stylesheet" href="https://use.typekit.net/xsn1nhj.css" />
+    <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <meta name="apple-mobile-web-app-title" content="BioSystem" />
+    <link rel="manifest" href="/site.webmanifest" />
    </head>
    <body>
     <>
@@ -51,7 +57,6 @@ export default function RootLayout({
        <>
         <NavbarLink href="/sistema">El Sistema</NavbarLink>
         <NavbarLink href="/acerca">Acerca de</NavbarLink>
-        <NavbarLink href="/precio">Precio</NavbarLink>
        </>
       }
       actions={
