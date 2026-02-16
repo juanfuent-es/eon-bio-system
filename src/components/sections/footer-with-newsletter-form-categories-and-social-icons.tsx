@@ -1,4 +1,7 @@
+'use client'
+
 import Link from 'next/link'
+import { usePathname } from 'next/navigation'
 
 import { clsx } from 'clsx/lite'
 import type { ComponentProps, ReactNode } from 'react'
@@ -17,8 +20,11 @@ export function FooterCategory({ title, children, ...props }: { title: ReactNode
 }
 
 export function FooterLink({ href, className, ...props }: { href: string } & Omit<ComponentProps<'a'>, 'href'>) {
+ const pathname = usePathname()
+ const isActive = pathname === href
+
  return (
-  <li className={clsx('text-green-700', className)}>
+  <li className={clsx('transition-colors', isActive ? 'text-orange-600 font-semibold' : 'text-green-700 hover:text-orange-600', className)}>
    <Link href={href} {...props} />
   </li>
  )

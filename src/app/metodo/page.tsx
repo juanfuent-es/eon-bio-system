@@ -2,6 +2,7 @@ import { ButtonLink, PlainButtonLink } from '@/components/elements/button'
 import { ArrowNarrowRightIcon } from '@/components/icons/arrow-narrow-right-icon'
 import { Container } from '@/components/elements/container'
 import { Subheading } from '@/components/elements/subheading'
+import { Heading } from '@/components/elements/heading'
 import { Text } from '@/components/elements/text'
 import type { ReactNode } from 'react'
 import { Hero } from '@/components/sections/hero'
@@ -42,14 +43,14 @@ export default function Metodo() {
      id="hero"
      headline={
       <>
-         EON BioSystem: longevidad diseñada como sistema.
+         EON BioSystem: Ciencia, fuerza y conciencia como sistema de vida.
       </>
      }
      eyebrow={
       <AnnouncementBadge href="/aplica" text="Método EON" cta="Iniciar evaluación" variant="overlay" />
      }
      subheadline={
-      <p>Un método estructurado que integra fuerza, nutrición y biomarcadores en una arquitectura coherente de largo plazo.</p>
+      <p>EON nace de la integración entre biología, disciplina y propósito. Un método estructurado que integra fuerza, nutrición y biomarcadores en una arquitectura coherente de largo plazo.</p>
      }
      cta={
       <ButtonLink href="/aplica" size="lg">
@@ -58,7 +59,27 @@ export default function Metodo() {
      }
     />
 
-   {/* Sección 1: Estructura antes que intervención */}
+   {/* VISIÓN - Por qué existe EON */}
+   <section className="py-16 sm:py-24 bg-green-50">
+    <Container className="flex flex-col gap-10 sm:gap-16">
+     <div className="max-w-3xl">
+      <Heading level={2} className="mb-6">Nuestra Visión</Heading>
+      <div className="space-y-6 text-green-950">
+       <p className="text-lg">
+        <strong>Por qué existe EON.</strong> Ordenar decisiones de salud en un entorno saturado de información y soluciones inconexas.
+       </p>
+       <p>
+        La biología guía el proceso. Cada persona requiere un enfoque adaptado a su contexto fisiológico, donde la fuerza actúa como base de longevidad—el músculo es función metabólica, estructura y resiliencia.
+       </p>
+       <p>
+        Conciencia como equilibrio. Descanso, propósito y naturaleza forman parte del sistema. La longevidad es el resultado acumulativo de decisiones sostenidas, tiempo bien vivido.
+       </p>
+      </div>
+     </div>
+    </Container>
+   </section>
+
+   {/* MÉTODO - Estructura y ejecución */}
    <SectionWithHeading
     headline="Estructura antes que intervención."
     subheadline={

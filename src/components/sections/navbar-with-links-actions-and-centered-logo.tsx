@@ -1,4 +1,7 @@
+'use client'
+
 import Link from 'next/link'
+import { usePathname } from 'next/navigation'
 
 import { ElDialog, ElDialogPanel } from '@tailwindplus/elements/react'
 import { clsx } from 'clsx/lite'
@@ -10,11 +13,17 @@ export function NavbarLink({
  className,
  ...props
 }: { href: string } & Omit<ComponentProps<'a'>, 'href'>) {
+ const pathname = usePathname()
+ const isActive = pathname === href
+
  return (
   <Link
    href={href}
    className={clsx(
-    'group inline-flex items-center justify-between gap-2 font-medium text-green-950 text-base uppercase hover:text-orange-600 transition-colors',
+    'group inline-flex items-center justify-between gap-2 font-medium text-base uppercase transition-colors',
+    isActive
+     ? 'text-orange-600 font-bold underline pointer-events-none'
+     : 'text-green-950 hover:text-orange-600',
     className,
    )}
    {...props}
@@ -30,7 +39,20 @@ export function NavbarLink({
 }
 
 export function NavbarLogo({ className, href, ...props }: { href: string } & Omit<ComponentProps<'a'>, 'href'>) {
- return <Link href={href} {...props} className={clsx('inline-flex items-stretch', className)} />
+ const pathname = usePathname()
+ const isActive = pathname === href
+
+ return (
+  <Link
+   href={href}
+   {...props}
+   className={clsx(
+    'inline-flex items-stretch transition-colors duration-300',
+    isActive ? 'text-orange-600' : 'text-green-950 hover:text-orange-600',
+    className,
+   )}
+  />
+ )
 }
 
 export function NavbarWithLinksActionsAndCenteredLogo({
