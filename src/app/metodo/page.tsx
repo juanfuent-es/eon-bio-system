@@ -46,13 +46,13 @@ export default function Metodo() {
       </>
      }
      eyebrow={
-      <AnnouncementBadge href="/aplicar" text="Método EON" cta="Iniciar evaluación" variant="overlay" />
+      <AnnouncementBadge href="/aplica" text="Método EON" cta="Iniciar evaluación" variant="overlay" />
      }
      subheadline={
       <p>Un método estructurado que integra fuerza, nutrición y biomarcadores en una arquitectura coherente de largo plazo.</p>
      }
      cta={
-      <ButtonLink href="/aplicar" size="lg">
+      <ButtonLink href="/aplica" size="lg">
        Iniciar evaluación <ArrowNarrowRightIcon />
       </ButtonLink>
      }
@@ -107,7 +107,7 @@ export default function Metodo() {
      </>
     }
     cta={
-     <PlainButtonLink href="/aplicar">
+     <PlainButtonLink href="/aplica">
       Aplicar al sistema <ArrowNarrowRightIcon />
      </PlainButtonLink>
     }

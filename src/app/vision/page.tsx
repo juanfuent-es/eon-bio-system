@@ -107,7 +107,7 @@ export default function Vision() {
      </>
     }
     cta={
-     <PlainButtonLink href="/aplicar">
+     <PlainButtonLink href="/aplica">
       Iniciar evaluación <ArrowNarrowRightIcon />
      </PlainButtonLink>
     }

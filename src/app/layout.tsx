@@ -61,7 +61,7 @@ export default function RootLayout({
       }
       actions={
        <>
-        <ButtonLink href="/aplicar" className='min-w-20'>Aplica <ArrowNarrowRightIcon /></ButtonLink>
+        <ButtonLink href="/aplica" className='min-w-20'>Aplica <ArrowNarrowRightIcon /></ButtonLink>
        </>
       }
      />
@@ -94,7 +94,7 @@ export default function RootLayout({
          <FooterLink href="/metodo">Método</FooterLink>
          <FooterLink href="/vision">Visión</FooterLink>
          <FooterLink href="/about">Acerca de</FooterLink>
-         <FooterLink href="/aplicar">Aplicar</FooterLink>
+         <FooterLink href="/aplica">Aplicar</FooterLink>
          <FooterLink href="/preguntas-frecuentes">FAQ</FooterLink>
         </FooterCategory>
         <FooterCategory title="Legal">

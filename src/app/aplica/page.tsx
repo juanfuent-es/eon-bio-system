@@ -10,7 +10,6 @@ import { HeroSimpleLeftAligned } from '@/components/sections/hero-simple-left-al
 import { Container } from '@/components/elements/container'
 import { Heading } from '@/components/elements/heading'
 import { Text } from '@/components/elements/text'
-import { Document } from '@/components/elements/document'
 import type { ReactNode } from 'react'
 
 function SectionWithHeading({

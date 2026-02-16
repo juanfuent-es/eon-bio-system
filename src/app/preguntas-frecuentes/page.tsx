@@ -14,11 +14,11 @@ export default function PreguntasFrecuentes() {
      id="hero"
      headline={
       <>
-         Preguntas frecuentes sobre EON BioSystem
+         Preguntas frecuentes
       </>
      }
      eyebrow={
-      <AnnouncementBadge href="/aplicar" text="FAQ" cta="Aplicar al sistema" variant="overlay" />
+      <AnnouncementBadge href="/aplica" text="FAQ" cta="Aplicar al sistema" variant="overlay" />
      }
      subheadline={
       <p>Respuestas claras sobre el sistema de longevidad clínica basado en ciencia aplicada, biomarcadores y optimización estructurada.</p>
@@ -89,7 +89,7 @@ export default function PreguntasFrecuentes() {
      }
      cta={
       <div className="flex items-center gap-4">
-       <ButtonLink href="/aplicar" size="lg">
+       <ButtonLink href="/aplica" size="lg">
         Aplicar al sistema
        </ButtonLink>
 

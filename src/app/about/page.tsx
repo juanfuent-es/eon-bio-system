@@ -46,13 +46,13 @@ export default function About() {
       </>
      }
      eyebrow={
-      <AnnouncementBadge href="/aplicar" text="Sobre EON" cta="Iniciar evaluación" variant="overlay" />
+      <AnnouncementBadge href="/aplica" text="Sobre EON" cta="Iniciar evaluación" variant="overlay" />
      }
      subheadline={
       <p>EON BioSystem y NTS Clinic operan bajo una misma dirección profesional, integrando sistema estructurado y supervisión clínica cuando es necesario.</p>
      }
      cta={
-      <ButtonLink href="/aplicar" size="lg">
+      <ButtonLink href="/aplica" size="lg">
        Iniciar evaluación <ArrowNarrowRightIcon />
       </ButtonLink>
      }
@@ -109,7 +109,7 @@ export default function About() {
      </>
     }
     cta={
-     <PlainButtonLink href="/aplicar">
+     <PlainButtonLink href="/aplica">
       Aplicar al sistema <ArrowNarrowRightIcon />
      </PlainButtonLink>
     }
