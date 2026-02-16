@@ -27,10 +27,10 @@ export default function PreguntasFrecuentes() {
 
    <Main>
     {/* FAQs */}
-    <FAQsAccordion id="faqs" headline="Preguntas Frecuentes">
+    <FAQsAccordion id="faqs">
      <Faq
       id="faq-1"
-      question={<>¿Qué es exactamente <strong>EON BioSystem</strong>?</>}
+      question="¿Qué es exactamente EON BioSystem?"
       answer={
        <div>
         <strong>Sistema integral de longevidad clínica</strong> basado en <em>análisis de biomarcadores</em>, <strong>composición corporal</strong>, <em>optimización hormonal</em> y <strong>entrenamiento estructurado</strong>. No es genérico; es <em>diseñado personalmente</em> para tu biología.
@@ -39,7 +39,7 @@ export default function PreguntasFrecuentes() {
      />
      <Faq
       id="faq-2"
-      question={<>¿En qué se diferencia de una <strong>consulta nutricional tradicional</strong>?</>}
+      question="¿En qué se diferencia de una consulta nutricional tradicional?"
       answer={
        <div>
         Porque <strong>no es dieta + rutina</strong>. Es: <em>Evaluación fisiológica profunda</em>, <strong>paneles de laboratorio estratégicos</strong>, <em>protocolos personalizados</em>, <strong>seguimiento longitudinal</strong> y <em>enfoque anual</em>. La diferencia es el rigor científico y la integración sistémica.
@@ -48,7 +48,7 @@ export default function PreguntasFrecuentes() {
      />
      <Faq
       id="faq-3"
-      question={<>¿Quién es <strong>candidato ideal</strong> para <em>EON</em>?</>}
+      question="¿Quién es candidato ideal para EON?"
       answer={
        <div>
         <strong>Empresarios</strong>, <em>profesionistas de alto rendimiento</em>, <strong>atletas recreativos o competitivos</strong>, <em>personas interesadas en longevidad activa</em> y <strong>pacientes con resistencia metabólica</strong> leve–moderada. Si tu salud es una prioridad, eres candidato.
@@ -57,7 +57,7 @@ export default function PreguntasFrecuentes() {
      />
      <Faq
       id="faq-4"
-      question={<>¿Es un <strong>programa para bajar de peso</strong>?</>}
+      question="¿Es un programa para bajar de peso?"
       answer={
        <div>
         No. Es un <strong>sistema de optimización metabólica y corporal</strong>. La <em>pérdida de grasa es consecuencia</em>, no objetivo aislado. El enfoque es construir <em>composición corporal óptima</em> y <strong>función metabólica sostenible</strong>.
@@ -66,7 +66,7 @@ export default function PreguntasFrecuentes() {
      />
      <Faq
       id="faq-5"
-      question={<>¿Trabajan con <strong>biomarcadores</strong> y <em>estudios de laboratorio</em>?</>}
+      question="¿Trabajan con biomarcadores y estudios de laboratorio?"
       answer={
        <div>
         <strong>Sí</strong>. EON se fundamenta en: <em>Perfil hormonal</em>, <strong>perfil metabólico</strong>, <em>marcadores inflamatorios</em>, <strong>composición corporal (InBody)</strong> y <em>seguimiento trimestral</em>. Los datos guían cada decisión.
@@ -75,7 +75,7 @@ export default function PreguntasFrecuentes() {
      />
      <Faq
       id="faq-6"
-      question={<>¿Cuánto <strong>dura el programa</strong>?</>}
+      question="¿Cuánto dura el programa?"
       answer={
        <div>
         <strong>Modelo anual recomendado</strong>. La <em>longevidad no se trabaja en 12 semanas</em>. Requiere visión a largo plazo, ajustes continuos y compromiso sostenido.
@@ -84,7 +84,7 @@ export default function PreguntasFrecuentes() {
      />
      <Faq
       id="faq-7"
-      question={<>¿Incluye <strong>medicación</strong> o <em>terapias farmacológicas</em>?</>}
+      question="¿Incluye medicación o terapias farmacológicas?"
       answer={
        <div>
         <strong>Solo si existe indicación clínica documentada</strong> y bajo <em>consentimiento informado</em>. Cada decisión está respaldada por datos y es tu elección.
@@ -93,7 +93,7 @@ export default function PreguntasFrecuentes() {
      />
      <Faq
       id="faq-8"
-      question={<>¿Es un programa <strong>online</strong> o <em>presencial</em>?</>}
+      question="¿Es un programa online o presencial?"
       answer={
        <div>
         <strong>Modelo híbrido</strong>. Evaluaciones iniciales presenciales, seguimiento flexible según necesidad, con acceso a herramientas digitales y espacios de entrenamiento.
@@ -102,7 +102,7 @@ export default function PreguntasFrecuentes() {
      />
      <Faq
       id="faq-9"
-      question={<>¿Qué tipo de <strong>resultados</strong> se pueden <em>esperar</em>?</>}
+      question="¿Qué tipo de resultados se pueden esperar?"
       answer={
        <div>
         <em>Reducción de grasa visceral</em>, <strong>aumento de masa magra</strong>, <em>optimización hormonal</em>, <strong>mejora en marcadores cardiometabólicos</strong>, <em>mejor energía</em> y <strong>desempeño físico elevado</strong>. Pero los resultados varían según adherencia y biología individual.
@@ -111,7 +111,7 @@ export default function PreguntasFrecuentes() {
      />
      <Faq
       id="faq-10"
-      question={<>¿Qué nivel de <strong>compromiso</strong> requiere?</>}
+      question="¿Qué nivel de compromiso requiere?"
       answer={
        <div>
         <strong>Alto</strong>. EON <em>no es para personas que buscan soluciones rápidas</em>. Es para quienes están dispuestos a <strong>invertir en su biología</strong> de forma constante y estructurada. La longevidad exige disciplina, no atajos.
