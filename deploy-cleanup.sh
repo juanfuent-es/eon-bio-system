@@ -19,6 +19,8 @@ echo "🏗️ Build producción"
 npm run build
 
 echo "♻️ Reiniciando PM2"
-pm2 restart eon || pm2 start npm --name "eon" -- start
+pm2 delete eon || true
+PORT=3003 pm2 start npm --name "eon" --cwd /var/www/eon -- start
+pm2 save
 
 echo "✅ Deploy completado"
