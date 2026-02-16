@@ -44,7 +44,10 @@ export default function RootLayout({
  return (
   <html lang="es" className="bg-neutral-200 text-neutral-900">
    <head>
-    <link rel="stylesheet" href="https://use.typekit.net/xsn1nhj.css" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="theme-color" content="#000000" />
+        <link rel="icon" href="./eon-symbol.svg" type="image/svg-xml" />
+        <link rel="stylesheet" href="https://use.typekit.net/xsn1nhj.css" />
    </head>
    <body>
     <>
