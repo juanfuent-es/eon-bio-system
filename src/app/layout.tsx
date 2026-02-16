@@ -1,5 +1,3 @@
-import Image from 'next/image'
-
 import { ButtonLink } from '@/components/elements/button'
 import { Main } from '@/components/elements/main'
 import { FacebookIcon } from '@/components/icons/social/facebook-icon'
@@ -32,7 +30,7 @@ export default function RootLayout({
  children: React.ReactNode
 }>) {
  return (
-  <html lang="en" className="bg-neutral-200 text-neutral-900">
+  <html lang="es" className="bg-neutral-200 text-neutral-900">
    <head>
     <link rel="stylesheet" href="https://use.typekit.net/xsn1nhj.css" />
     <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
@@ -55,13 +53,15 @@ export default function RootLayout({
       }
       links={
        <>
-        <NavbarLink href="/sistema">El Sistema</NavbarLink>
-        <NavbarLink href="/acerca">Acerca de</NavbarLink>
+        <NavbarLink href="/metodo">Método</NavbarLink>
+        <NavbarLink href="/vision">Visión</NavbarLink>
+        <NavbarLink href="/about">Acerca de</NavbarLink>
+        <NavbarLink href="/preguntas-frecuentes">FAQ</NavbarLink>
        </>
       }
       actions={
        <>
-        <ButtonLink href="/aplica" className='min-w-20'>Aplica <ArrowNarrowRightIcon /></ButtonLink>
+        <ButtonLink href="/aplicar" className='min-w-20'>Aplica <ArrowNarrowRightIcon /></ButtonLink>
        </>
       }
      />
@@ -90,9 +90,12 @@ export default function RootLayout({
       links={
        <>
         <FooterCategory title="Navegación">
-         <FooterLink href="/sistema">Sistema</FooterLink>
-         <FooterLink href="/acerca">Acerca</FooterLink>
-         <FooterLink href="/aplica">Aplica</FooterLink>
+         <FooterLink href="/">Inicio</FooterLink>
+         <FooterLink href="/metodo">Método</FooterLink>
+         <FooterLink href="/vision">Visión</FooterLink>
+         <FooterLink href="/about">Acerca de</FooterLink>
+         <FooterLink href="/aplicar">Aplicar</FooterLink>
+         <FooterLink href="/preguntas-frecuentes">FAQ</FooterLink>
         </FooterCategory>
         <FooterCategory title="Legal">
          <FooterLink href="/privacy-policy">Aviso de Privacidad</FooterLink>
