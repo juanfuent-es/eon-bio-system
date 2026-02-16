@@ -22,6 +22,18 @@ import { ArrowNarrowRightIcon } from '@/components/icons/arrow-narrow-right-icon
 
 export const metadata: Metadata = {
  title: 'EON BioSystem',
+ icons: {
+  icon: [
+   { url: '/favicon.ico', sizes: 'any' },
+   { url: '/favicon.svg', type: 'image/svg+xml' },
+   { url: '/favicon-96x96.png', sizes: '96x96', type: 'image/png' },
+  ],
+  apple: '/apple-touch-icon.png',
+ },
+ manifest: '/site.webmanifest',
+ appleWebApp: {
+  title: 'BioSystem',
+ },
 }
 
 export default function RootLayout({
@@ -33,12 +45,6 @@ export default function RootLayout({
   <html lang="es" className="bg-neutral-200 text-neutral-900">
    <head>
     <link rel="stylesheet" href="https://use.typekit.net/xsn1nhj.css" />
-    <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="shortcut icon" href="/favicon.ico" />
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-    <meta name="apple-mobile-web-app-title" content="BioSystem" />
-    <link rel="manifest" href="/site.webmanifest" />
    </head>
    <body>
     <>
