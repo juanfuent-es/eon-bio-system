@@ -1,16 +1,34 @@
 import { clsx } from 'clsx/lite'
 import type { ComponentProps } from 'react'
 
+type HeadingLevel = 1 | 2 | 3 | 4 | 5 | 6
+
 export function Heading({
  children,
+ level = 1,
  color = 'dark/light',
  className,
  ...props
-}: { color?: 'dark/light' | 'light' } & ComponentProps<'h1'>) {
+}: { level?: HeadingLevel; color?: 'dark/light' | 'light' } & Omit<
+ ComponentProps<'h1'>,
+ 'level'
+>) {
+ const HeadingTag = `h${level}` as const
+ 
+ const sizeClasses = {
+  1: 'text-5xl/12 sm:text-[5rem]/20',
+  2: 'text-4xl/12 sm:text-4xl/12',
+  3: 'text-2xl/8 sm:text-3xl/10',
+  4: 'text-xl/7 sm:text-2xl/8',
+  5: 'text-lg/6 sm:text-xl/7',
+  6: 'text-base/6 sm:text-lg/7',
+ }
+
  return (
-  <h1
+  <HeadingTag
    className={clsx(
-    'font-display text-5xl/12 tracking-tight text-balance sm:text-[5rem]/20',
+    'font-display tracking-tight text-balance',
+    sizeClasses[level],
     color === 'dark/light' && 'text-green-950',
     color === 'light' && 'text-white',
     className,
@@ -18,6 +36,6 @@ export function Heading({
    {...props}
   >
    {children}
-  </h1>
+  </HeadingTag>
  )
 }
