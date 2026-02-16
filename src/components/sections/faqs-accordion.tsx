@@ -24,7 +24,9 @@ export function Faq({
     commandfor={`${id}-answer`}
     className="flex w-full items-start justify-between gap-6 py-4 text-left text-base/7 text-green-950"
    >
-    {question}
+    <span>
+        {question}
+    </span>
     <PlusIcon className="h-lh in-aria-expanded:hidden" />
     <MinusIcon className="h-lh not-in-aria-expanded:hidden" />
    </button>

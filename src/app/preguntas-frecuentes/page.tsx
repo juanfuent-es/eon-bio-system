@@ -30,53 +30,93 @@ export default function PreguntasFrecuentes() {
     <FAQsAccordion id="faqs" headline="Preguntas Frecuentes">
      <Faq
       id="faq-1"
-      question="¿Qué es exactamente EON BioSystem?"
-      answer="Sistema integral de longevidad clínica basado en análisis de biomarcadores, composición corporal, optimización hormonal y entrenamiento estructurado."
+      question={<>¿Qué es exactamente <strong>EON BioSystem</strong>?</>}
+      answer={
+       <div>
+        <strong>Sistema integral de longevidad clínica</strong> basado en <em>análisis de biomarcadores</em>, <strong>composición corporal</strong>, <em>optimización hormonal</em> y <strong>entrenamiento estructurado</strong>. No es genérico; es <em>diseñado personalmente</em> para tu biología.
+       </div>
+      }
      />
      <Faq
       id="faq-2"
-      question="¿En qué se diferencia de una consulta nutricional tradicional?"
-      answer="Porque no es dieta + rutina. Es: Evaluación fisiológica profunda, paneles de laboratorio estratégicos, protocolos personalizados, seguimiento longitudinal y enfoque anual."
+      question={<>¿En qué se diferencia de una <strong>consulta nutricional tradicional</strong>?</>}
+      answer={
+       <div>
+        Porque <strong>no es dieta + rutina</strong>. Es: <em>Evaluación fisiológica profunda</em>, <strong>paneles de laboratorio estratégicos</strong>, <em>protocolos personalizados</em>, <strong>seguimiento longitudinal</strong> y <em>enfoque anual</em>. La diferencia es el rigor científico y la integración sistémica.
+       </div>
+      }
      />
      <Faq
       id="faq-3"
-      question="¿Quién es candidato ideal para EON?"
-      answer="Empresarios, profesionistas de alto rendimiento, atletas recreativos o competitivos, personas interesadas en longevidad activa y pacientes con resistencia metabólica leve–moderada."
+      question={<>¿Quién es <strong>candidato ideal</strong> para <em>EON</em>?</>}
+      answer={
+       <div>
+        <strong>Empresarios</strong>, <em>profesionistas de alto rendimiento</em>, <strong>atletas recreativos o competitivos</strong>, <em>personas interesadas en longevidad activa</em> y <strong>pacientes con resistencia metabólica</strong> leve–moderada. Si tu salud es una prioridad, eres candidato.
+       </div>
+      }
      />
      <Faq
       id="faq-4"
-      question="¿Es un programa para bajar de peso?"
-      answer="No. Es un sistema de optimización metabólica y corporal. La pérdida de grasa es consecuencia, no objetivo aislado."
+      question={<>¿Es un <strong>programa para bajar de peso</strong>?</>}
+      answer={
+       <div>
+        No. Es un <strong>sistema de optimización metabólica y corporal</strong>. La <em>pérdida de grasa es consecuencia</em>, no objetivo aislado. El enfoque es construir <em>composición corporal óptima</em> y <strong>función metabólica sostenible</strong>.
+       </div>
+      }
      />
      <Faq
       id="faq-5"
-      question="¿Trabajan con biomarcadores y estudios de laboratorio?"
-      answer="Sí. EON se fundamenta en: Perfil hormonal, perfil metabólico, marcadores inflamatorios, composición corporal (InBody) y seguimiento trimestral."
+      question={<>¿Trabajan con <strong>biomarcadores</strong> y <em>estudios de laboratorio</em>?</>}
+      answer={
+       <div>
+        <strong>Sí</strong>. EON se fundamenta en: <em>Perfil hormonal</em>, <strong>perfil metabólico</strong>, <em>marcadores inflamatorios</em>, <strong>composición corporal (InBody)</strong> y <em>seguimiento trimestral</em>. Los datos guían cada decisión.
+       </div>
+      }
      />
      <Faq
       id="faq-6"
-      question="¿Cuánto dura el programa?"
-      answer="Modelo anual recomendado. La longevidad no se trabaja en 12 semanas."
+      question={<>¿Cuánto <strong>dura el programa</strong>?</>}
+      answer={
+       <div>
+        <strong>Modelo anual recomendado</strong>. La <em>longevidad no se trabaja en 12 semanas</em>. Requiere visión a largo plazo, ajustes continuos y compromiso sostenido.
+       </div>
+      }
      />
      <Faq
       id="faq-7"
-      question="¿Incluye medicación o terapias farmacológicas?"
-      answer="Solo si existe indicación clínica documentada y bajo consentimiento informado."
+      question={<>¿Incluye <strong>medicación</strong> o <em>terapias farmacológicas</em>?</>}
+      answer={
+       <div>
+        <strong>Solo si existe indicación clínica documentada</strong> y bajo <em>consentimiento informado</em>. Cada decisión está respaldada por datos y es tu elección.
+       </div>
+      }
      />
      <Faq
       id="faq-8"
-      question="¿Es un programa online o presencial?"
-      answer="Modelo híbrido."
+      question={<>¿Es un programa <strong>online</strong> o <em>presencial</em>?</>}
+      answer={
+       <div>
+        <strong>Modelo híbrido</strong>. Evaluaciones iniciales presenciales, seguimiento flexible según necesidad, con acceso a herramientas digitales y espacios de entrenamiento.
+       </div>
+      }
      />
      <Faq
       id="faq-9"
-      question="¿Qué tipo de resultados se pueden esperar?"
-      answer="Reducción de grasa visceral, aumento de masa magra, optimización hormonal, mejora en marcadores cardiometabólicos y mejora en energía y desempeño."
+      question={<>¿Qué tipo de <strong>resultados</strong> se pueden <em>esperar</em>?</>}
+      answer={
+       <div>
+        <em>Reducción de grasa visceral</em>, <strong>aumento de masa magra</strong>, <em>optimización hormonal</em>, <strong>mejora en marcadores cardiometabólicos</strong>, <em>mejor energía</em> y <strong>desempeño físico elevado</strong>. Pero los resultados varían según adherencia y biología individual.
+       </div>
+      }
      />
      <Faq
       id="faq-10"
-      question="¿Qué nivel de compromiso requiere?"
-      answer="Alto. EON no es para personas que buscan soluciones rápidas."
+      question={<>¿Qué nivel de <strong>compromiso</strong> requiere?</>}
+      answer={
+       <div>
+        <strong>Alto</strong>. EON <em>no es para personas que buscan soluciones rápidas</em>. Es para quienes están dispuestos a <strong>invertir en su biología</strong> de forma constante y estructurada. La longevidad exige disciplina, no atajos.
+       </div>
+      }
      />
     </FAQsAccordion>
 
