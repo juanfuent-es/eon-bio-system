@@ -15,13 +15,6 @@ rm -rf .next
 echo "📦 Instalando dependencias"
 npm ci
 
-echo "🔍 Verificando .env"
-if [ ! -f .env ]; then
-  echo "⚠️  Archivo .env no encontrado en /var/www/eon"
-  echo "   Copia .env.example y configura las variables"
-  exit 1
-fi
-
 echo "🏗️ Build producción"
 npm run build
 
