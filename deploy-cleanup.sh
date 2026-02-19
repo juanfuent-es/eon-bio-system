@@ -11,6 +11,7 @@ git reset --hard origin/main
 
 echo "🧹 Limpiando build previo"
 rm -rf .next
+rm -rf node_modules
 
 echo "📦 Instalando dependencias"
 npm ci
@@ -28,21 +29,23 @@ echo "   ✅ $CSS_COUNT archivo(s) CSS generados"
 ls -la .next/static/chunks/*.css
 
 echo "♻️ Reiniciando PM2"
-pm2 delete eon || true
-PORT=3003 pm2 start npm --name "eon" --cwd /var/www/eon -- start
-pm2 save
+pm2 restart all
 
-echo "⏳ Esperando a que Next.js inicie..."
-sleep 3
-
-echo "🔍 Verificando que el servidor responde..."
-HTTP_CODE=$(curl -s -o /dev/null -w "%{http_code}" http://localhost:3003/ 2>/dev/null || echo "000")
-if [ "$HTTP_CODE" = "200" ]; then
-  echo "   ✅ Servidor responde OK (HTTP $HTTP_CODE)"
-else
-  echo "   ⚠️  Servidor respondió HTTP $HTTP_CODE"
-  echo "   Revisando logs de PM2:"
-  pm2 logs eon --lines 20 --nostream
-fi
+# pm2 delete eon || true
+# PORT=3003 pm2 start npm --name "eon" --cwd /var/www/eon -- start
+# pm2 save
+# 
+# echo "⏳ Esperando a que Next.js inicie..."
+# sleep 3
+# 
+# echo "🔍 Verificando que el servidor responde..."
+# HTTP_CODE=$(curl -s -o /dev/null -w "%{http_code}" http://localhost:3003/ 2>/dev/null || echo "000")
+# if [ "$HTTP_CODE" = "200" ]; then
+#   echo "   ✅ Servidor responde OK (HTTP $HTTP_CODE)"
+# else
+#   echo "   ⚠️  Servidor respondió HTTP $HTTP_CODE"
+#   echo "   Revisando logs de PM2:"
+#   pm2 logs eon --lines 20 --nostream
+# fi
 
 echo "✅ Deploy completado"
