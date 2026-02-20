@@ -44,15 +44,15 @@ export default function Page() {
      id="hero"
      headline={
       <>
-         EON BioSystem <small className="block">Seguimiento metabólico y funcional.</small>
+         EON BioSystem <small className="block">Seguimiento metabólico y funcional</small>
       </>
      }
      eyebrow={
-      <AnnouncementBadge href="/sistema" text="Un sistema de longevidad basado en ciencia aplicada." cta="Conoce más" variant="overlay" />
+      <AnnouncementBadge href="/sistema" text="Un sistema de longevidad diseñado desde la ciencia." cta="Conoce más" variant="overlay" />
      }
      subheadline={
       <>
-        <p>Un sistema antiaging que integra <strong>fuerza, nutrición y biomarcadores</strong> para optimizar tu biología de forma sostenible.</p>
+        <p>Un sistema integral que une <strong>fuerza, nutrición y biomarcadores</strong> para optimizar tu biología de forma sostenible.</p>
       </>
      }
      cta={
@@ -60,7 +60,7 @@ export default function Page() {
         <ButtonLink href="/aplica" size="lg">
           Aplica al sistema <ArrowNarrowRightIcon />
           </ButtonLink>
-        <p className="text-sm font-light italic text-green-200">*Requiere evaluación previa</p>
+        <p className="text-sm font-light italic text-green-200">*Acceso mediante evaluación previa.</p>
       </>
      }
     />
@@ -69,16 +69,13 @@ export default function Page() {
    <SectionWithHeading
     headline={
      <>
-      La longevidad se construye,<br /> no se improvisa.
+      La longevidad se construye <br />todos los días
      </>
     }
     subheadline={
      <>
-      <p className="italic">Con el tiempo, el cuerpo cambia.</p>
-      {/* <p>La recuperación, el metabolismo y el rendimiento dejan de responder igual. <br />  
-      Sin datos claros, la mayoría de las decisiones sobre salud se basan en intuición, tendencias o ensayo y error.</p>
-      <p>EON BioSystem existe para reemplazar la improvisación por un sistema diseñado desde la ciencia.</p> */}
-      <p>Sin estructura ni datos, las decisiones sobre salud se basan en intuición, tendencias o ensayo y error. <strong>EON BioSystem</strong> reemplaza la improvisación por un sistema medible.</p>      
+      <p className="italic">Con el tiempo, el cuerpo cambia. La recuperación y el rendimiento también.</p>
+      <p className='text-balance'>Sin datos claros, nuestras decisiones se suelen basar en intuición o ensayo y error. <strong>EON BioSystem</strong> reemplaza la improvisación por un sistema diseñado desde la ciencia.</p>
      </>
     }
     cta={

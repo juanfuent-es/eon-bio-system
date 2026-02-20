@@ -36,6 +36,18 @@
   --scroll-thumb-over: var(--color-orange-500);
   --scroll-border-radius: 100px;
   --scroll-size: 10px;
+  --selection-background: var(--color-green-500);
+  --selection-foreground: var(--color-neutral-50);
+}
+
+::selection {
+  background-color: var(--selection-background);
+  color: var(--selection-foreground);
+}
+
+::-moz-selection {
+  background-color: var(--selection-background);
+  color: var(--selection-foreground);
 }
 
 ::-webkit-scrollbar {
