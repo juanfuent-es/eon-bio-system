@@ -87,7 +87,7 @@ export default function Page() {
 
    {/* Sección 3: Qué es EON BioSystem */}
    <SectionWithHeading
-    headline="Un sistema, no un plan."
+    headline="Un sistema, no un plan"
     subheadline={
      <>
       <p>EON BioSystem es un sistema de longevidad basado en el análisis de biomarcadores para diseñar estrategias personalizadas de entrenamiento, nutrición y suplementación.</p>
@@ -105,7 +105,7 @@ export default function Page() {
    <SectionWithHeading
     headline={
       <>
-        EON BioSystem no es para todos. <br /> <small>*Esto es parte del sistema*</small>
+        EON no es para todos <br /> <small>*Esto es parte de nuestro sistema*</small>
       </>
     }
     subheadline={
@@ -124,11 +124,11 @@ export default function Page() {
 
    {/* Sección 7: Respaldo clínico */}
    <SectionWithHeading
-    headline="Dirección y respaldo profesional."
+    headline="Dirección y respaldo profesional"
     subheadline={
      <>
       <p className=''>EON BioSystem opera con respaldo clínico de <a href="https://ntsclinic.com" title="Visita el sitio de NTS Clinic" target='_blank' className='text-green-800 transition-colors underline hover:text-orange-500'>NTS Clinic</a>, que supervisa los aspectos médicos cuando el proceso lo exige.</p>
-      <p className='italic mt-2 text-green-800/80'>*El acceso requiere evaluación previa.</p>
+      <p className='italic mt-2 text-green-800/80'>*Acceso mediante evaluación previa.</p>
      </>
     }
     cta={
