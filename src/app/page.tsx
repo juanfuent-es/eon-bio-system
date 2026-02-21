@@ -19,7 +19,7 @@ function SectionWithHeading({
  children?: ReactNode
 }) {
  return (
-  <section className="py-16 sm:py-24">
+  <section className="px-4 py-16 sm:py-24">
    <Container className="flex flex-col gap-10 sm:gap-16 items-center text-center">
     <div className="flex max-w-6xl flex-col gap-6">
      <Subheading>{headline}</Subheading>
@@ -39,7 +39,6 @@ export default function Page() {
   <div className="home-snap">
    {/* Hero */}
    <Hero
-     id="hero"
      headline={
       <>
          EON BioSystem <small className="block">Seguimiento metabólico y funcional</small>

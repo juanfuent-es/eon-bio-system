@@ -89,6 +89,17 @@
 @layer components {
   html:has(.home-snap) {
     scroll-snap-type: y mandatory;
+    scroll-padding-top: 0;
+  }
+
+  html:has(.home-snap) #footer {
+    scroll-snap-align: start;
+    scroll-snap-stop: normal;
+  }
+
+  html:has(.home-snap) #footer {
+    scroll-snap-align: start;
+    scroll-snap-stop: normal;
   }
 
   .home-snap > section {
@@ -96,7 +107,7 @@
     display: flex;
     align-items: center;
     scroll-snap-align: start;
-    scroll-snap-stop: always;
+    scroll-snap-stop: normal;
   }
 
   .home-snap > section > * {
