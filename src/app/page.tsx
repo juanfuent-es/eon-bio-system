@@ -39,6 +39,7 @@ export default function Page() {
   <div className="home-snap">
    {/* Hero */}
    <Hero
+     className="home-first-slide"
      headline={
       <>
          EON BioSystem <small className="block">Seguimiento metabólico y funcional</small>

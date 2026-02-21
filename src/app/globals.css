@@ -76,7 +76,7 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     background-color: var(--color-green-100);
-    scroll-padding-top: var(--scroll-padding-top);
+    scroll-padding-top: 0;
     scroll-behavior: smooth;
 
     @variant dark {
@@ -87,17 +87,15 @@
 }
 
 @layer components {
-  html:has(.home-snap) {
+  html, body {
+    /* Scroll snap: habilitar scroll snap vertical para alinear secciones al top */
     scroll-snap-type: y mandatory;
-    scroll-padding-top: 0;
+    height: 100%;
+    overflow-x: hidden;
   }
 
-  html:has(.home-snap) #footer {
-    scroll-snap-align: start;
-    scroll-snap-stop: normal;
-  }
-
-  html:has(.home-snap) #footer {
+  html:has(.home-snap) #footer,
+  body:has(.home-snap) #footer {
     scroll-snap-align: start;
     scroll-snap-stop: normal;
   }
