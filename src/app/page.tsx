@@ -1,10 +1,8 @@
 import { ButtonLink, PlainButtonLink } from '@/components/elements/button'
 import { ArrowNarrowRightIcon } from '@/components/icons/arrow-narrow-right-icon'
-import { CallToActionSimple } from '@/components/sections/call-to-action-simple'
 import { Container } from '@/components/elements/container'
 import { Subheading } from '@/components/elements/subheading'
 import { Text } from '@/components/elements/text'
-import { Document } from '@/components/elements/document'
 import type { ReactNode } from 'react'
 import { Hero } from '@/components/sections/hero'
 import { AnnouncementBadge } from '@/components/elements/announcement-badge'
@@ -38,7 +36,7 @@ function SectionWithHeading({
 
 export default function Page() {
  return (
-  <>
+  <div className="home-snap">
    {/* Hero */}
    <Hero
      id="hero"
@@ -139,6 +137,6 @@ export default function Page() {
       </>
     }
    />
-  </>
+  </div>
  )
 }

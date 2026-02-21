@@ -85,3 +85,21 @@
   }
 
 }
+
+@layer components {
+  html:has(.home-snap) {
+    scroll-snap-type: y mandatory;
+  }
+
+  .home-snap > section {
+    min-height: 100svh;
+    display: flex;
+    align-items: center;
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+  }
+
+  .home-snap > section > * {
+    width: 100%;
+  }
+}
