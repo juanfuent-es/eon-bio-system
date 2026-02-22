@@ -3,14 +3,14 @@ import type { ComponentProps } from 'react'
 
 export function Subheading({
  children,
- color = 'dark/light',
  className,
  ...props
-}: { color?: 'dark/light' | 'light' } & ComponentProps<'h1'>) {
+}) {
  return (
   <h2
    className={clsx(
-    'font-display text-4xl/12 tracking-tight text-balance sm:text-[4rem]/20 text-green-900',
+    'font-display tracking-tight text-balance text-green-900',
+    'text-[1.75rem] md:text-[2rem] lg:text-[2.25rem]',
     className,
    )}
    {...props}

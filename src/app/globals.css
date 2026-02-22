@@ -94,7 +94,7 @@
     overflow: hidden;
   }
 
-  .snap-main {
+  main {
     height: 100dvh;
     overflow-y: auto;
     overflow-x: hidden;
@@ -104,7 +104,11 @@
     padding-top: var(--scroll-padding-top);
   }
 
-  .snap-main > section {
+  .snap-padding-y {
+    padding-block: var(--scroll-padding-top);
+  }
+
+  main > section {
     min-height: calc(100dvh - var(--scroll-padding-top));
     display: flex;
     align-items: center;
@@ -113,13 +117,13 @@
     scroll-margin-top: 0;
   }
 
-  .snap-main > section > * {
+  main > section > * {
     width: 100%;
   }
 
-  .snap-main #footer {
+  main #footer {
     scroll-snap-align: start;
     scroll-snap-stop: normal;
   }
-
+  
 }

@@ -16,7 +16,8 @@ export function Heading({
  const HeadingTag = `h${level}` as const
  
  const sizeClasses = {
-  1: 'text-5xl/12 sm:text-[5rem]/20',
+  // 1: 'text-xl /12 sm:text-[5rem]/20',
+  1: 'text-[2rem] sm:text-[3rem] md:text-[4rem] lg:text-[5rem]',
   2: 'text-4xl/12 sm:text-4xl/12',
   3: 'text-2xl/8 sm:text-3xl/10',
   4: 'text-xl/7 sm:text-2xl/8',
@@ -27,10 +28,8 @@ export function Heading({
  return (
   <HeadingTag
    className={clsx(
-    'font-display tracking-tight text-balance',
+    'font-display tracking-tight text-balance text-white',
     sizeClasses[level],
-    color === 'dark/light' && 'text-green-950',
-    color === 'light' && 'text-white',
     className,
    )}
    {...props}
