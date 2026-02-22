@@ -20,10 +20,10 @@ function SectionWithHeading({
 }) {
  return (
   <section className="px-4 py-16 sm:py-24">
-   <Container className="flex flex-col gap-10 sm:gap-16 items-center text-center">
+   <Container className="flex flex-col gap-10 sm:gap-16 items-center text-left md:text-center">
     <div className="flex max-w-6xl flex-col gap-6">
      <Subheading>{headline}</Subheading>
-     <Text size="lg" className="flex max-w-2xl flex-col gap-4 mx-auto text-center">
+     <Text size="lg" className="flex max-w-2xl flex-col gap-4 mx-auto">
       {subheadline}
      </Text>
      {cta && <div className="pt-2">{cta}</div>}
