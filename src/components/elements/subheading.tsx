@@ -5,7 +5,7 @@ export function Subheading({
  children,
  className,
  ...props
-}) {
+}: ComponentProps<'h2'>) {
  return (
   <h2
    className={clsx(
