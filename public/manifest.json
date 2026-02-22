@@ -1,6 +1,8 @@
 {
   "name": "EON BioSystem",
   "short_name": "EON",
+  "start_url": "/",
+  "scope": "/",
   "icons": [
     {
       "src": "/web-app-manifest-192x192.png",
@@ -17,5 +19,6 @@
   ],
   "theme_color": "#c6531e",
   "background_color": "#1b4d3e",
-  "display": "standalone"
+  "display": "standalone",
+  "lang": "es-MX"
 }
