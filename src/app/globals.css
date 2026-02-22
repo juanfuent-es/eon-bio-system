@@ -87,28 +87,39 @@
 }
 
 @layer components {
-  html, body {
-    /* Scroll snap: habilitar scroll snap vertical para alinear secciones al top */
-    scroll-snap-type: y mandatory;
+  html,
+  body {
+    margin: 0;
     height: 100%;
+    overflow: hidden;
+  }
+
+  .snap-main {
+    height: 100dvh;
+    overflow-y: auto;
     overflow-x: hidden;
+    scroll-snap-type: y mandatory;
+    scroll-padding-top: 0;
+    overscroll-behavior-y: contain;
+    padding-top: var(--scroll-padding-top);
   }
 
-  html:has(.home-snap) #footer,
-  body:has(.home-snap) #footer {
-    scroll-snap-align: start;
-    scroll-snap-stop: normal;
-  }
-
-  .home-snap > section {
-    min-height: 100svh;
+  .snap-main > section {
+    min-height: calc(100dvh - var(--scroll-padding-top));
     display: flex;
     align-items: center;
     scroll-snap-align: start;
+    scroll-snap-stop: always;
+    scroll-margin-top: 0;
+  }
+
+  .snap-main > section > * {
+    width: 100%;
+  }
+
+  .snap-main #footer {
+    scroll-snap-align: start;
     scroll-snap-stop: normal;
   }
 
-  .home-snap > section > * {
-    width: 100%;
-  }
 }

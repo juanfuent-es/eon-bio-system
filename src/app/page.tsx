@@ -36,10 +36,9 @@ function SectionWithHeading({
 
 export default function Page() {
  return (
-  <div className="home-snap">
+  <>
    {/* Hero */}
    <Hero
-     className="home-first-slide"
      headline={
       <>
          EON BioSystem <small className="block">Seguimiento metabólico y funcional</small>
@@ -137,6 +136,6 @@ export default function Page() {
       </>
     }
    />
-  </div>
+  </>
  )
 }

@@ -48,8 +48,7 @@ export default function RootLayout({
                 <link rel="stylesheet" href="https://use.typekit.net/xsn1nhj.css" />
             </head>
             <body>
-                <>
-                    <NavbarWithLinksActionsAndCenteredLogo
+                <NavbarWithLinksActionsAndCenteredLogo
                         id="navbar"
                         logo={
                             <NavbarLogo href="/">
@@ -72,7 +71,8 @@ export default function RootLayout({
                         }
                     />
 
-                    <Main>{children}</Main>
+                    <Main>
+                    {children}
 
                     <FooterWithNewsletterFormCategoriesAndSocialIcons
                         id="footer"
@@ -133,7 +133,7 @@ export default function RootLayout({
                             </>
                         }
                     />
-                </>
+                    </Main>
             </body>
         </html>
     )
