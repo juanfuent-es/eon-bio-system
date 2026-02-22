@@ -11,7 +11,7 @@ import { ArrowNarrowRightIcon } from '../icons/arrow-narrow-right-icon'
 export function FooterCategory({ title, children, ...props }: { title: ReactNode } & ComponentProps<'div'>) {
  return (
   <div {...props}>
-   <h3>{title}</h3>
+    <h3 className="text-lg font-semibold mb-2 text-green-700">{title}</h3>
    <ul role="list" className="mt-2 flex flex-col gap-2">
     {children}
    </ul>
@@ -97,7 +97,7 @@ export function FooterWithNewsletterFormCategoriesAndSocialIcons({
 } & ComponentProps<'footer'>) {
  return (
   <footer className={clsx('', className)} {...props}>
-   <div className="bg-green-800/2.5 py-16 text-green-950">
+   <div className="bg-green-800/2.5 py-16 text-green-950 px-4">
     <Container className="flex flex-col gap-16">
      <div className="grid grid-cols-1 gap-x-6 gap-y-16 text-sm/7 lg:grid-cols-2">
       {cta}
