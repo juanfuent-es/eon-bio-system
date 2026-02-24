@@ -25,12 +25,12 @@ export function Wallpaper({
  color,
  className,
  ...props
-}: { color: 'green' | 'blue' | 'purple' | 'brown' } & ComponentProps<'div'>) {
+}: { color: 'green' | 'blue' | 'purple' | 'brown' | 'green-copper' | 'emerald' | 'copper' | 'mist' } & ComponentProps<'div'>) {
  return (
   <div
    data-color={color}
    className={clsx(
-    'relative overflow-hidden bg-linear-to-b data-[color=blue]:from-[#637c86] data-[color=blue]:to-[#778599] data-[color=brown]:from-[#8d7359] data-[color=brown]:to-[#765959] data-[color=green]:from-[#9ca88f] data-[color=green]:to-[#596352] data-[color=purple]:from-[#7b627d] data-[color=purple]:to-[#8f6976]',
+    'relative overflow-hidden bg-linear-to-b data-[color=blue]:from-[#637c86] data-[color=blue]:to-[#778599] data-[color=brown]:from-[#8d7359] data-[color=brown]:to-[#765959] data-[color=green]:from-[#9ca88f] data-[color=green]:to-[#596352] data-[color=purple]:from-[#7b627d] data-[color=purple]:to-[#8f6976] data-[color=green-copper]:from-[#7c8f6b] data-[color=green-copper]:via-[#53684f] data-[color=green-copper]:to-[#a6603c] data-[color=emerald]:from-[#79937e] data-[color=emerald]:to-[#2f4f42] data-[color=copper]:from-[#c06a3d] data-[color=copper]:to-[#70462f] data-[color=mist]:from-[#8a9ba8] data-[color=mist]:to-[#355645]',
     className,
    )}
    {...props}
@@ -42,7 +42,7 @@ export function Wallpaper({
      backgroundImage: noisePattern,
     }}
    />
-   <div className="relative">{children}</div>
+   <div className="relative w-full flex items-center ">{children}</div>
   </div>
  )
 }

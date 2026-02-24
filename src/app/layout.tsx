@@ -38,7 +38,7 @@ export default function RootLayout({
     children: React.ReactNode
 }>) {
     return (
-        <html lang="es" className="bg-neutral-200 text-neutral-900">
+        <html lang="es" className="bg-neutral-200 text-neutral-50">
             <head>
                 <meta name="viewport" content="width=device-width, initial-scale=1" />
                 <meta name="theme-color" content="#000000" />
@@ -86,7 +86,7 @@ export default function RootLayout({
                                             <p>Ciudad de México, CDMX</p>
                                         </a>
                                         <div className="mt-4">
-                                            <h3 className="text-lg font-semibold mb-2 text-green-800">Horario:</h3>
+                                            <h3 className="text-base font-semibold mb-2 text-green-800">Horario:</h3>
                                             <p>Lunes a viernes de 10:00 am - 7:00 pm</p>
                                             <p>Sábado de 8:00 am - 4:00 pm</p>
                                         </div>

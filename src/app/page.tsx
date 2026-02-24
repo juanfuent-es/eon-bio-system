@@ -6,30 +6,41 @@ import { Text } from '@/components/elements/text'
 import type { ReactNode } from 'react'
 import { Hero } from '@/components/sections/hero'
 import { AnnouncementBadge } from '@/components/elements/announcement-badge'
+import Image from 'next/image'
+import { Wallpaper } from '@/components/elements/wallpaper'
 
 function SectionWithHeading({
  headline,
  subheadline,
  cta,
+ layout = 'stack',
+ tone = 'green-copper',
  children,
 }: {
  headline: ReactNode
  subheadline: ReactNode
  cta?: ReactNode
+ layout?: 'stack' | 'split'
+ tone?: 'green-copper' | 'emerald' | 'copper' | 'mist'
  children?: ReactNode
 }) {
  return (
-  <section className="px-4 py-16 sm:py-24">
-   <Container className="flex flex-col gap-10 sm:gap-16 items-center text-left md:text-center">
-    <div className="flex max-w-6xl flex-col gap-6">
-     <Subheading>{headline}</Subheading>
-     <Text size="lg" className="flex max-w-2xl flex-col gap-4 mx-auto">
-      {subheadline}
-     </Text>
-     {cta && <div className="pt-2">{cta}</div>}
-    </div>
-    {children}
-   </Container>
+  <section className="p-4">
+   <Wallpaper color={tone} className="wallpaper rounded-lg">
+    <Container className="flex flex-col gap-10 sm:gap-16 items-center text-left md:text-center py-12 sm:py-16">
+     <div className={layout === 'split' ? 'grid w-full max-w-6xl gap-8 lg:grid-cols-2 lg:items-center' : 'flex w-full max-w-6xl flex-col gap-6'}>
+      <div className={layout === 'split' ? 'flex flex-col gap-6 text-left' : undefined}>
+       <Subheading>{headline}</Subheading>
+       <Text size="lg" className={layout === 'split' ? 'flex flex-col gap-4 text-green-100/90' : 'flex max-w-2xl flex-col gap-4 mx-auto text-green-100/90'}>
+        {subheadline}
+       </Text>
+       {cta && <div className="pt-2">{cta}</div>}
+      </div>
+      {layout === 'split' && children ? <div className="w-full">{children}</div> : null}
+     </div>
+    {layout === 'stack' ? children : null}
+    </Container>
+   </Wallpaper>
   </section>
  )
 }
@@ -80,7 +91,20 @@ export default function Page() {
       Conoce el método <ArrowNarrowRightIcon />
      </PlainButtonLink>
     }
-   />
+      layout="split"
+      tone="emerald"
+     >
+      <div className="mx-auto w-full max-w-4xl overflow-hidden rounded-xl outline -outline-offset-1 outline-black/5">
+       <Image
+        src="/eon-biosystem-mirror-background.jpg"
+        alt="Mujer de 40 años observándose en un espejo"
+        width={1920}
+        height={1280}
+        className="h-full w-full object-cover"
+        priority
+       />
+      </div>
+     </SectionWithHeading>
 
    {/* Sección 3: Qué es EON BioSystem */}
    <SectionWithHeading
@@ -96,6 +120,7 @@ export default function Page() {
       Ver cómo funciona <ArrowNarrowRightIcon />
      </PlainButtonLink>
     }
+    tone="mist"
    />
 
    {/* Sección 6: Para quién es */}
@@ -117,6 +142,7 @@ export default function Page() {
       Ver si califico <ArrowNarrowRightIcon />
      </PlainButtonLink>
     }
+    tone="emerald"
    />
 
    {/* Sección 7: Respaldo clínico */}
@@ -124,8 +150,8 @@ export default function Page() {
     headline="Dirección y respaldo profesional"
     subheadline={
      <>
-      <p className=''>EON BioSystem opera con respaldo clínico de <a href="https://ntsclinic.com" title="Visita el sitio de NTS Clinic" target='_blank' className='text-green-800 transition-colors underline hover:text-orange-500'>NTS Clinic</a>, que supervisa los aspectos médicos cuando el proceso lo exige.</p>
-      <p className='italic mt-2 text-green-800/80'>*Acceso mediante evaluación previa.</p>
+      <p className=''>EON BioSystem opera con respaldo clínico de <a href="https://ntsclinic.com" title="Visita el sitio de NTS Clinic" target='_blank' className='transition-colors underline hover:text-orange-500'>NTS Clinic</a>, que supervisa los aspectos médicos cuando el proceso lo exige.</p>
+      <p className='italic mt-2'>*Acceso mediante evaluación previa.</p>
      </>
     }
     cta={
@@ -135,6 +161,7 @@ export default function Page() {
         </PlainButtonLink>
       </>
     }
+    tone="copper"
    />
   </>
  )

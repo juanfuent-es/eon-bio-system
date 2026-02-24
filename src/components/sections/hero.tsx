@@ -20,9 +20,9 @@ export function Hero({
     footer?: ReactNode
 } & ComponentProps<'section'>) {
     return (
-        <section className={clsx('snap-padding-y px-4', className)} {...props}>
+        <section className={clsx('snap-padding-y px-4 pb-4', className)} {...props}>
             <Wallpaper className="rounded-lg" color="green">
-                <div className="-mx-2 sm:px-6 md:px-12 lg:px-0">
+                <div className="mx-auto sm:px-6 md:px-12 lg:px-0">
                     <Container className="flex flex-col gap-16 items-center">
                         <div className="flex gap-x-10 gap-y-16 max-lg:flex-col sm:gap-y-24">
                             <div className="flex shrink-0 flex-col items-center gap-6 px-2 py-16 sm:py-32 lg:basis-5xl lg:py-40">
