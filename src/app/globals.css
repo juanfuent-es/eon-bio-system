@@ -41,7 +41,7 @@
   --scroll-thumb: var(--color-green-400);
   --scroll-thumb-over: var(--color-orange-500);
   --scroll-border-radius: 100px;
-  --scroll-size: 10px;
+  /* --scroll-size: 10px; */
   --selection-background: var(--color-green-500);
   --selection-foreground: var(--color-neutral-50);
 }
@@ -58,8 +58,8 @@
 
 ::-webkit-scrollbar {
   background-color: var(--scroll-background);
-  height: var(--scroll-size);
-  width: var(--scroll-size);
+  /* height: var(--scroll-size);
+  width: var(--scroll-size); */
 }
 
 ::-webkit-scrollbar-track {

@@ -21,7 +21,7 @@ export function Hero({
 } & ComponentProps<'section'>) {
     return (
         <section className={clsx('snap-padding-y px-4 pb-4', className)} {...props}>
-            <Wallpaper className="rounded-lg" color="green">
+            <Wallpaper className="rounded-lg" color="green-copper">
                 <div className="mx-auto sm:px-6 md:px-12 lg:px-0">
                     <Container className="flex flex-col gap-16 items-center">
                         <div className="flex gap-x-10 gap-y-16 max-lg:flex-col sm:gap-y-24">

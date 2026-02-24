@@ -45,7 +45,7 @@ export default function RootLayout({
 
                 <link rel="stylesheet" href="https://use.typekit.net/xsn1nhj.css" />
             </head>
-            <body>
+            <body className="w-full overflow-x-hidden">
                 <NavbarWithLinksActionsAndCenteredLogo
                         id="navbar"
                         logo={

@@ -10,159 +10,161 @@ import Image from 'next/image'
 import { Wallpaper } from '@/components/elements/wallpaper'
 
 function SectionWithHeading({
- headline,
- subheadline,
- cta,
- layout = 'stack',
- tone = 'green-copper',
- children,
+  headline,
+  subheadline,
+  cta,
+  layout = 'stack',
+  tone = 'green-copper',
+  children,
 }: {
- headline: ReactNode
- subheadline: ReactNode
- cta?: ReactNode
- layout?: 'stack' | 'split'
- tone?: 'green-copper' | 'emerald' | 'copper' | 'mist'
- children?: ReactNode
+  headline: ReactNode
+  subheadline: ReactNode
+  cta?: ReactNode
+  layout?: 'stack' | 'split'
+  tone?: 'green-copper' | 'emerald' | 'mist' | 'bone-mist'
+  children?: ReactNode
 }) {
- return (
-  <section className="p-4">
-   <Wallpaper color={tone} className="wallpaper rounded-lg">
-    <Container className="flex flex-col gap-10 sm:gap-16 items-center text-left md:text-center py-12 sm:py-16">
-     <div className={layout === 'split' ? 'grid w-full max-w-6xl gap-8 lg:grid-cols-2 lg:items-center' : 'flex w-full max-w-6xl flex-col gap-6'}>
-      <div className={layout === 'split' ? 'flex flex-col gap-6 text-left' : undefined}>
-       <Subheading>{headline}</Subheading>
-       <Text size="lg" className={layout === 'split' ? 'flex flex-col gap-4 text-green-100/90' : 'flex max-w-2xl flex-col gap-4 mx-auto text-green-100/90'}>
-        {subheadline}
-       </Text>
-       {cta && <div className="pt-2">{cta}</div>}
-      </div>
-      {layout === 'split' && children ? <div className="w-full">{children}</div> : null}
-     </div>
-    {layout === 'stack' ? children : null}
-    </Container>
-   </Wallpaper>
-  </section>
- )
+  const isLightTone = tone === 'bone-mist'
+
+  return (
+    <section className="p-4">
+      <Wallpaper color={tone} className="wallpaper rounded-lg">
+        <Container className="flex flex-col gap-10 sm:gap-16 items-center text-left md:text-center py-12 sm:py-16">
+          <div className={layout === 'split' ? 'grid w-full max-w-6xl gap-8 lg:grid-cols-2 lg:items-center' : 'flex w-full max-w-6xl flex-col gap-6'}>
+            <div className={layout === 'split' ? `flex flex-col gap-6 text-left ${isLightTone ? 'text-green-900' : 'text-white'}` : isLightTone ? 'text-green-900' : 'text-white'}>
+              <Subheading>{headline}</Subheading>
+              <Text size="lg" className={layout === 'split' ? `flex flex-col gap-4 ${isLightTone ? 'text-green-800/90' : 'text-green-100/90'}` : `mx-auto flex max-w-2xl flex-col gap-4 ${isLightTone ? 'text-green-800/90' : 'text-green-100/90'}`}>
+                {subheadline}
+              </Text>
+              {cta && <div className="pt-2">{cta}</div>}
+            </div>
+            {layout === 'split' && children ? <div className="w-full">{children}</div> : null}
+          </div>
+          {layout === 'stack' ? children : null}
+        </Container>
+      </Wallpaper>
+    </section>
+  )
 }
 
 export default function Page() {
- return (
-  <>
-   {/* Hero */}
-   <Hero
-     headline={
-      <>
-         EON BioSystem <small className="block">Seguimiento metabólico y funcional</small>
-      </>
-     }
-     eyebrow={
-      <AnnouncementBadge href="/sistema" text="Un sistema de longevidad diseñado desde la ciencia." cta="Conoce más" variant="overlay" />
-     }
-     subheadline={
-      <>
-        <p>Un sistema integral que une <strong>fuerza, nutrición y biomarcadores</strong> para optimizar tu biología de forma sostenible.</p>
-      </>
-     }
-     cta={
-      <>
-        <ButtonLink href="/aplica" size="lg">
-          Aplica al sistema <ArrowNarrowRightIcon />
-          </ButtonLink>
-        <p className="text-sm font-light italic text-green-200">*Acceso mediante evaluación previa.</p>
-      </>
-     }
-    />
+  return (
+    <>
+      {/* Hero */}
+      <Hero
+        headline={
+          <>
+            EON BioSystem <small className="block">Seguimiento metabólico y funcional</small>
+          </>
+        }
+        eyebrow={
+          <AnnouncementBadge href="/sistema" text="Un sistema de longevidad diseñado desde la ciencia." cta="Conoce más" variant="overlay" />
+        }
+        subheadline={
+          <>
+            <p>Un sistema integral que une <strong>fuerza, nutrición y biomarcadores</strong> para optimizar tu biología de forma sostenible.</p>
+          </>
+        }
+        cta={
+          <>
+            <ButtonLink href="/aplica" size="lg">
+              Aplica al sistema <ArrowNarrowRightIcon />
+            </ButtonLink>
+            <p className="text-sm font-light italic text-green-200">*Acceso mediante evaluación previa.</p>
+          </>
+        }
+      />
 
-   {/* Sección 2: Contexto / Problema */}
-   <SectionWithHeading
-    headline={
-     <>
-      La longevidad se construye <br />todos los días
-     </>
-    }
-    subheadline={
-     <>
-      <p className="italic">Con el tiempo, el cuerpo cambia. La recuperación y el rendimiento también.</p>
-      <p className='text-balance'>Sin datos claros, nuestras decisiones se suelen basar en intuición o ensayo y error. <strong>EON BioSystem</strong> reemplaza la improvisación por un sistema diseñado desde la ciencia.</p>
-     </>
-    }
-    cta={
-     <PlainButtonLink href="/sistema">
-      Conoce el método <ArrowNarrowRightIcon />
-     </PlainButtonLink>
-    }
-      layout="split"
-      tone="emerald"
-     >
-      <div className="mx-auto w-full max-w-4xl overflow-hidden rounded-xl outline -outline-offset-1 outline-black/5">
-       <Image
-        src="/eon-biosystem-mirror-background.jpg"
-        alt="Mujer de 40 años observándose en un espejo"
-        width={1920}
-        height={1280}
-        className="h-full w-full object-cover"
-        priority
-       />
-      </div>
-     </SectionWithHeading>
+      {/* Sección 2: Contexto / Problema */}
+      <SectionWithHeading
+        headline={
+          <>
+            La longevidad se construye <br />todos los días
+          </>
+        }
+        subheadline={
+          <>
+            <p className="italic">Con el tiempo, el cuerpo cambia. La recuperación y el rendimiento también.</p>
+            <p className='text-balance'>Sin datos claros, nuestras decisiones se suelen basar en intuición o ensayo y error. <strong>EON BioSystem</strong> reemplaza la improvisación por un sistema diseñado desde la ciencia.</p>
+          </>
+        }
+        cta={
+          <PlainButtonLink href="/sistema">
+            Conoce el método <ArrowNarrowRightIcon />
+          </PlainButtonLink>
+        }
+        layout="split"
+        tone="emerald"
+      >
+        <div className="mx-auto w-full max-w-4xl overflow-hidden rounded-xl outline -outline-offset-1 outline-black/5">
+          <Image
+            src="/eon-biosystem-mirror-background.jpg"
+            alt="Mujer de 40 años observándose en un espejo"
+            width={1920}
+            height={1280}
+            className="h-full w-full object-cover"
+            priority
+          />
+        </div>
+      </SectionWithHeading>
 
-   {/* Sección 3: Qué es EON BioSystem */}
-   <SectionWithHeading
-    headline="Un sistema, no un plan"
-    subheadline={
-     <>
-      <p>EON BioSystem es un sistema de longevidad basado en el análisis de biomarcadores para diseñar estrategias personalizadas de entrenamiento, nutrición y suplementación.</p>
-      <p>No es genérico ni una solución rápida.<br />Es un sistema pensado para acompañar tu biología a largo plazo.</p>
-     </>
-    }
-    cta={
-     <PlainButtonLink href="/sistema">
-      Ver cómo funciona <ArrowNarrowRightIcon />
-     </PlainButtonLink>
-    }
-    tone="mist"
-   />
+      {/* Sección 3: Qué es EON BioSystem */}
+      <SectionWithHeading
+        headline="Un sistema, no un plan"
+        subheadline={
+          <>
+            <p>EON BioSystem es un sistema de longevidad basado en el análisis de biomarcadores para diseñar estrategias personalizadas de entrenamiento, nutrición y suplementación.</p>
+            <p>No es genérico ni una solución rápida.<br />Es un sistema pensado para acompañar tu biología a largo plazo.</p>
+          </>
+        }
+        cta={
+          <PlainButtonLink href="/sistema">
+            Ver cómo funciona <ArrowNarrowRightIcon />
+          </PlainButtonLink>
+        }
+        tone="emerald"
+      />
 
-   {/* Sección 6: Para quién es */}
-   <SectionWithHeading
-    headline={
-      <>
-        EON no es para todos <br /> <small>*Esto es parte de nuestro sistema*</small>
-      </>
-    }
-    subheadline={
-     <>
-      <p>Diseñado para quienes valoran la valoran la ciencia, buscan estructura y están dispuestas a seguir un sistema con criterio y constancia.</p>
-      <p>No es para quienes buscan soluciones rápidas o atajos.</p>
-      <p><small><i>*Trabajamos con un número limitado de personas para asegurar seguimiento, profundidad y calidad real.</i></small></p>
-     </>
-    }
-    cta={
-     <PlainButtonLink href="/aplica">
-      Ver si califico <ArrowNarrowRightIcon />
-     </PlainButtonLink>
-    }
-    tone="emerald"
-   />
+      {/* Sección 6: Para quién es */}
+      <SectionWithHeading
+        headline={
+          <>
+            EON no es para todos <br /> <small>*Esto es parte de nuestro sistema*</small>
+          </>
+        }
+        subheadline={
+          <>
+            <p>Diseñado para quienes valoran la valoran la ciencia, buscan estructura y están dispuestas a seguir un sistema con criterio y constancia.</p>
+            <p>No es para quienes buscan soluciones rápidas o atajos.</p>
+            <p><small><i>*Trabajamos con un número limitado de personas para asegurar seguimiento, profundidad y calidad real.</i></small></p>
+          </>
+        }
+        cta={
+          <PlainButtonLink href="/aplica">
+            Ver si califico <ArrowNarrowRightIcon />
+          </PlainButtonLink>
+        }
+        tone="mist"
+      />
 
-   {/* Sección 7: Respaldo clínico */}
-   <SectionWithHeading
-    headline="Dirección y respaldo profesional"
-    subheadline={
-     <>
-      <p className=''>EON BioSystem opera con respaldo clínico de <a href="https://ntsclinic.com" title="Visita el sitio de NTS Clinic" target='_blank' className='transition-colors underline hover:text-orange-500'>NTS Clinic</a>, que supervisa los aspectos médicos cuando el proceso lo exige.</p>
-      <p className='italic mt-2'>*Acceso mediante evaluación previa.</p>
-     </>
-    }
-    cta={
-      <>
-        <PlainButtonLink href="/acerca">
-          Aplica ahora <ArrowNarrowRightIcon />
-        </PlainButtonLink>
-      </>
-    }
-    tone="copper"
-   />
-  </>
- )
+      {/* Sección 7: Respaldo clínico */}
+      <SectionWithHeading
+        headline="Dirección y respaldo profesional"
+        subheadline={
+          <>
+            <p className=''>EON BioSystem opera con respaldo clínico de <a href="https://ntsclinic.com" title="Visita el sitio de NTS Clinic" target='_blank' className='transition-colors underline hover:text-orange-500'>NTS Clinic</a>, que supervisa los aspectos médicos cuando el proceso lo exige.</p>
+            <p className='italic mt-2'>*Acceso mediante evaluación previa.</p>
+          </>
+        }
+        cta={
+          <>
+            <PlainButtonLink href="/acerca">
+              Aplica ahora <ArrowNarrowRightIcon />
+            </PlainButtonLink>
+          </>
+        }
+        tone="bone-mist"
+      />
+    </>
+  )
 }
