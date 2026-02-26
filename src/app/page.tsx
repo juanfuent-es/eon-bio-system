@@ -93,19 +93,8 @@ export default function Page() {
             Conoce el método <ArrowNarrowRightIcon />
           </PlainButtonLink>
         }
-        layout="split"
         tone="emerald"
       >
-        <div className="mx-auto w-full max-w-4xl overflow-hidden rounded-xl outline -outline-offset-1 outline-black/5">
-          <Image
-            src="/eon-biosystem-mirror-background.jpg"
-            alt="Mujer de 40 años observándose en un espejo"
-            width={1920}
-            height={1280}
-            className="h-full w-full object-cover"
-            priority
-          />
-        </div>
       </SectionWithHeading>
 
       {/* Sección 3: Qué es EON BioSystem */}
