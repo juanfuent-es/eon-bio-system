@@ -54,7 +54,7 @@ export default function Page() {
       <Hero
         headline={
           <>
-            EON BioSystem <small className="block">Seguimiento metabólico y funcional</small>
+            <img src="./eon-logotype-descriptor.svg" alt="Logotipo EON BioSystem" width="100" height="70" className='w-64 md:w-80 lg:w-96' />
           </>
         }
         eyebrow={

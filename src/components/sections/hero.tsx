@@ -38,7 +38,7 @@ export function Hero({
                                 <Heading className="max-w-7xl text-center" color="light">
                                     {headline}
                                 </Heading>
-                                <div className="flex max-w-lg flex-col gap-4 text-lg/8 text-white/80 text-center">{subheadline}</div>
+                                <div className="flex max-w-lg flex-col gap-4 text-xl text-white text-center">{subheadline}</div>
                                 {cta}
                             </div>
                         </div>
