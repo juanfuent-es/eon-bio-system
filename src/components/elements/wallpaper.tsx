@@ -3,6 +3,19 @@ import type { ComponentProps } from 'react'
 
 const html = String.raw
 
+type WallpaperTone = 'green' | 'blue' | 'purple' | 'brown' | 'green-copper' | 'emerald' | 'mist' | 'bone-mist'
+
+const gradientByTone: Record<WallpaperTone, string> = {
+ green: '/gradients/orange-green.svg',
+ blue: '/gradients/neblina-negra.svg',
+ purple: '/gradients/neblina-negra.svg',
+ brown: '/gradients/hueso-naranja.svg',
+ 'green-copper': '/gradients/orange-green.svg',
+ emerald: '/gradients/neblina-esmeralda.svg',
+ mist: '/gradients/neblina-negra.svg',
+ 'bone-mist': '/gradients/hueso-neblina.svg',
+}
+
 const noisePattern = `url("data:image/svg+xml;charset=utf-8,${encodeURIComponent(
  html`
   <svg xmlns="http://www.w3.org/2000/svg" width="250" height="250" viewBox="0 0 100 100">
@@ -24,15 +37,20 @@ export function Wallpaper({
  children,
  color,
  className,
+ style,
  ...props
-}: { color: 'green' | 'blue' | 'purple' | 'brown' | 'green-copper' | 'emerald' | 'mist' | 'bone-mist' } & ComponentProps<'div'>) {
+}: { color: WallpaperTone } & ComponentProps<'div'>) {
  return (
   <div
    data-color={color}
    className={clsx(
-    'relative overflow-hidden bg-linear-to-b data-[color=green-copper]:from-[color-mix(in_srgb,var(--metabolic-copper)_70%,var(--bio-emerald)_30%)] data-[color=green-copper]:via-[color-mix(in_srgb,var(--bio-emerald)_50%,var(--core-black)_30%)] data-[color=green-copper]:to-[color-mix(in_srgb,var(--bio-emerald)_80%,var(--mist-steel)_35%)] data-[color=emerald]:from-[color-mix(in_srgb,var(--bio-emerald)_50%,var(--mist-steel)_22%)] data-[color=emerald]:to-[color-mix(in_srgb,var(--bio-emerald)_52%,var(--bone-light)_48%)] data-[color=mist]:from-[color-mix(in_srgb,var(--mist-steel)_70%,var(--bio-emerald)_30%)] data-[color=mist]:to-[color-mix(in_srgb,var(--mist-steel)_58%,var(--bone-light)_42%)] data-[color=bone-mist]:from-[color-mix(in_srgb,var(--bone-light)_68%,var(--mist-steel)_32%)] data-[color=bone-mist]:to-[color-mix(in_srgb,var(--bone-light)_92%,white_8%)]',
+    'relative overflow-hidden bg-cover bg-center bg-no-repeat',
     className,
    )}
+   style={{
+    backgroundImage: `url("${gradientByTone[color]}")`,
+    ...style,
+   }}
    {...props}
   >
    <div

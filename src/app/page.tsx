@@ -33,7 +33,7 @@ function SectionWithHeading({
           <div className={layout === 'split' ? 'grid w-full max-w-6xl gap-8 lg:grid-cols-2 lg:items-center' : 'flex w-full max-w-6xl flex-col gap-6'}>
             <div className={layout === 'split' ? `flex flex-col gap-6 text-left ${isLightTone ? 'text-green-900' : 'text-white'}` : isLightTone ? 'text-green-900' : 'text-white'}>
               <Subheading>{headline}</Subheading>
-              <Text size="lg" className={layout === 'split' ? `flex flex-col gap-4 ${isLightTone ? 'text-green-800/90' : 'text-green-100/90'}` : `mx-auto flex max-w-2xl flex-col gap-4 ${isLightTone ? 'text-green-800/90' : 'text-green-100/90'}`}>
+              <Text size="lg" className={layout === 'split' ? `flex flex-col gap-4 ` : `mx-auto flex max-w-2xl flex-col gap-4 ${isLightTone ? 'text-green-800/90' : 'text-white/90'}`}>
                 {subheadline}
               </Text>
               {cta && <div className="pt-2">{cta}</div>}
@@ -79,7 +79,7 @@ export default function Page() {
       <SectionWithHeading
         headline={
           <>
-            La longevidad se construye <br />todos los días
+            La <i>longevidad</i> se construye <br /><i>todos los días</i>
           </>
         }
         subheadline={
@@ -99,7 +99,11 @@ export default function Page() {
 
       {/* Sección 3: Qué es EON BioSystem */}
       <SectionWithHeading
-        headline="Un sistema, no un plan"
+        headline={
+          <>
+            Un sistema, no un plan
+          </>
+        }
         subheadline={
           <>
             <p>EON BioSystem es un sistema de longevidad basado en el análisis de biomarcadores para diseñar estrategias personalizadas de entrenamiento, nutrición y suplementación.</p>

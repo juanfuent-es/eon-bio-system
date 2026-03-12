@@ -21,16 +21,22 @@ export function Hero({
 } & ComponentProps<'section'>) {
     return (
         <section className={clsx('p-4', className)} {...props}>
-            <Wallpaper className="rounded-lg" color="green-copper">
+            <Wallpaper className="rounded-lg" color="green-copper" style={{ backgroundImage: 'none' }}>
+                <div className="absolute inset-0 -z-20 rounded-lg bg-black" aria-hidden="true" />
                 <Image
-                    src="/eon-biosystem-mirror-background.jpg"
+                    src="/eon-biosystem-background.jpg"
                     alt="Mujer de 40 años observándose en un espejo"
                     width={1920}
                     height={1280}
-                    className="h-full w-full object-cover absolute inset-0 -z-10 rounded-lg"
+                    className="h-full w-full object-cover absolute inset-0 -z-10 rounded-lg opacity-80"
                     priority
                 />
-                <div className="mx-auto sm:px-6 md:px-12 lg:px-0">
+                <div
+                    className="absolute inset-0 z-0 rounded-lg bg-cover bg-center bg-no-repeat mix-blend-multiply pointer-events-none"
+                    style={{ backgroundImage: 'url("/gradients/orange-green.svg")' }}
+                    aria-hidden="true"
+                />
+                <div className="relative z-10 mx-auto sm:px-6 md:px-12 lg:px-0">
                     <Container className="flex flex-col gap-16 items-center">
                         <div className="flex gap-x-10 gap-y-16 max-lg:flex-col sm:gap-y-24">
                             <div className="flex shrink-0 flex-col items-center gap-6 px-2 py-16 sm:py-32 lg:basis-5xl lg:py-40">

@@ -10,7 +10,7 @@ export function Subheading({
   <h2
    className={clsx(
     'font-display tracking-tight text-balance leading-tight',
-    'text-[2rem] sm:text-[2rem] md:text-[3rem] lg:text-[4rem]',
+    'text-[2rem] sm:text-[2rem] md:text-[3rem] lg:text-[4rem] mb-2 md:mb-4 lg:mb-6 xl:mb-8',
     className,
    )}
    {...props}
