@@ -9,32 +9,45 @@ import {
 import { HeroSimpleLeftAligned } from '@/components/sections/hero-simple-left-aligned'
 import { Container } from '@/components/elements/container'
 import { Heading } from '@/components/elements/heading'
+import { Subheading } from '@/components/elements/subheading'
 import { Text } from '@/components/elements/text'
 import type { ReactNode } from 'react'
+import { Wallpaper } from '@/components/elements/wallpaper'
 
 function SectionWithHeading({
  headline,
  subheadline,
  cta,
+ layout = 'stack',
+ tone = 'emerald',
  children,
 }: {
  headline: ReactNode
  subheadline: ReactNode
  cta?: ReactNode
+ layout?: 'stack' | 'split'
+ tone?: 'green-copper' | 'emerald' | 'mist' | 'bone-mist'
  children?: ReactNode
 }) {
+ const isLightTone = tone === 'bone-mist'
+
  return (
-  <section className="py-16 sm:py-24">
-   <Container className="flex flex-col gap-10 sm:gap-16">
-    <div className="flex max-w-3xl flex-col gap-6">
-     <Heading>{headline}</Heading>
-     <Text size="lg" className="flex max-w-2xl flex-col gap-4">
-      {subheadline}
-     </Text>
-     {cta && <div className="pt-2">{cta}</div>}
-    </div>
-    {children}
-   </Container>
+  <section className="p-4">
+    <Wallpaper color={tone} className="wallpaper rounded-lg">
+     <Container className="flex flex-col gap-10 sm:gap-16 items-center text-left md:text-center py-12 sm:py-16">
+      <div className={layout === 'split' ? 'grid w-full max-w-6xl gap-8 lg:grid-cols-2 lg:items-center' : 'flex w-full max-w-6xl flex-col gap-6'}>
+        <div className={layout === 'split' ? `flex flex-col gap-6 text-left ${isLightTone ? 'text-green-900' : 'text-white'}` : isLightTone ? 'text-green-900' : 'text-white'}>
+         <Subheading>{headline}</Subheading>
+         <Text size="lg" className={layout === 'split' ? 'flex flex-col gap-4' : `mx-auto flex max-w-2xl flex-col gap-4 ${isLightTone ? 'text-green-800/90' : 'text-white/90'}`}>
+          {subheadline}
+         </Text>
+         {cta && <div className="pt-2">{cta}</div>}
+        </div>
+        {layout === 'split' && children ? <div className="w-full">{children}</div> : null}
+      </div>
+      {layout === 'stack' ? children : null}
+     </Container>
+    </Wallpaper>
   </section>
  )
 }
@@ -68,6 +81,7 @@ export default function Aplica() {
       </p>
      </>
     }
+        tone="emerald"
    />
 
    {/* Sección 2: Perfil adecuado */}
@@ -80,6 +94,7 @@ export default function Aplica() {
       </p>
      </>
     }
+        tone="mist"
    />
 
    {/* Sección 3: Compromiso requerido */}
@@ -92,20 +107,22 @@ export default function Aplica() {
       </p>
      </>
     }
+        tone="bone-mist"
    />
 
    {/* Sección 3: Formulario */}
-   <section id="form" className="py-16 sm:py-24">
-    <Container className="max-w-2xl">
-     <div className="mb-12 flex flex-col gap-6">
-      <Heading>Registro para evaluación inicial</Heading>
-      <Text size="lg">
-       Déjanos tus datos y responde brevemente las preguntas. La información se utiliza únicamente para
-       evaluar tu solicitud.
-      </Text>
-     </div>
+    <section id="form" className="p-4">
+     <Wallpaper color="mist" className="wallpaper rounded-lg">
+      <Container className="max-w-2xl py-12 sm:py-16">
+        <div className="mb-12 flex flex-col gap-6 text-white">
+         <Subheading>Registro para evaluación inicial</Subheading>
+         <Text size="lg" className="text-white/90">
+          Déjanos tus datos y responde brevemente las preguntas. La información se utiliza únicamente para
+          evaluar tu solicitud.
+         </Text>
+        </div>
 
-     <form className="flex flex-col gap-8">
+        <form className="flex flex-col gap-8 rounded-lg bg-bone-50/95 p-6 sm:p-8 shadow-sm">
       {/* Datos básicos */}
       <fieldset className="flex flex-col gap-6 border-t border-mineral-200 pt-8 ">
        <legend className="text-lg font-display font-bold text-obsidian-900 ">
@@ -284,8 +301,9 @@ export default function Aplica() {
         Enviar solicitud
        </ButtonLink>
       </div>
-     </form>
-    </Container>
+            </form>
+         </Container>
+        </Wallpaper>
    </section>
 
    {/* Sección 4: Qué ocurre después */}
@@ -298,6 +316,7 @@ export default function Aplica() {
       </p>
      </>
     }
+        tone="emerald"
    />
 
    {/* Sección 5: Confidencialidad */}
@@ -310,6 +329,7 @@ export default function Aplica() {
       </p>
      </>
     }
+        tone="bone-mist"
    />
 
    {/* Footer */}

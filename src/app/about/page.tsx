@@ -6,30 +6,42 @@ import { Text } from '@/components/elements/text'
 import type { ReactNode } from 'react'
 import { Hero } from '@/components/sections/hero'
 import { AnnouncementBadge } from '@/components/elements/announcement-badge'
+import { Wallpaper } from '@/components/elements/wallpaper'
 
 function SectionWithHeading({
  headline,
  subheadline,
  cta,
+ layout = 'stack',
+ tone = 'emerald',
  children,
 }: {
  headline: ReactNode
  subheadline: ReactNode
  cta?: ReactNode
+ layout?: 'stack' | 'split'
+ tone?: 'green-copper' | 'emerald' | 'mist' | 'bone-mist'
  children?: ReactNode
 }) {
+ const isLightTone = tone === 'bone-mist'
+
  return (
-  <section className="py-16 sm:py-24">
-   <Container className="flex flex-col gap-10 sm:gap-16 items-center text-center">
-    <div className="flex max-w-6xl flex-col gap-6">
-     <Subheading>{headline}</Subheading>
-     <Text size="lg" className="flex max-w-2xl flex-col gap-4 mx-auto text-center">
-      {subheadline}
-     </Text>
-     {cta && <div className="pt-2">{cta}</div>}
-    </div>
-    {children}
-   </Container>
+  <section className="p-4">
+   <Wallpaper color={tone} className="wallpaper rounded-lg">
+    <Container className="flex flex-col gap-10 sm:gap-16 items-center text-left md:text-center py-12 sm:py-16">
+     <div className={layout === 'split' ? 'grid w-full max-w-6xl gap-8 lg:grid-cols-2 lg:items-center' : 'flex w-full max-w-6xl flex-col gap-6'}>
+      <div className={layout === 'split' ? `flex flex-col gap-6 text-left ${isLightTone ? 'text-green-900' : 'text-white'}` : isLightTone ? 'text-green-900' : 'text-white'}>
+       <Subheading>{headline}</Subheading>
+       <Text size="lg" className={layout === 'split' ? 'flex flex-col gap-4' : `mx-auto flex max-w-2xl flex-col gap-4 ${isLightTone ? 'text-green-800/90' : 'text-white/90'}`}>
+        {subheadline}
+       </Text>
+       {cta && <div className="pt-2">{cta}</div>}
+      </div>
+      {layout === 'split' && children ? <div className="w-full">{children}</div> : null}
+     </div>
+     {layout === 'stack' ? children : null}
+    </Container>
+   </Wallpaper>
   </section>
  )
 }
@@ -66,6 +78,7 @@ export default function About() {
       <p>EON surge de más de dos décadas de experiencia en entrenamiento de fuerza, nutrición funcional y salud basada en evidencia.</p>
      </>
     }
+      tone="emerald"
    />
 
    {/* Sección 2: Ricardo Sánchez */}
@@ -76,6 +89,7 @@ export default function About() {
       <p>Fundador de EON y director de NTS Clinic. Su enfoque integra ciencia aplicada, criterio clínico y estructura a largo plazo.</p>
      </>
     }
+      tone="mist"
    />
 
    {/* Sección 3: Relación entre EON y NTS Clinic */}
@@ -88,6 +102,7 @@ export default function About() {
       Ambas operan bajo una misma dirección estratégica.</p>
      </>
     }
+      tone="bone-mist"
    />
 
    {/* Sección 4: Supervisión clínica responsable */}
@@ -98,6 +113,7 @@ export default function About() {
       <p>La interpretación de biomarcadores y decisiones médicas se realizan bajo estándares clínicos rigurosos.</p>
      </>
     }
+      tone="emerald"
    />
 
    {/* Sección 5: Sistema antes que volumen */}
@@ -113,6 +129,7 @@ export default function About() {
       Aplicar al sistema <ArrowNarrowRightIcon />
      </PlainButtonLink>
     }
+   tone="mist"
    />
   </>
  )

@@ -6,30 +6,42 @@ import { Subheading } from '@/components/elements/subheading'
 import { Text } from '@/components/elements/text'
 import { Document } from '@/components/elements/document'
 import type { ReactNode } from 'react'
+import { Wallpaper } from '@/components/elements/wallpaper'
 
 function SectionWithHeading({
  headline,
  subheadline,
  cta,
+ layout = 'stack',
+ tone = 'emerald',
  children,
 }: {
  headline: ReactNode
  subheadline: ReactNode
  cta?: ReactNode
+ layout?: 'stack' | 'split'
+ tone?: 'green-copper' | 'emerald' | 'mist' | 'bone-mist'
  children?: ReactNode
 }) {
+ const isLightTone = tone === 'bone-mist'
+
  return (
-  <section className="py-16 sm:py-24">
-   <Container className="flex flex-col gap-10 sm:gap-16">
-    <div className="flex max-w-3xl flex-col gap-6">
-     <Subheading>{headline}</Subheading>
-     <Text size="lg" className="flex max-w-2xl flex-col gap-4">
-      {subheadline}
-     </Text>
-     {cta && <div className="pt-2">{cta}</div>}
-    </div>
-    {children}
-   </Container>
+  <section className="p-4">
+    <Wallpaper color={tone} className="wallpaper rounded-lg">
+     <Container className="flex flex-col gap-10 sm:gap-16 items-center text-left md:text-center py-12 sm:py-16">
+      <div className={layout === 'split' ? 'grid w-full max-w-6xl gap-8 lg:grid-cols-2 lg:items-center' : 'flex w-full max-w-6xl flex-col gap-6'}>
+        <div className={layout === 'split' ? `flex flex-col gap-6 text-left ${isLightTone ? 'text-green-900' : 'text-white'}` : isLightTone ? 'text-green-900' : 'text-white'}>
+         <Subheading>{headline}</Subheading>
+         <Text size="lg" className={layout === 'split' ? 'flex flex-col gap-4' : `mx-auto flex max-w-2xl flex-col gap-4 ${isLightTone ? 'text-green-800/90' : 'text-white/90'}`}>
+          {subheadline}
+         </Text>
+         {cta && <div className="pt-2">{cta}</div>}
+        </div>
+        {layout === 'split' && children ? <div className="w-full">{children}</div> : null}
+      </div>
+      {layout === 'stack' ? children : null}
+     </Container>
+    </Wallpaper>
   </section>
  )
 }
@@ -66,6 +78,7 @@ export default function Sistema() {
       <p>Cada componente del sistema responde a datos reales y se ajusta conforme el cuerpo cambia.</p>
      </>
     }
+    tone="emerald"
    />
 
    {/* Sección 2: Cómo funciona */}
@@ -76,8 +89,9 @@ export default function Sistema() {
       El método se construye en una secuencia clara que reduce la improvisación y aumenta la precisión.
      </p>
     }
+    tone="mist"
    >
-    <Document className="max-w-2xl">
+    <Document className="max-w-2xl rounded-lg bg-bone-50/95 p-6 shadow-sm">
      <ol>
       <li>
        <strong>Evaluación inicial</strong> — Análisis de biomarcadores y contexto individual.
@@ -103,6 +117,7 @@ export default function Sistema() {
       Cada pilar tiene sentido solo dentro del sistema completo.
      </p>
     }
+    tone="bone-mist"
    >
     <div className="grid gap-8 sm:grid-cols-2 max-w-2xl">
      <div className="flex flex-col gap-3">
@@ -154,6 +169,7 @@ export default function Sistema() {
       </p>
      </>
     }
+    tone="emerald"
    />
 
    {/* Cierre */}

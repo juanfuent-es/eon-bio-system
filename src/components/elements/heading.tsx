@@ -15,9 +15,13 @@ export function Heading({
 >) {
  const HeadingTag = `h${level}` as const
  
- const sizeClasses = {
-  // 1: 'text-xl /12 sm:text-[5rem]/20',
-  1: 'text-[2rem] sm:text-[3rem] md:text-[4rem] lg:text-[5rem]'
+ const sizeClasses: Record<HeadingLevel, string> = {
+  1: 'text-[2rem] sm:text-[3rem] md:text-[4rem] lg:text-[5rem]',
+  2: 'text-3xl sm:text-4xl md:text-5xl',
+  3: 'text-2xl sm:text-3xl md:text-4xl',
+  4: 'text-xl sm:text-2xl md:text-3xl',
+  5: 'text-lg sm:text-xl md:text-2xl',
+  6: 'text-base sm:text-lg md:text-xl',
  }
 
  return (

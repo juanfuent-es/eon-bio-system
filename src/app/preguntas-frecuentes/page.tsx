@@ -1,10 +1,6 @@
-import { ButtonLink, PlainButtonLink } from '@/components/elements/button'
-import { ArrowNarrowRightIcon } from '@/components/icons/arrow-narrow-right-icon'
-import { Main } from '@/components/elements/main'
 import { Hero } from '@/components/sections/hero'
 import { AnnouncementBadge } from '@/components/elements/announcement-badge'
 import { FAQsAccordion, Faq } from '@/components/sections/faqs-accordion'
-import { CallToActionSimpleCentered } from '@/components/sections/call-to-action-simple-centered'
 
 export default function PreguntasFrecuentes() {
  return (
@@ -25,9 +21,16 @@ export default function PreguntasFrecuentes() {
      }
     />
 
-   <Main>
-    {/* FAQs */}
-    <FAQsAccordion id="faqs">
+   <section className="py-8 sm:py-12">
+    <FAQsAccordion
+     id="faqs"
+     headline="Preguntas frecuentes"
+     subheadline={
+      <p>
+       Aquí encontrarás respuestas directas sobre cómo funciona EON BioSystem y qué nivel de compromiso requiere.
+      </p>
+     }
+    >
      <Faq
       id="faq-1"
       question="¿Qué es exactamente EON BioSystem?"
@@ -51,7 +54,7 @@ export default function PreguntasFrecuentes() {
       question="¿Quién es candidato ideal para EON?"
       answer={
        <div>
-        <strong>Empresarios</strong>, <em>profesionistas de alto rendimiento</em>, <strong>atletas recreativos o competitivos</strong>, <em>personas interesadas en longevidad activa</em> y <strong>pacientes con resistencia metabólica</strong> leve–moderada. Si tu salud es una prioridad, eres candidato.
+        <strong>Empresarios</strong>, <em>profesionistas de alto rendimiento</em>, <strong>atletas recreativos o competitivos</strong>, <em>personas interesadas en longevidad activa</em> y <strong>pacientes con resistencia metabólica</strong> leve-moderada. Si tu salud es una prioridad, eres candidato.
        </div>
       }
      />
@@ -119,27 +122,7 @@ export default function PreguntasFrecuentes() {
       }
      />
     </FAQsAccordion>
-
-    {/* Call To Action */}
-    <CallToActionSimpleCentered
-     id="call-to-action"
-     headline="¿Tienes más preguntas?"
-     subheadline={
-      <p>Contacta con nuestro equipo para conocer más sobre cómo EON BioSystem puede ayudarte en tu proceso de optimización y longevidad.</p>
-     }
-     cta={
-      <div className="flex items-center gap-4">
-       <ButtonLink href="/aplica" size="lg">
-        Aplicar al sistema
-       </ButtonLink>
-
-       <PlainButtonLink href="/metodo" size="lg">
-        Conocer el método <ArrowNarrowRightIcon />
-       </PlainButtonLink>
-      </div>
-     }
-    />
-   </Main>
+   </section>
   </>
  )
 }

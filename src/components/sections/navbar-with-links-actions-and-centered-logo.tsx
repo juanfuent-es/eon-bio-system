@@ -75,10 +75,10 @@ export function NavbarWithLinksActionsAndCenteredLogo({
     const isHomeActive = pathname === '/'
 
     return (
-        <header className={clsx('sticky top-0 z-10 w-full', className)} {...props}>
+        <header className={clsx('sticky top-0 z-50 w-full', className)} {...props}>
             <style>{`:root { --scroll-padding-top: 5.25rem }`}</style>
             <nav className='px-4'>
-                <div className="mx-auto flex h-(--scroll-padding-top) text-green-800 backdrop-blur-xl rounded-lg items-center gap-4 px-6 lg:px-10">
+                <div className="mx-auto flex h-(--scroll-padding-top) text-green-800 bg-neutral-200 rounded-lg items-center gap-4 px-6 lg:px-10">
                     <div className="flex ">{logo}</div>
                     <div className="flex flex-1 items-center justify-end gap-4">
                         <div className="flex shrink-0 items-center gap-5">
