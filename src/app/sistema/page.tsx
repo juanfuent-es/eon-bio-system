@@ -1,6 +1,6 @@
 import { ButtonLink } from '@/components/elements/button'
 import { CallToActionSimple } from '@/components/sections/call-to-action-simple'
-import { HeroInterior } from '@/components/sections/hero-interior'
+import { Hero } from '@/components/sections/hero'
 import { Container } from '@/components/elements/container'
 import { Subheading } from '@/components/elements/subheading'
 import { Text } from '@/components/elements/text'
@@ -26,7 +26,7 @@ function SectionWithHeading({
  const isLightTone = tone === 'bone-mist'
 
  return (
-  <section className="p-4">
+  <section className="px-4">
     <Wallpaper color={tone} className="wallpaper rounded-lg">
      <Container className="flex flex-col gap-10 sm:gap-16 items-center text-left md:text-center py-12 sm:py-16">
       <div className={layout === 'split' ? 'grid w-full max-w-6xl gap-8 lg:grid-cols-2 lg:items-center' : 'flex w-full max-w-6xl flex-col gap-6'}>
@@ -50,19 +50,20 @@ export default function Sistema() {
  return (
   <>
    {/* Hero */}
-   <HeroInterior
+    <Hero
     id="hero"
-    headline="Un método estructurado, no un plan genérico."
-    subheadline={
+    imageSrc="/photos/eon-biosystem-sistema.png"
+    imageAlt="Mujer realizando ejercicio de fuerza"
+    headline={
         <>
-            <p>EON BioSystem organiza todas las decisiones sobre entrenamiento, alimentación y suplementación dentro de una misma lógica: entender la biología individual y actuar en consecuencia.</p>
-            <p>Cada componente del sistema responde a datos reales y se ajusta conforme el cuerpo cambia.</p>
+            El <i>sistema</i> detrás de la <i>longevidad</i>.
         </>
     }
-    cta={
-     <ButtonLink href="/aplica" size="lg">
-      Aplica al sistema
-     </ButtonLink>
+    subheadline={
+        <>
+            <p>Un método estructurado que integra <strong>entrenamiento de fuerza</strong>, <strong>nutrición estratégica</strong> y <strong>seguimiento biológico</strong> para construir salud, rendimiento y longevidad.</p>
+            <p>No es un plan aislado. <br />Es un <strong>sistema completo de optimización biológica.</strong></p>
+        </>
     }
    />
 

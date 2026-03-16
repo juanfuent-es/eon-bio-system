@@ -76,7 +76,6 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     --scroll-padding-top: 0;
-    scroll-padding-top: var(--scroll-padding-top);
   }
 
   .dark {

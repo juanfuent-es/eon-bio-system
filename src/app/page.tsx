@@ -1,4 +1,4 @@
-import { ButtonLink, PlainButtonLink } from '@/components/elements/button'
+import { PlainButtonLink } from '@/components/elements/button'
 import { ArrowNarrowRightIcon } from '@/components/icons/arrow-narrow-right-icon'
 import { Container } from '@/components/elements/container'
 import { Subheading } from '@/components/elements/subheading'
@@ -6,7 +6,6 @@ import { Text } from '@/components/elements/text'
 import type { ReactNode } from 'react'
 import { Hero } from '@/components/sections/hero'
 import { AnnouncementBadge } from '@/components/elements/announcement-badge'
-import Image from 'next/image'
 import { Wallpaper } from '@/components/elements/wallpaper'
 
 function SectionWithHeading({
@@ -27,7 +26,7 @@ function SectionWithHeading({
   const isLightTone = tone === 'bone-mist'
 
   return (
-    <section className="p-4">
+    <section className="px-4">
       <Wallpaper color={tone} className="wallpaper rounded-lg">
         <Container className="flex flex-col gap-10 sm:gap-16 items-center text-left md:text-center py-12 sm:py-16">
           <div className={layout === 'split' ? 'grid w-full max-w-6xl gap-8 lg:grid-cols-2 lg:items-center' : 'flex w-full max-w-6xl flex-col gap-6'}>
@@ -52,6 +51,8 @@ export default function Page() {
     <>
       {/* Hero */}
       <Hero
+        imageSrc="/photos/eon-biosystem-home.png"
+        imageAlt="Mujer entrenando en espacio natural"
         headline={
           <>
             <img src="./eon-logotype-descriptor.svg" alt="Logotipo EON BioSystem" width="100" height="70" className='w-64 md:w-80 lg:w-96' />
@@ -67,9 +68,9 @@ export default function Page() {
         }
         cta={
           <>
-            <ButtonLink href="/aplica" size="lg">
+            {/* <ButtonLink href="/aplica" size="lg">
               Aplica al sistema <ArrowNarrowRightIcon />
-            </ButtonLink>
+            </ButtonLink> */}
             <p className="text-sm font-light italic text-green-200">*Acceso mediante evaluación previa.</p>
           </>
         }

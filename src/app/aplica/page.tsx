@@ -6,7 +6,7 @@ import {
  NewsletterForm,
  SocialLink,
 } from '@/components/sections/footer-with-newsletter-form-categories-and-social-icons'
-import { HeroSimpleLeftAligned } from '@/components/sections/hero-simple-left-aligned'
+import { Hero } from '@/components/sections/hero'
 import { Container } from '@/components/elements/container'
 import { Heading } from '@/components/elements/heading'
 import { Subheading } from '@/components/elements/subheading'
@@ -32,7 +32,7 @@ function SectionWithHeading({
  const isLightTone = tone === 'bone-mist'
 
  return (
-  <section className="p-4">
+  <section className="px-4">
     <Wallpaper color={tone} className="wallpaper rounded-lg">
      <Container className="flex flex-col gap-10 sm:gap-16 items-center text-left md:text-center py-12 sm:py-16">
       <div className={layout === 'split' ? 'grid w-full max-w-6xl gap-8 lg:grid-cols-2 lg:items-center' : 'flex w-full max-w-6xl flex-col gap-6'}>
@@ -56,8 +56,10 @@ export default function Aplica() {
  return (
   <>
    {/* Hero */}
-   <HeroSimpleLeftAligned
+  <Hero
     id="hero"
+   imageSrc="/photos/eon-biosystem-aplica.png"
+   imageAlt="Evaluación inicial y acompañamiento personalizado"
     headline="Evaluación inicial EON BioSystem."
     subheadline={
      <p>

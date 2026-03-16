@@ -1,5 +1,6 @@
 import { ButtonLink, PlainButtonLink } from '@/components/elements/button'
 import { Main } from '@/components/elements/main'
+import { Hero } from '@/components/sections/hero'
 import { CallToActionSimpleCentered } from '@/components/sections/call-to-action-simple-centered'
 import { FAQsAccordion, Faq } from '@/components/sections/faqs-accordion'
 import { PricingSingleTierTwoColumn } from '@/components/sections/pricing-single-tier-two-column'
@@ -8,6 +9,18 @@ import { TestimonialLargeQuote } from '@/components/sections/testimonial-with-la
 export default function Page() {
   return (
     <>
+      <Hero
+        id="hero"
+        imageSrc="/photos/eon-biosystem-sistema.png"
+        imageAlt="Planes y estructura del sistema EON BioSystem"
+        headline="Planes y estructura de inversión"
+        subheadline={<p>Conoce el alcance del seguimiento EON BioSystem y el nivel de acompañamiento para optimizar tu salud a largo plazo.</p>}
+        cta={
+          <ButtonLink href="/aplica" size="lg">
+            Iniciar evaluación
+          </ButtonLink>
+        }
+      />
       <Main>
         {/* Pricing */}
         <PricingSingleTierTwoColumn

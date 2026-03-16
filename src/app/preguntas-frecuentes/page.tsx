@@ -8,6 +8,8 @@ export default function PreguntasFrecuentes() {
    {/* Hero */}
    <Hero
      id="hero"
+       imageSrc="/photos/eon-biosystem-acerca.png"
+       imageAlt="Respuestas sobre el sistema EON BioSystem"
      headline={
       <>
          Preguntas frecuentes

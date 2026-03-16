@@ -81,6 +81,8 @@
     --scroll-padding-top: 0;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+
     background-color: var(--color-green-100);
     scroll-padding-top: 0;
     scroll-behavior: smooth;
@@ -107,29 +109,21 @@
     scroll-snap-type: y mandatory;
     scroll-padding-top: 0;
     overscroll-behavior-y: contain;
-    padding-top: 1em;
+    padding-top: 0;
   }
 
-  .snap-padding-y {
-    padding-top: var(--scroll-padding-top);
-  }
-
-  main > section {
-    min-height: calc(100dvh - var(--scroll-padding-top));
+  main > section, .wallpaper {
+    min-height: 80dvh;
     display: flex;
     align-items: center;
     scroll-snap-align: start;
     scroll-snap-stop: always;
     scroll-margin-top: 0;
+    padding-top: 10dvh;
   }
 
   main > section > * {
     width: 100%;
-  }
-
-  .wallpaper {
-    min-height: calc(100dvh - var(--scroll-padding-top));
-    display: flex;
   }
 
   main #footer {

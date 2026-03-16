@@ -26,7 +26,7 @@ function SectionWithHeading({
  const isLightTone = tone === 'bone-mist'
 
  return (
-  <section className="p-4">
+  <section className="px-4">
    <Wallpaper color={tone} className="wallpaper rounded-lg">
     <Container className="flex flex-col gap-10 sm:gap-16 items-center text-left md:text-center py-12 sm:py-16">
      <div className={layout === 'split' ? 'grid w-full max-w-6xl gap-8 lg:grid-cols-2 lg:items-center' : 'flex w-full max-w-6xl flex-col gap-6'}>
@@ -52,6 +52,8 @@ export default function Metodo() {
    {/* Hero */}
    <Hero
      id="hero"
+       imageSrc="/photos/eon-biosystem-sistema.png"
+       imageAlt="Entrenamiento estructurado y longevidad funcional"
      headline={
       <>
          EON BioSystem: Ciencia, fuerza y conciencia como sistema de vida.

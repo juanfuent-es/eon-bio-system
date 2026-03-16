@@ -40,6 +40,8 @@ export default function Vision() {
    {/* Hero */}
    <Hero
      id="hero"
+       imageSrc="/photos/eon-biosystem-home.png"
+       imageAlt="Visión de longevidad, fuerza y equilibrio"
      headline={
       <>
          Ciencia, fuerza y conciencia como sistema de vida.

@@ -41,7 +41,13 @@ export default function Acerca() {
    {/* Hero */}
    <Hero
     id="hero"
-    headline="Ciencia aplicada con una visión clara."
+    imageSrc="/photos/eon-biosystem-acerca-ricardo-sanchez.png"
+    imageAlt="Dirección profesional y respaldo clínico EON"
+    headline={
+        <>
+            La experiencia detrás br del <em>sistema</em>.
+        </>
+    }
     subheadline={
      <>
       <p>

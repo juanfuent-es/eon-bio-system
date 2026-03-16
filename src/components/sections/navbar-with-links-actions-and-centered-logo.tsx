@@ -37,8 +37,8 @@ export function NavbarLink({
             )}
             {...props}
         >
-            <span className="font-sans max-lg:hidden text-[1.25rem]">{children}</span>
-            <span className="font-display font-light text-[2.25rem] normal-case hidden max-lg:inline-flex">{children}</span>
+            <span className="font-sans max-lg:hidden tracking-wide font-semibold text-[1.25rem]">{children}</span>
+            <span className="font-display text-[2.2rem] normal-case hidden max-lg:inline-flex">{children}</span>
         </Link>
     )
 }
@@ -76,9 +76,8 @@ export function NavbarWithLinksActionsAndCenteredLogo({
 
     return (
         <header className={clsx('sticky top-0 z-50 w-full', className)} {...props}>
-            <style>{`:root { --scroll-padding-top: 5.25rem }`}</style>
             <nav className='px-4'>
-                <div className="mx-auto grid h-(--scroll-padding-top) grid-cols-[1fr_auto_1fr] text-green-800 bg-neutral-200 rounded-lg items-center gap-4 px-6 lg:px-10">
+                <div className="mx-auto grid py-6 grid-cols-[1fr_auto_1fr] text-green-800 rounded-lg items-center gap-4 px-6 lg:px-10">
                     <div className="hidden lg:flex items-center justify-start">{leftLinks}</div>
                     <div className="flex items-center justify-center">{logo}</div>
                     <div className="flex items-center justify-end gap-4">

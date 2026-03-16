@@ -10,6 +10,8 @@ export function Hero({
     subheadline,
     cta,
     footer,
+    imageSrc = '/photos/eon-biosystem-home.png',
+    imageAlt = 'Imagen de portada de EON BioSystem',
     className,
     ...props
 }: {
@@ -18,14 +20,16 @@ export function Hero({
     subheadline: ReactNode
     cta?: ReactNode
     footer?: ReactNode
+    imageSrc?: string
+    imageAlt?: string
 } & ComponentProps<'section'>) {
     return (
-        <section className={clsx('p-4', className)} {...props}>
+        <section className={clsx('px-4', className)} {...props}>
             <Wallpaper className="rounded-lg" color="green-copper" style={{ backgroundImage: 'none' }}>
                 <div className="absolute inset-0 -z-20 rounded-lg bg-black" aria-hidden="true" />
                 <Image
-                    src="/eon-biosystem-background.jpg"
-                    alt="Mujer de 40 años observándose en un espejo"
+                    src={imageSrc}
+                    alt={imageAlt}
                     width={1920}
                     height={1280}
                     className="h-full w-full object-cover absolute inset-0 -z-10 rounded-lg opacity-80"
