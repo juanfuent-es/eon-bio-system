@@ -57,10 +57,10 @@ export default function RootLayout({
                             </NavbarLogo>
                         }
                         leftLinks={
-                            <NavbarLink href="/sistema">Sistema</NavbarLink>
+                            <NavbarLink key="sistema" href="/sistema">Sistema</NavbarLink>
                         }
                         rightLinks={
-                            <NavbarLink href="/acerca">Acerca</NavbarLink>
+                            <NavbarLink key="acerca" href="/acerca">Acerca</NavbarLink>
                         }
                     />
                     {children}
