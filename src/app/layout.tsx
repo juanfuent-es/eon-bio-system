@@ -16,7 +16,6 @@ import {
     NavbarLogo,
     NavbarWithLinksActionsAndCenteredLogo,
 } from '@/components/sections/navbar-with-links-actions-and-centered-logo'
-import { ArrowNarrowRightIcon } from '@/components/icons/arrow-narrow-right-icon'
 
 export const metadata: Metadata = {
     title: 'EON BioSystem',
@@ -57,17 +56,11 @@ export default function RootLayout({
 
                             </NavbarLogo>
                         }
-                        links={
-                            <>
-                                <NavbarLink href="/metodo">Método</NavbarLink>
-                                <NavbarLink href="/about">Acerca de</NavbarLink>
-                                <NavbarLink href="/preguntas-frecuentes">FAQS</NavbarLink>
-                            </>
+                        leftLinks={
+                            <NavbarLink href="/sistema">Sistema</NavbarLink>
                         }
-                        actions={
-                            <>
-                                <ButtonLink href="/aplica" className='min-w-20'>Aplica <ArrowNarrowRightIcon /></ButtonLink>
-                            </>
+                        rightLinks={
+                            <NavbarLink href="/acerca">Acerca</NavbarLink>
                         }
                     />
                     {children}
@@ -97,10 +90,9 @@ export default function RootLayout({
                             <>
                                 <FooterCategory title="Navegación">
                                     <FooterLink href="/">Inicio</FooterLink>
-                                    <FooterLink href="/metodo">Método</FooterLink>
-                                    <FooterLink href="/about">Acerca de</FooterLink>
+                                    <FooterLink href="/sistema">Sistema</FooterLink>
+                                    <FooterLink href="/acerca">Acerca de</FooterLink>
                                     <FooterLink href="/aplica">Aplicar</FooterLink>
-                                    <FooterLink href="/preguntas-frecuentes">FAQ</FooterLink>
                                 </FooterCategory>
                                 <FooterCategory title="Legal">
                                     <FooterLink href="/privacidad">Aviso de Privacidad</FooterLink>
@@ -128,6 +120,11 @@ export default function RootLayout({
                         }
                     />
                     </Main>
+                <div className="pointer-events-none fixed inset-x-0 bottom-4 z-60 flex justify-center px-4">
+                    <ButtonLink href="/aplica" size="lg" className="pointer-events-auto shadow-lg shadow-green-950/20">
+                        Aplica al sistema
+                    </ButtonLink>
+                </div>
             </body>
         </html>
     )

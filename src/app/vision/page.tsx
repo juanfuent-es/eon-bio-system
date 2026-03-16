@@ -46,13 +46,13 @@ export default function Vision() {
       </>
      }
      eyebrow={
-      <AnnouncementBadge href="/metodo" text="Visión EON" cta="Explorar el método" variant="overlay" />
+      <AnnouncementBadge href="/sistema" text="Visión EON" cta="Explorar el método" variant="overlay" />
      }
      subheadline={
       <p>EON nace de la integración entre biología, disciplina y propósito. No es solo rendimiento; es coherencia en el tiempo.</p>
      }
      cta={
-      <ButtonLink href="/metodo" size="lg">
+      <ButtonLink href="/sistema" size="lg">
        Explorar el método <ArrowNarrowRightIcon />
       </ButtonLink>
      }

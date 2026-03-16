@@ -61,15 +61,15 @@ export function NavbarLogo({ className, href, ...props }: { href: string } & Omi
 }
 
 export function NavbarWithLinksActionsAndCenteredLogo({
-    links,
+    leftLinks,
+    rightLinks,
     logo,
-    actions,
     className,
     ...props
 }: {
-    links: ReactNode
+    leftLinks: ReactNode
+    rightLinks: ReactNode
     logo: ReactNode
-    actions: ReactNode
 } & ComponentProps<'header'>) {
     const pathname = usePathname()
     const isHomeActive = pathname === '/'
@@ -78,13 +78,11 @@ export function NavbarWithLinksActionsAndCenteredLogo({
         <header className={clsx('sticky top-0 z-50 w-full', className)} {...props}>
             <style>{`:root { --scroll-padding-top: 5.25rem }`}</style>
             <nav className='px-4'>
-                <div className="mx-auto flex h-(--scroll-padding-top) text-green-800 bg-neutral-200 rounded-lg items-center gap-4 px-6 lg:px-10">
-                    <div className="flex ">{logo}</div>
-                    <div className="flex flex-1 items-center justify-end gap-4">
-                        <div className="flex shrink-0 items-center gap-5">
-                            <div className="flex flex-1 gap-8 max-lg:hidden">{links}</div>
-                            {actions}
-                        </div>
+                <div className="mx-auto grid h-(--scroll-padding-top) grid-cols-[1fr_auto_1fr] text-green-800 bg-neutral-200 rounded-lg items-center gap-4 px-6 lg:px-10">
+                    <div className="hidden lg:flex items-center justify-start">{leftLinks}</div>
+                    <div className="flex items-center justify-center">{logo}</div>
+                    <div className="flex items-center justify-end gap-4">
+                        <div className="hidden lg:flex items-center justify-end">{rightLinks}</div>
                         <button
                             command="show-modal"
                             commandfor="mobile-menu"
@@ -136,7 +134,10 @@ export function NavbarWithLinksActionsAndCenteredLogo({
                                         </svg>
                                     </button>
                                 </div>
-                                <div className="mt-6 flex flex-col gap-6">{links}</div>
+                                <div className="mt-6 flex flex-col gap-6">
+                                    {leftLinks}
+                                    {rightLinks}
+                                </div>
 
                                 <div className="mt-auto border-t border-green-900/10 pt-6">
                                     <p className="text-xs font-semibold uppercase tracking-wide text-green-900/70">Contacto</p>
