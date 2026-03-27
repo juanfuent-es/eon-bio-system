@@ -154,14 +154,25 @@ export function NavbarWithLinksActionsAndCenteredLogo({
                                             +52 55 4584 8965
                                         </a>
                                     </div>
-                                    <p className="text-xs font-semibold uppercase tracking-wide text-green-900/70">Visítanos</p>
-                                    <div className="mt-3 flex flex-wrap gap-x-4 gap-y-2 text-sm text-green-950/90">
+                                    <p className="mt-6 text-xs font-semibold uppercase tracking-wide text-green-900/70">Visítanos</p>
+                                    <a
+                                        href="https://maps.app.goo.gl/7HCJZv8jL7gShTRs9"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        title="Ver ubicación en Google Maps"
+                                        className="mt-3 inline-flex items-start gap-2 text-sm text-green-950/90 transition-colors hover:text-orange-600"
+                                    >
+                                        <MapPinIcon className="mt-0.5 size-5 shrink-0" />
+                                        <span className="leading-6">
+                                            <span className="block font-semibold text-green-950">Alotepec #50, Coapa, Villa Quietud</span>
+                                            <span className="block text-green-900/90">Alcaldia Coyoacan, CP 04918</span>
+                                            <span className="block text-green-900/90">Ciudad de Mexico, CDMX</span>
+                                        </span>
+                                    </a>
+                                    <div className="mt-4 flex flex-wrap gap-x-4 gap-y-2 text-sm text-green-950/90">
                                         <SocialLink href="https://www.facebook.com/eonbiosystem" name="Facebook" target='_blank'>
                                             <FacebookIcon />
                                         </SocialLink>
-                                        <a href="https://maps.app.goo.gl/7HCJZv8jL7gShTRs9" target="_blank" title='Ver Ubicación en GoogleMaps' className="inline-flex items-center gap-2 hover:text-orange-600">
-                                            <MapPinIcon className="size-6" />
-                                        </a>
                                         <SocialLink href="https://www.instagram.com/eonbiosystem" name="Instagram" target='_blank'>
                                             <InstagramIcon />
                                         </SocialLink>
