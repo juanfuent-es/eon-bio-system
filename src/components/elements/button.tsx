@@ -42,7 +42,7 @@ export function ButtonLink({
   <Link
    href={href}
    className={clsx(
-    'inline-flex uppercase shrink-0 items-center justify-center gap-1 rounded-full text-sm/7 font-medium bg-green-800 text-white hover:bg-orange-900 transition-colors duration-200',
+    'inline-flex uppercase shrink-0 items-center justify-center gap-1 rounded-full text-sm/7 font-medium bg-orange-500 text-white hover:bg-orange-900 transition-colors duration-200',
     sizes[size],
     className,
    )}

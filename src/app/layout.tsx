@@ -57,10 +57,14 @@ export default function RootLayout({
                             </NavbarLogo>
                         }
                         leftLinks={
-                            <NavbarLink key="sistema" href="/sistema">Sistema</NavbarLink>
+                            <NavbarLink key="sistema" href="/sistema">
+                                Nuestro Método
+                            </NavbarLink>
                         }
                         rightLinks={
-                            <NavbarLink key="acerca" href="/acerca">Acerca</NavbarLink>
+                            <NavbarLink key="acerca" href="/acerca">
+                                Nuestra Visión
+                            </NavbarLink>
                         }
                     />
                     {children}
@@ -120,7 +124,7 @@ export default function RootLayout({
                         }
                     />
                     </Main>
-                <div className="pointer-events-none fixed inset-x-0 bottom-4 z-60 flex justify-center px-4">
+                <div className="pointer-events-none fixed inset-x-0 bottom-8 z-60 flex justify-center">
                     <ButtonLink href="/aplica" size="lg" className="pointer-events-auto shadow-lg shadow-green-950/20 text-[1.25rem] px-8">
                         Aplica al sistema <ArrowNarrowRightIcon />
                     </ButtonLink>

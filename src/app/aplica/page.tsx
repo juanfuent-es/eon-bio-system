@@ -95,7 +95,7 @@ export default function Aplica() {
             <form className="flex flex-col gap-8 rounded-lg bg-bone-50/95 p-6 sm:p-8 shadow-sm">
               {/* Datos básicos */}
               <fieldset className="flex flex-col gap-6 border-t border-mineral-200 pt-8 ">
-                <legend className="text-lg font-display font-bold text-obsidian-900 ">
+                <legend className="text-lg font-sans font-bold text-obsidian-900 ">
                   Datos básicos
                 </legend>
 
@@ -176,7 +176,7 @@ export default function Aplica() {
 
               {/* Preguntas de compromiso */}
               <fieldset className="flex flex-col gap-6 border-t border-mineral-200 pt-8 ">
-                <legend className="text-lg font-display font-bold text-obsidian-900 ">
+                <legend className="text-lg font-sans font-bold text-obsidian-900 ">
                   Preguntas de interés y compromiso
                 </legend>
 

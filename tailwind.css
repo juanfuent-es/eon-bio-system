@@ -2,7 +2,7 @@
 
 @theme {
   /* Tipografía */
-  --font-display: 'freight-neo-pro', serif;
+  --font-sans: 'freight-neo-pro', serif;
   --font-sans: 'the-seasons', serif;
 
   /* Obsidian Black - Lectura Clínica: Precisión & profundidad */
@@ -90,7 +90,7 @@
 
   /* Encabezados */
   h1, h2, h3, h4, h5, h6 {
-    font-family: var(--font-display);
+    font-family: var(--font-sans);
   }
 
   /* Texto del cuerpo */

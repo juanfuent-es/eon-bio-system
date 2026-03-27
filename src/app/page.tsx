@@ -55,7 +55,7 @@ export default function Page() {
         imageAlt="Mujer entrenando en espacio natural"
         headline={
           <>
-            <img src="./eon-logotype-descriptor.svg" alt="Logotipo EON BioSystem" width="100" height="70" className='w-64 md:w-80 lg:w-96' />
+            <img src="./eon-logotype-descriptor.svg" alt="Logotipo EON BioSystem" width="100" height="70" className='w-64 md:w-80 lg:w-96 drop-shadow-xl drop-shadow-amber-950/50' />
           </>
         }
         eyebrow={

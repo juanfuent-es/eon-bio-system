@@ -122,7 +122,7 @@ export default function Sistema() {
    >
     <div className="grid gap-8 sm:grid-cols-2 max-w-2xl">
      <div className="flex flex-col gap-3">
-      <h3 className="text-lg font-display font-bold text-obsidian-900 ">
+      <h3 className="text-lg font-serif font-bold text-obsidian-900 ">
        Entrenamiento de fuerza
       </h3>
       <p className="text-obsidian-700">
@@ -130,7 +130,7 @@ export default function Sistema() {
       </p>
      </div>
      <div className="flex flex-col gap-3">
-      <h3 className="text-lg font-display font-bold text-obsidian-900 ">
+      <h3 className="text-lg font-serif font-bold text-obsidian-900 ">
        Nutrición
       </h3>
       <p className="text-obsidian-700">
@@ -138,7 +138,7 @@ export default function Sistema() {
       </p>
      </div>
      <div className="flex flex-col gap-3">
-      <h3 className="text-lg font-display font-bold text-obsidian-900 ">
+      <h3 className="text-lg font-serif font-bold text-obsidian-900 ">
        Biomarcadores
       </h3>
       <p className="text-obsidian-700">
@@ -146,7 +146,7 @@ export default function Sistema() {
       </p>
      </div>
      <div className="flex flex-col gap-3">
-      <h3 className="text-lg font-display font-bold text-obsidian-900 ">
+      <h3 className="text-lg font-serif font-bold text-obsidian-900 ">
        Suplementación premium
       </h3>
       <p className="text-obsidian-700">

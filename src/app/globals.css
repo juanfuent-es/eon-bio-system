@@ -1,7 +1,7 @@
 @import 'tailwindcss';
 
 @theme {
-  --font-display: 'the-seasons', serif;
+  --font-serif: 'the-seasons', serif;
   --font-sans: 'freight-neo-pro', system-ui, sans-serif;
 
   --color-green-50:  oklch(98%  0.008 164);
