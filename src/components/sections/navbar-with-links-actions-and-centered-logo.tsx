@@ -2,10 +2,11 @@
 
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-
+import { ArrowNarrowRightIcon } from '@/components/icons/arrow-narrow-right-icon'
 import { ElDialog, ElDialogPanel } from '@tailwindplus/elements/react'
 import { clsx } from 'clsx/lite'
 import type { ComponentProps, ReactNode } from 'react'
+import { ButtonLink } from '@/components/elements/button'
 import { FacebookIcon } from '@/components/icons/social/facebook-icon'
 import { InstagramIcon } from '@/components/icons/social/instagram-icon'
 import { XIcon } from '@/components/icons/social/x-icon'
@@ -38,7 +39,7 @@ export function NavbarLink({
             {...props}
         >
             <span className="font-serif max-lg:hidden tracking-wide font-semibold text-[1.25rem]">{children}</span>
-            <span className="font-serif text-[2.2rem] normal-case hidden max-lg:inline-flex">{children}</span>
+            <span className="font-serif text-[2.2rem] normal-case hidden max-lg:inline-flex items-center gap-2">{children}</span>
         </Link>
     )
 }
@@ -136,6 +137,9 @@ export function NavbarWithLinksActionsAndCenteredLogo({
                                 <div className="mt-6 flex flex-col gap-6">
                                     {leftLinks}
                                     {rightLinks}
+                                    <ButtonLink href="/aplica" size="lg" className="pointer-events-auto text-[1.25rem] px-8">
+                                        Aplica al sistema <ArrowNarrowRightIcon />
+                                    </ButtonLink>
                                 </div>
 
                                 <div className="mt-auto border-t border-green-900/10 pt-6">

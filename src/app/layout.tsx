@@ -125,7 +125,7 @@ export default function RootLayout({
                     />
                     </Main>
                 <div className="pointer-events-none fixed inset-x-0 bottom-8 z-60 flex justify-center">
-                    <ButtonLink href="/aplica" size="lg" className="pointer-events-auto shadow-lg shadow-green-950/20 text-[1.25rem] px-8">
+                    <ButtonLink href="/aplica" size="lg" className="pointer-events-auto text-[1.25rem] px-8">
                         Aplica al sistema <ArrowNarrowRightIcon />
                     </ButtonLink>
                 </div>
