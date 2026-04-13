@@ -3,7 +3,7 @@ import type { ComponentProps } from 'react'
 
 const html = String.raw
 
-type WallpaperTone = 'green' | 'blue' | 'purple' | 'brown' | 'green-copper' | 'emerald' | 'mist' | 'bone-mist'
+type WallpaperTone = 'green' | 'blue' | 'purple' | 'brown' | 'green-copper' | 'emerald' | 'mist' | 'bone-mist' | 'colors'
 
 const gradientByTone: Record<WallpaperTone, string> = {
  green: '/gradients/orange-green.svg',
@@ -14,6 +14,7 @@ const gradientByTone: Record<WallpaperTone, string> = {
  emerald: '/gradients/neblina-esmeralda.svg',
  mist: '/gradients/neblina-negra.svg',
  'bone-mist': '/gradients/hueso-neblina.svg',
+ colors: '/gradients/colors.png',
 }
 
 const noisePattern = `url("data:image/svg+xml;charset=utf-8,${encodeURIComponent(

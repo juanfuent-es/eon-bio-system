@@ -7,6 +7,8 @@ import type { ReactNode } from 'react'
 import { Hero } from '@/components/sections/hero'
 import { AnnouncementBadge } from '@/components/elements/announcement-badge'
 import { Wallpaper } from '@/components/elements/wallpaper'
+import { TestimonialLargeQuote } from '@/components/sections/testimonial-with-large-quote'
+import Image from 'next/image'
 
 function SectionWithHeading({
   headline,
@@ -55,7 +57,7 @@ export default function Page() {
         imageAlt="Mujer entrenando en espacio natural"
         headline={
           <>
-            <img src="./eon-logotype-descriptor.svg" alt="Logotipo EON BioSystem" width="100" height="70" className='w-64 md:w-80 lg:w-96 drop-shadow-xl drop-shadow-amber-950/50' />
+            <Image src="/eon-logotype-descriptor.svg" alt="Logotipo EON BioSystem" width={100} height={70} className='w-64 md:w-80 lg:w-96 drop-shadow-xl drop-shadow-amber-950/50' />
           </>
         }
         eyebrow={
@@ -95,8 +97,7 @@ export default function Page() {
           </PlainButtonLink>
         }
         tone="emerald"
-      >
-      </SectionWithHeading>
+      />
 
       {/* Sección 3: Qué es EON BioSystem */}
       <SectionWithHeading
@@ -118,6 +119,32 @@ export default function Page() {
         }
         tone="emerald"
       />
+
+      {/* Testimonio: Pamela Reyna */}
+      <section className="px-4">
+        <Wallpaper color="colors" className="wallpaper rounded-lg">
+          <TestimonialLargeQuote
+            id="testimonial"
+            quote="Hace casi un año inicié mi cambio con pesas, hábitos y nutrición. Ricardo me ayudó a mejorar decisiones y mentalidad. El cambio ha sido impresionante: mejor condición física, técnica y casi no me enfermo."
+            img={
+              <a href="https://instagram.com/spadmereyna/" target="_blank" rel="noopener noreferrer">
+                <Image
+                  src="/avatars/pamela-reyna.png"
+                  alt="Pamela Reyna"
+                  width={240}
+                  height={240}
+                />
+              </a>
+            }
+            name="Pamela Reyna"
+            byline={
+              <a href="https://instagram.com/spadmereyna/" target="_blank" rel="noopener noreferrer" className="transition-colors text-green-900 hover:text-green-700">
+                @spadmereyna
+              </a>
+            }
+          />
+        </Wallpaper>
+      </section>
 
       {/* Sección 6: Para quién es */}
       <SectionWithHeading
