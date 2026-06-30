@@ -119,7 +119,7 @@
     scroll-snap-align: start;
     scroll-snap-stop: always;
     scroll-margin-top: 0;
-    padding-top: 10dvh;
+    padding-top: clamp(5dvh, 10%, 10dvh);
   }
 
   main > section > * {

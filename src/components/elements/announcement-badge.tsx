@@ -23,7 +23,7 @@ export function AnnouncementBadge({
    {...props}
    data-variant={variant}
    className={clsx(
-    'group relative inline-flex max-w-full gap-x-3 overflow-hidden rounded-md px-3.5 py-2 text-sm/6 max-sm:flex-col sm:items-center sm:rounded-full sm:px-3 sm:py-0.5',
+    'group relative inline max-w-full gap-x-3 overflow-hidden rounded-md px-3.5 py-2 text-sm/6 max-sm:flex-col sm:items-center sm:rounded-full sm:px-3 sm:py-0.5',
     variant === 'normal' &&
      'bg-green-800/5 text-green-950 hover:bg-green-900/10',
     variant === 'overlay' &&
@@ -41,7 +41,7 @@ export function AnnouncementBadge({
    />
    <span
     className={clsx(
-     'inline-flex shrink-0 items-center gap-2 font-semibold',
+     'inline-flex shrink-0 items-center gap-2 font-semibold pl-1',
      variant === 'normal' && 'text-green-950',
     )}
    >

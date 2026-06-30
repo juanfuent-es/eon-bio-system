@@ -43,7 +43,7 @@ export function Hero({
                 <div className="relative z-10 mx-auto sm:px-6 md:px-12 lg:px-0">
                     <Container className="flex flex-col gap-16 items-center">
                         <div className="flex gap-x-10 gap-y-16 max-lg:flex-col sm:gap-y-24">
-                            <div className="flex shrink-0 flex-col items-center gap-6 px-2 py-16 sm:py-32 lg:basis-5xl lg:py-40">
+                            <div className="flex shrink-0 flex-col items-center gap-6 px-2 py-8 sm:py-16 md:py-32 lg:basis-5xl lg:py-40">
                                 {eyebrow}
                                 <Heading className="max-w-7xl text-center" color="light">
                                     {headline}

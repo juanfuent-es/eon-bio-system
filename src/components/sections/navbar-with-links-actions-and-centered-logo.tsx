@@ -1,5 +1,5 @@
 'use client'
-
+import Image from 'next/image'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { ArrowNarrowRightIcon } from '@/components/icons/arrow-narrow-right-icon'
@@ -9,7 +9,6 @@ import type { ComponentProps, ReactNode } from 'react'
 import { ButtonLink } from '@/components/elements/button'
 import { FacebookIcon } from '@/components/icons/social/facebook-icon'
 import { InstagramIcon } from '@/components/icons/social/instagram-icon'
-import { XIcon } from '@/components/icons/social/x-icon'
 import { MapPinIcon } from '@/components/icons/map-pin-icon'
 import { WhatsAppIcon } from '@/components/icons/social/whatsapp-icon'
 import { MailIcon } from '@/components/icons/mail-icon'
@@ -87,9 +86,9 @@ export function NavbarWithLinksActionsAndCenteredLogo({
                             command="show-modal"
                             commandfor="mobile-menu"
                             aria-label="Toggle menu"
-                            className="inline-flex rounded-full p-1.5 text-green-950 hover:bg-green-900/10 lg:hidden"
+                            className="inline-flex rounded-full p-1.5 text-green-700 hover:bg-green-900/10 lg:hidden"
                         >
-                            <svg viewBox="0 0 24 24" fill="currentColor" className="size-6">
+                            <svg viewBox="0 0 24 24" fill="transparent" className="size-8" strokeWidth="3" stroke="currentColor">
                                 <path
                                     fillRule="evenodd"
                                     d="M3.748 8.248a.75.75 0 0 1 .75-.75h15a.75.75 0 0 1 0 1.5h-15a.75.75 0 0 1-.75-.75ZM3.748 15.75a.75.75 0 0 1 .75-.751h15a.75.75 0 0 1 0 1.5h-15a.75.75 0 0 1-.75-.75Z"
@@ -101,10 +100,12 @@ export function NavbarWithLinksActionsAndCenteredLogo({
                 </div>
 
                 <ElDialog className="lg:hidden">
-                    <dialog id="mobile-menu" className="backdrop:bg-transparent">
-                        <ElDialogPanel className="fixed inset-0 bg-green-100 px-6 py-6 lg:px-10">
-                            <div className="flex h-full flex-col">
-                                <div className="flex justify-between">
+                    <dialog id="mobile-menu" className="backdrop:bg-transparent relative overflow-hidden">
+                        <ElDialogPanel className="fixed inset-0 h-dvh overflow-hidden bg-green-100 px-6 py-6 lg:px-10 z-0">
+                            <Image src="/symbol.svg" alt="EON - Ouroboros Infinito" width="100" height="50" className="w-4xl max-w-none top-0 right-0 h-auto absolute opacity-5 -z-10 translate-x-1/2 -translate-y-1/3 -scale-x-100 rotate-180"/>
+                            <Image src="/symbol.svg" alt="EON - Ouroboros Infinito" width="100" height="50" className="w-4xl max-w-none bottom-0 right-0 h-auto absolute opacity-5 -z-10 translate-x-1/12 translate-y-1/3 scale-x-100 -scale-y-100"/>
+                            <div className="flex min-h-full flex-col">
+                                <div className="flex shrink-0 justify-between">
                                     <Link
                                         href="/"
                                         className={clsx(
@@ -120,66 +121,54 @@ export function NavbarWithLinksActionsAndCenteredLogo({
                                         command="close"
                                         commandfor="mobile-menu"
                                         aria-label="Toggle menu"
-                                        className="inline-flex rounded-full p-1.5 text-green-950 hover:bg-green-900/10"
+                                        className="inline-flex rounded-full p-1.5 text-green-600 hover:bg-green-900/10"
                                     >
                                         <svg
                                             xmlns="http://www.w3.org/2000/svg"
                                             fill="none"
                                             viewBox="0 0 24 24"
-                                            strokeWidth={1.5}
+                                            strokeWidth={4}
                                             stroke="currentColor"
-                                            className="size-6"
+                                            className="size-8"
                                         >
                                             <path strokeLinecap="round" strokeLinejoin="round" d="M6 18 18 6M6 6l12 12" />
                                         </svg>
                                     </button>
                                 </div>
-                                <div className="mt-6 flex flex-col gap-6">
+                                <div className="flex flex-1 flex-col justify-evenly gap-5 py-3 landscape:gap-3 landscape:py-2" id="menu-sections-container">
                                     {leftLinks}
                                     {rightLinks}
-                                    <ButtonLink href="/aplica" size="lg" className="pointer-events-auto text-[1.25rem] px-8">
+                                    <ButtonLink href="/aplica" size="lg" className="pointer-events-auto text-[1.5rem]">
                                         Aplica al sistema <ArrowNarrowRightIcon />
                                     </ButtonLink>
                                 </div>
 
-                                <div className="mt-auto border-t border-green-900/10 pt-6">
-                                    <p className="text-xs font-semibold uppercase tracking-wide text-green-900/70">Contacto</p>
-                                    <div className="mt-3 flex flex-col gap-2 text-sm text-green-900/90">
-                                        <a href="mailto:contacto@eonbiosystem.com" className="inline-flex items-center gap-2 hover:text-orange-600">
-                                            <MailIcon className="size-4" />
-                                            contacto@eonbiosystem.com
-                                        </a>
-                                        <a href="https://wa.me/5215545848965" className="inline-flex items-center gap-2 hover:text-orange-600">
-                                            <WhatsAppIcon className="size-4" />
-                                            +52 55 4584 8965
-                                        </a>
-                                    </div>
-                                    <p className="mt-6 text-xs font-semibold uppercase tracking-wide text-green-900/70">Visítanos</p>
-                                    <a
-                                        href="https://maps.app.goo.gl/7HCJZv8jL7gShTRs9"
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        title="Ver ubicación en Google Maps"
-                                        className="mt-3 inline-flex items-start gap-2 text-sm text-green-950/90 transition-colors hover:text-orange-600"
-                                    >
-                                        <MapPinIcon className="mt-0.5 size-5 shrink-0" />
-                                        <span className="leading-6">
-                                            <span className="block font-semibold text-green-950">Alotepec #50, Coapa, Villa Quietud</span>
-                                            <span className="block text-green-900/90">Alcaldia Coyoacan, CP 04918</span>
-                                            <span className="block text-green-900/90">Ciudad de Mexico, CDMX</span>
-                                        </span>
-                                    </a>
-                                    <div className="mt-4 flex flex-wrap gap-x-4 gap-y-2 text-sm text-green-950/90">
-                                        <SocialLink href="https://www.facebook.com/eonbiosystem" name="Facebook" target='_blank'>
-                                            <FacebookIcon />
-                                        </SocialLink>
-                                        <SocialLink href="https://www.instagram.com/eonbiosystem" name="Instagram" target='_blank'>
-                                            <InstagramIcon />
-                                        </SocialLink>
-                                        <SocialLink href="https://x.com/eonbiosystem" name="X" target='_blank'>
-                                            <XIcon />
-                                        </SocialLink>
-                                    </div>
+                                <div className="shrink-0 gap-4 flex flex-col justify-center items-start">
+                                    <section className='w-full'>
+                                        <nav className="flex items-center gap-4 text-sm text-green-950/90 w-full justify-between">
+                                            <SocialLink href="https://instagram.com/eonbiosystem" name="Instagram" target='_blank'>
+                                                <InstagramIcon/>
+                                            </SocialLink>
+                                            <SocialLink href="https://facebook.com/eonbiosystem" name="Facebook" target='_blank'>
+                                                <FacebookIcon/>
+                                            </SocialLink>
+                                            <SocialLink href="https://maps.app.goo.gl/7HCJZv8jL7gShTRs9" name="Google Maps" target='_blank'>
+                                                <MapPinIcon/>
+                                            </SocialLink>
+                                        </nav>
+                                    </section>
+                                    <section className=' border-t border-green-900/10 pt-4 w-full'>
+                                        <div className="flex flex-col gap-3 text-md text-green-900/90">
+                                            <a href="mailto:contacto@eonbiosystem.com" className="inline-flex items-center gap-2 hover:text-orange-600">
+                                                <MailIcon className="size-6" />
+                                                contacto@eonbiosystem.com
+                                            </a>
+                                            <a href="https://wa.me/5215545848965" className="inline-flex items-center gap-2 hover:text-orange-600">
+                                                <WhatsAppIcon className="size-6" />
+                                                +52 55 4584 8965
+                                            </a>
+                                        </div>
+                                    </section>
                                 </div>
                             </div>
                         </ElDialogPanel>

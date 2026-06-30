@@ -44,7 +44,7 @@ export function SocialLink({
    href={href}
    target="_blank"
    aria-label={name}
-   className={clsx('text-green-950 *:size-6', className)}
+   className={clsx('text-green-950 *:size-8', className)}
    {...props}
   />
  )
