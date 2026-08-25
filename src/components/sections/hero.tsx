@@ -25,14 +25,14 @@ export function Hero({
 } & ComponentProps<'section'>) {
     return (
         <section className={clsx('px-4', className)} {...props}>
-            <Wallpaper className="rounded-lg" color="green-copper" style={{ backgroundImage: 'none' }}>
+            <Wallpaper className="wallpaper" color="green-copper" style={{ backgroundImage: 'none' }}>
                 <div className="absolute inset-0 -z-20 rounded-lg bg-black" aria-hidden="true" />
                 <Image
                     src={imageSrc}
                     alt={imageAlt}
                     width={1920}
                     height={1280}
-                    className="h-full w-full object-cover absolute inset-0 -z-10 rounded-lg opacity-80"
+                    className="h-full w-full object-cover absolute inset-0 -z-10 rounded-lg xl:rounded-2xl 2xl:rounded-3xl opacity-80"
                     priority
                 />
                 <div

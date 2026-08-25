@@ -39,7 +39,7 @@ export default function Aplica() {
 
       {/* Sección 3: Formulario */}
       <section id="form" className="p-4">
-        <Wallpaper color="mist" className="wallpaper rounded-lg">
+        <Wallpaper color="mist" className="wallpaper">
           <Container className="grid gap-12 py-12 sm:py-16 lg:grid-cols-[minmax(0,0.68fr)_minmax(28rem,1fr)] lg:items-start">
             <div className="flex max-w-xl flex-col gap-6 text-white lg:sticky lg:top-28">
               <Subheading>Solicitud de evaluación</Subheading>

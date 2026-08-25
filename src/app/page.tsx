@@ -29,7 +29,7 @@ function SectionWithHeading({
 
   return (
     <section className="px-4">
-      <Wallpaper color={tone} className="wallpaper rounded-lg">
+      <Wallpaper color={tone} className="wallpaper">
         <Container className="flex flex-col gap-10 sm:gap-16 items-center text-left md:text-center py-12 sm:py-16">
           <div className={layout === 'split' ? 'grid w-full max-w-6xl gap-8 lg:grid-cols-2 lg:items-center' : 'flex w-full max-w-6xl flex-col gap-6'}>
             <div className={layout === 'split' ? `flex flex-col gap-6 text-left ${isLightTone ? 'text-green-900' : 'text-white'}` : isLightTone ? 'text-green-900' : 'text-white'}>
@@ -122,7 +122,7 @@ export default function Page() {
 
       {/* Testimonio: Pamela Reyna */}
       <section className="px-4">
-        <Wallpaper color="colors" className="wallpaper rounded-lg">
+        <Wallpaper color="colors" className="wallpaper">
           <TestimonialLargeQuote
             id="testimonial"
             quote="Hace casi un año inicié mi cambio con pesas, hábitos y nutrición. Ricardo me ayudó a mejorar decisiones y mentalidad. El cambio ha sido impresionante: mejor condición física, técnica y casi no me enfermo."

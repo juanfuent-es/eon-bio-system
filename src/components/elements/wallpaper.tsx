@@ -55,7 +55,7 @@ export function Wallpaper({
    {...props}
   >
    <div
-    className="absolute inset-0 opacity-30 mix-blend-overlay"
+    className="absolute inset-0 opacity-50 mix-blend-overlay"
     style={{
      backgroundPosition: 'center',
      backgroundImage: noisePattern,

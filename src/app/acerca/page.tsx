@@ -29,7 +29,7 @@ function SectionWithHeading({
 
   return (
     <section className="px-4">
-      <Wallpaper color={tone} className="wallpaper rounded-lg">
+      <Wallpaper color={tone} className="wallpaper">
         <Container className="flex flex-col gap-10 py-12 text-left sm:gap-14 sm:py-16">
           <div
             className={
@@ -60,7 +60,7 @@ export default function Acerca() {
       {/* Hero */}
       <Hero
         id="hero"
-        imageSrc="/photos/eon-biosystem-acerca-ricardo-sanchez.jpg"
+        imageSrc="/eon-about-bg.jpg"
         imageAlt="Dirección profesional y respaldo clínico EON"
         headline={
           <>
