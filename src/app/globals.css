@@ -103,6 +103,7 @@
   }
 
   main {
+    --navbar-height: 5.75rem;
     height: 100dvh;
     overflow-y: auto;
     overflow-x: hidden;
@@ -113,13 +114,23 @@
   }
 
   main > section, .wallpaper {
-    min-height: 80dvh;
+    min-height: calc(100dvh - var(--navbar-height));
     display: flex;
     align-items: center;
     scroll-snap-align: start;
     scroll-snap-stop: always;
     scroll-margin-top: 0;
     padding-top: clamp(5dvh, 10%, 10dvh);
+  }
+
+  main > section:first-of-type {
+    padding-top: 0;
+  }
+
+  @media (min-width: 64rem) {
+    main {
+      --navbar-height: 6rem;
+    }
   }
 
   main > section > * {
