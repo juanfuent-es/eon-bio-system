@@ -13,15 +13,15 @@ export const initialApplicationFormState: ApplicationFormState = {
 }
 
 const commitmentLabels: Record<string, string> = {
-  high: 'Alto - Puedo seguir indicaciones y priorizar el proceso.',
-  medium: 'Medio - Puedo adaptarme al sistema con ciertas limitaciones.',
-  low: 'Bajo - Busco algo flexible y con poca estructura.',
+  high: 'Alto: puedo seguir indicaciones y priorizar el proceso.',
+  medium: 'Medio: puedo adaptarme al sistema con ciertas limitaciones.',
+  low: 'Bajo: busco algo flexible y con poca estructura.',
 }
 
 const biomarkersLabels: Record<string, string> = {
-  yes: 'Si - Entiendo que el laboratorio es parte central del sistema.',
-  conditional: 'Si, con ciertas limitaciones - Dependeria del contexto o indicacion.',
-  no: 'No - Prefiero no realizar estudios de laboratorio de forma periodica.',
+  yes: 'Sí: entiendo que el laboratorio es parte central del sistema.',
+  conditional: 'Sí, con ciertas limitaciones: dependería del contexto o de la indicación.',
+  no: 'No: prefiero no realizar estudios de laboratorio de forma periódica.',
 }
 
 function getValue(formData: FormData, key: string) {
@@ -96,10 +96,10 @@ Nueva solicitud desde /aplica
 
 Fecha: ${submittedAt}
 Nombre completo: ${payload.name}
-Correo electronico: ${payload.email}
-Telefono / WhatsApp: ${payload.phone}
+Correo electrónico: ${payload.email}
+Teléfono / WhatsApp: ${payload.phone}
 Edad: ${payload.age || 'No proporcionada'}
-Ciudad y pais: ${payload.location || 'No proporcionados'}
+Ciudad y país: ${payload.location || 'No proporcionados'}
 Nivel de compromiso: ${payload.commitment}
 Biomarcadores / laboratorio: ${payload.biomarkers}
 Consentimiento: Aceptado
@@ -109,10 +109,10 @@ Consentimiento: Aceptado
     <h2>Nueva solicitud desde /aplica</h2>
     <p><strong>Fecha:</strong> ${escapeHtml(submittedAt)}</p>
     <p><strong>Nombre completo:</strong> ${escapeHtml(payload.name)}</p>
-    <p><strong>Correo electronico:</strong> ${escapeHtml(payload.email)}</p>
-    <p><strong>Telefono / WhatsApp:</strong> ${escapeHtml(payload.phone)}</p>
+    <p><strong>Correo electrónico:</strong> ${escapeHtml(payload.email)}</p>
+    <p><strong>Teléfono / WhatsApp:</strong> ${escapeHtml(payload.phone)}</p>
     <p><strong>Edad:</strong> ${escapeHtml(payload.age || 'No proporcionada')}</p>
-    <p><strong>Ciudad y pais:</strong> ${escapeHtml(payload.location || 'No proporcionados')}</p>
+    <p><strong>Ciudad y país:</strong> ${escapeHtml(payload.location || 'No proporcionados')}</p>
     <p><strong>Nivel de compromiso:</strong> ${escapeHtml(payload.commitment)}</p>
     <p><strong>Biomarcadores / laboratorio:</strong> ${escapeHtml(payload.biomarkers)}</p>
     <p><strong>Consentimiento:</strong> Aceptado</p>
@@ -157,8 +157,8 @@ export async function submitApplication(
 ): Promise<ApplicationFormState> {
   try {
     const name = getRequiredValue(formData, 'name', 'Nombre completo')
-    const email = getRequiredValue(formData, 'email', 'Correo electronico')
-    const phone = getRequiredValue(formData, 'phone', 'Telefono / WhatsApp')
+    const email = getRequiredValue(formData, 'email', 'Correo electrónico')
+    const phone = getRequiredValue(formData, 'phone', 'Teléfono / WhatsApp')
     const commitmentValue = getRequiredValue(formData, 'commitment', 'Nivel de compromiso')
     const biomarkersValue = getRequiredValue(formData, 'biomarkers', 'Biomarcadores')
     const consent = formData.get('consent')
@@ -166,7 +166,7 @@ export async function submitApplication(
     const location = getValue(formData, 'location')
 
     if (!isValidEmail(email)) {
-      throw new Error('Ingresa un correo electronico valido.')
+      throw new Error('Ingresa un correo electrónico válido.')
     }
 
     if (!consent) {
@@ -177,7 +177,7 @@ export async function submitApplication(
     const biomarkers = biomarkersLabels[biomarkersValue]
 
     if (!commitment || !biomarkers) {
-      throw new Error('Selecciona una opcion valida en todas las preguntas.')
+      throw new Error('Selecciona una opción válida en todas las preguntas.')
     }
 
     await sendApplicationMail({

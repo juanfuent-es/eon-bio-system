@@ -68,9 +68,11 @@ export default function RootLayout({
               </NavbarLink>
             }
             rightLinks={
-              <NavbarLink key="acerca" href="/acerca">
-                Nuestra Visión
-              </NavbarLink>
+              <>
+                <NavbarLink key="acerca" href="/acerca">
+                  Nuestra Visión
+                </NavbarLink>
+              </>
             }
           />
           {children}

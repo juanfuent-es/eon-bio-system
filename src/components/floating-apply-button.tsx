@@ -6,7 +6,7 @@ import { ButtonLink } from '@/components/elements/button'
 import { ArrowNarrowRightIcon } from '@/components/icons/arrow-narrow-right-icon'
 
 export function FloatingApplyButton() {
-  const pathname = usePathname()
+  const pathname = usePathname() ?? ''
   const isApplyPage = pathname === '/aplica' || pathname.startsWith('/aplica/')
 
   if (isApplyPage) {
