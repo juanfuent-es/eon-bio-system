@@ -24,8 +24,8 @@ function SectionWithHeading({
   children?: ReactNode
 }) {
   const isLightTone = tone === 'bone-mist'
-  const textColor = isLightTone ? 'text-obsidian-900' : 'text-white'
-  const bodyColor = isLightTone ? 'text-obsidian-700' : 'text-white/88'
+  const textColor = isLightTone ? 'text-green-950' : 'text-white'
+  const bodyColor = isLightTone ? 'text-green-800' : 'text-white/88'
 
   return (
     <section className="px-4">
