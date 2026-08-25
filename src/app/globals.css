@@ -114,7 +114,7 @@
   }
 
   main > section, .wallpaper {
-    min-height: calc(100dvh - var(--navbar-height));
+    min-height: calc(90dvh - var(--navbar-height));
     display: flex;
     align-items: center;
     scroll-snap-align: start;
