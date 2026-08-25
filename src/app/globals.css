@@ -127,6 +127,16 @@
     padding-top: 0;
   }
 
+  main > section.hero {
+    height: calc(100dvh - var(--navbar-height));
+    min-height: calc(100dvh - var(--navbar-height));
+    padding-top: 0;
+  }
+
+  main > section.hero > .wallpaper > .relative {
+    height: 100%;
+  }
+
   @media (min-width: 64rem) {
     main {
       --navbar-height: 6rem;

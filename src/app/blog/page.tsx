@@ -42,7 +42,7 @@ export default async function BlogPage({ searchParams }: PageProps) {
   return (
     <>
       <Hero
-        imageSrc="/photos/eon-biosystem-home.png"
+        imageSrc="/eon-blog-bg.jpg"
         imageAlt="Mujer entrenando en espacio natural"
         headline="Biblioteca EON"
         subheadline={<p>Comprender sistemas biológicos. <br />Preservar función. <br />Extender vida.</p>}

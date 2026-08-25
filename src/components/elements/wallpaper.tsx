@@ -61,7 +61,7 @@ export function Wallpaper({
      backgroundImage: noisePattern,
     }}
    />
-    <div className="relative flex w-full items-center">{children}</div>
+    <div className="relative flex w-full items-center rounded-lg 2xl:rounded-3xl overflow-hidden">{children}</div>
   </div>
  )
 }
