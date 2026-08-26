@@ -117,7 +117,7 @@ export default function RootLayout({
                 </FooterCategory>
                 <FooterCategory title="Contacto">
                   <FooterLink href="mailto:contacto@eonbiosystem.com">contacto@eonbiosystem.com</FooterLink>
-                  <FooterLink href="https://wa.me/5215545848965">Whatsapp: 55 45 84 89 65</FooterLink>
+                  <FooterLink href="https://wa.me/+525549562488">Whatsapp: 55 49 56 24 88</FooterLink>
                 </FooterCategory>
               </>
             }
