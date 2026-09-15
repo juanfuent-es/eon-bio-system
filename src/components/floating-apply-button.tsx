@@ -1,5 +1,6 @@
 'use client'
 
+import { AssessmentLink } from '@/app/muscle-assessment/assessment-form'
 import { usePathname } from 'next/navigation'
 
 import { ButtonLink } from '@/components/elements/button'
@@ -15,9 +16,13 @@ export function FloatingApplyButton() {
 
   return (
     <div className="pointer-events-none fixed inset-x-0 bottom-8 z-60 flex justify-center">
-      <ButtonLink href="/aplica" size="lg" className="pointer-events-auto px-8 text-[1.25rem]">
-        Aplica al sistema <ArrowNarrowRightIcon />
-      </ButtonLink>
+      {pathname === '/muscle-assessment' ? (
+        <AssessmentLink placement="floating" className="pointer-events-auto px-8 text-[1.25rem]" />
+      ) : (
+        <ButtonLink href="/aplica" size="lg" className="pointer-events-auto px-8 text-[1.25rem]">
+          Aplica al sistema <ArrowNarrowRightIcon />
+        </ButtonLink>
+      )}
     </div>
   )
 }
