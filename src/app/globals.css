@@ -117,23 +117,33 @@
     padding-top: 0;
   }
 
-  main > section, .wallpaper {
-    min-height: calc(90dvh - var(--navbar-height));
+  main > section {
+    @apply p-4;
+    min-height: calc(100dvh - var(--navbar-height));
     display: flex;
     align-items: center;
-    padding-bottom: 5%;
   }
 
-  main > section:first-of-type {
-    padding-top: 0;
-  }
-
-  main > section.hero > .wallpaper > .relative {
+  .wallpaper {
+    @apply p-4;
+    display: flex;
+    align-items: center;
+    width: 100%;
     height: 100%;
   }
 
   main > section > * {
     width: 100%;
+  }
+
+  main > section.hero {
+    padding: 0;
+  }
+
+  main > section.hero .wallpaper {
+    height: 100%;
+    padding: 0;
+    @apply pb-4;
   }
 
 }

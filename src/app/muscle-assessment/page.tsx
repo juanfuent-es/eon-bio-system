@@ -1,6 +1,4 @@
-import { Container } from '@/components/elements/container'
 import { Subheading } from '@/components/elements/subheading'
-import { Wallpaper } from '@/components/elements/wallpaper'
 import { Hero } from '@/components/sections/hero'
 import { YouTubeVideo } from '@/components/sections/youtube-video'
 import type { Metadata } from 'next'
@@ -57,17 +55,11 @@ function Section({
 }) {
   return (
     <section id={id} className="scroll-mt-24 px-4">
-      <Wallpaper color={light ? 'bone-mist' : 'emerald'} className="wallpaper">
-        <Container
-          className={`flex flex-col gap-8 py-12 sm:gap-12 sm:py-16 ${light ? 'text-green-900' : 'text-white'}`}
-        >
-          <div className="max-w-4xl">
-            <p className="mb-4 text-sm font-semibold tracking-widest uppercase">{eyebrow}</p>
-            <Subheading>{title}</Subheading>
-          </div>
-          {children}
-        </Container>
-      </Wallpaper>
+      <div className="max-w-4xl">
+        <p className="mb-4 text-sm font-semibold tracking-widest uppercase">{eyebrow}</p>
+        <Subheading>{title}</Subheading>
+      </div>
+      {children}
     </section>
   )
 }
@@ -77,8 +69,9 @@ export default function MuscleAssessmentPage() {
     <>
       <Hero
         className="[&_h1]:leading-[0.8em] [&_h1::first-line]:text-[1.2em]"
-        imageSrc="/photos/eon-biosystem-muscle-assessment.jpg"
+        imageSrc="/muscle-assessment/hero.jpg"
         imageAlt="Ricardo Sánchez, EON BioSystem"
+        imageUnoptimized
         headline="Muscle </br><i>Assessment</i>"
         subtitle="Tus músculos pueden estar envejeciendo más rápido que tú."
         subheadline={
@@ -92,7 +85,8 @@ export default function MuscleAssessmentPage() {
       <YouTubeVideo
         videoId="SzYJuStg_IQ"
         title="¿Qué es EON Muscle Assessment?"
-        posterSrc="/photos/eon-biosystem-sistema.png"
+        posterSrc="/muscle-assessment/hero.jpg"
+        posterUnoptimized
       />
 
       <Section eyebrow="Más allá del peso" title="Conoce el estado real de tus músculos." light>

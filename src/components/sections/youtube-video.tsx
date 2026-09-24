@@ -4,7 +4,17 @@ import { Subheading } from '@/components/elements/subheading'
 import Image from 'next/image'
 import { useState } from 'react'
 
-export function YouTubeVideo({ videoId, title, posterSrc }: { videoId: string; title: string; posterSrc: string }) {
+export function YouTubeVideo({
+  videoId,
+  title,
+  posterSrc,
+  posterUnoptimized = false,
+}: {
+  videoId: string
+  title: string
+  posterSrc: string
+  posterUnoptimized?: boolean
+}) {
   const [playing, setPlaying] = useState(false)
 
   return (
@@ -31,7 +41,14 @@ export function YouTubeVideo({ videoId, title, posterSrc }: { videoId: string; t
               onClick={() => setPlaying(true)}
               className="group absolute inset-0 flex h-full w-full cursor-pointer items-center justify-center text-white focus-visible:outline-2 focus-visible:-outline-offset-4 focus-visible:outline-white"
             >
-              <Image src={posterSrc} alt="" fill sizes="100vw" className="object-cover" />
+              <Image
+                src={posterSrc}
+                alt=""
+                fill
+                sizes="100vw"
+                className="object-cover"
+                unoptimized={posterUnoptimized}
+              />
               <span
                 aria-hidden="true"
                 className="absolute inset-0 bg-black/35 transition-colors group-hover:bg-black/45"
