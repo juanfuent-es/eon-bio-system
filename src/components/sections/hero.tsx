@@ -59,6 +59,11 @@ export function Hero({
           style={{ backgroundImage: 'url("/gradients/orange-green.svg")' }}
           aria-hidden="true"
         />
+        <div
+          className="pointer-events-none absolute inset-0 z-[1] rounded-lg xl:rounded-2xl 2xl:rounded-3xl"
+          style={{ backgroundImage: 'linear-gradient(to top, rgb(0 0 0 / 1), rgb(0 0 0 / 0))' }}
+          aria-hidden="true"
+        />
         <div className="relative z-10 mx-auto flex h-full w-full items-end sm:px-6 md:px-12 lg:px-0">
           <Container
             className={clsx(
@@ -68,7 +73,7 @@ export function Hero({
           >
             <div
               className={clsx(
-                'flex w-full min-w-0 flex-col gap-6 p-4',
+                'flex w-full min-w-0 flex-col gap-2 p-4',
                 alignmentClasses[align],
                 align === 'center' ? 'max-w-7xl' : 'max-w-3xl',
               )}
@@ -91,11 +96,11 @@ export function Hero({
                 </Heading>
               )}
               {subtitle && (
-                <p className="max-w-4xl font-serif text-3xl leading-snug tracking-tight text-balance text-white sm:text-4xl md:text-5xl">
+                <p className="max-w-2xl text-lg md:text-xl lg:text-2xl xl:text-3xl font-serif leading-snug tracking-tight text-balance text-white">
                   {subtitle}
                 </p>
               )}
-              <div className="flex max-w-lg flex-col gap-4 text-xl text-white">{subheadline}</div>
+              <div className="flex max-w-2xl mt-0 text-balance flex-col gap-4 text-lg text-white text-left">{subheadline}</div>
               {cta}
             </div>
           </Container>
