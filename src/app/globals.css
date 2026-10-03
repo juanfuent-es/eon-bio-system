@@ -101,7 +101,7 @@
   body {
     margin: 0;
     height: 100%;
-    overflow: hidden;
+    overflow-x: hidden;
   }
 
 }
@@ -110,10 +110,6 @@
 
   main {
     --navbar-height: 5.75rem;
-    height: 100dvh;
-    overflow-y: auto;
-    overflow-x: hidden;
-    overscroll-behavior-y: contain;
     padding-top: 0;
   }
 

@@ -105,7 +105,7 @@ export default function MuscleAssessmentPage() {
             alt="Logotipo EON Muscle Assessment"
             width={762}
             height={815}
-            className="w-36 sm:w-40 md:w-44 lg:w-52 xl:w-60 drop-shadow-xl drop-shadow-black"
+            className="w-52 lg:w-52 xl:w-60 drop-shadow-xl drop-shadow-black"
           />
         }
         subtitle="Tus músculos pueden estar envejeciendo más rápido que tú."

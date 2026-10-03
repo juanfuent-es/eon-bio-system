@@ -55,13 +55,13 @@ export function Wallpaper({
    {...props}
   >
    <div
-    className="absolute inset-0 opacity-50 mix-blend-overlay rounded-lg lg:rounded-xl xl:rounded-2xl 2xl:rounded-3xl overflow-hidden"
+    className="absolute inset-0 opacity-50 mix-blend-overlay rounded-lg lg:rounded-xl xl:rounded-2xl 2xl:rounded-3xl overflow-hidden flex w-full items-center"
     style={{
      backgroundPosition: 'center',
      backgroundImage: noisePattern,
     }}
    />
-    <div className="relative flex w-full items-center rounded-lg 2xl:rounded-3xl overflow-hidden min-h-[stretch]">{children}</div>
+    {children}
   </div>
  )
 }

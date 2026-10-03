@@ -73,7 +73,7 @@ export function Hero({
           >
             <div
               className={clsx(
-                'flex w-full min-w-0 flex-col gap-2 p-4',
+                'flex w-full min-w-0 flex-col gap-4',
                 alignmentClasses[align],
                 align === 'center' ? 'max-w-7xl' : 'max-w-3xl',
               )}
@@ -96,11 +96,11 @@ export function Hero({
                 </Heading>
               )}
               {subtitle && (
-                <p className="max-w-2xl text-lg md:text-xl lg:text-2xl xl:text-3xl font-serif leading-snug tracking-tight text-balance text-white">
+                <p className="text-2xl xl:text-3xl max-w-2xl font-serif leading-snug tracking-tight text-balance text-white">
                   {subtitle}
                 </p>
               )}
-              <div className="flex max-w-2xl mt-0 text-balance flex-col gap-4 text-lg text-white text-left">{subheadline}</div>
+              <div className="flex max-w-2xl mt-0 text-balance flex-col gap-4 text-lg text-white">{subheadline}</div>
               {cta}
             </div>
           </Container>
