@@ -27,16 +27,14 @@ export function NavbarLink({
     <Link
       href={href}
       className={clsx(
-        'inline-flex items-center justify-between text-base no-underline transition-colors duration-300 bg-white hover:bg-white/10 rounded-2xl px-6 py-2',
+        'inline-flex items-center justify-between rounded-2xl bg-white px-6 py-2 text-base no-underline transition-colors duration-300 hover:bg-white/10',
         isActive ? 'pointer-events-none text-orange-600' : 'md:hover:text-orange-600',
         className,
       )}
       {...props}
     >
       <span className="font-serif text-sm font-semibold tracking-wide max-lg:hidden">{children}</span>
-      <span className="hidden items-center gap-2 font-serif text-xl normal-case max-lg:inline-flex">
-        {children}
-      </span>
+      <span className="hidden items-center gap-2 font-serif text-xl normal-case max-lg:inline-flex">{children}</span>
     </Link>
   )
 }
@@ -72,6 +70,12 @@ export function NavbarWithLinksActionsAndCenteredLogo({
   const pathname = usePathname() ?? ''
   const isHomeActive = pathname === '/'
   const isApplyPage = pathname === '/aplica' || pathname.startsWith('/aplica/')
+  const isMuscleAssessmentSurface =
+    pathname === '/' || pathname === '/muscle-assessment' || pathname.startsWith('/muscle-assessment/')
+
+  if (isMuscleAssessmentSurface) {
+    return null
+  }
 
   return (
     <header className={clsx('sticky top-0 z-50 w-full', className)} {...props}>

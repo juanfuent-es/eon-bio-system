@@ -115,7 +115,8 @@
 
   main > section {
     @apply p-4;
-    min-height: calc(100dvh - var(--navbar-height));
+    min-height: 100dvh;
+    /* min-height: calc(100dvh - var(--navbar-height)); */
     display: flex;
     align-items: center;
   }

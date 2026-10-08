@@ -2,6 +2,10 @@
 
 Ruta: `/muscle-assessment`. Reutiliza Container, Wallpaper, Subheading y botones del sitio; no agrega CSS ni dependencias.
 
+Temporalmente `/` renderiza el mismo contenido y chrome que `/muscle-assessment`. El home anterior queda estacionado en `src/app/eon-home-page.tsx` para revertir el deploy cuando termine la campaña.
+
+El deploy de esta ruta oculta el header principal global. En su lugar usa un nav mínimo fixed `top-0 left-0` con un único botón de logo `#eon-logo` hacia `/`.
+
 ## Operación
 
 Configurar las variables MAILJET existentes en `.env.example`. Cada envío se clasifica como presencial o remota y se entrega al correo interno con los datos y la fecha UTC. La confirmación sólo aparece cuando Mailjet informa éxito. El registro de interés remoto se conserva en el correo recibido; no hay base de datos, sincronización con Google Sheets ni notificación automática por WhatsApp.

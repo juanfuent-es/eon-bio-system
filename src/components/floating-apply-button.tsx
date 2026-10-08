@@ -8,9 +8,10 @@ import { ArrowNarrowRightIcon } from '@/components/icons/arrow-narrow-right-icon
 export function FloatingApplyButton() {
   const pathname = usePathname() ?? ''
   const isApplyPage = pathname === '/aplica' || pathname.startsWith('/aplica/')
-  const isMuscleAssessmentPage = pathname === '/muscle-assessment' || pathname.startsWith('/muscle-assessment/')
+  const isMuscleAssessmentSurface =
+    pathname === '/' || pathname === '/muscle-assessment' || pathname.startsWith('/muscle-assessment/')
 
-  if (isApplyPage || isMuscleAssessmentPage) {
+  if (isApplyPage || isMuscleAssessmentSurface) {
     return null
   }
 
