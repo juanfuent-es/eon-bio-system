@@ -37,7 +37,7 @@ export function Hero({
   }
 
   return (
-    <section className={clsx('hero flex-col px-4', className)} {...props}>
+    <section className={clsx('hero text-white flex-col px-4', className)} {...props}>
       <Wallpaper
         className="wallpaper h-full min-h-0 w-full flex-1"
         color="green-copper"
