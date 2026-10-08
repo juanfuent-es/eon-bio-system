@@ -2,7 +2,7 @@ import { Main } from '@/components/elements/main'
 import { FloatingApplyButton } from '@/components/floating-apply-button'
 import { FacebookIcon } from '@/components/icons/social/facebook-icon'
 import { InstagramIcon } from '@/components/icons/social/instagram-icon'
-import { XIcon } from '@/components/icons/social/x-icon'
+import { TikTokIcon } from '@/components/icons/social/tiktok-icon'
 import {
   FooterCategory,
   FooterLink,
@@ -107,34 +107,34 @@ export default function RootLayout({
             }
             links={
               <>
-                <FooterCategory title="Navegación">
+               {/*  <FooterCategory title="Navegación">
                   <FooterLink href="/">Inicio</FooterLink>
                   <FooterLink href="/sistema">Sistema</FooterLink>
                   <FooterLink href="/acerca">Acerca de</FooterLink>
                   <FooterLink href="/aplica">Aplicar</FooterLink>
-                </FooterCategory>
+                </FooterCategory> */}
                 <FooterCategory title="Legal">
                   <FooterLink href="/privacidad">Aviso de Privacidad</FooterLink>
                   <FooterLink href="/terminos-condiciones">Términos y Condiciones</FooterLink>
                 </FooterCategory>
                 <FooterCategory title="Contacto">
                   <FooterLink href="mailto:contacto@eonbiosystem.com">contacto@eonbiosystem.com</FooterLink>
-                  <FooterLink href="https://wa.me/+525549562488">Whatsapp: 55 49 56 24 88</FooterLink>
+                  <FooterLink target="_blank" href="https://wa.me/+525549562488">Whatsapp: 55 49 56 24 88</FooterLink>
                 </FooterCategory>
               </>
             }
             fineprint="© 2026 EON BioSystem. Todos los derechos reservados."
             socialLinks={
               <>
-                <SocialLink href="https://www.facebook.com/eonbiosystem" name="Facebook" target="_blank">
-                  <FacebookIcon />
-                </SocialLink>
                 <SocialLink href="https://www.instagram.com/eonbiosystem" name="Instagram" target="_blank">
                   <InstagramIcon />
                 </SocialLink>
-                <SocialLink href="https://x.com/eonbiosystem" name="X" target="_blank">
-                  <XIcon />
+                <SocialLink href="https://www.facebook.com/eonbiosystem" name="Facebook" target="_blank">
+                  <FacebookIcon />
                 </SocialLink>
+                {/* <SocialLink href="https://www.tiktok.com/@eon.biosystem" name="TikTok" target="_blank">
+                  <TikTokIcon />
+                </SocialLink> */}
               </>
             }
           />

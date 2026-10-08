@@ -27,7 +27,7 @@ export function Heading({
  return (
   <HeadingTag
    className={clsx(
-    'font-serif tracking-tight leading-snug text-balance text-white',
+    'font-serif tracking-tight leading-snug text-balance',
     sizeClasses[level],
     className,
    )}
