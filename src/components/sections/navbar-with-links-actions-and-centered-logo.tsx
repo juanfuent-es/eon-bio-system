@@ -27,14 +27,14 @@ export function NavbarLink({
     <Link
       href={href}
       className={clsx(
-        'the group inline-flex items-center justify-between gap-2 pl-2 text-base no-underline transition-colors duration-300',
+        'inline-flex items-center justify-between text-base no-underline transition-colors duration-300 bg-white hover:bg-white/10 rounded-2xl px-6 py-2',
         isActive ? 'pointer-events-none text-orange-600' : 'md:hover:text-orange-600',
         className,
       )}
       {...props}
     >
-      <span className="font-serif text-[1.25rem] font-semibold tracking-wide max-lg:hidden">{children}</span>
-      <span className="hidden items-center gap-2 font-serif text-[2.2rem] normal-case max-lg:inline-flex">
+      <span className="font-serif text-sm font-semibold tracking-wide max-lg:hidden">{children}</span>
+      <span className="hidden items-center gap-2 font-serif text-xl normal-case max-lg:inline-flex">
         {children}
       </span>
     </Link>
@@ -77,10 +77,12 @@ export function NavbarWithLinksActionsAndCenteredLogo({
     <header className={clsx('sticky top-0 z-50 w-full', className)} {...props}>
       <nav className="px-4">
         <div className="mx-auto flex justify-between gap-4 rounded-lg py-6 text-green-800 lg:px-10">
-          <div className="hidden items-center justify-start lg:flex">{leftLinks}</div>
-          <div className="flex items-center justify-center">{logo}</div>
+          <div className="flex items-center justify-start">{logo}</div>
           <div className="flex items-center justify-end gap-4">
-            <div className="hidden items-center justify-end lg:flex">{rightLinks}</div>
+            <div className="hidden items-center justify-end gap-4 lg:flex">
+              {leftLinks}
+              {rightLinks}
+            </div>
             <button
               command="show-modal"
               commandfor="mobile-menu"

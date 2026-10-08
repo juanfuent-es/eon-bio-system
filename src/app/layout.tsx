@@ -39,7 +39,6 @@ export default function RootLayout({
       <head>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="theme-color" content="#000000" />
-
         <link rel="stylesheet" href="https://use.typekit.net/xsn1nhj.css" />
       </head>
       <body className="w-full overflow-x-hidden">
@@ -63,14 +62,17 @@ export default function RootLayout({
               </NavbarLogo>
             }
             leftLinks={
-              <NavbarLink key="sistema" href="/sistema">
-                Nuestro Método
-              </NavbarLink>
+                <NavbarLink key="muscle-assessment" href="/muscle-assessment">
+                  Muscle Assessment
+                </NavbarLink>
             }
             rightLinks={
               <>
-                <NavbarLink key="acerca" href="/acerca">
-                  Nuestra Visión
+                <NavbarLink key="metodo" href="/metodo">
+                  Nuestro Método
+                </NavbarLink>
+                <NavbarLink key="vision" href="/publicaciones">
+                  Publicaciones
                 </NavbarLink>
               </>
             }

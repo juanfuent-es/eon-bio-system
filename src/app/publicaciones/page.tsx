@@ -42,8 +42,8 @@ export default async function BlogPage({ searchParams }: PageProps) {
   return (
     <>
       <Hero
-        imageSrc="/eon-blog-bg.jpg"
-        imageAlt="Mujer entrenando en espacio natural"
+        imageSrc="/eon-publicaciones-bg.jpg"
+        imageAlt="Ricardo Sánchez"
         headline="Biblioteca EON"
         subheadline={<p>Comprender sistemas biológicos. <br />Preservar función. <br />Extender vida.</p>}
       />
