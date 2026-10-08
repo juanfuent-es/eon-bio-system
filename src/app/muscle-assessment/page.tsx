@@ -6,7 +6,7 @@ import Image from 'next/image'
 import { createHash } from 'node:crypto'
 import { readFileSync } from 'node:fs'
 import path from 'node:path'
-import type { ReactNode } from 'react'
+import { AssessmentLink } from './assessment-form'
 
 export const metadata: Metadata = {
   title: 'EON Muscle Assessment™ | EON BioSystem',
@@ -65,28 +65,6 @@ const assessments = [
   },
 ]
 
-function Section({
-  id,
-  title,
-  eyebrow,
-  children,
-}: {
-  id?: string
-  title: string
-  eyebrow: string
-  children: ReactNode
-}) {
-  return (
-    <section id={id} className="scroll-mt-24 px-4">
-      <div className="max-w-4xl">
-        <p className="mb-4 text-sm font-semibold tracking-widest uppercase">{eyebrow}</p>
-        <Subheading>{title}</Subheading>
-      </div>
-      {children}
-    </section>
-  )
-}
-
 export default function MuscleAssessmentPage() {
   const heroImageSrc = versionedPublicAsset('/photos/eon-biosystem-muscle-assessment.png')
   const videoImageSrc = versionedPublicAsset('/muscle-assessment/video-cover-yt.jpg')
@@ -113,6 +91,12 @@ export default function MuscleAssessmentPage() {
             Más allá del peso, evaluamos tu fuerza, función, estabilidad y composición corporal para estimar tu edad
             muscular en sólo 15 minutos.
           </p>
+        }
+        cta={
+          <AssessmentLink
+            placement="hero"
+            className="max-w-full shrink self-center px-5 text-center text-base"
+          />
         }
       />
 
@@ -209,8 +193,8 @@ export default function MuscleAssessmentPage() {
         imageSrc={reportImageSrc}
         imageAlt="Reporte EON Muscle Assessment con resultados de estado muscular"
         imageUnoptimized
-        headline="Tu reporte"
-        subtitle="Edad muscular estimada, nivel muscular, áreas fuertes y áreas de atención en un solo lugar."
+        headline="Reporte Detallado"
+        subtitle="Obtén tu edad muscular estimada, nivel muscular, áreas fuertes y áreas de atención en un solo lugar."
         subheadline={
           <>
             <p>
@@ -221,18 +205,25 @@ export default function MuscleAssessmentPage() {
         }
       />
 
-      <section className="flex flex-col gap-8 bg-neutral-100 px-4 py-12 text-center">
+      <footer className="flex flex-col gap-8 bg-neutral-100 px-4 py-12 text-center" id="footer-muscle">
         <header className="text-center">
-          <p><small>Pre-evaluación Gratis</small></p>
+          <p className="tracking-widest uppercase">
+            <small>Pre-evaluación Gratis</small>
+          </p>
           <Subheading>
             <small>Agenda tu cita</small>
           </Subheading>
         </header>
-        <p className="max-w-xl text-lg/8 text-balance">
+        <p className="mx-auto max-w-2xl text-lg/8 text-balance">
           Actualmente la evaluación completa se realiza de forma presencial en Ciudad de México.
-          <br />Si vives fuera de CDMX, puedes dejar tus datos para recibir información sobre la futura modalidad remota.
+          <br />
+          Si vives fuera de CDMX, puedes dejar tus datos para recibir información sobre la futura modalidad remota.
         </p>
-      </section>
+        <AssessmentLink
+          placement="footer-muscle"
+          className="mx-auto max-w-full shrink px-5 text-center text-base sm:px-8"
+        />
+      </footer>
     </>
   )
 }

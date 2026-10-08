@@ -20,7 +20,7 @@ export function Button({
   <button
    type={type}
    className={clsx(
-    'inline-flex shrink-0 items-center justify-center gap-1 rounded-full text-sm/7 font-medium bg-green-800 hover:bg-orange-700 transition-colors duration-200',
+    'inline-flex shrink-0 items-center justify-center gap-1 rounded-full text-sm font-medium bg-green-800 hover:bg-orange-700 transition-colors duration-200',
     sizes[size],
     className,
    )}
@@ -42,7 +42,7 @@ export function ButtonLink({
   <Link
    href={href}
    className={clsx(
-    'inline-flex uppercase shrink-0 items-center justify-center gap-1 rounded-full text-sm/7 font-medium bg-orange-500 text-white hover:bg-orange-900 transition-colors duration-200',
+    'inline-flex uppercase shrink-0 items-center justify-center gap-1 rounded-full text-sm font-medium bg-orange-500 text-white hover:bg-orange-900 transition-colors duration-200',
     sizes[size],
     className,
    )}
@@ -63,7 +63,7 @@ export function SoftButton({
   <button
    type={type}
    className={clsx(
-    'inline-flex shrink-0 items-center justify-center gap-1 rounded-full bg-green-800/10 text-sm/7 font-medium text-green-950 hover:bg-green-900/15',
+    'inline-flex shrink-0 items-center justify-center gap-1 rounded-full bg-green-800/10 text-sm font-medium text-green-950 hover:bg-green-900/15',
     sizes[size],
     className,
    )}
@@ -85,7 +85,7 @@ export function SoftButtonLink({
   <Link
    href={href}
    className={clsx(
-    'inline-flex shrink-0 items-center justify-center gap-1 rounded-full bg-green-800/10 text-sm/7 font-medium text-green-950 hover:bg-green-900/15',
+    'inline-flex shrink-0 items-center justify-center gap-1 rounded-full bg-green-800/10 text-sm font-medium text-green-950 hover:bg-green-900/15',
     sizes[size],
     className,
    )}
@@ -106,7 +106,7 @@ export function PlainButton({
   <button
    type={type}
    className={clsx(
-    'inline-flex shrink-0 items-center justify-center gap-2 rounded-full text-sm/7 font-medium text-green-950 hover:bg-green-900/10',
+    'inline-flex shrink-0 items-center justify-center gap-2 rounded-full text-sm font-medium text-green-950 hover:bg-green-900/10',
     sizes[size],
     className,
    )}
@@ -128,7 +128,7 @@ export function PlainButtonLink({
   <Link
    href={href}
    className={clsx(
-    'inline-flex shrink-0 items-center justify-center gap-2 rounded-full text-sm/7 font-medium text-green-950 bg-white md:hover:text-white hover:bg-orange-500 transition-colors duration-500 md:hover:duration-300',
+    'inline-flex shrink-0 items-center justify-center gap-2 rounded-full text-sm font-medium text-green-950 bg-white md:hover:text-white hover:bg-orange-500 transition-colors duration-500 md:hover:duration-300',
     sizes[size],
     className,
    )}

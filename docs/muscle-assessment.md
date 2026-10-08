@@ -19,11 +19,11 @@ El evento mide visitas desde el enlace etiquetado, no escaneos físicos únicos.
 
 ## Material pendiente
 
-Se utiliza el retrato existente de Ricardo como fondo fullscreen del componente Hero compartido. La solicitud tiene un único CTA flotante inferior, con el mismo diseño del home. Después del hero se muestra el video de YouTube `SzYJuStg_IQ` a pantalla completa, con portada y play personalizado que carga el iframe bajo demanda; las cinco tarjetas tienen número, título y descripción mientras se entregan fotos reales de cada prueba. El reporte se presenta como lista de contenido, sin resultados ni credenciales ficticias. Sustituir estos elementos con el video, fotos de pruebas y foto del reporte aprobados. Para videos: controles nativos, sin autoplay, `preload="none"`, poster optimizado y subtítulos.
+Se utiliza el retrato existente de Ricardo como fondo fullscreen del componente Hero compartido. La solicitud tiene CTA dentro del hero principal y dentro de `#footer-muscle`, con el mismo diseño del sitio. Después del hero se muestra el video de YouTube `SzYJuStg_IQ` a pantalla completa, con portada y play personalizado que carga el iframe bajo demanda; las cinco tarjetas tienen número, título y descripción mientras se entregan fotos reales de cada prueba. El reporte se presenta como lista de contenido, sin resultados ni credenciales ficticias. Sustituir estos elementos con el video, fotos de pruebas y foto del reporte aprobados. Para videos: controles nativos, sin autoplay, `preload="none"`, poster optimizado y subtítulos.
 
 ## Verificación manual con servicios configurados
 
-1. Usar el CTA flotante inferior centrado y comenzar la pre-evaluación.
+1. Usar el CTA del hero principal y el CTA de `#footer-muscle` para comenzar la pre-evaluación.
 2. Completar presencial: revisar validaciones, correo recibido y confirmación.
 3. Completar remoto: sólo solicitar nombre, WhatsApp, correo, ciudad/país y objetivo; comprobar clasificación en el correo.
 4. Simular fallo de Mailjet: conservar datos y permitir reintentar, sin mostrar éxito.
