@@ -91,7 +91,9 @@ function Section({
 }
 
 export default function MuscleAssessmentPage() {
-  const heroImageSrc = versionedPublicAsset('/photos/eon-biosystem-muscle-assessment.png')
+
+  const heroImageSrc = versionedPublicAsset('/photos/eon-biosystem-muscle-assessment.png');
+  const videoImageSrc = versionedPublicAsset('/muscle-assessment/video-cover.jpg');
 
   return (
     <>
@@ -111,16 +113,14 @@ export default function MuscleAssessmentPage() {
         subtitle="Tus músculos pueden estar envejeciendo más rápido que tú."
         subheadline={
           <p>
-            Más allá del peso, evaluamos tu fuerza, función, estabilidad y composición corporal para estimar tu edad
-            muscular en sólo 15 minutos.
+            Más allá del peso, evaluamos tu fuerza, función, estabilidad y composición corporal para estimar tu edad muscular en sólo 15 minutos.
           </p>
         }
       />
 
       <YouTubeVideo
         videoId="SzYJuStg_IQ"
-        title="¿Qué es EON Muscle Assessment?"
-        posterSrc={heroImageSrc}
+        posterSrc={videoImageSrc}
         posterUnoptimized
       />
 

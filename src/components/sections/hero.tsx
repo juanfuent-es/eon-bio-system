@@ -49,7 +49,7 @@ export function Hero({
           alt={imageAlt}
           width={1920}
           height={1280}
-          className="absolute inset-0 -z-10 h-full w-full rounded-lg object-cover opacity-80 xl:rounded-2xl 2xl:rounded-3xl"
+          className="absolute inset-0 -z-10 h-full w-full rounded-lg object-cover opacity-75 xl:rounded-2xl 2xl:rounded-3xl"
           sizes="100vw"
           unoptimized={imageUnoptimized}
           priority
@@ -100,7 +100,7 @@ export function Hero({
                   {subtitle}
                 </p>
               )}
-              <div className="flex max-w-2xl mt-0 text-balance flex-col gap-4 text-lg text-white">{subheadline}</div>
+              <div className="flex max-w-xl mt-0 text-balance flex-col gap-4 text-lg text-white">{subheadline}</div>
               {cta}
             </div>
           </Container>

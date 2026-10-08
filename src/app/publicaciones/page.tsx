@@ -4,10 +4,11 @@ import { Hero } from '@/components/sections/hero'
 import { listArticles } from '@/lib/blog/articles'
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import Image from 'next/image'
 
 export const metadata: Metadata = {
   title: 'Blog | EON BioSystem',
-  description: 'Notas de EON BioSystem sobre fuerza, nutrición, biomarcadores y longevidad.',
+  description: 'Artículos, evidencia y casos clínicos explicados con claridad para ayudarte a comprender mejor tu metabolismo, tu fuerza y tu salud, y tomar decisiones con más criterio.',
 }
 
 type PageProps = {
@@ -44,8 +45,16 @@ export default async function BlogPage({ searchParams }: PageProps) {
       <Hero
         imageSrc="/eon-publicaciones-bg.jpg"
         imageAlt="Ricardo Sánchez"
-        headline="Biblioteca EON"
-        subheadline={<p>Comprender sistemas biológicos. <br />Preservar función. <br />Extender vida.</p>}
+        headline={
+          <Image
+            src="/logos/eon-publicaciones-logo.svg"
+            alt="Logotipo EON Muscle Assessment"
+            width={762}
+            height={815}
+            className="w-full md:w-74 lg:w-80 xl:w-96 drop-shadow-xl drop-shadow-black"
+          />
+        }
+        subheadline={<p>Artículos, evidencia y casos clínicos explicados con claridad para ayudarte a comprender mejor tu metabolismo, tu fuerza y tu salud, y tomar decisiones con más criterio.</p>}
       />
 
       {secondaryArticles.length > 0 ? (
