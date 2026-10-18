@@ -159,7 +159,7 @@ export default function MuscleAssessmentPage() {
                 />
                 <div className="assessment-card-content relative z-10 flex w-full min-w-0 flex-col items-start p-4 pb-8 sm:p-6">
                   <span className="font-serif text-5xl leading-none">{assessment.number}</span>
-                  <h3 className="mt-1 w-full font-serif text-left text-2xl leading-tight">{assessment.title}</h3>
+                  <h3 className="mt-1 w-full font-serif text-left text-2xl xl:text-3xl leading-tight">{assessment.title}</h3>
                   <p className="mt-1 max-w-sm text-base leading-snug text-balance xl:text-lg">{assessment.description}</p>
                 </div>
               </article>

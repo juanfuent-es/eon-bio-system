@@ -23,11 +23,11 @@ export function TestimonialLargeQuote({
           <figure className="mx-auto w-[90%] text-green-950">
             <blockquote>“{quote}”</blockquote>
             <figcaption className="testimonial-profile px-4">
-              <div className="flex size-12 overflow-hidden rounded-full outline -outline-offset-1 outline-black/5 transition-transform duration-150 *:size-full *:object-cover md:size-16 md:hover:scale-105 lg:size-20">
+              <div className="flex mt-2 size-12 overflow-hidden rounded-full outline -outline-offset-1 outline-black/5 transition-transform duration-150 *:size-full *:object-cover md:size-16 md:hover:scale-105 lg:size-20">
                 {img}
               </div>
-              <p className="testimonial-author">{name}</p>
-              <p className="testimonial-byline text-center text-green-700">{byline}</p>
+              <p className="testimonial-author mb-0 pb-0">{name}</p>
+              <p className="testimonial-byline pt-0 mt-0 text-center text-green-700">{byline}</p>
             </figcaption>
           </figure>
         </Container>

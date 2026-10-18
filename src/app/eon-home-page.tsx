@@ -41,7 +41,7 @@ export default function Page() {
       <Hero
         imageSrc="/photos/eon-biosystem-home.png"
         imageAlt="Mujer entrenando en espacio natural"
-        logo={{ src: '/logos/eon-logotype-slogan.svg', alt: 'Logotipo EON BioSystem' }}
+        logo={{ src: '/logos/eon-logotype-descriptor.svg', alt: 'Logotipo EON BioSystem' }}
         subtitle="Un sistema de longevidad diseñado desde la ciencia."
         subheadline={
           <p>
@@ -131,10 +131,10 @@ export default function Page() {
         aria-label="Testimonio de Jesús Josúe"
         quote={
           <>
-            Mi experiencia en estos 5 años con el Lic. Ricardo Sánchez, que además lo estimo como un amigo, ha sido de{' '}
-            <strong>superación</strong>. Juntos hemos trabajado en construir un gran físico, pero sobre todo, me ha
-            enseñado sobre <em>salud, nutrición, resiliencia, longevidad</em> y desarrollo personal. Muy contento con la
-            experiencia EON y seguimos trabajando.
+            Mi experiencia en estos 5 años con el <a href="https://instagram.com/ricardo.sanchez.mx/" className="underline font-bold" target="_blank" rel="noopener noreferrer">Lic. Ricardo Sánchez</a>, que además lo estimo como un amigo, ha sido de{' '}
+            <strong>superación</strong>. <br /><br />Juntos hemos trabajado en construir un gran físico, pero sobre todo, me ha
+            enseñado sobre <strong>salud, nutrición, resiliencia, longevidad y desarrollo personal</strong>.<br /><br />Muy contento con la
+            experiencia EON.
           </>
         }
         img={

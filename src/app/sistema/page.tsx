@@ -54,7 +54,7 @@ export default function Sistema() {
     id="hero"
     imageSrc="/photos/eon-biosystem-sistema.png"
     imageAlt="Mujer realizando ejercicio de fuerza"
-    logo={{ src: '/logos/eon-logotype-descriptor.svg', alt: 'Logotipo EON BioSystem' }}
+    logo={{ src: '/logos/eon-logotype-slogan.svg', alt: 'Logotipo EON BioSystem' }}
     subtitle="El sistema detrás de la longevidad."
     subheadline={
         <>
