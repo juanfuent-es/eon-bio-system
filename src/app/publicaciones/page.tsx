@@ -4,7 +4,6 @@ import { ArrowNarrowRightIcon } from '@/components/icons/arrow-narrow-right-icon
 import { Hero } from '@/components/sections/hero'
 import { listArticles } from '@/lib/blog/articles'
 import type { Metadata } from 'next'
-import Image from 'next/image'
 import Link from 'next/link'
 
 export const metadata: Metadata = {
@@ -47,15 +46,7 @@ export default async function BlogPage({ searchParams }: PageProps) {
       <Hero
         imageSrc="/eon-publicaciones-bg.jpg"
         imageAlt="Ricardo Sánchez"
-        headline={
-          <Image
-            src="/logos/eon-publicaciones-logo.svg"
-            alt="EON Publicaciones"
-            width={762}
-            height={815}
-            className="w-52 drop-shadow-xl drop-shadow-black xl:w-60"
-          />
-        }
+        logo={{ src: '/logos/eon-publicaciones-logo.svg', alt: 'EON Publicaciones' }}
         subheadline={
           <p>
             Artículos, evidencia y casos clínicos explicados con claridad para ayudarte a comprender mejor tu

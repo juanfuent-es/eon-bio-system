@@ -51,10 +51,10 @@ export default function Page() {
         <TestimonialLargeQuote
           id="testimonial"
           quote={
-            <p>
-              EON Bio transformó completamente mi enfoque hacia la longevidad. Con datos objetivos y un sistema claro, 
-              pude ver resultados reales en mi biología. Es la diferencia entre hacer cambios al azar y diseñar tu futuro.
-            </p>
+            <>
+              EON Bio transformó completamente mi enfoque hacia la longevidad. Con <strong>datos objetivos y un sistema claro</strong>,
+              pude ver resultados reales en mi biología. Es la diferencia entre hacer cambios al azar y <em>diseñar tu futuro</em>.
+            </>
           }
           img={
             <img

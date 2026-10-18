@@ -54,11 +54,8 @@ export default function Sistema() {
     id="hero"
     imageSrc="/photos/eon-biosystem-sistema.png"
     imageAlt="Mujer realizando ejercicio de fuerza"
-    headline={
-        <>
-            El <i>sistema</i> detrás de la <i>longevidad</i>.
-        </>
-    }
+    logo={{ src: '/logos/eon-logotype-descriptor.svg', alt: 'Logotipo EON BioSystem' }}
+    subtitle="El sistema detrás de la longevidad."
     subheadline={
         <>
             <p>Un método estructurado que integra <strong>entrenamiento de fuerza</strong>, <strong>nutrición estratégica</strong> y <strong>seguimiento biológico</strong> para construir salud, rendimiento y longevidad.</p>

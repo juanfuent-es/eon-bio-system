@@ -10,9 +10,11 @@ Página única. Cinco bloques.
 
 ### El *sistema* detrás de la *longevidad*.
 
+No es un plan aislado. Es un sistema completo de optimización biológica.
+
 Fuerza, nutrición, composición corporal y biomarcadores integrados en una estrategia personalizada con seguimiento continuo.
 
-**CTA:** Aplica al sistema  
+**CTA:** Aplica al sistema
 **Nota:** Acceso mediante evaluación previa.
 
 ---
@@ -23,7 +25,7 @@ Fuerza, nutrición, composición corporal y biomarcadores integrados en una estr
 
 ### La experiencia detrás del sistema.
 
-EON BioSystem nace de años de trabajo de Ricardo Sánchez en entrenamiento de fuerza, nutrición aplicada y metabolismo.
+EON BioSystem nace de años de estudio en entrenamiento de fuerza, nutrición aplicada y metabolismo.
 
 La práctica, el estudio continuo y el seguimiento individual dieron forma a un sistema que busca comprender la biología de cada persona y convertir esa información en decisiones claras.
 
@@ -51,6 +53,16 @@ No ofrece una solución genérica: ofrece un proceso con dirección, seguimiento
 2. **Diseño** — Integrar la información en una estrategia personalizada.
 3. **Ejecución** — Llevar el sistema a la práctica con acciones claras.
 4. **Seguimiento** — Observar la respuesta y ajustar el proceso con el tiempo.
+
+FEEDBACK RICK
+Estructura del proceso clínico. 
+El proceso se desarrolla en fases progresivas:
+EON Muscle Assessment™ / evaluación de reserva muscular y función física
+Intervención nutricional y de estilo de vida
+Evaluación inicial, historia clínica y diagnóstico operativo
+Optimización digestiva / Protocolo Salud Intestinal EON
+Consolidación metabólica, muscular y de rendimiento
+Fase de Precisión Metabólica – EON BioSystem
 
 ### Qué integra
 

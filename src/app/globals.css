@@ -130,7 +130,7 @@
     font-family: var(--font-serif);
     font-weight: 400;
     letter-spacing: -0.025em;
-    line-height: 1.15;
+    line-height: 1;
     text-wrap: balance;
   }
 
@@ -173,16 +173,44 @@
   }
 
   .testimonial blockquote {
-    max-width: 48rem;
-    font-size: var(--type-body);
-    line-height: var(--leading-body);
+    margin: 0 auto;
+    padding: 0;
+    max-width: 52rem;
+    font-size: var(--type-subtitle);
+    line-height: 1.35;
+    font-style: italic;
+    text-align: center;
     text-wrap: balance;
   }
+  .testimonial blockquote p {
+    font: inherit;
+  }
+  .testimonial-profile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.25rem;
+    margin-top: 0.75rem;
+    padding: 0;
+    text-align: center;
+  }
+  .testimonial blockquote strong,
+  .testimonial blockquote b {
+    font-weight: 700;
+  }
+  .testimonial blockquote em,
+  .testimonial blockquote i {
+    font-style: italic;
+  }
   .testimonial-author {
+    margin: 0;
+    padding: 0;
     font-family: var(--font-serif);
     font-weight: 600;
   }
   .testimonial-byline {
+    margin: 0;
+    padding: 0;
     font-size: var(--type-small);
   }
   .site-footer h3 {
@@ -291,6 +319,10 @@
     min-height: 100dvh;
     display: flex;
     align-items: center;
+  }
+
+  main > section.assessment-gallery {
+    padding: 0;
   }
 
   .wallpaper {

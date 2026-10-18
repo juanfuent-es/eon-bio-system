@@ -6,7 +6,7 @@
 
 `Hero` conserva el diseño original: fotografía, degradados, bordes redondeados, contenido inferior y la textura de ruido de `Wallpaper` superpuesta sobre la imagen. Cada página aporta imagen, título, texto y acciones.
 
-Todos los testimonios usan `TestimonialLargeQuote`, que incluye el fondo `Wallpaper` de tono `colors`, la cita centrada, el avatar circular y los datos del autor. Las páginas aportan contenido y enlaces sin reemplazar el fondo ni envolverlo en otro `Wallpaper`. La textura de ruido de `Wallpaper` es decorativa (`aria-hidden`) y usa `pointer-events-none` para permitir clics en el contenido.
+Todos los testimonios usan `TestimonialLargeQuote`, que incluye el fondo `Wallpaper` de tono `colors`, la cita centrada, el avatar circular y los datos del autor. La cita tiene una escala propia ligeramente mayor que el texto de lectura y admite `<strong>` y `<em>` para enfatizar sin alterar el contenido. El perfil usa una separación fija y compacta; nombre y byline no agregan márgenes ni padding. Las páginas aportan contenido y enlaces sin reemplazar el fondo ni envolverlo en otro `Wallpaper`. La textura de ruido de `Wallpaper` es decorativa (`aria-hidden`) y usa `pointer-events-none` para permitir clics en el contenido.
 
 La navegación usa `NavButtonLink` y `navButtonStyles`, independientes de los botones de acción. Conserva las pills originales con tipografía serif, fondo blanco y hover/activo naranja con texto blanco. Los controles de acción usan `Button` o `ButtonLink`, con variantes `primary`, `secondary` y `soft`. Sus tamaños y estilos se mantienen separados de la navegación. Los controles de reproducción y acordeón conservan su forma según su función.
 
@@ -14,8 +14,10 @@ Las páginas de documentos que no tienen hero reservan espacio para el header me
 
 ## Tipografía y controles globales
 
-`globals.css` es la fuente de tamaños e interlineados. `html` conserva una base fija de 16px para que los breakpoints tipográficos no escalen también todos los espacios expresados en rem. El texto de lectura crece mediante `--type-body`; los títulos usan `--type-h1`, `--type-h2` y `--type-h3`. Párrafos y citas de testimonios comparten tamaño e interlineado; las negritas mantienen su énfasis.
+`globals.css` es la fuente de tamaños e interlineados. `html` conserva una base fija de 16px para que los breakpoints tipográficos no escalen también todos los espacios expresados en rem. El texto de lectura crece mediante `--type-body`; los títulos usan `--type-h1`, `--type-h2` y `--type-h3`. Los testimonios usan `--type-subtitle` y su interlineado se define en `.testimonial blockquote`, incluyendo cualquier párrafo dentro de la cita.
 
 `Heading`, `Subheading` y `Text` aportan estructura, sin escalas de tamaño propias. No agregar utilidades `text-lg`, `text-2xl` o `leading-*` a párrafos o títulos en páginas. Los roles especiales se definen una sola vez en el CSS global: subtítulo del hero, título de tarjeta, precio, autor y enlace del testimonio, footer y contenido editorial.
 
 Los botones de acción usan `.action-button`, con fuente de 16px, altura mínima de 40px y ancho mínimo de 160px limitado por el contenedor. Los tamaños md/lg cambian sólo el padding: 6px/24px y 8px/28px en Y/X. Las pestañas comparten aspecto, con ancho flexible para pantallas estrechas. No agregar padding ni tamaño tipográfico a los botones desde las páginas. La navegación conserva su componente y su tipografía serif independientes.
+
+La galería de indicadores de Muscle Assessment usa `.assessment-gallery` para ocupar todo el ancho sin padding exterior ni `Container`. En móvil muestra una tarjeta por fila, desde 768px dos columnas con la quinta tarjeta extendida a ambas, y desde 1024px tres tarjetas arriba y dos abajo.

@@ -41,15 +41,7 @@ export default function Page() {
       <Hero
         imageSrc="/photos/eon-biosystem-home.png"
         imageAlt="Mujer entrenando en espacio natural"
-        headline={
-          <Image
-            src="/logos/eon-logotype-slogan.svg"
-            alt="Logotipo EON BioSystem"
-            width={100}
-            height={70}
-            className="w-64 drop-shadow-xl drop-shadow-amber-950/50 md:w-80 lg:w-96"
-          />
-        }
+        logo={{ src: '/logos/eon-logotype-slogan.svg', alt: 'Logotipo EON BioSystem' }}
         subtitle="Un sistema de longevidad diseñado desde la ciencia."
         subheadline={
           <p>
@@ -137,7 +129,14 @@ export default function Page() {
       <TestimonialLargeQuote
         id="testimonial"
         aria-label="Testimonio de Jesús Josúe"
-        quote="Mi experiencia en estos 5 años con el Lic. Ricardo Sánchez, que además lo estimo como un amigo, ha sido de superación. Juntos hemos trabajado en construir un gran físico, pero sobre todo, me ha enseñado sobre salud, nutrición, resiliencia, longevidad y desarrollo personal. Muy contento con la experiencia EON y seguimos trabajando."
+        quote={
+          <>
+            Mi experiencia en estos 5 años con el Lic. Ricardo Sánchez, que además lo estimo como un amigo, ha sido de{' '}
+            <strong>superación</strong>. Juntos hemos trabajado en construir un gran físico, pero sobre todo, me ha
+            enseñado sobre <em>salud, nutrición, resiliencia, longevidad</em> y desarrollo personal. Muy contento con la
+            experiencia EON y seguimos trabajando.
+          </>
+        }
         img={
           <a href="https://www.instagram.com/jesuslae/" target="_blank" rel="noopener noreferrer">
             <Image src="/avatars/jesus-sanchez.png" alt="Jesús Josúe" width={240} height={240} />

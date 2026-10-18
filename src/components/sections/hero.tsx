@@ -5,10 +5,16 @@ import sanitizeHtml from 'sanitize-html'
 import { Container } from '../elements/container'
 import { Heading } from '../elements/heading'
 import { Wallpaper } from '../elements/wallpaper'
+
+type HeroIdentity =
+  | { logo: { src: string; alt: string }; headline?: never }
+  | { logo?: never; headline: ReactNode }
+
 export function Hero({
   align = 'center',
   eyebrow,
   headline,
+  logo,
   headingLevel = 1,
   subtitle,
   subheadline,
@@ -23,7 +29,6 @@ export function Hero({
 }: {
   align?: 'left' | 'center' | 'right'
   eyebrow?: ReactNode
-  headline: ReactNode
   headingLevel?: 1 | 2
   subtitle?: ReactNode
   subheadline: ReactNode
@@ -33,7 +38,7 @@ export function Hero({
   imageAlt?: string
   imageUnoptimized?: boolean
   imagePriority?: boolean
-} & ComponentProps<'section'>) {
+} & HeroIdentity & ComponentProps<'section'>) {
   const alignmentClasses = {
     left: 'items-start text-left',
     center: 'items-center text-center',
@@ -83,7 +88,23 @@ export function Hero({
               )}
             >
               {eyebrow}
-              {typeof headline === 'string' ? (
+              {logo ? (
+                // Match Sistema's desktop logo height; each SVG keeps its own aspect ratio.
+                <Heading level={headingLevel} className="relative h-44 w-full md:h-56 lg:h-68" color="light">
+                  <Image
+                    src={logo.src}
+                    alt={logo.alt}
+                    fill
+                    sizes="100vw"
+                    className={clsx(
+                      'object-contain drop-shadow-xl drop-shadow-amber-950/50',
+                      align === 'left' && 'object-left',
+                      align === 'center' && 'object-center',
+                      align === 'right' && 'object-right',
+                    )}
+                  />
+                </Heading>
+              ) : typeof headline === 'string' ? (
                 <Heading
                   level={headingLevel}
                   className="max-w-7xl"

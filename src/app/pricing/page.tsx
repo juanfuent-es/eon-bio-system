@@ -286,10 +286,10 @@ export default function Page() {
    <TestimonialLargeQuote
     id="testimonial"
     quote={
-     <p>
-      Ever since we started using Oatmeal, our customer satisfaction scores have skyrocketed. The personal touch
-      that their human-AI hybrid support provides is unparalleled.
-     </p>
+     <>
+      Ever since we started using Oatmeal, our <strong>customer satisfaction scores have skyrocketed</strong>. The <em>personal touch
+      that their human-AI hybrid support provides</em> is unparalleled.
+     </>
     }
     img={
      <Image

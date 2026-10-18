@@ -62,7 +62,7 @@ const assessments = [
     description: 'Un indicador cardiovascular básico para contextualizar tu salud.',
     imageSrc: versionedPublicAsset('/muscle-assessment/presion-arterial.jpg'),
     imageAlt: 'Medición de presión arterial con brazalete y estetoscopio',
-    cardClassName: 'lg:col-span-3 lg:aspect-[2.2/1]',
+    cardClassName: 'md:col-span-2 lg:col-span-3 lg:aspect-[2.2/1]',
   },
 ]
 
@@ -77,15 +77,7 @@ export default function MuscleAssessmentPage() {
         imageSrc={heroImageSrc}
         imageAlt="Evaluación EON Muscle Assessment"
         imageUnoptimized
-        headline={
-          <Image
-            src="/logos/eon-muscle-assessment.svg"
-            alt="Logotipo EON Muscle Assessment"
-            width={762}
-            height={815}
-            className="w-52 drop-shadow-xl drop-shadow-black lg:w-52 xl:w-60"
-          />
-        }
+        logo={{ src: '/logos/eon-muscle-assessment.svg', alt: 'Logotipo EON Muscle Assessment' }}
         subtitle="Tus músculos pueden estar envejeciendo más rápido que tú."
         subheadline={
           <p>
@@ -145,9 +137,9 @@ export default function MuscleAssessmentPage() {
         </div>
       </section>
 
-      <section className="mt-0 min-h-auto flex-col justify-center bg-neutral-100 px-4 pt-0">
-        <div className="mx-auto flex w-full max-w-7xl flex-col gap-6">
-          <div className="grid gap-3 md:grid-cols-2 lg:grid-cols-6">
+      <section className="assessment-gallery mt-0 min-h-auto flex-col justify-center bg-neutral-100">
+        <div className="mx-auto flex w-full flex-col gap-6 p-4">
+          <div className="grid grid-cols-1 gap-3 md:grid-cols-2 lg:grid-cols-6">
             {assessments.map((assessment) => (
               <article
                 key={assessment.number}
@@ -180,7 +172,11 @@ export default function MuscleAssessmentPage() {
       <TestimonialLargeQuote
         id="testimonial-maritere"
         aria-label="Testimonio de Maritere Santiago"
-        quote="Mi experiencia en EON Biosystem, me ha ayudado a evolucionar físico-mentalmente, ser más disciplinada y lograr mis objetivos a la par de cuidar de mi longevidad. 🤝 💪 gracias."
+        quote={
+          <>
+            Mi experiencia en EON Biosystem, me ha ayudado a <strong>evolucionar físico-mentalmente,</strong> ser más disciplinada y lograr mis objetivos a la par de <em>cuidar de mi longevidad.</em> 🤝 💪 gracias.
+          </>
+        }
         img={
           <a href="https://www.instagram.com/smaritere21/" target="_blank" rel="noopener noreferrer">
             <Image src="/avatars/maritere.png" alt="Maritere Santiago" width={240} height={240} />
@@ -199,8 +195,8 @@ export default function MuscleAssessmentPage() {
         }
       />
 
-      <section className="flex min-h-auto flex-col gap-8 bg-neutral-100 px-4 py-12 text-center">
-        <header className="max-w-lg text-center text-balance">
+      <section className="flex min-h-auto flex-col gap-8 px-4 py-12 text-center p-4">
+        <header className="max-w-2xl text-center text-balance">
           <Subheading>
             <small>
               Para quienes quieren <i>mantenerse fuertes</i>
@@ -218,13 +214,12 @@ export default function MuscleAssessmentPage() {
         imageSrc={reportImageSrc}
         imageAlt="Reporte EON Muscle Assessment con resultados de estado muscular"
         imageUnoptimized
-        headline="Reporte Detallado"
-        subtitle="Obtén tu edad muscular estimada, nivel muscular, áreas fuertes y áreas de atención en un solo lugar."
+        headline="Reporte de Reserva Muscular"
+        subtitle="Conoce tu punto de partida."
         subheadline={
           <>
             <p>
-              Al finalizar tu evaluación conocerás tu edad muscular estimada, nivel EON, áreas fuertes, áreas de
-              atención y una recomendación inicial personalizada.
+              Al finalizar, recibirás tu edad muscular estimada, nivel EON, fortalezas y áreas de atención.
             </p>
           </>
         }
