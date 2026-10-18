@@ -11,7 +11,7 @@ export function FloatingApplyButton() {
   const isMuscleAssessmentSurface =
     pathname === '/' || pathname === '/muscle-assessment' || pathname.startsWith('/muscle-assessment/')
 
-  if (isApplyPage || isMuscleAssessmentSurface) {
+  if (isApplyPage || isMuscleAssessmentSurface || pathname === '/home') {
     return null
   }
 

@@ -106,12 +106,14 @@ export default function MuscleAssessmentPage() {
             <p className="text-bold tracking-wider uppercase">
               <small>Más allá del peso</small>
             </p>
-            <Subheading className="leading-none">
+            <Subheading className="leading-none"> 
               <i>Conoce</i> el estado real de tus <i>músculos</i>
             </Subheading>
           </header>
           <p className="text-balance">
             El músculo influye en tu <strong>metabolismo, fuerza, estabilidad y forma de envejecer</strong>. <br />
+          </p>
+          <p className="text-balance">
             En EON BioSystem evaluamos estos indicadores para darte un punto de partida claro sobre cómo está
             respondiendo tu cuerpo al paso del tiempo.
           </p>

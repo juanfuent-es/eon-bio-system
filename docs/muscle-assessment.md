@@ -2,7 +2,7 @@
 
 Ruta: `/muscle-assessment`. Reutiliza Container, Wallpaper, Subheading y botones del sitio; no agrega CSS ni dependencias.
 
-Temporalmente `/` renderiza el mismo contenido y chrome que `/muscle-assessment`. El home anterior queda estacionado en `src/app/eon-home-page.tsx` para revertir el deploy cuando termine la campaña.
+Temporalmente `/` renderiza el mismo contenido y chrome que `/muscle-assessment`. El home anterior está disponible en `/home` y reutiliza `src/app/eon-home-page.tsx`, donde se mantiene su contenido para futuras actualizaciones.
 
 El deploy de esta ruta oculta el header principal global. En su lugar usa un nav mínimo fixed `top-0 left-0` con un único botón de logo `#eon-logo` hacia `/`.
 

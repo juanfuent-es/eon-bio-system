@@ -1,5 +1,4 @@
-import { AnnouncementBadge } from '@/components/elements/announcement-badge'
-import { PlainButtonLink } from '@/components/elements/button'
+import { ButtonLink, PlainButtonLink } from '@/components/elements/button'
 import { Container } from '@/components/elements/container'
 import { Subheading } from '@/components/elements/subheading'
 import { Text } from '@/components/elements/text'
@@ -95,14 +94,7 @@ export default function Page() {
             />
           </>
         }
-        eyebrow={
-          <AnnouncementBadge
-            href="/sistema"
-            text="Un sistema de longevidad diseñado desde la ciencia."
-            cta="Conoce más"
-            variant="overlay"
-          />
-        }
+        subtitle="Un sistema de longevidad diseñado desde la ciencia."
         subheadline={
           <>
             <p>
@@ -113,9 +105,14 @@ export default function Page() {
         }
         cta={
           <>
-            {/* <ButtonLink href="/aplica" size="lg">
-              Aplica al sistema <ArrowNarrowRightIcon />
-            </ButtonLink> */}
+            <div className="flex w-full flex-wrap justify-center gap-3">
+              <ButtonLink href="/aplica" size="lg">
+                Aplica al sistema <ArrowNarrowRightIcon />
+              </ButtonLink>
+              <PlainButtonLink href="/sistema" size="lg">
+                Conoce más <ArrowNarrowRightIcon />
+              </PlainButtonLink>
+            </div>
             <p className="text-sm font-light text-green-200 italic">*Acceso mediante evaluación previa.</p>
           </>
         }

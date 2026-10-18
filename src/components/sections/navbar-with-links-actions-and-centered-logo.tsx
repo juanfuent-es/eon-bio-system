@@ -1,6 +1,7 @@
 'use client'
 import { ButtonLink } from '@/components/elements/button'
 import { ArrowNarrowRightIcon } from '@/components/icons/arrow-narrow-right-icon'
+import { SiteHeader } from '@/components/site-header'
 import { MailIcon } from '@/components/icons/mail-icon'
 import { MapPinIcon } from '@/components/icons/map-pin-icon'
 import { FacebookIcon } from '@/components/icons/social/facebook-icon'
@@ -27,14 +28,15 @@ export function NavbarLink({
     <Link
       href={href}
       className={clsx(
-        'inline-flex items-center justify-between rounded-2xl bg-white px-6 py-2 text-base no-underline transition-colors duration-300 hover:bg-white/10',
-        isActive ? 'pointer-events-none text-orange-600' : 'md:hover:text-orange-600',
+        'inline-flex items-center justify-between rounded-full px-4 py-2 text-base no-underline transition-colors duration-200 hover:bg-orange-500 hover:text-white focus-visible:bg-orange-500 focus-visible:text-white sm:px-6',
+        isActive ? 'bg-orange-500 text-white' : 'bg-white text-green-950',
         className,
       )}
       {...props}
+      aria-current={isActive ? 'page' : undefined}
     >
       <span className="font-serif text-sm font-semibold tracking-wide max-lg:hidden">{children}</span>
-      <span className="hidden items-center gap-2 font-serif text-xl normal-case max-lg:inline-flex">{children}</span>
+      <span className="hidden items-center gap-2 font-serif text-sm normal-case max-lg:inline-flex">{children}</span>
     </Link>
   )
 }
@@ -75,6 +77,15 @@ export function NavbarWithLinksActionsAndCenteredLogo({
 
   if (isMuscleAssessmentSurface) {
     return null
+  }
+
+  if (pathname === '/home') {
+    return (
+      <SiteHeader label="Navegación EON BioSystem" inline logoSrc="/logos/eon-mark.svg">
+        {leftLinks}
+        {rightLinks}
+      </SiteHeader>
+    )
   }
 
   return (
