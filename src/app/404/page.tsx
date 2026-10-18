@@ -1,19 +1,19 @@
-import { Link } from '@/components/elements/link'
+import { ButtonLink } from '@/components/elements/button'
 import { ArrowNarrowRightIcon } from '@/components/icons/arrow-narrow-right-icon'
-import { HeroSimpleCentered } from '@/components/sections/hero-simple-centered'
+import { Hero } from '@/components/sections/hero'
 
 export default function Page() {
- return (
-  <>
-   <HeroSimpleCentered
-    headline="Page not found"
-    subheadline={<p>Sorry, but the page you were looking for could not be found.</p>}
-    cta={
-     <Link href="/">
-      Go back home <ArrowNarrowRightIcon />
-     </Link>
-    }
-   />
-  </>
- )
+  return (
+    <>
+      <Hero
+        headline="Página no encontrada"
+        subheadline={<p>No encontramos la página que buscas.</p>}
+        cta={
+          <ButtonLink href="/home">
+            Volver al inicio <ArrowNarrowRightIcon />
+          </ButtonLink>
+        }
+      />
+    </>
+  )
 }

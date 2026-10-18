@@ -1,14 +1,16 @@
+import { PlainButtonLink } from '@/components/elements/button'
 import { Container } from '@/components/elements/container'
 import { ArrowNarrowRightIcon } from '@/components/icons/arrow-narrow-right-icon'
 import { Hero } from '@/components/sections/hero'
 import { listArticles } from '@/lib/blog/articles'
 import type { Metadata } from 'next'
-import Link from 'next/link'
 import Image from 'next/image'
+import Link from 'next/link'
 
 export const metadata: Metadata = {
-  title: 'Blog | EON BioSystem',
-  description: 'Artículos, evidencia y casos clínicos explicados con claridad para ayudarte a comprender mejor tu metabolismo, tu fuerza y tu salud, y tomar decisiones con más criterio.',
+  title: 'Publicaciones | EON BioSystem',
+  description:
+    'Artículos, evidencia y casos clínicos explicados con claridad para ayudarte a comprender mejor tu metabolismo, tu fuerza y tu salud, y tomar decisiones con más criterio.',
 }
 
 type PageProps = {
@@ -48,23 +50,35 @@ export default async function BlogPage({ searchParams }: PageProps) {
         headline={
           <Image
             src="/logos/eon-publicaciones-logo.svg"
-            alt="Logotipo EON Muscle Assessment"
+            alt="EON Publicaciones"
             width={762}
             height={815}
-            className="w-full md:w-74 lg:w-80 xl:w-96 drop-shadow-xl drop-shadow-black"
+            className="w-52 drop-shadow-xl drop-shadow-black xl:w-60"
           />
         }
-        subheadline={<p>Artículos, evidencia y casos clínicos explicados con claridad para ayudarte a comprender mejor tu metabolismo, tu fuerza y tu salud, y tomar decisiones con más criterio.</p>}
+        subheadline={
+          <p>
+            Artículos, evidencia y casos clínicos explicados con claridad para ayudarte a comprender mejor tu
+            metabolismo, tu fuerza y tu salud, y tomar decisiones con más criterio.
+          </p>
+        }
+        cta={
+          articles.length > 0 ? (
+            <PlainButtonLink href="#articulos" size="lg">
+              Explorar publicaciones <ArrowNarrowRightIcon />
+            </PlainButtonLink>
+          ) : undefined
+        }
       />
 
       {secondaryArticles.length > 0 ? (
-        <section className="px-4">
+        <section id="articulos" className="scroll-mt-28 px-4">
           <Container className="py-16">
             <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
               {secondaryArticles.map((article) => (
                 <Link
                   key={article.id}
-                  href={`/blog/${article.slug}`}
+                  href={`/publicaciones/${article.slug}`}
                   className="group flex min-h-80 flex-col overflow-hidden rounded-lg bg-white text-green-950 shadow-sm ring-1 ring-green-950/8 transition-shadow hover:shadow-lg hover:shadow-green-950/10"
                 >
                   {article.cover_image_url ? (

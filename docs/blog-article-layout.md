@@ -1,6 +1,6 @@
 # Detalle del blog
 
-`/blog/[slug]` reutiliza `Hero` con `cover_image_url`, título y extracto del CMS. Si falta portada usa `/eon-blog-bg.jpg`. Las portadas externas se sirven directamente, sin depender de una lista de dominios en el optimizador de Next.js; el CMS debe entregar imágenes comprimidas de tamaño adecuado.
+`/publicaciones/[slug]` reutiliza el layout global y `Hero` con `cover_image_url`, título y extracto del CMS. Si falta portada usa `/eon-publicaciones-bg.jpg`. Los enlaces de tarjetas, regreso al listado y URL canónica usan `/publicaciones`. Las portadas externas se sirven directamente, sin depender de una lista de dominios en el optimizador de Next.js; el CMS debe entregar imágenes comprimidas de tamaño adecuado.
 
 `ArticleContent` limpia el HTML de `content` con sanitize-html y lo separa en bloques con parse5. Elimina atributos `style`, `class` y presentación del CMS; conserva etiquetas semánticas y atributos de enlaces y medios. Cada bloque de texto se renderiza dentro de `Container` con Tailwind Typography (`prose`). `font-sans` y `prose-headings:font-serif` usan exclusivamente las familias de `globals.css`. Los párrafos, encabezados, listas, citas y tablas tienen un ancho máximo de lectura de 48rem y margen lateral responsive. Las imágenes, videos y figuras ocupan todo el ancho disponible, con el margen exterior de 16px que usa el sitio. Los pies de imagen mantienen el ancho de lectura.
 

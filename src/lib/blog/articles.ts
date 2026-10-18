@@ -116,7 +116,7 @@ export function getArticleBySlug(slug: string) {
 }
 
 export function getCanonicalArticleUrl(slug: string) {
-  return new URL(`/blog/${slug}`, SITE_URL).toString()
+  return new URL(`/publicaciones/${slug}`, SITE_URL).toString()
 }
 
 export function isSafeSlug(slug: string) {

@@ -71,7 +71,7 @@ export default async function ArticlePage({ params }: PageProps) {
   return (
     <>
       <Hero
-        imageSrc={article.cover_image_url || '/eon-blog-bg.jpg'}
+        imageSrc={article.cover_image_url || '/eon-publicaciones-bg.jpg'}
         imageAlt={article.title}
         imageUnoptimized={Boolean(article.cover_image_url)}
         headline={article.title}
@@ -84,9 +84,9 @@ export default async function ArticlePage({ params }: PageProps) {
       >
         <Container>
           <div className="mx-auto mb-8 flex max-w-3xl flex-wrap items-center justify-between gap-4 border-b border-green-900/15 pb-6">
-            <PlainButtonLink href="/blog" className="w-fit">
+            <PlainButtonLink href="/publicaciones" className="w-fit">
               <ArrowNarrowLeftIcon className="size-5" />
-              Blog
+              Publicaciones
             </PlainButtonLink>
             <div className="flex flex-wrap gap-x-4 gap-y-1 text-sm text-green-700">
               <span>{article.category}</span>

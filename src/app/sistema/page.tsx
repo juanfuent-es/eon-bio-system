@@ -65,6 +65,7 @@ export default function Sistema() {
             <p>No es un plan aislado. <br />Es un <strong>sistema completo de optimización biológica.</strong></p>
         </>
     }
+    cta={<ButtonLink href="/aplica" size="lg">Aplica al sistema</ButtonLink>}
    />
 
    {/* Sección 1: Qué es el sistema */}

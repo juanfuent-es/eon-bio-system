@@ -1,6 +1,5 @@
 import Script from 'next/script'
 import type { ReactNode } from 'react'
-import { MuscleAssessmentHeader } from './muscle-assessment-header'
 
 export function MuscleAssessmentChrome({ children }: { children: ReactNode }) {
   const measurementId = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID
@@ -17,7 +16,6 @@ export function MuscleAssessmentChrome({ children }: { children: ReactNode }) {
           >{`window.dataLayer = window.dataLayer || []; window.gtag = window.gtag || function(){dataLayer.push(arguments);}; gtag('js', new Date()); gtag('config', '${measurementId}');`}</Script>
         </>
       )}
-      <MuscleAssessmentHeader />
       {children}
     </>
   )

@@ -109,14 +109,16 @@
 @layer components {
 
   main {
-    --navbar-height: 5.75rem;
     padding-top: 0;
+  }
+
+  main:not(:has(> .hero)) {
+    padding-top: 7rem;
   }
 
   main > section {
     @apply p-4;
     min-height: 100dvh;
-    /* min-height: calc(100dvh - var(--navbar-height)); */
     display: flex;
     align-items: center;
   }
