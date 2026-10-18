@@ -15,7 +15,7 @@ export function YouTubeVideo({
   const [playing, setPlaying] = useState(false)
 
   return (
-    <section className="video-section p-0 sm:p-4">
+    <section className="video-section p-4">
       <div className="video-frame relative overflow-hidden rounded-panel bg-black">
         {playing ? (
           <iframe
