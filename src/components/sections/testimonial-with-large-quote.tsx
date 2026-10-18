@@ -18,11 +18,11 @@ export function TestimonialLargeQuote({
 } & ComponentProps<'section'>) {
   return (
     <section className={clsx('testimonial mx-auto w-full', className)} {...props}>
-      <Wallpaper color="colors" className="wallpaper min-h-[calc(100dvh-2rem)] py-16">
-        <Container className="relative z-10">
-          <figure className="text-green-950">
+      <Wallpaper color="colors" className="wallpaper py-12 max-sm:px-0 sm:py-16">
+        <Container className="relative z-10 max-sm:px-0">
+          <figure className="mx-auto w-[90%] text-green-950">
             <blockquote>“{quote}”</blockquote>
-            <figcaption className="testimonial-profile">
+            <figcaption className="testimonial-profile px-4">
               <div className="flex size-12 overflow-hidden rounded-full outline -outline-offset-1 outline-black/5 transition-transform duration-150 *:size-full *:object-cover md:size-16 md:hover:scale-105 lg:size-20">
                 {img}
               </div>

@@ -15,10 +15,11 @@ export function YouTubeVideo({
   const [playing, setPlaying] = useState(false)
 
   return (
-    <section className="h-dvh px-4">
-      <div className="relative h-full overflow-hidden rounded-panel bg-black">
+    <section className="video-section p-0 sm:p-4">
+      <div className="video-frame relative overflow-hidden rounded-panel bg-black">
         {playing ? (
           <iframe
+            title="Video de EON Muscle Assessment"
             src={`https://www.youtube.com/embed/${videoId}?autoplay=1&playsinline=1&controls=1`}
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
             allowFullScreen
@@ -41,13 +42,15 @@ export function YouTubeVideo({
                 className="object-cover"
                 unoptimized={posterUnoptimized}
               />
-              <Image
-                src="/logos/muscle-assessment-discover.svg"
-                alt="Descubre"
-                width="623"
-                height="135"
-                className="pointer-events-none absolute bottom-8 left-8 z-10 h-auto w-2/3 object-contain"
-              />
+              <span className="pointer-events-none absolute inset-x-0 bottom-4 z-10 px-4 sm:inset-x-auto sm:bottom-8 sm:left-8 sm:w-2/3 sm:px-0">
+                <Image
+                  src="/logos/muscle-assessment-discover.svg"
+                  alt="Descubre"
+                  width={623}
+                  height={135}
+                  className="h-auto w-full object-contain"
+                />
+              </span>
               <span
                 aria-hidden="true"
                 className="absolute inset-0 bg-black/35 transition-colors group-hover:bg-black/45"

@@ -22,10 +22,10 @@ function HomeTextSection({
     <section
       id={id}
       aria-labelledby={`${id}-heading`}
-      className="w-full bg-white py-24 text-green-950 sm:py-32 lg:py-40"
+      className="text-section w-full text-green-950"
     >
-      <Container>
-        <article className="mx-auto flex max-w-4xl flex-col items-center gap-8 text-center sm:gap-10">
+      <Container className="max-sm:px-0">
+        <article className="mx-auto flex w-[90%] max-w-4xl flex-col items-center gap-8 text-center sm:gap-10">
           <Subheading id={`${id}-heading`}>{headline}</Subheading>
           <div className="flex max-w-2xl flex-col gap-6 text-balance text-green-900">{children}</div>
           {cta && <div className="flex max-w-full flex-wrap justify-center gap-3 pt-2">{cta}</div>}

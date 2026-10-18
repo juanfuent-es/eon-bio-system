@@ -177,11 +177,16 @@
     margin: 0 auto;
     padding: 0;
     max-width: 52rem;
-    font-size: var(--type-subtitle);
+    font-size: clamp(1.125rem, 0.75rem + 2vw, 2.25rem);
     line-height: 1.35;
     font-style: italic;
-    text-align: center;
-    text-wrap: balance;
+    text-align: left;
+    text-wrap: pretty;
+
+    @media (width >= 40rem) {
+      text-align: center;
+      text-wrap: balance;
+    }
   }
   .testimonial blockquote p {
     font: inherit;
@@ -317,9 +322,13 @@
 
   main > section {
     @apply p-4;
-    min-height: 100dvh;
+    min-height: 0;
     display: flex;
     align-items: center;
+  }
+
+  main > section.text-section {
+    @apply px-4 py-12 sm:py-16;
   }
 
   main > section.assessment-gallery {
@@ -340,22 +349,123 @@
 
   main > section.hero {
     padding: 0;
+    container-type: inline-size;
   }
 
   main > section.hero .wallpaper {
     height: auto;
-    min-height: inherit;
+    min-height: 125cqw;
+    flex: none;
     align-items: flex-end;
     padding: 7rem 0 2rem;
   }
 
-  /* Require alignment until the closing section releases the document scroll. */
-  html:has(main > [data-snap-page]):not([data-snap-end]) {
-    scroll-snap-type: y mandatory;
+  .testimonial > .wallpaper {
+    height: auto;
   }
 
-  main:has(> [data-snap-page]) > section {
-    scroll-snap-align: start;
+  .video-frame {
+    aspect-ratio: 4 / 5;
+  }
+
+  .assessment-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .assessment-card {
+    aspect-ratio: 1;
+    min-height: min-content;
+  }
+
+  @media (width < 40rem) and (orientation: portrait) {
+    main > section.hero:first-of-type .wallpaper {
+      min-height: max(125cqw, 66svh);
+    }
+  }
+
+  @media (width >= 40rem) {
+    main > section.hero .wallpaper {
+      min-height: 100cqw;
+    }
+
+    .video-frame {
+      aspect-ratio: 16 / 9;
+    }
+
+    .assessment-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .assessment-card:last-child {
+      grid-column: span 2;
+      aspect-ratio: 2;
+    }
+  }
+
+  /* Landscape tablets use wider media without enabling full-screen sections. */
+  @media (orientation: landscape) {
+    main > section.hero .wallpaper {
+      min-height: 62.5cqw;
+    }
+
+    .video-frame {
+      aspect-ratio: 16 / 9;
+    }
+  }
+
+  /* Full-screen presentation and snapping share one desktop condition. */
+  @media (width >= 80rem) and (orientation: landscape) {
+    main > section {
+      min-height: 100dvh;
+    }
+
+    main > section.hero .wallpaper {
+      min-height: calc(100dvh - 2rem);
+      aspect-ratio: auto;
+      flex: 1;
+    }
+
+    .testimonial > .wallpaper {
+      min-height: calc(100dvh - 2rem);
+    }
+
+    .video-section {
+      height: 100dvh;
+    }
+
+    .video-frame {
+      height: 100%;
+      aspect-ratio: auto;
+    }
+
+    .assessment-grid {
+      min-height: calc(100dvh - 2rem);
+      grid-template-columns: repeat(6, minmax(0, 1fr));
+      grid-auto-rows: 1fr;
+    }
+
+    .assessment-card,
+    .assessment-card:last-child {
+      min-height: 24rem;
+      aspect-ratio: auto;
+      grid-column: span 2;
+    }
+
+    .assessment-card:nth-last-child(-n + 2) {
+      grid-column: span 3;
+    }
+
+    .assessment-card-content {
+      min-height: 14rem;
+    }
+
+    html:has(main > [data-snap-page]):not([data-snap-end]) {
+      scroll-snap-type: y mandatory;
+    }
+
+    main:has(> [data-snap-page]) > section {
+      scroll-snap-align: start;
+    }
   }
 }
 

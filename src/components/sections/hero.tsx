@@ -22,6 +22,7 @@ export function Hero({
   footer,
   imageSrc = '/photos/eon-biosystem-home.png',
   imageAlt = 'Imagen de portada de EON BioSystem',
+  imageClassName,
   imageUnoptimized = false,
   imagePriority = true,
   className,
@@ -36,19 +37,20 @@ export function Hero({
   footer?: ReactNode
   imageSrc?: string
   imageAlt?: string
+  imageClassName?: string
   imageUnoptimized?: boolean
   imagePriority?: boolean
 } & HeroIdentity & ComponentProps<'section'>) {
   const alignmentClasses = {
     left: 'items-start text-left',
     center: 'items-center text-center',
-    right: 'items-end text-right',
+    right: 'items-start text-left sm:items-end sm:text-right',
   }
 
   return (
-    <section className={clsx('hero text-white flex-col p-4', className)} {...props}>
+    <section className={clsx('hero text-white flex-col p-0 sm:p-4', className)} {...props}>
       <Wallpaper
-        className="wallpaper h-full min-h-0 w-full flex-1"
+        className="wallpaper w-full"
         color="green-copper"
         style={{ backgroundImage: 'none' }}
       >
@@ -58,7 +60,10 @@ export function Hero({
           alt={imageAlt}
           width={1920}
           height={1280}
-          className="absolute inset-0 -z-10 h-full w-full rounded-[inherit] object-cover opacity-75"
+          className={clsx(
+            'absolute inset-0 -z-10 h-full w-full rounded-[inherit] object-cover opacity-75',
+            imageClassName,
+          )}
           sizes="100vw"
           unoptimized={imageUnoptimized}
           priority={imagePriority}
@@ -73,10 +78,10 @@ export function Hero({
           style={{ backgroundImage: 'linear-gradient(to top, rgb(0 0 0 / 1), rgb(0 0 0 / 0))' }}
           aria-hidden="true"
         />
-        <div className="relative z-10 mx-auto flex h-full w-full items-end sm:px-6 md:px-12 lg:px-0">
+        <div className="relative z-10 mx-auto flex w-full items-end sm:px-6 md:px-12 lg:px-0">
           <Container
             className={clsx(
-              'flex h-full flex-col justify-end gap-4 md:gap-8 lg:gap-12 xl:gap-16',
+              'flex flex-col justify-end gap-4 md:gap-8 lg:gap-12 xl:gap-16',
               alignmentClasses[align],
             )}
           >
@@ -100,14 +105,14 @@ export function Hero({
                       'object-contain drop-shadow-xl drop-shadow-amber-950/50',
                       align === 'left' && 'object-left',
                       align === 'center' && 'object-center',
-                      align === 'right' && 'object-right',
+                      align === 'right' && 'object-left sm:object-right',
                     )}
                   />
                 </Heading>
               ) : typeof headline === 'string' ? (
                 <Heading
                   level={headingLevel}
-                  className="max-w-7xl"
+                  className="w-full min-w-0 max-w-7xl"
                   color="light"
                   dangerouslySetInnerHTML={{
                     __html: sanitizeHtml(headline, {
@@ -117,7 +122,7 @@ export function Hero({
                   }}
                 />
               ) : (
-                <Heading level={headingLevel} className="max-w-7xl" color="light">
+                <Heading level={headingLevel} className="w-full min-w-0 max-w-7xl" color="light">
                   {headline}
                 </Heading>
               )}
@@ -126,8 +131,16 @@ export function Hero({
                   {subtitle}
                 </p>
               )}
-              <div className="flex max-w-xl mt-0 text-balance flex-col gap-4 text-white">{subheadline}</div>
-              {cta}
+              <div
+                className={clsx(
+                  'mt-0 flex max-w-xl flex-col gap-4 pb-4 text-left text-white sm:pb-0',
+                  align === 'center' && 'sm:text-center',
+                  align === 'right' && 'sm:text-right',
+                )}
+              >
+                {subheadline}
+              </div>
+              {cta && <div className={clsx('flex w-full flex-col gap-3', alignmentClasses[align])}>{cta}</div>}
             </div>
           </Container>
         </div>
