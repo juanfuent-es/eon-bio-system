@@ -101,11 +101,11 @@ export function Hero({
                 </Heading>
               )}
               {subtitle && (
-                <p className="text-2xl xl:text-3xl max-w-2xl font-serif leading-snug tracking-tight text-balance text-white">
+                <p className="hero-subtitle max-w-2xl text-white">
                   {subtitle}
                 </p>
               )}
-              <div className="flex max-w-xl mt-0 text-balance flex-col gap-4 text-lg text-white">{subheadline}</div>
+              <div className="flex max-w-xl mt-0 text-balance flex-col gap-4 text-white">{subheadline}</div>
               {cta}
             </div>
           </Container>

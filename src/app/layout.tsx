@@ -45,7 +45,7 @@ export default function RootLayout({
             cta={
               <div className="flex flex-col gap-6 text-green-700">
                 <div>
-                  <h3 className="mb-2 text-lg font-semibold">Visítanos</h3>
+                  <h3 className="mb-2 font-semibold">Visítanos</h3>
                   <address className="text-sm/7 not-italic">
                     <a
                       href="https://maps.app.goo.gl/7HCJZv8jL7gShTRs9"
@@ -58,7 +58,7 @@ export default function RootLayout({
                       <p>Ciudad de México, CDMX</p>
                     </a>
                     <div className="mt-4">
-                      <h3 className="mb-2 text-base font-semibold text-green-800">Horario:</h3>
+                      <h3 className="mb-2 font-semibold text-green-800">Horario:</h3>
                       <p>Lunes a viernes de 10:00 am - 7:00 pm</p>
                       <p>Sábado de 8:00 am - 4:00 pm</p>
                     </div>

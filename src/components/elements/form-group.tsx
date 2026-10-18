@@ -28,9 +28,9 @@ export function FormGroup({
             )}
             {children}
             {description && !error && (
-                <p className="text-mineral-600 text-sm">{description}</p>
+                <p className="text-mineral-600">{description}</p>
             )}
-            {error && <p className="text-red-500 text-sm font-medium">{error}</p>}
+            {error && <p className="text-red-500 font-medium">{error}</p>}
         </div>
     )
 }

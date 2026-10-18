@@ -20,9 +20,9 @@ export function BrandCard({
   >
    <div className="flex flex-col items-start gap-2">
     <div className="flex h-8 shrink-0">{logo}</div>
-    <p className="text-sm/7 text-green-700">{text}</p>
+    <p className="text-green-700">{text}</p>
    </div>
-   <p className="text-xs/6 text-green-700">{footnote}</p>
+   <p className="text-green-700">{footnote}</p>
   </div>
  )
 }

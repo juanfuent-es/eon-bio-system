@@ -27,9 +27,7 @@ function HomeTextSection({
       <Container>
         <article className="mx-auto flex max-w-4xl flex-col items-center gap-8 text-center sm:gap-10">
           <Subheading id={`${id}-heading`}>{headline}</Subheading>
-          <div className="flex max-w-2xl flex-col gap-6 text-lg leading-relaxed text-balance text-green-900">
-            {children}
-          </div>
+          <div className="flex max-w-2xl flex-col gap-6 text-balance text-green-900">{children}</div>
           {cta && <div className="flex max-w-full flex-wrap justify-center gap-3 pt-2">{cta}</div>}
         </article>
       </Container>
@@ -45,7 +43,7 @@ export default function Page() {
         imageAlt="Mujer entrenando en espacio natural"
         headline={
           <Image
-            src="/logos/eon-logotype-descriptor.svg"
+            src="/logos/eon-logotype-slogan.svg"
             alt="Logotipo EON BioSystem"
             width={100}
             height={70}
@@ -69,7 +67,9 @@ export default function Page() {
                 Conoce más <ArrowNarrowRightIcon />
               </PlainButtonLink>
             </div>
-            <p className="text-sm font-light text-green-200 italic">*Acceso mediante evaluación previa.</p>
+            <p className="text-green-200 italic">
+              <small>*Acceso mediante evaluación previa.</small>
+            </p>
           </>
         }
       />
@@ -136,62 +136,66 @@ export default function Page() {
 
       <TestimonialLargeQuote
         id="testimonial"
-        aria-label="Testimonio de Pamela Reyna"
-        quote="Hace casi un año inicié mi cambio con pesas, hábitos y nutrición. Ricardo me ayudó a mejorar decisiones y mentalidad. El cambio ha sido impresionante: mejor condición física, técnica y casi no me enfermo."
+        aria-label="Testimonio de Jesús Josúe"
+        quote="Mi experiencia en estos 5 años con el Lic. Ricardo Sánchez, que además lo estimo como un amigo, ha sido de superación. Juntos hemos trabajado en construir un gran físico, pero sobre todo, me ha enseñado sobre salud, nutrición, resiliencia, longevidad y desarrollo personal. Muy contento con la experiencia EON y seguimos trabajando."
         img={
-          <a href="https://instagram.com/spadmereyna/" target="_blank" rel="noopener noreferrer">
-            <Image src="/avatars/pamela-reyna.png" alt="Pamela Reyna" width={240} height={240} />
+          <a href="https://www.instagram.com/jesuslae/" target="_blank" rel="noopener noreferrer">
+            <Image src="/avatars/jesus-sanchez.png" alt="Jesús Josúe" width={240} height={240} />
           </a>
         }
-        name="Pamela Reyna"
+        name="Jesús Josúe"
         byline={
           <a
-            href="https://instagram.com/spadmereyna/"
+            href="https://www.instagram.com/jesuslae/"
             target="_blank"
             rel="noopener noreferrer"
             className="text-green-900 transition-colors hover:text-orange-500"
           >
-            @spadmereyna
+            @jesuslae
           </a>
         }
       />
 
-      <HomeTextSection
-        id="para-quien-es"
-        headline={
-          <>
-            EON BioSystem <i>no es para todos</i>
-          </>
-        }
-        cta={
-          <ButtonLink href="/aplica" size="lg">
-            Da el primer paso <ArrowNarrowRightIcon />
-          </ButtonLink>
-        }
-      >
-        <p>Es para personas que quieren entender su cuerpo y construir salud con criterio y constancia.</p>
-        <p>
-          Cada persona parte de un lugar distinto. Por eso el sistema se adapta a tu contexto, tus objetivos y tus
-          datos.
-        </p>
-        <p className="text-sm text-green-800 italic">*Acceso mediante evaluación previa.</p>
-      </HomeTextSection>
-
       <Hero
-        id="respaldo-profesional"
+        id="para-quien-es"
         headingLevel={2}
         imagePriority={false}
         imageSrc="/photos/eon-biosystem-muscle-assessment.png"
         imageAlt="Ricardo explicando los resultados de una evaluación a una persona en consulta"
         headline={
           <>
-            Dirección y <i>respaldo profesional</i>
+            Este sistema <i>no es para todos</i>
           </>
         }
-        subheadline={null}
+        subheadline={
+          <>
+            <p>Es para personas que quieren entender su cuerpo y construir salud con criterio y constancia.</p>
+            <p>Para quienes están dispuestos a comprometerse con su proceso y sostenerlo a largo plazo.</p>
+          </>
+        }
         cta={
           <ButtonLink href="/aplica" size="lg">
             Aplica al sistema <ArrowNarrowRightIcon />
+          </ButtonLink>
+        }
+      />
+
+      <Hero
+        id="publicaciones"
+        headingLevel={2}
+        imagePriority={false}
+        imageSrc="/eon-publicaciones-bg.jpg"
+        imageAlt="Ricardo Sánchez, EON Publicaciones"
+        headline={
+          <>
+            Entiende a tu <i>cuerpo</i>,<br />
+            mejora tus <i>decisiones</i>.
+          </>
+        }
+        subheadline={<p>Artículos, evidencia y casos clínicos explicados con claridad.</p>}
+        cta={
+          <ButtonLink href="/publicaciones" size="lg">
+            Explorar publicaciones <ArrowNarrowRightIcon />
           </ButtonLink>
         }
       />

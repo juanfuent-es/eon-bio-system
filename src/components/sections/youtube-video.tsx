@@ -1,6 +1,5 @@
 'use client'
 
-import { Subheading } from '@/components/elements/subheading'
 import Image from 'next/image'
 import { useState } from 'react'
 
@@ -47,7 +46,7 @@ export function YouTubeVideo({
                 alt="Descubre"
                 width="623"
                 height="135"
-                className="w-2/3 min-w-96 object-contain h-auto absolute left-8 bottom-8 z-10 pointer-events-none"
+                className="pointer-events-none absolute bottom-8 left-8 z-10 h-auto w-2/3 object-contain"
               />
               <span
                 aria-hidden="true"

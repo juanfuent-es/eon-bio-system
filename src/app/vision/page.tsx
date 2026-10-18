@@ -23,7 +23,7 @@ function SectionWithHeading({
    <Container className="flex flex-col gap-10 sm:gap-16 items-center text-center">
     <div className="flex max-w-6xl flex-col gap-6">
      <Subheading>{headline}</Subheading>
-     <Text size="lg" className="flex max-w-2xl flex-col gap-4 mx-auto text-center">
+     <Text className="flex max-w-2xl flex-col gap-4 mx-auto text-center">
       {subheadline}
      </Text>
      {cta && <div className="pt-2">{cta}</div>}

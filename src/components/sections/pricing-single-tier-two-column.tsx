@@ -35,10 +35,10 @@ export function PricingSingleTierTwoColumn({
      </div>
      <div className="rounded-sm bg-green-100 p-6 sm:p-10">
       <div className="flex items-baseline gap-2">
-       <p className="text-[5rem]/24 font-light tracking-tight text-green-950 sm:text-8xl/32">
+       <p className="price-value font-light tracking-tight text-green-950">
         {price}
        </p>
-       <Text size="lg">{period}</Text>
+       <Text>{period}</Text>
       </div>
       <ul className="mt-6 grid grid-cols-1 gap-3 md:grid-cols-2 lg:grid-cols-1">
        {features.map((feature, index) => (

@@ -43,12 +43,12 @@ export default function Aplica() {
           <Container className="grid gap-12 py-12 sm:py-16 lg:grid-cols-[minmax(0,0.68fr)_minmax(28rem,1fr)] lg:items-start">
             <div className="flex max-w-xl flex-col gap-6 text-white lg:sticky lg:top-28">
               <Subheading>Solicitud de evaluación</Subheading>
-              <Text size="lg" className="flex flex-col gap-4 text-white/84">
+              <Text className="flex flex-col gap-4 text-white/84">
                 <p>
                   Déjanos tus datos y responde brevemente las preguntas. La información se utiliza únicamente para
                   evaluar tu compatibilidad con el sistema.
                 </p>
-                <p className="text-base/7 text-white/64">
+                <p className="text-white/64">
                   El envío del formulario no garantiza el ingreso a EON BioSystem.
                 </p>
               </Text>

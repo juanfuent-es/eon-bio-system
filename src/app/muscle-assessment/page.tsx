@@ -96,7 +96,7 @@ export default function MuscleAssessmentPage() {
         cta={
           <AssessmentLink
             placement="hero"
-            className="max-w-full shrink self-center px-5 text-center text-base"
+            className="max-w-full shrink self-center text-center"
           />
         }
       />
@@ -107,7 +107,7 @@ export default function MuscleAssessmentPage() {
             <p className="text-bold tracking-wider uppercase">
               <small>Más allá del peso</small>
             </p>
-            <Subheading className="leading-none"> 
+            <Subheading>
               <i>Conoce</i> el estado real de tus <i>músculos</i>
             </Subheading>
           </header>
@@ -168,8 +168,8 @@ export default function MuscleAssessmentPage() {
                 />
                 <div className="absolute bottom-0 z-10 flex h-1/2 flex-col items-start justify-end p-5 sm:p-6">
                   <span className="font-serif text-4xl leading-none">{assessment.number}</span>
-                  <h3 className="mt-1 font-serif text-2xl leading-none">{assessment.title}</h3>
-                  <p className="mt-0 max-w-sm text-base text-balance">{assessment.description}</p>
+                  <h3 className="mt-1 font-serif">{assessment.title}</h3>
+                  <p className="mt-0 max-w-sm text-balance">{assessment.description}</p>
                 </div>
               </article>
             ))}
@@ -207,7 +207,7 @@ export default function MuscleAssessmentPage() {
             </small>
           </Subheading>
         </header>
-        <p className="max-w-2xl text-lg/8 text-balance">
+        <p className="max-w-2xl text-balance">
           <b>EON Muscle Assessment</b> es ideal para personas que quieren prevenir deterioro físico, mejorar su
           composición corporal, optimizar su entrenamiento o entender mejor cómo está envejeciendo su cuerpo.
         </p>
@@ -239,14 +239,14 @@ export default function MuscleAssessmentPage() {
             <small>Agenda tu cita</small>
           </Subheading>
         </header>
-        <p className="mx-auto max-w-2xl text-lg/8 text-balance">
+        <p className="mx-auto max-w-2xl text-balance">
           Actualmente la evaluación completa se realiza de forma presencial en Ciudad de México.
           <br />
           Si vives fuera de CDMX, puedes dejar tus datos para recibir información sobre la futura modalidad remota.
         </p>
         <AssessmentLink
           placement="footer-muscle"
-          className="mx-auto max-w-full shrink px-5 text-center text-base sm:px-8"
+          className="mx-auto max-w-full shrink text-center"
         />
       </footer>
     </>

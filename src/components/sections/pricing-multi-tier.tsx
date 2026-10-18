@@ -36,9 +36,9 @@ export function Plan({
       </div>
      )}
 
-     <h3 className="text-2xl/8 tracking-tight text-green-950">{name}</h3>
+     <h3 className="tracking-tight text-green-950">{name}</h3>
     </div>
-    <p className="mt-1 inline-flex gap-1 text-base/7">
+    <p className="mt-1 inline-flex gap-1">
      <span className="text-green-950">{price}</span>
      {period && <span className="text-green-500">{period}</span>}
     </p>

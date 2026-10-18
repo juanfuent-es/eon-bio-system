@@ -54,7 +54,7 @@ function OptionGroup({
 }) {
   return (
     <div className="flex flex-col gap-4">
-      <p className="text-base/7 font-semibold text-white">
+      <p className="font-semibold text-white">
         {label} <span className="text-vital-300">*</span>
       </p>
       <div className="grid gap-3">
@@ -81,7 +81,7 @@ function SubmitButton() {
       size="lg"
       disabled={pending}
       aria-disabled={pending}
-      className="px-6 text-white disabled:cursor-not-allowed disabled:opacity-70"
+      className="text-white disabled:cursor-not-allowed disabled:opacity-70"
     >
       {pending ? 'Enviando...' : 'Enviar solicitud'} <ArrowNarrowRightIcon />
     </Button>
@@ -202,8 +202,8 @@ export function ApplicationForm() {
           role="status"
           className={
             state.status === 'success'
-              ? 'border-renewal-300 bg-renewal-950/45 border-l px-4 py-3 text-sm text-white'
-              : 'border-vital-300 bg-vital-950/45 border-l px-4 py-3 text-sm text-white'
+              ? 'border-renewal-300 bg-renewal-950/45 border-l px-4 py-3 text-white'
+              : 'border-vital-300 bg-vital-950/45 border-l px-4 py-3 text-white'
           }
         >
           {state.message}
@@ -211,7 +211,7 @@ export function ApplicationForm() {
       ) : null}
 
       <div className="flex flex-col items-start justify-between gap-5 border-t border-white/18 pt-8 sm:flex-row sm:items-center">
-        <p className="max-w-md text-sm/6 text-white/58">
+        <p className="max-w-md text-white/58">
           Revisaremos tu solicitud y te contactaremos si el sistema es compatible con tu contexto actual.
         </p>
         <SubmitButton />

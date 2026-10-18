@@ -13,20 +13,20 @@ export default function DesignSystemPage() {
             <div className="mx-auto max-w-5xl space-y-24">
 
                 <header className="space-y-4">
-                    <h1 className="text-4xl font-bold">EON BioSystem Design System</h1>
-                    <p className="text-mineral-600 text-lg">
+                    <h1 className="font-bold">EON BioSystem Design System</h1>
+                    <p className="text-mineral-600">
                         Tokens, componentes y estilos unificados para el sistema visual de EON.
                     </p>
                 </header>
 
                 {/* COLORES */}
                 <section className="space-y-8">
-                    <h2 className="text-2xl font-bold border-b border-mineral-200 pb-2">1. Colores</h2>
+                    <h2 className="font-bold border-b border-mineral-200 pb-2">1. Colores</h2>
                     <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
 
                         <div className="space-y-3">
-                            <h3 className="font-semibold text-lg">Obsidian Black</h3>
-                            <p className="text-sm text-mineral-600">Lectura Clínica: Precisión & profundidad</p>
+                            <h3 className="font-semibold">Obsidian Black</h3>
+                            <p className="text-mineral-600">Lectura Clínica: Precisión & profundidad</p>
                             <div className="flex flex-col gap-1">
                                 <div className="bg-obsidian-950 text-white p-3 rounded text-sm text-center">950</div>
                                 <div className="bg-obsidian-900 text-white p-3 rounded text-sm text-center">900</div>
@@ -37,8 +37,8 @@ export default function DesignSystemPage() {
                         </div>
 
                         <div className="space-y-3">
-                            <h3 className="font-semibold text-lg">Vital Amber</h3>
-                            <p className="text-sm text-mineral-600">Energía & activación</p>
+                            <h3 className="font-semibold">Vital Amber</h3>
+                            <p className="text-mineral-600">Energía & activación</p>
                             <div className="flex flex-col gap-1">
                                 <div className="bg-vital-950 text-white p-3 rounded text-sm text-center">950</div>
                                 <div className="bg-vital-900 text-white p-3 rounded text-sm text-center">900</div>
@@ -49,8 +49,8 @@ export default function DesignSystemPage() {
                         </div>
 
                         <div className="space-y-3">
-                            <h3 className="font-semibold text-lg">Renewal Green</h3>
-                            <p className="text-sm text-mineral-600">Equilibrio & regeneración</p>
+                            <h3 className="font-semibold">Renewal Green</h3>
+                            <p className="text-mineral-600">Equilibrio & regeneración</p>
                             <div className="flex flex-col gap-1">
                                 <div className="bg-renewal-950 text-white p-3 rounded text-sm text-center">950</div>
                                 <div className="bg-renewal-900 text-white p-3 rounded text-sm text-center">900</div>
@@ -61,8 +61,8 @@ export default function DesignSystemPage() {
                         </div>
 
                         <div className="space-y-3">
-                            <h3 className="font-semibold text-lg">Bone / Mineral</h3>
-                            <p className="text-sm text-mineral-600">Neutralidad & Soporte</p>
+                            <h3 className="font-semibold">Bone / Mineral</h3>
+                            <p className="text-mineral-600">Neutralidad & Soporte</p>
                             <div className="flex flex-col gap-1">
                                 <div className="bg-bone-50 text-obsidian-900 p-3 rounded text-sm text-center outline outline-1 outline-mineral-200 shadow-sm">Bone 50</div>
                                 <div className="bg-bone-100 text-obsidian-900 p-3 rounded text-sm text-center outline outline-1 outline-mineral-200 shadow-sm">Bone 100</div>
@@ -77,7 +77,7 @@ export default function DesignSystemPage() {
 
                 {/* BOTONES */}
                 <section className="space-y-8">
-                    <h2 className="text-2xl font-bold border-b border-mineral-200 pb-2">2. Botones & Llamados a la Acción</h2>
+                    <h2 className="font-bold border-b border-mineral-200 pb-2">2. Botones & Llamados a la Acción</h2>
                     <div className="flex flex-wrap gap-8 items-start">
 
                         <div className="space-y-4">
@@ -110,7 +110,7 @@ export default function DesignSystemPage() {
 
                 {/* FORMULARIOS & INPUTS */}
                 <section className="space-y-8">
-                    <h2 className="text-2xl font-bold border-b border-mineral-200 pb-2">3. Campos de Formulario</h2>
+                    <h2 className="font-bold border-b border-mineral-200 pb-2">3. Campos de Formulario</h2>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-8">
 
@@ -148,12 +148,12 @@ export default function DesignSystemPage() {
 
                 {/* CHECKBOXES & RADIOS */}
                 <section className="space-y-8">
-                    <h2 className="text-2xl font-bold border-b border-mineral-200 pb-2">4. Selección Múltiple y Única</h2>
+                    <h2 className="font-bold border-b border-mineral-200 pb-2">4. Selección Múltiple y Única</h2>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
 
                         <div className="space-y-4">
-                            <h3 className="font-semibold text-lg text-obsidian-900">Checkboxes</h3>
+                            <h3 className="font-semibold text-obsidian-900">Checkboxes</h3>
                             <div className="flex flex-col gap-3">
                                 <label className="flex items-center gap-3 cursor-pointer">
                                     <Checkbox name="demo-chk" defaultChecked />
@@ -171,7 +171,7 @@ export default function DesignSystemPage() {
                         </div>
 
                         <div className="space-y-4">
-                            <h3 className="font-semibold text-lg text-obsidian-900">Radio Buttons</h3>
+                            <h3 className="font-semibold text-obsidian-900">Radio Buttons</h3>
                             <div className="flex flex-col gap-3">
                                 <label className="flex items-center gap-3 cursor-pointer">
                                     <Radio name="demo-radio" value="1" defaultChecked />

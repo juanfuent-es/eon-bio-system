@@ -25,7 +25,7 @@ export function HeroTwoColumnWithPhoto({
     <div className="flex flex-1 flex-col items-start justify-center gap-6">
      {eyebrow}
      <Heading className="max-w-5xl">{headline}</Heading>
-     <Text size="lg" className="flex max-w-3xl flex-col gap-4">
+     <Text className="flex max-w-3xl flex-col gap-4">
       {subheadline}
      </Text>
      {cta}

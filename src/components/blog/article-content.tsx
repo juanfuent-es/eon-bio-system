@@ -2,7 +2,7 @@ import { Container } from '@/components/elements/container'
 import { getArticleBlocks } from '@/lib/blog/content'
 
 const editorialTypography =
-  'prose prose-lg max-w-none font-sans text-green-900 prose-headings:font-serif prose-headings:font-normal prose-headings:text-green-900 prose-p:text-green-900 prose-a:text-green-800 prose-strong:text-green-950 prose-blockquote:text-green-900 prose-code:font-sans prose-pre:font-sans prose-pre:bg-green-50 prose-pre:text-green-900 prose-li:marker:text-green-600 prose-th:text-green-900 prose-figcaption:font-sans prose-figcaption:text-green-700'
+  'editorial-content prose max-w-none font-sans text-green-900 prose-headings:font-serif prose-headings:font-normal prose-headings:text-green-900 prose-p:text-green-900 prose-a:text-green-800 prose-strong:text-green-950 prose-blockquote:text-green-900 prose-code:font-sans prose-pre:font-sans prose-pre:bg-green-50 prose-pre:text-green-900 prose-li:marker:text-green-600 prose-th:text-green-900 prose-figcaption:font-sans prose-figcaption:text-green-700'
 
 export function ArticleContent({ content }: { content: string }) {
   return (

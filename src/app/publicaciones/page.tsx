@@ -94,8 +94,8 @@ export default async function BlogPage({ searchParams }: PageProps) {
                       <span>{article.category}</span>
                       {formatDate(article.published_at) ? <span>{formatDate(article.published_at)}</span> : null}
                     </div>
-                    <h2 className="font-serif text-2xl/8 font-semibold text-pretty">{article.title}</h2>
-                    {article.excerpt ? <p className="text-sm/7 text-green-900/72">{article.excerpt}</p> : null}
+                    <h2 className="article-card-title">{article.title}</h2>
+                    {article.excerpt ? <p className="text-green-900/72">{article.excerpt}</p> : null}
                     <span className="mt-auto inline-flex items-center gap-2 pt-2 text-sm/7 font-semibold text-green-800">
                       Leer nota <ArrowNarrowRightIcon className="size-5" />
                     </span>

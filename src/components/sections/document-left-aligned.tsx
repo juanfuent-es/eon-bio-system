@@ -21,7 +21,7 @@ export function DocumentLeftAligned({
     <div className="flex max-w-2xl flex-col gap-6">
      <Heading>{headline}</Heading>
      {subheadline && (
-      <Text size="lg" className="flex max-w-xl flex-col gap-4">
+      <Text className="flex max-w-xl flex-col gap-4">
        {subheadline}
       </Text>
      )}

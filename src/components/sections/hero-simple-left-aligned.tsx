@@ -22,7 +22,7 @@ export function HeroSimpleLeftAligned({
    <Container className="flex flex-col items-start gap-6">
     {eyebrow}
     <Heading>{headline}</Heading>
-    <Text size="lg" className="flex max-w-xl flex-col gap-4">
+    <Text className="flex max-w-xl flex-col gap-4">
      {subheadline}
     </Text>
     {cta}

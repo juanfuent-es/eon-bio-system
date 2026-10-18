@@ -21,7 +21,7 @@ export function Feature({
    </div>
    <div className="flex flex-col gap-4 p-6 sm:p-10 lg:p-6">
     <div>
-     <h3 className="text-base/8 font-medium text-green-950">{headline}</h3>
+     <h3 className="font-medium text-green-950">{headline}</h3>
      <div className="mt-2 flex flex-col gap-4 text-sm/7 text-green-700">{subheadline}</div>
     </div>
     {cta}

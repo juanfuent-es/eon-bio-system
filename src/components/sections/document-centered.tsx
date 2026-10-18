@@ -21,7 +21,7 @@ export function DocumentCentered({
     <div className="flex flex-col items-center gap-6">
      <Heading className="max-w-5xl text-center">{headline}</Heading>
      {subheadline && (
-      <Text size="lg" className="flex max-w-xl flex-col gap-4 text-center">
+      <Text className="flex max-w-xl flex-col gap-4 text-center">
        {subheadline}
       </Text>
      )}

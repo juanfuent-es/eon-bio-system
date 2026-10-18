@@ -11,3 +11,11 @@ Todos los testimonios usan `TestimonialLargeQuote`, que incluye el fondo `Wallpa
 La navegación usa `NavButtonLink` y `navButtonStyles`, independientes de los botones de acción. Conserva las pills originales con tipografía serif, fondo blanco y hover/activo naranja con texto blanco. Los controles de acción usan `Button` o `ButtonLink`, con variantes `primary`, `secondary` y `soft`. Sus tamaños y estilos se mantienen separados de la navegación. Los controles de reproducción y acordeón conservan su forma según su función.
 
 Las páginas de documentos que no tienen hero reservan espacio para el header mediante `main:not(:has(> .hero))` en `globals.css`.
+
+## Tipografía y controles globales
+
+`globals.css` es la fuente de tamaños e interlineados. `html` conserva una base fija de 16px para que los breakpoints tipográficos no escalen también todos los espacios expresados en rem. El texto de lectura crece mediante `--type-body`; los títulos usan `--type-h1`, `--type-h2` y `--type-h3`. Párrafos y citas de testimonios comparten tamaño e interlineado; las negritas mantienen su énfasis.
+
+`Heading`, `Subheading` y `Text` aportan estructura, sin escalas de tamaño propias. No agregar utilidades `text-lg`, `text-2xl` o `leading-*` a párrafos o títulos en páginas. Los roles especiales se definen una sola vez en el CSS global: subtítulo del hero, título de tarjeta, precio, autor y enlace del testimonio, footer y contenido editorial.
+
+Los botones de acción usan `.action-button`, con fuente de 16px, altura mínima de 40px y ancho mínimo de 160px limitado por el contenedor. Los tamaños md/lg cambian sólo el padding: 6px/24px y 8px/28px en Y/X. Las pestañas comparten aspecto, con ancho flexible para pantallas estrechas. No agregar padding ni tamaño tipográfico a los botones desde las páginas. La navegación conserva su componente y su tipografía serif independientes.

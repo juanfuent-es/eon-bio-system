@@ -91,7 +91,7 @@ export function AssessmentForm() {
   if (state.status === 'success')
     return (
       <div role="status" className="flex max-w-2xl flex-col items-start gap-6">
-        <p className="text-xl/8">{state.message}</p>
+        <p>{state.message}</p>
         <ButtonLink href="https://wa.me/525549562488" onClick={() => track('assessment_whatsapp_click')}>
           Contactar a EON por WhatsApp
         </ButtonLink>
@@ -140,7 +140,7 @@ export function AssessmentForm() {
               <input type="hidden" name="modality" value={modality} />
               <input type="hidden" name="qr_source" value={qrSource} />
               {modality === 'remota' && (
-                <p className="text-base/7 text-white/80">
+                <p className="text-white/80">
                   Actualmente el EON Muscle Assessment™ completo se realiza de forma presencial en Ciudad de México.
                   Estamos desarrollando una modalidad remota. Deja tus datos para recibir información cuando esté
                   disponible.
