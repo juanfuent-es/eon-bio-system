@@ -55,7 +55,8 @@ export function Wallpaper({
    {...props}
   >
    <div
-    className="absolute inset-0 opacity-50 mix-blend-overlay rounded-lg lg:rounded-xl xl:rounded-2xl 2xl:rounded-3xl overflow-hidden flex w-full items-center"
+    className="pointer-events-none absolute inset-0 opacity-50 mix-blend-overlay rounded-lg lg:rounded-xl xl:rounded-2xl 2xl:rounded-3xl overflow-hidden flex w-full items-center"
+    aria-hidden="true"
     style={{
      backgroundPosition: 'center',
      backgroundImage: noisePattern,

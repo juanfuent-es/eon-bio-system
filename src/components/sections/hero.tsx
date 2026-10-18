@@ -9,6 +9,7 @@ export function Hero({
   align = 'center',
   eyebrow,
   headline,
+  headingLevel = 1,
   subtitle,
   subheadline,
   cta,
@@ -16,12 +17,14 @@ export function Hero({
   imageSrc = '/photos/eon-biosystem-home.png',
   imageAlt = 'Imagen de portada de EON BioSystem',
   imageUnoptimized = false,
+  imagePriority = true,
   className,
   ...props
 }: {
   align?: 'left' | 'center' | 'right'
   eyebrow?: ReactNode
   headline: ReactNode
+  headingLevel?: 1 | 2
   subtitle?: ReactNode
   subheadline: ReactNode
   cta?: ReactNode
@@ -29,6 +32,7 @@ export function Hero({
   imageSrc?: string
   imageAlt?: string
   imageUnoptimized?: boolean
+  imagePriority?: boolean
 } & ComponentProps<'section'>) {
   const alignmentClasses = {
     left: 'items-start text-left',
@@ -52,7 +56,7 @@ export function Hero({
           className="absolute inset-0 -z-10 h-full w-full rounded-lg object-cover opacity-75 xl:rounded-2xl 2xl:rounded-3xl"
           sizes="100vw"
           unoptimized={imageUnoptimized}
-          priority
+          priority={imagePriority}
         />
         <div
           className="pointer-events-none absolute inset-0 z-0 rounded-lg bg-cover bg-center bg-no-repeat mix-blend-multiply"
@@ -81,6 +85,7 @@ export function Hero({
               {eyebrow}
               {typeof headline === 'string' ? (
                 <Heading
+                  level={headingLevel}
                   className="max-w-7xl"
                   color="light"
                   dangerouslySetInnerHTML={{
@@ -91,7 +96,7 @@ export function Hero({
                   }}
                 />
               ) : (
-                <Heading className="max-w-7xl" color="light">
+                <Heading level={headingLevel} className="max-w-7xl" color="light">
                   {headline}
                 </Heading>
               )}

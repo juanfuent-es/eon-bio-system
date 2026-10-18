@@ -7,7 +7,7 @@ import { CallToActionSimpleCentered } from '@/components/sections/call-to-action
 import { FAQsAccordion, Faq } from '@/components/sections/faqs-accordion'
 import { PlanComparisonTable } from '@/components/sections/plan-comparison-table'
 import { Plan, PricingHeroMultiTier } from '@/components/sections/pricing-hero-multi-tier'
-import { TestimonialTwoColumnWithLargePhoto } from '@/components/sections/testimonial-two-column-with-large-photo'
+import { TestimonialLargeQuote } from '@/components/sections/testimonial-with-large-quote'
 
 function plans(option: string) {
  return (
@@ -283,7 +283,7 @@ export default function Page() {
     ]}
    />
    {/* Testimonial */}
-   <TestimonialTwoColumnWithLargePhoto
+   <TestimonialLargeQuote
     id="testimonial"
     quote={
      <p>

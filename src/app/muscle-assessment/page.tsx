@@ -1,3 +1,4 @@
+import { TestimonialLargeQuote } from '@/components/sections/testimonial-with-large-quote'
 import { Subheading } from '@/components/elements/subheading'
 import { Hero } from '@/components/sections/hero'
 import { YouTubeVideo } from '@/components/sections/youtube-video'
@@ -175,6 +176,28 @@ export default function MuscleAssessmentPage() {
           </div>
         </div>
       </section>
+
+      <TestimonialLargeQuote
+        id="testimonial-maritere"
+        aria-label="Testimonio de Maritere Santiago"
+        quote="Mi experiencia en EON Biosystem, me ha ayudado a evolucionar físico-mentalmente, ser más disciplinada y lograr mis objetivos a la par de cuidar de mi longevidad. 🤝 💪 gracias."
+        img={
+          <a href="https://www.instagram.com/smaritere21/" target="_blank" rel="noopener noreferrer">
+            <Image src="/avatars/maritere.png" alt="Maritere Santiago" width={240} height={240} />
+          </a>
+        }
+        name="Maritere Santiago"
+        byline={
+          <a
+            href="https://www.instagram.com/smaritere21/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-green-900 transition-colors hover:text-orange-500"
+          >
+            @smaritere21
+          </a>
+        }
+      />
 
       <section className="flex min-h-auto flex-col gap-8 bg-neutral-100 px-4 py-12 text-center">
         <header className="max-w-lg text-center text-balance">
