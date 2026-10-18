@@ -1,5 +1,6 @@
 import { TestimonialLargeQuote } from '@/components/sections/testimonial-with-large-quote'
 import { Subheading } from '@/components/elements/subheading'
+import { SectionScrollSnap } from '@/components/elements/section-scroll-snap'
 import { Hero } from '@/components/sections/hero'
 import { YouTubeVideo } from '@/components/sections/youtube-video'
 import type { Metadata } from 'next'
@@ -30,7 +31,7 @@ const assessments = [
     description: 'Un indicador clave de tu fuerza global.',
     imageSrc: versionedPublicAsset('/muscle-assessment/fuerza-de-agarre.jpg'),
     imageAlt: 'Dinamómetro manual durante una evaluación de fuerza de agarre',
-    cardClassName: 'lg:col-span-2 lg:aspect-[1.18/1]',
+    cardClassName: 'lg:col-span-2',
   },
   {
     number: '02',
@@ -38,7 +39,7 @@ const assessments = [
     description: 'Conoce tu masa muscular, grasa y perfil físico.',
     imageSrc: versionedPublicAsset('/muscle-assessment/composicion-corporal.jpg'),
     imageAlt: 'Evaluación de composición corporal en EON BioSystem',
-    cardClassName: 'lg:col-span-2 lg:aspect-[1.18/1]',
+    cardClassName: 'lg:col-span-2',
   },
   {
     number: '03',
@@ -46,7 +47,7 @@ const assessments = [
     description: 'Evalúa tu capacidad de levantarte, moverte y funcionar.',
     imageSrc: versionedPublicAsset('/muscle-assessment/funcion-muscular.jpg'),
     imageAlt: 'Prueba funcional de levantamiento asistida por una evaluadora',
-    cardClassName: 'lg:col-span-2 lg:aspect-[1.18/1]',
+    cardClassName: 'lg:col-span-2',
   },
   {
     number: '04',
@@ -54,7 +55,7 @@ const assessments = [
     description: 'Mide tu equilibrio y control corporal.',
     imageSrc: versionedPublicAsset('/muscle-assessment/estabilidad.jpg'),
     imageAlt: 'Prueba de estabilidad y equilibrio en una pierna',
-    cardClassName: 'lg:col-span-3 lg:aspect-[2.2/1]',
+    cardClassName: 'lg:col-span-3',
   },
   {
     number: '05',
@@ -62,7 +63,7 @@ const assessments = [
     description: 'Un indicador cardiovascular básico para contextualizar tu salud.',
     imageSrc: versionedPublicAsset('/muscle-assessment/presion-arterial.jpg'),
     imageAlt: 'Medición de presión arterial con brazalete y estetoscopio',
-    cardClassName: 'md:col-span-2 lg:col-span-3 lg:aspect-[2.2/1]',
+    cardClassName: 'sm:col-span-2 lg:col-span-3',
   },
 ]
 
@@ -73,7 +74,9 @@ export default function MuscleAssessmentPage() {
 
   return (
     <>
+      <SectionScrollSnap closingId="reporte" />
       <Hero
+        data-snap-page
         imageSrc={heroImageSrc}
         imageAlt="Evaluación EON Muscle Assessment"
         imageUnoptimized
@@ -115,7 +118,7 @@ export default function MuscleAssessmentPage() {
 
       <YouTubeVideo videoId="46-jnsUixlM" posterSrc={videoImageSrc} posterUnoptimized />
 
-      <section className="flex min-h-auto flex-col gap-8 bg-neutral-100 px-4 py-8 text-center sm:py-10">
+      <section className="flex flex-col justify-center gap-8 px-4 py-8 text-center sm:py-10">
         <header className="">
           <p className="tracking-widest uppercase">
             <small>El punto de partida</small>
@@ -137,19 +140,19 @@ export default function MuscleAssessmentPage() {
         </div>
       </section>
 
-      <section className="assessment-gallery mt-0 min-h-auto flex-col justify-center bg-neutral-100">
+      <section className="assessment-gallery mt-0 flex-col justify-center">
         <div className="mx-auto flex w-full flex-col gap-6 p-4">
-          <div className="grid grid-cols-1 gap-3 md:grid-cols-2 lg:grid-cols-6">
+          <div className="grid min-h-[calc(100dvh-2rem)] auto-rows-fr grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-6">
             {assessments.map((assessment) => (
               <article
                 key={assessment.number}
-                className={`group relative min-h-[22rem] overflow-hidden rounded-lg bg-black text-white lg:min-h-0 ${assessment.cardClassName}`}
+                className={`group relative flex min-h-96 w-full min-w-0 flex-col justify-end overflow-hidden rounded-panel bg-black text-white ${assessment.cardClassName}`}
               >
                 <Image
                   src={assessment.imageSrc}
                   alt={assessment.imageAlt}
                   fill
-                  sizes="(min-width: 1024px) 34vw, (min-width: 768px) 50vw, 100vw"
+                  sizes="(min-width: 1024px) 50vw, 100vw"
                   className="object-cover transition-transform duration-700 group-hover:scale-[1.03]"
                   unoptimized
                 />
@@ -158,10 +161,10 @@ export default function MuscleAssessmentPage() {
                   style={{ backgroundImage: 'linear-gradient(to top, rgb(0 0 0 / 1), rgb(0 0 0 / 0))' }}
                   aria-hidden="true"
                 />
-                <div className="absolute bottom-0 z-10 flex h-1/2 flex-col items-start justify-end p-5 sm:p-6">
-                  <span className="font-serif text-4xl leading-none">{assessment.number}</span>
-                  <h3 className="mt-1 font-serif">{assessment.title}</h3>
-                  <p className="mt-0 max-w-sm text-balance">{assessment.description}</p>
+                <div className="relative z-10 flex min-h-56 w-full min-w-0 flex-col items-start justify-start p-5 sm:p-6">
+                  <span className="font-serif text-5xl leading-none">{assessment.number}</span>
+                  <h3 className="mt-1 font-serif text-2xl leading-tight">{assessment.title}</h3>
+                  <p className="mt-1 max-w-sm text-base leading-snug text-balance xl:text-lg">{assessment.description}</p>
                 </div>
               </article>
             ))}
@@ -195,12 +198,10 @@ export default function MuscleAssessmentPage() {
         }
       />
 
-      <section className="flex min-h-auto flex-col gap-8 px-4 py-12 text-center p-4">
+      <section className="flex flex-col justify-center gap-8 px-4 py-12 text-center">
         <header className="max-w-2xl text-center text-balance">
           <Subheading>
-            <small>
-              Para quienes quieren <i>mantenerse fuertes</i>
-            </small>
+            Para quienes quieren <i>mantenerse fuertes</i>
           </Subheading>
         </header>
         <p className="max-w-2xl text-balance">
@@ -211,39 +212,32 @@ export default function MuscleAssessmentPage() {
 
       <Hero
         id="reporte"
+        headingLevel={2}
         imageSrc={reportImageSrc}
         imageAlt="Reporte EON Muscle Assessment con resultados de estado muscular"
         imageUnoptimized
-        headline="Reporte de Reserva Muscular"
-        subtitle="Conoce tu punto de partida."
+        imagePriority={false}
+        eyebrow={
+          <p className="text-sm font-semibold tracking-widest uppercase">Reporte de Reserva Muscular</p>
+        }
+        headline="Conoce tu punto de partida."
         subheadline={
-          <>
-            <p>
-              Al finalizar, recibirás tu edad muscular estimada, nivel EON, fortalezas y áreas de atención.
-            </p>
-          </>
+          <p>
+            Agenda tu evaluación y recibe un reporte con tu edad muscular estimada, nivel EON, fortalezas, áreas de
+            atención y una recomendación inicial.
+          </p>
+        }
+        cta={
+          <div className="flex max-w-full flex-col items-center gap-3" id="footer-muscle">
+            <AssessmentLink
+              placement="footer-muscle"
+              label="Agendar evaluación"
+              className="max-w-full shrink text-center"
+            />
+            <p className="text-sm text-white/80">Evaluación presencial · 15 minutos</p>
+          </div>
         }
       />
-
-      <footer className="flex flex-col gap-8 bg-neutral-100 px-4 py-12 text-center" id="footer-muscle">
-        <header className="text-center">
-          <p className="tracking-widest uppercase">
-            <small>Pre-evaluación Gratis</small>
-          </p>
-          <Subheading>
-            <small>Agenda tu cita</small>
-          </Subheading>
-        </header>
-        <p className="mx-auto max-w-2xl text-balance">
-          Actualmente la evaluación completa se realiza de forma presencial en Ciudad de México.
-          <br />
-          Si vives fuera de CDMX, puedes dejar tus datos para recibir información sobre la futura modalidad remota.
-        </p>
-        <AssessmentLink
-          placement="footer-muscle"
-          className="mx-auto max-w-full shrink text-center"
-        />
-      </footer>
     </>
   )
 }

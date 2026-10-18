@@ -24,7 +24,7 @@ export function FooterLink({ href, className, ...props }: { href: string } & Omi
  const isActive = pathname === href
 
  return (
-  <li className={clsx('transition-colors', isActive ? 'text-orange-600 font-semibold' : 'text-green-700 hover:text-orange-600', className)}>
+  <li className={clsx('min-w-0 wrap-anywhere transition-colors', isActive ? 'text-orange-600 font-semibold' : 'text-green-700 hover:text-orange-600', className)}>
    <Link href={href} {...props} />
   </li>
  )

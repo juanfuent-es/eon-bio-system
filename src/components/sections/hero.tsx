@@ -52,24 +52,24 @@ export function Hero({
         color="green-copper"
         style={{ backgroundImage: 'none' }}
       >
-        <div className="absolute inset-0 -z-20 rounded-lg bg-black" aria-hidden="true" />
+        <div className="absolute inset-0 -z-20 rounded-[inherit] bg-black" aria-hidden="true" />
         <Image
           src={imageSrc}
           alt={imageAlt}
           width={1920}
           height={1280}
-          className="absolute inset-0 -z-10 h-full w-full rounded-lg object-cover opacity-75 xl:rounded-2xl 2xl:rounded-3xl"
+          className="absolute inset-0 -z-10 h-full w-full rounded-[inherit] object-cover opacity-75"
           sizes="100vw"
           unoptimized={imageUnoptimized}
           priority={imagePriority}
         />
         <div
-          className="pointer-events-none absolute inset-0 z-0 rounded-lg bg-cover bg-center bg-no-repeat mix-blend-multiply"
+          className="pointer-events-none absolute inset-0 z-0 rounded-[inherit] bg-cover bg-center bg-no-repeat mix-blend-multiply"
           style={{ backgroundImage: 'url("/gradients/orange-green.svg")' }}
           aria-hidden="true"
         />
         <div
-          className="pointer-events-none absolute inset-0 z-[1] rounded-lg xl:rounded-2xl 2xl:rounded-3xl"
+          className="pointer-events-none absolute inset-0 z-[1] rounded-[inherit]"
           style={{ backgroundImage: 'linear-gradient(to top, rgb(0 0 0 / 1), rgb(0 0 0 / 0))' }}
           aria-hidden="true"
         />

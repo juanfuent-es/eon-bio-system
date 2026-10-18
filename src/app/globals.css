@@ -2,6 +2,7 @@
 @plugin '@tailwindcss/typography';
 
 @theme {
+  --radius-panel: clamp(1rem, 2vw, 1.5rem);
   --font-serif: 'the-seasons', serif;
   --font-sans: 'freight-neo-pro', system-ui, sans-serif;
 
@@ -37,7 +38,6 @@
   --type-h1: clamp(2rem, 1rem + 5vw, 6.25rem);
   --type-h2: clamp(2rem, 0.5rem + 5vw, 5rem);
   --type-h3: clamp(1.375rem, 1rem + 1vw, 2rem);
-  --type-hero-section: clamp(1.875rem, 1.25rem + 2vw, 3.75rem);
   --type-subtitle: clamp(1.5rem, 1.1rem + 1vw, 2.25rem);
   --type-small: 0.875rem;
   --bio-emerald: #1b4d3e;
@@ -161,8 +161,9 @@
   .heading[data-color='light'] {
     color: white;
   }
+  .section-heading,
   .hero h2 {
-    font-size: var(--type-hero-section);
+    font-size: var(--type-h2);
   }
   .hero-subtitle {
     font-family: var(--font-serif);
@@ -342,8 +343,28 @@
   }
 
   main > section.hero .wallpaper {
-    height: 100%;
-    padding: 0;
-    @apply pb-4;
+    height: auto;
+    min-height: inherit;
+    align-items: flex-end;
+    padding: 7rem 0 2rem;
+  }
+
+  /* Require alignment until the closing section releases the document scroll. */
+  html:has(main > [data-snap-page]):not([data-snap-end]) {
+    scroll-snap-type: y mandatory;
+  }
+
+  main:has(> [data-snap-page]) > section {
+    scroll-snap-align: start;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  html:has(main > [data-snap-page]):not([data-snap-end]) {
+    scroll-snap-type: none;
   }
 }

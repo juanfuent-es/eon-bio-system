@@ -16,7 +16,7 @@ export function YouTubeVideo({
 
   return (
     <section className="h-dvh px-4">
-      <div className="relative h-full overflow-hidden rounded-lg bg-black lg:rounded-xl xl:rounded-2xl 2xl:rounded-3xl">
+      <div className="relative h-full overflow-hidden rounded-panel bg-black">
         {playing ? (
           <iframe
             src={`https://www.youtube.com/embed/${videoId}?autoplay=1&playsinline=1&controls=1`}

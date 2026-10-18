@@ -20,7 +20,15 @@ function track(event: string, parameters: Record<string, string> = {}) {
   analytics.gtag('event', event, parameters)
 }
 
-export function AssessmentLink({ placement, className }: { placement: string; className?: string }) {
+export function AssessmentLink({
+  placement,
+  className,
+  label = 'Solicitar mi pre-evaluación',
+}: {
+  placement: string
+  className?: string
+  label?: string
+}) {
   return (
     <ButtonLink
       href="https://wa.me/+525549562488"
@@ -30,7 +38,7 @@ export function AssessmentLink({ placement, className }: { placement: string; cl
       rel="noopener noreferrer"
       onClick={() => track('assessment_request_click', { placement })}
     >
-      Solicitar mi pre-evaluación <ArrowNarrowRightIcon />
+      {label} <ArrowNarrowRightIcon />
     </ButtonLink>
   )
 }

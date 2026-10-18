@@ -45,7 +45,7 @@ export function Wallpaper({
   <div
    data-color={color}
    className={clsx(
-    'relative overflow-hidden bg-cover bg-center bg-no-repeat rounded-lg lg:rounded-xl xl:rounded-2xl 2xl:rounded-3xl ',
+    'relative overflow-hidden bg-cover bg-center bg-no-repeat rounded-panel ',
     className,
    )}
    style={{
@@ -55,7 +55,7 @@ export function Wallpaper({
    {...props}
   >
    <div
-    className="pointer-events-none absolute inset-0 opacity-50 mix-blend-overlay rounded-lg lg:rounded-xl xl:rounded-2xl 2xl:rounded-3xl overflow-hidden flex w-full items-center"
+    className="pointer-events-none absolute inset-0 opacity-50 mix-blend-overlay rounded-panel overflow-hidden flex w-full items-center"
     aria-hidden="true"
     style={{
      backgroundPosition: 'center',
