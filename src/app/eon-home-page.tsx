@@ -41,13 +41,24 @@ export default function Page() {
       <Hero
         imageSrc="/photos/eon-biosystem-home.png"
         imageAlt="Mujer entrenando en espacio natural"
-        logo={{ src: '/logos/eon-logotype-descriptor.svg', alt: 'Logotipo EON BioSystem' }}
-        subtitle="Un sistema de longevidad diseñado desde la ciencia."
-        subheadline={
-          <p>
-            Un sistema integral que une <strong>fuerza, nutrición y biomarcadores</strong> para optimizar tu biología de
-            forma sostenible.
+        eyebrow={
+          <p className="mb-6 max-w-[calc(100%-2rem)] rounded-full border border-white/20 bg-white/10 px-4 py-2 text-center text-xs/5 font-medium text-white/90 backdrop-blur-sm sm:px-5 sm:text-sm/5">
+            Preserva tu capacidad, salud y autonomía a largo plazo.
           </p>
+        }
+        logo={{ src: '/logos/eon-logotype-descriptor.svg', alt: 'Logotipo EON BioSystem' }}
+        subtitle={
+          <>
+            La <em>longevidad</em> no se improvisa.
+          </>
+        }
+        subheadline={
+          <>
+            <p>
+              Un sistema de <strong>evaluación, fuerza, nutrición y seguimiento biológico</strong> para entender
+              cómo estás hoy y construir <em>cómo quieres vivir mañana</em>.
+            </p>
+          </>
         }
         cta={
           <>
@@ -76,7 +87,10 @@ export default function Page() {
           </>
         }
       >
-        <p>Con el tiempo, el cuerpo cambia. La recuperación y el rendimiento también.</p>
+        <p>
+          Con el tiempo, <em>el cuerpo cambia</em>. La recuperación, <strong>la fuerza</strong> y la forma en que respondemos
+          también.
+        </p>
         <p>
           Sin datos claros, nuestras decisiones se suelen basar en intuición o ensayo y error.{' '}
           <strong>EON BioSystem</strong> reemplaza la improvisación por un sistema diseñado desde la ciencia.
@@ -98,11 +112,16 @@ export default function Page() {
             className="h-auto w-full max-w-3xl"
           />
         }
-        subheadline={<p>Descúbrelo en 15 minutos.</p>}
+        subheadline={null}
         cta={
-          <ButtonLink href="/muscle-assessment" size="lg">
-            Conoce tu edad muscular <ArrowNarrowRightIcon />
-          </ButtonLink>
+          <>
+            <ButtonLink href="/muscle-assessment" size="lg">
+              Conoce tu edad muscular <ArrowNarrowRightIcon />
+            </ButtonLink>
+            <p className="text-green-200 italic">
+              <small>*Descúbrelo en 15 minutos.</small>
+            </p>
+          </>
         }
       />
 
@@ -120,10 +139,12 @@ export default function Page() {
         }
       >
         <p>
-          EON BioSystem es un sistema de longevidad basado en el análisis de biomarcadores para diseñar estrategias
-          personalizadas de entrenamiento, nutrición y suplementación.
+          EON BioSystem integra <strong>información biológica, composición corporal, fuerza, función y hábitos</strong>{' '}
+          para entender qué necesita tu cuerpo y orientar <em>decisiones personalizadas</em>.
         </p>
-        <p>Un sistema pensado para acompañar tu biología a largo plazo.</p>
+        <p>
+          No buscamos una intervención aislada, sino <strong>acompañar tu evolución</strong> a lo largo del tiempo.
+        </p>
       </HomeTextSection>
 
       <TestimonialLargeQuote
@@ -159,8 +180,8 @@ export default function Page() {
         id="para-quien-es"
         headingLevel={2}
         imagePriority={false}
-        imageSrc="/photos/eon-biosystem-muscle-assessment.png"
-        imageAlt="Ricardo explicando los resultados de una evaluación a una persona en consulta"
+        imageSrc="/muscle-assessment/hero.jpg"
+        imageAlt="Ricardo acompañando a un adulto mayor durante un entrenamiento de fuerza"
         headline={
           <>
             Este sistema <i>no es para todos</i>
@@ -191,7 +212,12 @@ export default function Page() {
             mejora tus <i>decisiones</i>.
           </>
         }
-        subheadline={<p>Artículos, evidencia y casos clínicos explicados con claridad.</p>}
+        subheadline={
+          <p>
+            <strong>Artículos, evidencia y casos clínicos</strong> explicados con claridad para ayudarte a comprender mejor
+            tu <strong>metabolismo, tu fuerza y tu salud</strong>, y tomar <em>decisiones con más criterio</em>.
+          </p>
+        }
         cta={
           <ButtonLink href="/publicaciones" size="lg">
             Explorar publicaciones <ArrowNarrowRightIcon />
