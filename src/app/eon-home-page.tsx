@@ -1,4 +1,4 @@
-import { ButtonLink, PlainButtonLink } from '@/components/elements/button'
+import { ButtonLink } from '@/components/elements/button'
 import { Container } from '@/components/elements/container'
 import { SectionScrollSnap } from '@/components/elements/section-scroll-snap'
 import { Subheading } from '@/components/elements/subheading'
@@ -39,7 +39,7 @@ function HomeTextSection({
 export default function Page() {
   return (
     <>
-      <SectionScrollSnap closingId="publicaciones" />
+      <SectionScrollSnap closingId="para-quien-es" />
       <Hero
         data-snap-page="responsive"
         imageSrc="/photos/eon-biosystem-home.png"
@@ -66,12 +66,14 @@ export default function Page() {
         cta={
           <>
             <div className="flex w-full flex-wrap justify-center gap-3">
-              <ButtonLink href="/aplica" size="lg">
+              <ButtonLink href="https://wa.me/525549562488" size="lg">
                 Aplica al sistema <ArrowNarrowRightIcon />
               </ButtonLink>
+              {/* Oculto hasta que la sección Sistema esté lista.
               <PlainButtonLink href="/sistema" size="lg">
                 Conoce más <ArrowNarrowRightIcon />
               </PlainButtonLink>
+              */}
             </div>
             <p className="text-green-200 italic">
               <small>*Acceso mediante evaluación previa.</small>
@@ -136,9 +138,12 @@ export default function Page() {
           </>
         }
         cta={
+          /* Oculto hasta que la sección Sistema esté lista.
           <ButtonLink href="/sistema" size="lg">
             Conoce el sistema <ArrowNarrowRightIcon />
           </ButtonLink>
+          */
+          null
         }
       >
         <p>
@@ -204,12 +209,13 @@ export default function Page() {
           </>
         }
         cta={
-          <ButtonLink href="/aplica" size="lg">
-            Aplica al sistema <ArrowNarrowRightIcon />
+          <ButtonLink href="https://wa.me/525549562488" size="lg">
+            Agenda tu cita <ArrowNarrowRightIcon />
           </ButtonLink>
         }
       />
 
+      {/* Oculto hasta el lanzamiento del blog; conservar para reactivarlo.
       <Hero
         id="publicaciones"
         headingLevel={2}
@@ -234,6 +240,7 @@ export default function Page() {
           </ButtonLink>
         }
       />
+      */}
     </>
   )
 }

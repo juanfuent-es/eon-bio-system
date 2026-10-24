@@ -504,6 +504,15 @@
       scroll-snap-align: start;
     }
   }
+  /* These Sistema sections keep their own proportions within the snap layout. */
+  main > section#origen-del-metodo {
+    min-height: 50svh;
+  }
+
+  main > section#experiencia .wallpaper {
+    align-items: center;
+    padding-block: 4rem;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {

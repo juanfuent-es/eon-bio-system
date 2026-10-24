@@ -19,28 +19,46 @@ const steps = [
   {
     number: '01',
     title: 'Evaluación inicial',
-    description: 'Conocemos tu contexto, composición corporal, fuerza, función y biomarcadores.',
+    description: (
+      <>
+        Conocemos tu <strong>contexto, composición corporal, fuerza, función y biomarcadores</strong> para entender{' '}
+        <em>cómo estás hoy</em>.
+      </>
+    ),
     imageSrc: '/muscle-assessment/composicion-corporal.jpg',
     imageAlt: 'Evaluación de composición corporal en EON BioSystem',
   },
   {
     number: '02',
     title: 'Estrategia personalizada',
-    description: 'Definimos entrenamiento, nutrición y hábitos de acuerdo con tus objetivos y respuesta individual.',
+    description: (
+      <>
+        Definimos <strong>entrenamiento, nutrición y hábitos</strong> de acuerdo con tus objetivos y{' '}
+        <em>respuesta individual</em>.
+      </>
+    ),
     imageSrc: '/eon-sistema-bg.jpg',
     imageAlt: 'Ricardo Sánchez durante una consulta individual',
   },
   {
     number: '03',
     title: 'Puesta en práctica',
-    description: 'La estrategia se convierte en acciones claras que puedes integrar a tu vida cotidiana.',
+    description: (
+      <>
+        La estrategia se convierte en <strong>acciones claras</strong> que puedes integrar a tu <em>vida cotidiana</em>.
+      </>
+    ),
     imageSrc: '/muscle-assessment/no-es-para-todos.jpg',
     imageAlt: 'Entrenamiento de fuerza con supervisión profesional',
   },
   {
     number: '04',
     title: 'Seguimiento y ajustes',
-    description: 'Observamos cómo responde tu cuerpo y adaptamos el sistema conforme evoluciona.',
+    description: (
+      <>
+        Observamos <strong>cómo responde tu cuerpo</strong> y adaptamos el sistema <em>conforme evoluciona</em>.
+      </>
+    ),
     imageSrc: '/muscle-assessment/muscle-reporte.jpg',
     imageAlt: 'Reporte de evaluación para orientar el seguimiento individual',
   },
@@ -49,7 +67,7 @@ const steps = [
 function ApplyButton() {
   return (
     <ButtonLink href="/aplica" size="lg">
-      Aplica al sistema <ArrowNarrowRightIcon />
+      Aplica <ArrowNarrowRightIcon />
     </ButtonLink>
   )
 }
@@ -65,7 +83,7 @@ export default function Sistema() {
         imageAlt="Ricardo Sánchez atendiendo una consulta en EON BioSystem"
         eyebrow={
           <p className="mb-6 max-w-[calc(100%-2rem)] rounded-full border border-white/20 bg-white/10 px-4 py-2 text-center text-xs/5 text-white/90 backdrop-blur-sm sm:px-5 sm:text-sm/5">
-            No es un plan aislado. <strong>Es un sistema que evoluciona contigo.</strong>
+            Un <strong>sistema para tu biología</strong>, más allá de un <em>plan aislado</em>.
           </p>
         }
         logo={{ src: '/logos/eon-logotype-slogan.svg', alt: 'Logotipo completo de EON BioSystem' }}
@@ -78,7 +96,7 @@ export default function Sistema() {
           <>
             <p>
               EON BioSystem organiza <strong>entrenamiento, nutrición y seguimiento</strong> dentro de una misma
-              estrategia, guiada por tu biología y ajustada conforme cambia tu cuerpo.
+              estrategia, <em>guiada por tu biología</em> y ajustada conforme cambia tu cuerpo.
             </p>
           </>
         }
@@ -96,8 +114,8 @@ export default function Sistema() {
               De la <i>práctica</i> nació el método.
             </Subheading>
             <p className="max-w-2xl text-balance text-green-900">
-              La práctica, el estudio continuo y el seguimiento individual dieron forma a un sistema que transforma
-              información en decisiones claras y aplicables.
+              La <em>práctica</em>, el <strong>estudio continuo y el seguimiento individual</strong> dieron forma a un
+              sistema que transforma información en <strong>decisiones claras y aplicables</strong>.
             </p>
           </article>
         </Container>
@@ -107,26 +125,24 @@ export default function Sistema() {
         id="experiencia"
         headingLevel={2}
         imagePriority={false}
-        imageSrc="/hero-about.jpg"
+        imageSrc="/eon-about-bg.jpg"
         imageAlt="Ricardo Sánchez entrenando fuerza en el gimnasio"
         eyebrow={
           <p className="mb-6 text-sm font-semibold tracking-widest uppercase">La experiencia detrás del sistema</p>
         }
-        headline="Ricardo Sánchez"
+        headline={
+          <>
+            Ricardo <em>Sánchez</em>
+          </>
+        }
         subheadline={
           <>
             <p>
-              EON BioSystem fue creado por <strong>Ricardo Sánchez</strong> a partir de años de trabajo en entrenamiento
-              de fuerza, nutrición aplicada, composición corporal y metabolismo.
+              EON BioSystem fue creado por su director a partir de <em>años de trabajo</em> en{' '}
+              <strong>entrenamiento de fuerza</strong>, estudio de{' '}
+              <strong>nutrición aplicada, composición corporal y metabolismo</strong>.
             </p>
           </>
-        }
-        cta={
-          <p className="text-white">
-            <strong>Ricardo Sánchez</strong>
-            <br />
-            <span className="text-sm text-white/80">Director de optimización fisiometabólica</span>
-          </p>
         }
       />
 
@@ -137,12 +153,16 @@ export default function Sistema() {
       >
         <Container>
           <header className="mx-auto flex max-w-4xl flex-col gap-4 text-center">
-            <Heading level={1} id="como-funciona-heading">
-              Cómo funciona
+            <p className="text-sm font-semibold tracking-widest uppercase">Cómo funciona</p>
+            <Heading level={2} id="como-funciona-heading">
+              Proceso en <em>cuatro pasos</em>
             </Heading>
-            <p className="text-sm font-semibold tracking-widest uppercase">Proceso en cuatro pasos</p>
             <p className="mx-auto max-w-2xl text-balance text-green-900">
-              El proceso se desarrolla a partir de cuatro momentos que permiten conocer, actuar, observar y ajustar.
+              El proceso se desarrolla a partir de cuatro momentos que permiten{' '}
+              <strong>
+                <em>conocer, actuar, observar y ajustar</em>
+              </strong>
+              .
             </p>
           </header>
         </Container>
@@ -180,17 +200,18 @@ export default function Sistema() {
         aria-label="Testimonio de Liliana Márquez"
         quote={
           <>
-            El Lic. Ricardo Sanchez no solo me dió un plan alimenticio y de ejercicios, me ha ayudado a construir
-            hábitos, a cambiar mi mentalidad y relación con la comida, a disfrutar de este maravilloso proceso de
-            alcanzar mi mejor versión.
+            El Lic. Ricardo Sanchez no solo me dió un plan alimenticio y de ejercicios, me ha ayudado a{' '}
+            <strong>construir hábitos</strong>, a cambiar mi <em>mentalidad y relación con la comida</em>, a disfrutar
+            de este maravilloso proceso de alcanzar mi mejor versión.
             <br />
             <br />
-            Ya no entreno por un físico marcado, entreno y me cuido por que quiero caminar sin bastón a los 60,
-            disfrutar de mis seres queridos con libertad de movimiento.
+            Ya no entreno por un físico marcado, entreno y me cuido por que quiero{' '}
+            <strong>caminar sin bastón a los 60</strong>, disfrutar de mis seres queridos con{' '}
+            <em>libertad de movimiento</em>.
             <br />
             <br />
             Gracias por ser un gran mentor Licenciado y ayudarme a optimizar mi metabolismo para el beneficio de una
-            longevidad saludable en EON Biosystem.
+            <strong>longevidad saludable</strong> en EON Biosystem.
           </>
         }
         img={
@@ -222,8 +243,14 @@ export default function Sistema() {
               Construye cómo quieres <i>vivir mañana.</i>
             </Subheading>
             <p className="max-w-2xl text-balance text-green-900">
-              EON BioSystem no parte de soluciones rápidas, sino de entender cómo estás hoy y acompañar tu evolución a
-              lo largo del tiempo.
+              Tu <strong>fuerza, salud y autonomía</strong> de mañana se construyen con las{' '}
+              <em>decisiones que tomas hoy</em>. EON BioSystem parte de <strong>entender cómo estás</strong> para
+              acompañar tu evolución a lo largo del tiempo.
+            </p>
+            <p className="max-w-2xl text-balance text-green-900">
+              Conoce tu punto de partida y convierte esa información en <strong>acciones para tu vida diaria</strong>,
+              con entrenamiento, nutrición y seguimiento que se ajustan a ti. Empieza a construir{' '}
+              <em>cómo quieres vivir</em>.
             </p>
             <div className="flex max-w-full flex-col items-center gap-3 pt-2">
               <ApplyButton />
