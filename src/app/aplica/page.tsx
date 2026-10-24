@@ -24,10 +24,8 @@ export default function Aplica() {
         subheadline={
           <>
             <p>
-              Si estás listo para transformar tu biología de forma consciente y estructurada,{' '}
-              <em>este es el momento de empezar.</em>
+              Para construir un proceso que evolucione contigo, primero necesitamos conocer tu contexto, tus objetivos y tu disponibilidad para sostenerlo.
             </p>
-            <p>El proceso comienza con una evaluación de compatibilidad y compromiso.</p>
           </>
         }
         cta={
@@ -44,12 +42,9 @@ export default function Aplica() {
             <div className="flex max-w-xl flex-col gap-6 text-white lg:sticky lg:top-28">
               <Subheading>Solicitud de evaluación</Subheading>
               <Text className="flex flex-col gap-4 text-white/84">
-                <p>
-                  Déjanos tus datos y responde brevemente las preguntas. La información se utiliza únicamente para
-                  evaluar tu compatibilidad con el sistema.
-                </p>
+                <p>Completa esta solicitud inicial y revisaremos si EON BioSystem es adecuado para ti.</p>
                 <p className="text-white/64">
-                  El envío del formulario no garantiza el ingreso a EON BioSystem.
+                  Cuéntanos brevemente sobre ti. Tus respuestas nos ayudarán a comprender qué buscas y si el sistema se ajusta a tu contexto actual.
                 </p>
               </Text>
             </div>

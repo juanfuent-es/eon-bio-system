@@ -1,5 +1,6 @@
 import { ButtonLink, PlainButtonLink } from '@/components/elements/button'
 import { Container } from '@/components/elements/container'
+import { SectionScrollSnap } from '@/components/elements/section-scroll-snap'
 import { Subheading } from '@/components/elements/subheading'
 import { ArrowNarrowRightIcon } from '@/components/icons/arrow-narrow-right-icon'
 import { Hero } from '@/components/sections/hero'
@@ -38,7 +39,9 @@ function HomeTextSection({
 export default function Page() {
   return (
     <>
+      <SectionScrollSnap closingId="publicaciones" />
       <Hero
+        data-snap-page="responsive"
         imageSrc="/photos/eon-biosystem-home.png"
         imageAlt="Mujer entrenando en espacio natural"
         eyebrow={
@@ -180,8 +183,9 @@ export default function Page() {
         id="para-quien-es"
         headingLevel={2}
         imagePriority={false}
-        imageSrc="/muscle-assessment/hero.jpg"
-        imageAlt="Ricardo acompañando a un adulto mayor durante un entrenamiento de fuerza"
+        imageSrc="/muscle-assessment/no-es-para-todos.jpg"
+        imageAlt="Un adulto mayor realizando un ejercicio de fuerza con una barra bajo supervisión profesional"
+        imageClassName="object-[65%_center] sm:object-center"
         headline={
           <>
             Este sistema <i>no es para todos</i>
@@ -189,8 +193,14 @@ export default function Page() {
         }
         subheadline={
           <>
-            <p>Es para personas que quieren entender su cuerpo y construir salud con criterio y constancia.</p>
-            <p>Para quienes están dispuestos a comprometerse con su proceso y sostenerlo a largo plazo.</p>
+            <p>
+              Es para personas que quieren <strong>cuidar su bienestar</strong>, entender su cuerpo y preservar su{' '}
+              <em>fuerza y autonomía</em> con el paso del tiempo.
+            </p>
+            <p>
+              Para quienes están dispuestos a <strong>comprometerse con su proceso</strong> y construir salud con criterio
+              y constancia, <em>en cada etapa de la vida</em>.
+            </p>
           </>
         }
         cta={
@@ -204,7 +214,7 @@ export default function Page() {
         id="publicaciones"
         headingLevel={2}
         imagePriority={false}
-        imageSrc="/eon-publicaciones-bg.jpg"
+        imageSrc="/eon-publicaciones.jpg"
         imageAlt="Ricardo Sánchez, EON Publicaciones"
         headline={
           <>

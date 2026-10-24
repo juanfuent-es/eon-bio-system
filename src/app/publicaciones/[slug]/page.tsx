@@ -71,7 +71,7 @@ export default async function ArticlePage({ params }: PageProps) {
   return (
     <>
       <Hero
-        imageSrc={article.cover_image_url || '/eon-publicaciones-bg.jpg'}
+        imageSrc={article.cover_image_url || '/eon-publicaciones.jpg'}
         imageAlt={article.title}
         imageUnoptimized={Boolean(article.cover_image_url)}
         headline={article.title}

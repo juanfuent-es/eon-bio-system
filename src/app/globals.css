@@ -378,6 +378,15 @@
     min-height: min-content;
   }
 
+  .system-grid > .assessment-card {
+    min-height: 20rem;
+    aspect-ratio: auto;
+  }
+
+  .system-grid .assessment-card-content {
+    min-height: 0;
+  }
+
   @media (width < 40rem) and (orientation: portrait) {
     main > section.hero:first-of-type .wallpaper {
       min-height: max(125cqw, 66svh);
@@ -385,6 +394,11 @@
   }
 
   @media (width >= 40rem) {
+    .system-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      min-height: calc(100dvh - 16rem);
+    }
+
     main > section.hero .wallpaper {
       min-height: 100cqw;
     }
@@ -397,7 +411,7 @@
       grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 
-    .assessment-card:last-child {
+    .assessment-grid > .assessment-card:last-child {
       grid-column: span 2;
       aspect-ratio: 2;
     }
@@ -414,7 +428,29 @@
     }
   }
 
-  /* Full-screen presentation and snapping share one desktop condition. */
+  /* Responsive snap pages share the tablet and desktop presentation. */
+  @media (width >= 40rem) {
+    html:has(main > [data-snap-page="responsive"]):not([data-snap-end]) {
+      scroll-snap-type: y mandatory;
+    }
+
+    main:has(> [data-snap-page="responsive"]) > section {
+      min-height: 100dvh;
+      scroll-snap-align: start;
+    }
+
+    main:has(> [data-snap-page="responsive"]) > section.hero .wallpaper {
+      min-height: calc(100dvh - 2rem);
+      aspect-ratio: auto;
+      flex: 1;
+    }
+
+    main:has(> [data-snap-page="responsive"]) > section.testimonial > .wallpaper {
+      min-height: calc(100dvh - 2rem);
+    }
+  }
+
+  /* Other pages keep the desktop full-screen presentation and snapping. */
   @media (width >= 80rem) and (orientation: landscape) {
     main > section {
       min-height: 100dvh;
@@ -445,14 +481,14 @@
       grid-auto-rows: 1fr;
     }
 
-    .assessment-card,
-    .assessment-card:last-child {
+    .assessment-grid > .assessment-card,
+    .assessment-grid > .assessment-card:last-child {
       min-height: 24rem;
       aspect-ratio: auto;
       grid-column: span 2;
     }
 
-    .assessment-card:nth-last-child(-n + 2) {
+    .assessment-grid > .assessment-card:nth-last-child(-n + 2) {
       grid-column: span 3;
     }
 

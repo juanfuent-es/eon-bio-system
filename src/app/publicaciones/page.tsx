@@ -44,7 +44,7 @@ export default async function BlogPage({ searchParams }: PageProps) {
   return (
     <>
       <Hero
-        imageSrc="/eon-publicaciones-bg.jpg"
+        imageSrc="/eon-publicaciones.jpg"
         imageAlt="Ricardo Sánchez"
         logo={{ src: '/logos/eon-publicaciones-logo.svg', alt: 'EON Publicaciones' }}
         subheadline={
