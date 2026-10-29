@@ -165,7 +165,7 @@ export default function Sistema() {
       <section
         id="como-funciona"
         aria-labelledby="como-funciona-heading"
-        className="assessment-gallery flex-col justify-center gap-6 pt-8 text-green-950 sm:gap-8 sm:pt-12"
+        className="assessment-gallery flex-col justify-center gap-6 pt-4 text-green-950 sm:gap-8"
       >
         <Container>
           <header className="mx-auto flex max-w-4xl flex-col gap-4 text-center">
