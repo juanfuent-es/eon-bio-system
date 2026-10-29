@@ -95,7 +95,7 @@ export function Hero({
               {eyebrow}
               {logo ? (
                 // Match Sistema's desktop logo height; each SVG keeps its own aspect ratio.
-                <Heading level={headingLevel} className="relative h-44 w-full md:h-56 lg:h-68" color="light">
+                <Heading level={headingLevel} className="relative w-full h-44 md:h-48 lg:h-52 xl:h-56 2xl:h-64" color="light">
                   <Image
                     src={logo.src}
                     alt={logo.alt}
@@ -133,14 +133,14 @@ export function Hero({
               )}
               <div
                 className={clsx(
-                  'mt-0 flex max-w-xl flex-col gap-4 pb-4 text-left text-white py-4',
+                  'mt-0 flex max-w-xl flex-col gap-4 text-left text-white pb-4',
                   align === 'center' && 'sm:text-center',
                   align === 'right' && 'sm:text-right',
                 )}
               >
                 {subheadline}
               </div>
-              {cta && <div className={clsx('flex w-full flex-col gap-3 pt-1', alignmentClasses[align])}>{cta}</div>}
+              {cta && <div className={clsx('flex w-full flex-col pt-1', alignmentClasses[align])}>{cta}</div>}
             </div>
           </Container>
         </div>

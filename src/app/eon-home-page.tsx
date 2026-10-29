@@ -75,7 +75,7 @@ export default function Page() {
               </PlainButtonLink>
               */}
             </div>
-            <p className="text-green-200 italic">
+            <p className="text-green-200 italic text-sm">
               <small>*Acceso mediante evaluación previa.</small>
             </p>
           </>
@@ -86,17 +86,15 @@ export default function Page() {
         id="longevidad"
         headline={
           <>
-            La <i>longevidad</i> se construye
-            <br />
-            <i>todos los días</i>
+            <span className="block max-w-2xl">La <i>longevidad</i> se construye <i>todos los días</i></span>
           </>
         }
       >
-        <p>
-          Con el tiempo, <em>el cuerpo cambia</em>. La recuperación, <strong>la fuerza</strong> y la forma en que respondemos
+        <p className="text-pretty">
+          Con el tiempo, <em>el cuerpo cambia</em>. <br />La recuperación, <strong>la fuerza</strong> y la forma en que respondemos
           también.
         </p>
-        <p>
+        <p className="text-pretty">
           Sin datos claros, nuestras decisiones se suelen basar en intuición o ensayo y error.{' '}
           <strong>EON BioSystem</strong> reemplaza la improvisación por un sistema diseñado desde la ciencia.
         </p>

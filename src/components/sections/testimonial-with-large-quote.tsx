@@ -21,7 +21,7 @@ export function TestimonialLargeQuote({
       <Wallpaper color="colors" className="wallpaper py-12 max-sm:px-0 sm:py-16">
         <Container className="relative z-10 max-sm:px-0">
           <figure className="mx-auto w-[90%] text-green-950">
-            <blockquote>“{quote}”</blockquote>
+            <blockquote className="text-lg md:text-xl lg:text-2xl text-left md:text-center">“{quote}”</blockquote>
             <figcaption className="testimonial-profile px-4">
               <div className="flex mt-4 size-12 overflow-hidden rounded-full outline -outline-offset-1 outline-black/5 transition-transform duration-150 *:size-full *:object-cover md:size-16 md:hover:scale-105 lg:size-20">
                 {img}

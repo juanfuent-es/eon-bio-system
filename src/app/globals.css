@@ -67,8 +67,7 @@
 
 ::-webkit-scrollbar {
   background-color: var(--scroll-background);
-  /* height: var(--scroll-size);
-  width: var(--scroll-size); */
+  scrollbar-width: thin;
 }
 
 ::-webkit-scrollbar-track {
@@ -176,7 +175,6 @@
   .testimonial blockquote {
     margin: 0 auto;
     padding: 0;
-    font-size: clamp(1.125rem, 0.75rem + 1.75vw, 2rem);
     line-height: 1.35;
     font-style: italic;
     text-align: left;
@@ -435,19 +433,17 @@
     }
 
     main:has(> [data-snap-page="responsive"]) > section {
-      min-height: 100dvh;
+      height: 100dvh;
       scroll-snap-align: start;
     }
 
     main:has(> [data-snap-page="responsive"]) > section.hero .wallpaper {
-      min-height: calc(100dvh - 2rem);
+      /* min-height: calc(100dvh - 2rem); */
+      height: 100%;
       aspect-ratio: auto;
       flex: 1;
     }
 
-    main:has(> [data-snap-page="responsive"]) > section.testimonial > .wallpaper {
-      min-height: calc(100dvh - 2rem);
-    }
   }
 
   /* Other pages keep the desktop full-screen presentation and snapping. */

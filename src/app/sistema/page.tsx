@@ -83,10 +83,10 @@ export default function Sistema() {
         imageAlt="Ricardo Sánchez atendiendo una consulta en EON BioSystem"
         eyebrow={
           <p className="mb-6 max-w-[calc(100%-2rem)] rounded-full border border-white/20 bg-white/10 px-4 py-2 text-center text-xs/5 text-white/90 backdrop-blur-sm sm:px-5 sm:text-sm/5">
-            Un <strong>sistema para tu biología</strong>, más allá de un <em>plan aislado</em>.
+            Un <strong>sistema</strong>, no un <em>plan</em>.
           </p>
         }
-        logo={{ src: '/logos/eon-logotype-slogan.svg', alt: 'Logotipo completo de EON BioSystem' }}
+        logo={{ src: '/logos/eon-logotype-descriptor.svg', alt: 'Logotipo EON BioSystem' }}
         subtitle={
           <>
             La <i>ciencia</i> detrás del sistema.
@@ -95,8 +95,7 @@ export default function Sistema() {
         subheadline={
           <>
             <p>
-              EON BioSystem organiza <strong>entrenamiento, nutrición y seguimiento</strong> dentro de una misma
-              estrategia, <em>guiada por tu biología</em> y ajustada conforme cambia tu cuerpo.
+              Integramos <strong>información biológica, composición corporal, fuerza, función y hábitos</strong> para <i>entender qué necesita tu cuerpo y orientar decisiones personalizadas.</i>
             </p>
           </>
         }
@@ -254,7 +253,7 @@ export default function Sistema() {
             </p>
             <div className="flex max-w-full flex-col items-center gap-3 pt-2">
               <ApplyButton />
-              <p className="text-green-800 italic">
+              <p className="text-green-800 italic text-sm">
                 <small>*Acceso mediante evaluación previa.</small>
               </p>
             </div>
