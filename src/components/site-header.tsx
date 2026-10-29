@@ -17,7 +17,7 @@ export function SiteHeader() {
         <Link
           href="/"
           aria-label="Ir a EON BioSystem"
-          className="pointer-events-auto inline-flex size-16 shrink-0 items-center justify-center rounded-full bg-white/90 shadow-lg ring-1 shadow-black/10 ring-black/10 backdrop-blur transition-colors hover:bg-white focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-orange-500 md:hover:bg-orange-200"
+          className="pointer-events-auto group inline-flex size-16 shrink-0 items-center justify-center rounded-full bg-white/90 shadow-lg ring-1 shadow-black/10 ring-black/10 backdrop-blur transition-colors hover:bg-white focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-orange-500"
         >
           <Image
             id="eon-logo"
@@ -26,10 +26,16 @@ export function SiteHeader() {
             width={100}
             height={60}
             priority
-            className="h-auto w-11"
+            className="h-auto w-11 group-hover:md:scale-110 transition-transform"
           />
         </Link>
-        <div className="pointer-events-auto min-w-0 pt-2">
+        <div className="pointer-events-auto flex min-w-0 flex-wrap justify-end gap-2 pt-2">
+          <NavButtonLink
+            href="/sistema"
+            active={pathname === '/sistema' || pathname.startsWith('/sistema/')}
+          >
+            Sistema
+          </NavButtonLink>
           <NavButtonLink
             href="/muscle-assessment"
             active={pathname === '/muscle-assessment' || pathname.startsWith('/muscle-assessment/')}

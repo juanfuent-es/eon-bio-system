@@ -348,7 +348,7 @@
   }
 
   main > section.hero {
-    padding: 0;
+    padding: 1rem;
     container-type: inline-size;
   }
 
@@ -468,12 +468,13 @@
     }
 
     main:has(> [data-snap-page="responsive"]) > section:not(.testimonial) {
-      height: 100dvh;
+      min-height: 100svh;
+      height: auto;
     }
 
     main:has(> [data-snap-page="responsive"]) > section.hero .wallpaper {
-      /* min-height: calc(100dvh - 2rem); */
-      height: 100%;
+      min-height: calc(100svh - 2rem);
+      height: auto;
       aspect-ratio: auto;
       flex: 1;
     }
@@ -530,21 +531,13 @@
       scroll-snap-align: start;
     }
   }
-  /* Free scrolling between selected panels; the controller activates at 80% visibility. */
+  /* The controller aligns selected panels at 80%; native snapping would trap the exit. */
   html:has(main > [data-snap-page="viewport"]) {
     scroll-snap-type: none;
   }
 
-  html[data-viewport-snap-active]:has(main > [data-snap-page="viewport"]) {
-    scroll-snap-type: y mandatory;
-  }
-
   main:has(> [data-snap-page="viewport"]) > section {
     scroll-snap-align: none;
-  }
-
-  main:has(> [data-snap-page="viewport"]) > section[data-snap-active] {
-    scroll-snap-align: start;
   }
 
   main:has(> [data-snap-page="viewport"]) > section:not(.testimonial) {
@@ -552,17 +545,20 @@
     min-height: 0;
   }
 
-  main > section.hero[data-snap-page="viewport"] .wallpaper {
+  main:has(> [data-snap-page="viewport"]) > section.hero[data-viewport-snap] {
     min-height: 100svh;
+  }
+
+  main > section.hero[data-snap-page="viewport"] .wallpaper,
+  main > section#experiencia .wallpaper {
+    min-height: calc(100svh - 2rem);
     height: auto;
+    flex: 1;
     align-items: center;
     padding-block: 7rem 3rem;
   }
 
   main > section#experiencia .wallpaper {
-    min-height: 100svh;
-    height: auto;
-    align-items: center;
     padding-block: 4rem;
   }
 
@@ -580,12 +576,22 @@
     text-align: center;
   }
 
-  main > section#como-funciona {
-    padding-block: 3rem;
-  }
-
   main > section#como-funciona .system-grid {
     min-height: 0;
+  }
+
+  /* The opening panel includes its frame in the viewport height. */
+  main:has(> [data-snap-page]) > section.hero:first-of-type {
+    box-sizing: border-box;
+    height: 100svh;
+    min-height: 0;
+  }
+
+  main:has(> [data-snap-page]) > section.hero:first-of-type > .wallpaper {
+    height: 100%;
+    min-height: 0;
+    flex: 1 1 0;
+    padding-block: clamp(3rem, 12svh, 7rem) clamp(1rem, 4svh, 3rem);
   }
 
   /* Each heading line can be styled independently without changing the markup. */
@@ -608,8 +614,7 @@
   }
 
   html:has(main > [data-snap-page]):not([data-snap-end]),
-  html:has(main > section.testimonial),
-  html[data-viewport-snap-active]:has(main > [data-snap-page="viewport"]) {
+  html:has(main > section.testimonial) {
     scroll-snap-type: none;
   }
 }

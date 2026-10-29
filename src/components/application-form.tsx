@@ -103,11 +103,11 @@ export function ApplicationForm() {
 
   return (
     <form action={formAction} className="flex min-w-0 flex-col gap-12 text-green-950 sm:gap-16">
-      <p className="border-b border-green-200 pb-6 text-sm text-green-700">
-        Los campos marcados con <span className="text-orange-700">*</span> son obligatorios.
-      </p>
       <fieldset className="min-w-0">
-        <legend className="font-serif text-2xl text-green-950 sm:text-3xl">Datos básicos</legend>
+        <legend className="font-serif text-2xl text-green-950 sm:text-3xl">Completa estos campos</legend>
+        <p className="border-b border-green-200 pb-6 text-sm text-green-700">
+          Los campos marcados con <span className="text-orange-700">*</span> son obligatorios.
+        </p>
         <div className="mt-8 grid gap-x-6 gap-y-6 sm:grid-cols-2 sm:gap-y-8">
           <TextField
             id="name"

@@ -1,4 +1,4 @@
-import { ButtonLink } from '@/components/elements/button'
+import { ButtonLink, PlainButtonLink } from '@/components/elements/button'
 import { Container } from '@/components/elements/container'
 import { SectionScrollSnap } from '@/components/elements/section-scroll-snap'
 import { Subheading } from '@/components/elements/subheading'
@@ -69,13 +69,11 @@ export default function Page() {
               <ButtonLink href="https://wa.me/525549562488" size="lg">
                 Aplica al sistema <ArrowNarrowRightIcon />
               </ButtonLink>
-              {/* Oculto hasta que la sección Sistema esté lista.
               <PlainButtonLink href="/sistema" size="lg">
                 Conoce más <ArrowNarrowRightIcon />
               </PlainButtonLink>
-              */}
             </div>
-            <p className="text-green-200 italic text-sm">
+            <p className="text-sm text-green-200 italic">
               <small>*Acceso mediante evaluación previa.</small>
             </p>
           </>
@@ -107,13 +105,15 @@ export default function Page() {
         imageSrc="/muscle-assessment/video-cover-yt.jpg"
         imageAlt="Ricardo realizando una evaluación de fuerza de agarre"
         headline={
-          <Image
-            src="/logos/muscle-assessment-discover.svg"
-            alt="Descubre qué edad tienen tus músculos"
-            width={623}
-            height={135}
-            className="h-auto w-full max-w-3xl"
-          />
+          <span className="flex justify-center py-8 sm:py-12">
+            <Image
+              src="/logos/muscle-assessment-discover.svg"
+              alt="Descubre qué edad tienen tus músculos"
+              width={623}
+              height={135}
+              className="h-auto w-full max-w-3xl"
+            />
+          </span>
         }
         subheadline={null}
         cta={
@@ -121,7 +121,7 @@ export default function Page() {
             <ButtonLink href="/muscle-assessment" size="lg">
               Conoce tu edad muscular <ArrowNarrowRightIcon />
             </ButtonLink>
-            <p className="text-green-200 italic">
+            <p className="text-sm text-green-200 italic">
               <small>*Descúbrelo en 15 minutos.</small>
             </p>
           </>
@@ -136,12 +136,9 @@ export default function Page() {
           </>
         }
         cta={
-          /* Oculto hasta que la sección Sistema esté lista.
           <ButtonLink href="/sistema" size="lg">
             Conoce el sistema <ArrowNarrowRightIcon />
           </ButtonLink>
-          */
-          null
         }
       >
         <p>
@@ -190,9 +187,9 @@ export default function Page() {
         imageAlt="Un adulto mayor realizando un ejercicio de fuerza con una barra bajo supervisión profesional"
         imageClassName="object-[65%_center] sm:object-center"
         headline={
-          <>
+          <span className="block pb-6 sm:pb-8">
             Este sistema <i>no es para todos</i>
-          </>
+          </span>
         }
         subheadline={
           <>
@@ -207,8 +204,8 @@ export default function Page() {
           </>
         }
         cta={
-          <ButtonLink href="https://wa.me/525549562488" size="lg">
-            Agenda tu cita <ArrowNarrowRightIcon />
+          <ButtonLink href="/sistema" size="lg">
+            Conoce el sistema <ArrowNarrowRightIcon />
           </ButtonLink>
         }
       />

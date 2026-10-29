@@ -8,7 +8,6 @@ export function ViewportScrollSnap() {
     const sections = [...document.querySelectorAll<HTMLElement>('main > [data-viewport-snap]')]
     if (!sections.length) return
 
-    const root = document.documentElement
     const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)')
     const tracker = new ViewportSnapTracker()
     let frame = 0
@@ -18,8 +17,6 @@ export function ViewportScrollSnap() {
 
     const release = () => {
       clearTimeout(timer)
-      root.removeAttribute('data-viewport-snap-active')
-      active?.removeAttribute('data-snap-active')
       if (active) window.scrollTo({ top: window.scrollY, behavior: 'instant' })
       active = undefined
     }
@@ -44,8 +41,6 @@ export function ViewportScrollSnap() {
         release()
         tracker.commit(target.id)
         active = sections.find((section) => section.id === target.id)
-        active?.setAttribute('data-snap-active', '')
-        root.setAttribute('data-viewport-snap-active', '')
         window.scrollTo({ top: target.top, behavior: 'smooth' })
       }, 120)
     }

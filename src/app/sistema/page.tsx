@@ -21,8 +21,8 @@ const steps = [
     title: 'Evaluación inicial',
     description: (
       <>
-        Conocemos tu <strong>contexto, composición corporal, fuerza, función y biomarcadores</strong> para entender{' '}
-        <em>cómo estás hoy</em>.
+        Conocemos tu contexto y evaluamos <strong>composición corporal, fuerza, función, hábitos y marcadores
+        relevantes</strong> para entender <em>cómo estás hoy</em>.
       </>
     ),
     imageSrc: '/muscle-assessment/composicion-corporal.jpg',
@@ -30,11 +30,11 @@ const steps = [
   },
   {
     number: '02',
-    title: 'Estrategia personalizada',
+    title: 'Diseño de estrategia',
     description: (
       <>
-        Definimos <strong>entrenamiento, nutrición y hábitos</strong> de acuerdo con tus objetivos y{' '}
-        <em>respuesta individual</em>.
+        Integramos lo que encontramos para <strong>definir prioridades</strong> y construir una estrategia de{' '}
+        <strong>nutrición, entrenamiento y estilo de vida</strong> acorde con <em>tu momento y tus objetivos</em>.
       </>
     ),
     imageSrc: '/eon-sistema-bg.jpg',
@@ -45,7 +45,8 @@ const steps = [
     title: 'Puesta en práctica',
     description: (
       <>
-        La estrategia se convierte en <strong>acciones claras</strong> que puedes integrar a tu <em>vida cotidiana</em>.
+        Convertimos la estrategia en <strong>acciones claras, medibles y sostenibles</strong> que puedas llevar a tu{' '}
+        <em>vida cotidiana</em>.
       </>
     ),
     imageSrc: '/muscle-assessment/no-es-para-todos.jpg',
@@ -56,7 +57,8 @@ const steps = [
     title: 'Seguimiento y ajustes',
     description: (
       <>
-        Observamos <strong>cómo responde tu cuerpo</strong> y adaptamos el sistema <em>conforme evoluciona</em>.
+        Observamos <em>cómo responde tu cuerpo</em>, <strong>medimos tu evolución</strong> y ajustamos lo necesario
+        para seguir avanzando <em>con criterio</em>.
       </>
     ),
     imageSrc: '/muscle-assessment/muscle-reporte.jpg',
@@ -64,10 +66,10 @@ const steps = [
   },
 ]
 
-function ApplyButton() {
+function AppointmentButton() {
   return (
-    <ButtonLink href="/aplica" size="lg">
-      Aplica <ArrowNarrowRightIcon />
+    <ButtonLink href="https://wa.me/525549562488" size="lg">
+      Agenda tu cita <ArrowNarrowRightIcon />
     </ButtonLink>
   )
 }
@@ -100,7 +102,7 @@ export default function Sistema() {
             </p>
           </>
         }
-        cta={<ApplyButton />}
+        cta={<AppointmentButton />}
       />
 
       <section
@@ -155,7 +157,7 @@ export default function Sistema() {
             rel="noopener noreferrer"
             size="lg"
           >
-            Conócelo en Instagram <ArrowNarrowRightIcon />
+            Conóceme <ArrowNarrowRightIcon />
           </ButtonLink>
         }
       />
@@ -163,7 +165,7 @@ export default function Sistema() {
       <section
         id="como-funciona"
         aria-labelledby="como-funciona-heading"
-        className="assessment-gallery flex-col justify-center gap-6 py-8 text-green-950 sm:gap-8 sm:py-12"
+        className="assessment-gallery flex-col justify-center gap-6 pt-8 text-green-950 sm:gap-8 sm:pt-12"
       >
         <Container>
           <header className="mx-auto flex max-w-4xl flex-col gap-4 text-center">
@@ -220,7 +222,6 @@ export default function Sistema() {
 
       <TestimonialLargeQuote
         id="testimonial-liliana"
-        data-viewport-snap=""
         aria-label="Testimonio de Liliana Márquez"
         quote={
           <>
@@ -273,20 +274,18 @@ export default function Sistema() {
         subheadline={
           <>
             <p>
-              Tu <strong>fuerza, salud y autonomía</strong> de mañana se construyen con las{' '}
-              <em>decisiones que tomas hoy</em>. EON BioSystem parte de <strong>entender cómo estás</strong> para
-              acompañar tu evolución a lo largo del tiempo.
+              Tu <strong>fuerza, salud y autonomía</strong> de mañana empiezan con las{' '}
+              <em>decisiones que tomas hoy</em>.
             </p>
             <p>
-              Conoce tu punto de partida y convierte esa información en <strong>acciones para tu vida diaria</strong>,
-              con entrenamiento, nutrición y seguimiento que se ajustan a ti. Empieza a construir{' '}
-              <em>cómo quieres vivir</em>.
+              Conoce tu <em>punto de partida</em> y conviértelo en una estrategia de{' '}
+              <strong>nutrición, entrenamiento y seguimiento</strong> que <em>evoluciona contigo</em>.
             </p>
           </>
         }
         cta={
           <>
-            <ApplyButton />
+            <AppointmentButton />
             <p className="mt-3 text-sm text-green-200 italic">
               <small>*Acceso mediante evaluación previa.</small>
             </p>

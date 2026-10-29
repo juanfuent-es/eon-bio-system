@@ -6,6 +6,7 @@ export class ViewportSnapTracker {
   private visited = new Set<string>()
 
   private threshold = 0.8
+  private resetThreshold = 0.45
 
   commit(id: string) {
     this.visited.add(id)
@@ -20,10 +21,11 @@ export class ViewportSnapTracker {
       const visible = Math.max(0, Math.min(section.bottom, viewportHeight) - Math.max(section.top, 0))
       const ratio = height > 0 ? visible / Math.min(height, viewportHeight) : 0
 
-      if (ratio < this.threshold) {
+      if (ratio < this.resetThreshold) {
         this.visited.delete(section.id)
         continue
       }
+      if (ratio < this.threshold) continue
       if (this.visited.has(section.id)) continue
 
       // Entering a tall section from below aligns its bottom, preserving the reading order.
