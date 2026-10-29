@@ -225,18 +225,16 @@ export default function Sistema() {
         aria-label="Testimonio de Liliana Márquez"
         quote={
           <>
-            El Lic. Ricardo Sanchez no solo me dió un plan alimenticio y de ejercicios, me ha ayudado a{' '}
-            <strong>construir hábitos</strong>, a cambiar mi <em>mentalidad y relación con la comida</em>, a disfrutar
-            de este maravilloso proceso de alcanzar mi mejor versión.
+            El Lic. Ricardo Sánchez me ha ayudado no solo con mi alimentación y ejercicio, sino a{' '}
+            <strong>construir hábitos</strong> y transformar mi <em>relación con la comida</em>.
             <br />
             <br />
-            Ya no entreno por un físico marcado, entreno y me cuido por que quiero{' '}
-            <strong>caminar sin bastón a los 60</strong>, disfrutar de mis seres queridos con{' '}
+            Hoy entreno para <strong>caminar sin bastón a los 60 años</strong> y disfrutar de mis seres queridos con{' '}
             <em>libertad de movimiento</em>.
             <br />
             <br />
-            Gracias por ser un gran mentor Licenciado y ayudarme a optimizar mi metabolismo para el beneficio de una
-            <strong>longevidad saludable</strong> en EON Biosystem.
+            Gracias por guiarme hacia un <em>mejor metabolismo</em> y una <strong>longevidad saludable</strong> con EON
+            BioSystem.
           </>
         }
         img={
