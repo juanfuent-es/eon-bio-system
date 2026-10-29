@@ -12,7 +12,7 @@ export function SectionScrollSnap({ closingId }: { closingId: string }) {
     let closingTop = 0
 
     const updateSnap = () => {
-      // Release the final section and footer from mandatory snapping.
+      // Release mandatory snapping; testimonial proximity targets remain available.
       root.toggleAttribute('data-snap-end', window.scrollY >= closingTop - 1)
     }
     const measure = () => {

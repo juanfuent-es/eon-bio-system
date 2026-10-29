@@ -131,15 +131,17 @@ export function Hero({
                   {subtitle}
                 </p>
               )}
-              <div
-                className={clsx(
-                  'mt-0 flex max-w-xl flex-col gap-4 text-left text-white pb-4',
-                  align === 'center' && 'sm:text-center',
-                  align === 'right' && 'sm:text-right',
-                )}
-              >
-                {subheadline}
-              </div>
+              {subheadline && (
+                <div
+                  className={clsx(
+                    'mt-0 flex max-w-xl flex-col gap-4 text-left text-white pb-4',
+                    align === 'center' && 'sm:text-center',
+                    align === 'right' && 'sm:text-right',
+                  )}
+                >
+                  {subheadline}
+                </div>
+              )}
               {cta && <div className={clsx('flex w-full flex-col pt-1', alignmentClasses[align])}>{cta}</div>}
             </div>
           </Container>

@@ -1,7 +1,7 @@
 import { ButtonLink } from '@/components/elements/button'
 import { Container } from '@/components/elements/container'
 import { Heading } from '@/components/elements/heading'
-import { SectionScrollSnap } from '@/components/elements/section-scroll-snap'
+import { ViewportScrollSnap } from '@/components/elements/viewport-scroll-snap'
 import { Subheading } from '@/components/elements/subheading'
 import { ArrowNarrowRightIcon } from '@/components/icons/arrow-narrow-right-icon'
 import { Hero } from '@/components/sections/hero'
@@ -75,14 +75,15 @@ function ApplyButton() {
 export default function Sistema() {
   return (
     <>
-      <SectionScrollSnap closingId="cierre-sistema" />
+      <ViewportScrollSnap />
       <Hero
         id="hero-sistema"
-        data-snap-page="responsive"
+        data-snap-page="viewport"
+        data-viewport-snap=""
         imageSrc="/eon-sistema-bg.jpg"
         imageAlt="Ricardo Sánchez atendiendo una consulta en EON BioSystem"
         eyebrow={
-          <p className="mb-6 max-w-[calc(100%-2rem)] rounded-full border border-white/20 bg-white/10 px-4 py-2 text-center text-xs/5 text-white/90 backdrop-blur-sm sm:px-5 sm:text-sm/5">
+          <p className="mb-6 max-w-[calc(100%-2rem)] rounded-full border border-white/20 bg-white/10 px-4 py-2 text-center text-xs/5 font-medium text-white/90 backdrop-blur-sm sm:px-5 sm:text-sm/5">
             Un <strong>sistema</strong>, no un <em>plan</em>.
           </p>
         }
@@ -105,12 +106,13 @@ export default function Sistema() {
       <section
         id="origen-del-metodo"
         aria-labelledby="origen-del-metodo-heading"
-        className="text-section w-full bg-white text-green-950"
+        className="text-section w-full text-green-950"
       >
         <Container className="max-sm:px-0">
           <article className="mx-auto flex w-[90%] max-w-4xl flex-col items-center gap-8 text-center sm:gap-10">
             <Subheading id="origen-del-metodo-heading">
-              De la <i>práctica</i> nació el método.
+              <span className="heading-line">De la <i>práctica</i></span>
+              <span className="heading-line">nació el método.</span>
             </Subheading>
             <p className="max-w-2xl text-balance text-green-900">
               La <em>práctica</em>, el <strong>estudio continuo y el seguimiento individual</strong> dieron forma a un
@@ -122,16 +124,19 @@ export default function Sistema() {
 
       <Hero
         id="experiencia"
+        data-viewport-snap=""
         headingLevel={2}
         imagePriority={false}
         imageSrc="/eon-about-bg.jpg"
         imageAlt="Ricardo Sánchez entrenando fuerza en el gimnasio"
         eyebrow={
-          <p className="mb-6 text-sm font-semibold tracking-widest uppercase">La experiencia detrás del sistema</p>
+          <p className="mb-6 max-w-[calc(100%-2rem)] rounded-full border border-white/20 bg-white/10 px-4 py-2 text-center text-xs/5 font-medium text-white/90 backdrop-blur-sm sm:px-5 sm:text-sm/5">
+            La experiencia detrás del sistema
+          </p>
         }
         headline={
           <>
-            Ricardo <em>Sánchez</em>
+            <span className="whitespace-nowrap">Ricardo <em>Sánchez</em></span>
           </>
         }
         subheadline={
@@ -143,6 +148,16 @@ export default function Sistema() {
             </p>
           </>
         }
+        cta={
+          <ButtonLink
+            href="https://instagram.com/ricardo.sanchez.mx"
+            target="_blank"
+            rel="noopener noreferrer"
+            size="lg"
+          >
+            Conócelo en Instagram <ArrowNarrowRightIcon />
+          </ButtonLink>
+        }
       />
 
       <section
@@ -152,10 +167,13 @@ export default function Sistema() {
       >
         <Container>
           <header className="mx-auto flex max-w-4xl flex-col gap-4 text-center">
-            <p className="text-sm font-semibold tracking-widest uppercase">Cómo funciona</p>
-            <Heading level={2} id="como-funciona-heading">
-              Proceso en <em>cuatro pasos</em>
-            </Heading>
+            <div className="flex flex-col gap-1">
+              <p className="text-sm font-semibold tracking-widest uppercase">Cómo funciona</p>
+              <Heading level={2} id="como-funciona-heading">
+                <span className="heading-line">Proceso en</span>
+                <span className="heading-line"><em>cuatro pasos</em></span>
+              </Heading>
+            </div>
             <p className="mx-auto max-w-2xl text-balance text-green-900">
               El proceso se desarrolla a partir de cuatro momentos que permiten{' '}
               <strong>
@@ -169,7 +187,7 @@ export default function Sistema() {
           {steps.map((step) => (
             <li
               key={step.number}
-              className="assessment-card group relative flex min-w-0 flex-col justify-end overflow-hidden rounded-panel bg-black text-white"
+              className="assessment-card group relative isolate flex min-w-0 flex-col justify-end overflow-hidden rounded-panel bg-black text-white"
             >
               <Image
                 src={step.imageSrc}
@@ -179,9 +197,15 @@ export default function Sistema() {
                 className="object-cover transition-transform duration-700 motion-safe:group-hover:scale-[1.03]"
               />
               <div
-                className="pointer-events-none absolute inset-0 bg-linear-to-t from-black via-black/60 to-black/10"
+                className="pointer-events-none absolute inset-0 z-[1] bg-cover bg-center bg-no-repeat mix-blend-multiply"
+                style={{ backgroundImage: 'url("/gradients/orange-green.svg")' }}
                 aria-hidden="true"
               />
+              <div
+                className="pointer-events-none absolute inset-0 z-[1] bg-linear-to-t from-black via-black/60 to-black/10"
+                aria-hidden="true"
+              />
+              <div className="noise-overlay" aria-hidden="true" />
               <div className="assessment-card-content relative z-10 flex flex-col items-start p-4 pb-8 sm:p-6">
                 <span className="font-serif text-5xl leading-none" aria-hidden="true">
                   {step.number}
@@ -196,6 +220,7 @@ export default function Sistema() {
 
       <TestimonialLargeQuote
         id="testimonial-liliana"
+        data-viewport-snap=""
         aria-label="Testimonio de Liliana Márquez"
         quote={
           <>
@@ -231,35 +256,43 @@ export default function Sistema() {
         }
       />
 
-      <section
+      <Hero
         id="cierre-sistema"
-        aria-labelledby="cierre-sistema-heading"
-        className="text-section w-full bg-white text-green-950"
-      >
-        <Container className="max-sm:px-0">
-          <article className="mx-auto flex w-[90%] max-w-4xl flex-col items-center gap-8 text-center sm:gap-10">
-            <Subheading id="cierre-sistema-heading">
-              Construye cómo quieres <i>vivir mañana.</i>
-            </Subheading>
-            <p className="max-w-2xl text-balance text-green-900">
+        aria-label="Construye cómo quieres vivir mañana"
+        headingLevel={2}
+        imagePriority={false}
+        imageSrc="/eon-about-construye.jpg"
+        imageAlt="Ricardo Sánchez revisando una evaluación con una paciente en consulta"
+        imageClassName="object-[35%_center] sm:object-center"
+        headline={
+          <>
+            <span className="heading-line">Construye cómo quieres</span>
+            <span className="heading-line"><i>vivir mañana.</i></span>
+          </>
+        }
+        subheadline={
+          <>
+            <p>
               Tu <strong>fuerza, salud y autonomía</strong> de mañana se construyen con las{' '}
               <em>decisiones que tomas hoy</em>. EON BioSystem parte de <strong>entender cómo estás</strong> para
               acompañar tu evolución a lo largo del tiempo.
             </p>
-            <p className="max-w-2xl text-balance text-green-900">
+            <p>
               Conoce tu punto de partida y convierte esa información en <strong>acciones para tu vida diaria</strong>,
               con entrenamiento, nutrición y seguimiento que se ajustan a ti. Empieza a construir{' '}
               <em>cómo quieres vivir</em>.
             </p>
-            <div className="flex max-w-full flex-col items-center gap-3 pt-2">
-              <ApplyButton />
-              <p className="text-green-800 italic text-sm">
-                <small>*Acceso mediante evaluación previa.</small>
-              </p>
-            </div>
-          </article>
-        </Container>
-      </section>
+          </>
+        }
+        cta={
+          <>
+            <ApplyButton />
+            <p className="mt-3 text-sm text-green-200 italic">
+              <small>*Acceso mediante evaluación previa.</small>
+            </p>
+          </>
+        }
+      />
     </>
   )
 }

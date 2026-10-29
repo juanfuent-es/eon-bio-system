@@ -1,8 +1,6 @@
 import { clsx } from 'clsx/lite'
 import type { ComponentProps } from 'react'
 
-const html = String.raw
-
 type WallpaperTone = 'green' | 'blue' | 'purple' | 'brown' | 'green-copper' | 'emerald' | 'mist' | 'bone-mist' | 'colors'
 
 const gradientByTone: Record<WallpaperTone, string> = {
@@ -17,23 +15,6 @@ const gradientByTone: Record<WallpaperTone, string> = {
  colors: '/gradients/colors.png',
 }
 
-const noisePattern = `url("data:image/svg+xml;charset=utf-8,${encodeURIComponent(
- html`
-  <svg xmlns="http://www.w3.org/2000/svg" width="250" height="250" viewBox="0 0 100 100">
-   <filter id="n">
-    <feTurbulence type="turbulence" baseFrequency="1.4" numOctaves="1" seed="2" stitchTiles="stitch" result="n" />
-    <feComponentTransfer result="g">
-     <feFuncR type="linear" slope="4" intercept="1" />
-     <feFuncG type="linear" slope="4" intercept="1" />
-     <feFuncB type="linear" slope="4" intercept="1" />
-    </feComponentTransfer>
-    <feColorMatrix type="saturate" values="0" in="g" />
-   </filter>
-   <rect width="100%" height="100%" filter="url(#n)" />
-  </svg>
- `.replace(/\s+/g, ' '),
-)}")`
-
 export function Wallpaper({
  children,
  color,
@@ -45,7 +26,7 @@ export function Wallpaper({
   <div
    data-color={color}
    className={clsx(
-    'relative overflow-hidden bg-cover bg-center bg-no-repeat rounded-panel ',
+    'relative isolate overflow-hidden bg-cover bg-center bg-no-repeat rounded-panel ',
     className,
    )}
    style={{
@@ -54,14 +35,7 @@ export function Wallpaper({
    }}
    {...props}
   >
-   <div
-    className="pointer-events-none absolute inset-0 opacity-50 mix-blend-overlay rounded-panel overflow-hidden flex w-full items-center"
-    aria-hidden="true"
-    style={{
-     backgroundPosition: 'center',
-     backgroundImage: noisePattern,
-    }}
-   />
+   <div className="noise-overlay" aria-hidden="true" />
     {children}
   </div>
  )

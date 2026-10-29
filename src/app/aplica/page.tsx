@@ -10,8 +10,8 @@ export default function Aplica() {
     <>
       <Hero
         id="hero"
-        imageSrc="/photos/eon-biosystem-aplica.png"
-        imageAlt="Evaluación inicial y acompañamiento personalizado"
+        imageSrc="/eon-biosystem-aplica.jpg"
+        imageAlt="Ricardo Sánchez recibiendo a dos personas en consulta en EON BioSystem"
         headline={
           <>
             Todo gran cambio comienza <br />
@@ -36,7 +36,7 @@ export default function Aplica() {
       <section
         id="solicitud"
         aria-labelledby="solicitud-heading"
-        className="text-section min-h-0 w-full bg-white py-20 text-green-950 sm:py-28"
+        className="text-section min-h-0 w-full py-20 text-green-950 sm:py-28"
       >
         <Container className="max-sm:px-0">
           <header className="mx-auto flex w-[90%] max-w-4xl flex-col items-center gap-8 text-center sm:gap-10">
@@ -58,7 +58,7 @@ export default function Aplica() {
       <section
         id="form"
         aria-labelledby="solicitud-heading"
-        className="min-h-0 scroll-mt-28 bg-white px-4 pt-0 pb-20 sm:pb-28"
+        className="min-h-0 scroll-mt-28 px-4 pt-0 pb-20 sm:pb-28"
       >
         <Container>
           <div className="mx-auto w-full max-w-4xl">

@@ -313,6 +313,7 @@
 
   main {
     padding-top: 0;
+    background: linear-gradient(to bottom, var(--color-white), var(--color-neutral-200));
   }
 
   main:not(:has(> .hero)) {
@@ -359,8 +360,33 @@
     padding: 7rem 0 2rem;
   }
 
-  .testimonial > .wallpaper {
+  main > section.testimonial {
     height: auto;
+    min-height: 100svh;
+    scroll-snap-align: start;
+  }
+
+  main > section.testimonial > .wallpaper {
+    height: auto;
+    min-height: calc(100svh - 2rem);
+  }
+
+  /* Use on an aria-hidden layer inside a positioned, isolated container. */
+  .noise-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    border-radius: inherit;
+    /* White grain only: luminance controls transparency, never darkens the image. */
+    background-color: white;
+    mask-image: var(--noise-texture, url('/textures/noise.png'));
+    mask-mode: luminance;
+    mask-repeat: repeat;
+    mask-size: var(--noise-size, 128px) var(--noise-size, 128px);
+    opacity: var(--noise-opacity, 0.04);
+    mix-blend-mode: screen;
+    pointer-events: none;
+    user-select: none;
   }
 
   .video-frame {
@@ -426,6 +452,11 @@
     }
   }
 
+  /* Testimonials remain snap targets after mandatory page snapping ends. */
+  html:has(main > section.testimonial) {
+    scroll-snap-type: y proximity;
+  }
+
   /* Responsive snap pages share the tablet and desktop presentation. */
   @media (width >= 40rem) {
     html:has(main > [data-snap-page="responsive"]):not([data-snap-end]) {
@@ -433,8 +464,11 @@
     }
 
     main:has(> [data-snap-page="responsive"]) > section {
-      height: 100dvh;
       scroll-snap-align: start;
+    }
+
+    main:has(> [data-snap-page="responsive"]) > section:not(.testimonial) {
+      height: 100dvh;
     }
 
     main:has(> [data-snap-page="responsive"]) > section.hero .wallpaper {
@@ -456,10 +490,6 @@
       min-height: calc(100dvh - 2rem);
       aspect-ratio: auto;
       flex: 1;
-    }
-
-    .testimonial > .wallpaper {
-      min-height: calc(100dvh - 2rem);
     }
 
     .video-section {
@@ -492,22 +522,83 @@
       min-height: 14rem;
     }
 
-    html:has(main > [data-snap-page]):not([data-snap-end]) {
+    html:has(main > [data-snap-page]:not([data-snap-page="viewport"])):not([data-snap-end]) {
       scroll-snap-type: y mandatory;
     }
 
-    main:has(> [data-snap-page]) > section {
+    main:has(> [data-snap-page]:not([data-snap-page="viewport"])) > section {
       scroll-snap-align: start;
     }
   }
-  /* These Sistema sections keep their own proportions within the snap layout. */
-  main > section#origen-del-metodo {
-    min-height: 50svh;
+  /* Free scrolling between selected panels; the controller activates at 80% visibility. */
+  html:has(main > [data-snap-page="viewport"]) {
+    scroll-snap-type: none;
+  }
+
+  html[data-viewport-snap-active]:has(main > [data-snap-page="viewport"]) {
+    scroll-snap-type: y mandatory;
+  }
+
+  main:has(> [data-snap-page="viewport"]) > section {
+    scroll-snap-align: none;
+  }
+
+  main:has(> [data-snap-page="viewport"]) > section[data-snap-active] {
+    scroll-snap-align: start;
+  }
+
+  main:has(> [data-snap-page="viewport"]) > section:not(.testimonial) {
+    height: auto;
+    min-height: 0;
+  }
+
+  main > section.hero[data-snap-page="viewport"] .wallpaper {
+    min-height: 100svh;
+    height: auto;
+    align-items: center;
+    padding-block: 7rem 3rem;
   }
 
   main > section#experiencia .wallpaper {
+    min-height: 100svh;
+    height: auto;
     align-items: center;
     padding-block: 4rem;
+  }
+
+  main > section#cierre-sistema .wallpaper {
+    min-height: clamp(24rem, 56.25cqw, 46rem);
+    align-items: center;
+    padding-block: 4rem;
+  }
+
+  main > section#experiencia h2 {
+    font-size: clamp(1.65rem, 6cqw, 3.75rem);
+  }
+
+  main:has(> [data-snap-page="viewport"]) .hero p {
+    text-align: center;
+  }
+
+  main > section#como-funciona {
+    padding-block: 3rem;
+  }
+
+  main > section#como-funciona .system-grid {
+    min-height: 0;
+  }
+
+  /* Each heading line can be styled independently without changing the markup. */
+  .heading-line {
+    display: block;
+  }
+
+  :is(h1, h2, h3, h4, h5, h6) > .heading-line:first-child {
+    font-size: var(--heading-first-line-size, 1em);
+  }
+
+  :is(h1, h2, h3, h4, h5, h6) > .heading-line:last-child {
+    font-size: var(--heading-last-line-size, 1em);
   }
 }
 
@@ -516,7 +607,9 @@
     scroll-behavior: auto;
   }
 
-  html:has(main > [data-snap-page]):not([data-snap-end]) {
+  html:has(main > [data-snap-page]):not([data-snap-end]),
+  html:has(main > section.testimonial),
+  html[data-viewport-snap-active]:has(main > [data-snap-page="viewport"]) {
     scroll-snap-type: none;
   }
 }

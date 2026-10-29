@@ -97,7 +97,7 @@ export function FooterWithNewsletterFormCategoriesAndSocialIcons({
 } & ComponentProps<'footer'>) {
  return (
   <footer className={clsx('site-footer', className)} {...props}>
-   <div className="bg-green-800/2.5 px-0 py-8 text-green-950 sm:px-4 sm:py-16">
+   <div className="px-0 py-8 text-green-950 sm:px-4 sm:py-16">
     <Container className="flex flex-col gap-8 sm:gap-16">
      <div className="grid grid-cols-1 gap-x-6 gap-y-8 text-sm/7 sm:gap-y-16 lg:grid-cols-2">
       {cta}

@@ -57,11 +57,11 @@ function OptionGroup({
 }: {
   label: ReactNode
   name: string
-  options: Array<{ value: string; label: string }>
+  options: Array<{ value: string; label: ReactNode }>
 }) {
   return (
     <fieldset className="min-w-0">
-      <legend className="max-w-2xl text-base/7 font-semibold text-green-950 sm:text-lg/7">
+      <legend className="max-w-2xl text-base/7 font-medium text-green-950 sm:text-lg/7">
         {label}{' '}
         <span className="text-orange-700" aria-hidden="true">
           *
@@ -168,19 +168,39 @@ export function ApplicationForm() {
         <div className="flex flex-col gap-10 sm:gap-12">
           <OptionGroup
             name="commitment"
-            label="EON BioSystem requiere constancia y seguimiento. ¿Qué nivel de compromiso estás dispuesto(a) a asumir?"
+            label={
+              <>
+                <strong>EON BioSystem</strong> trabaja sobre un <em>proceso continuo</em> de{' '}
+                <strong>evaluación, seguimiento y ajustes</strong>. ¿Qué tipo de <em>acompañamiento</em> estás buscando?
+              </>
+            }
             options={[
               {
                 value: 'high',
-                label: 'Alto: puedo seguir indicaciones y priorizar el proceso.',
+                label: (
+                  <>
+                    <strong>Integral:</strong> quiero entender mi <em>situación actual</em> y trabajar de forma{' '}
+                    <strong>estructurada en nutrición, fuerza, salud y hábitos</strong> a lo largo del tiempo.
+                  </>
+                ),
               },
               {
                 value: 'medium',
-                label: 'Medio: puedo adaptarme al sistema con ciertas limitaciones.',
+                label: (
+                  <>
+                    <strong>Parcial:</strong> me interesa mejorar, pero por ahora podría comprometerme solo con{' '}
+                    <em>algunas áreas del sistema</em>.
+                  </>
+                ),
               },
               {
                 value: 'low',
-                label: 'Bajo: busco algo flexible y con poca estructura.',
+                label: (
+                  <>
+                    <strong>Puntual:</strong> busco principalmente una <em>consulta aislada</em>, una dieta o una{' '}
+                    solución específica <strong>sin seguimiento continuo</strong>.
+                  </>
+                ),
               },
             ]}
           />

@@ -13,9 +13,9 @@ export const initialApplicationFormState: ApplicationFormState = {
 }
 
 const commitmentLabels: Record<string, string> = {
-  high: 'Alto: puedo seguir indicaciones y priorizar el proceso.',
-  medium: 'Medio: puedo adaptarme al sistema con ciertas limitaciones.',
-  low: 'Bajo: busco algo flexible y con poca estructura.',
+  high: 'Integral: quiero entender mi situación actual y trabajar de forma estructurada en nutrición, fuerza, salud y hábitos a lo largo del tiempo.',
+  medium: 'Parcial: me interesa mejorar, pero por ahora podría comprometerme solo con algunas áreas del sistema.',
+  low: 'Puntual: busco principalmente una consulta aislada, una dieta o una solución específica sin seguimiento continuo.',
 }
 
 const biomarkersLabels: Record<string, string> = {
@@ -100,7 +100,7 @@ Correo electrónico: ${payload.email}
 Teléfono / WhatsApp: ${payload.phone}
 Edad: ${payload.age || 'No proporcionada'}
 Ciudad y país: ${payload.location || 'No proporcionados'}
-Nivel de compromiso: ${payload.commitment}
+Tipo de acompañamiento: ${payload.commitment}
 Biomarcadores / laboratorio: ${payload.biomarkers}
 Consentimiento: Aceptado
   `.trim()
@@ -113,7 +113,7 @@ Consentimiento: Aceptado
     <p><strong>Teléfono / WhatsApp:</strong> ${escapeHtml(payload.phone)}</p>
     <p><strong>Edad:</strong> ${escapeHtml(payload.age || 'No proporcionada')}</p>
     <p><strong>Ciudad y país:</strong> ${escapeHtml(payload.location || 'No proporcionados')}</p>
-    <p><strong>Nivel de compromiso:</strong> ${escapeHtml(payload.commitment)}</p>
+    <p><strong>Tipo de acompañamiento:</strong> ${escapeHtml(payload.commitment)}</p>
     <p><strong>Biomarcadores / laboratorio:</strong> ${escapeHtml(payload.biomarkers)}</p>
     <p><strong>Consentimiento:</strong> Aceptado</p>
   `.trim()
@@ -159,7 +159,7 @@ export async function submitApplication(
     const name = getRequiredValue(formData, 'name', 'Nombre completo')
     const email = getRequiredValue(formData, 'email', 'Correo electrónico')
     const phone = getRequiredValue(formData, 'phone', 'Teléfono / WhatsApp')
-    const commitmentValue = getRequiredValue(formData, 'commitment', 'Nivel de compromiso')
+    const commitmentValue = getRequiredValue(formData, 'commitment', 'Tipo de acompañamiento')
     const biomarkersValue = getRequiredValue(formData, 'biomarkers', 'Biomarcadores')
     const consent = formData.get('consent')
     const age = getValue(formData, 'age')
