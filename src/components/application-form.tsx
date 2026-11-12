@@ -3,7 +3,7 @@
 import { useActionState } from 'react'
 import { useFormStatus } from 'react-dom'
 
-import { initialApplicationFormState, submitApplication } from '@/app/aplica/actions'
+import { submitApplication } from '@/app/aplica/actions'
 import { Button } from '@/components/elements/button'
 import { ArrowNarrowRightIcon } from '@/components/icons/arrow-narrow-right-icon'
 import { CalendarIcon } from '@/components/icons/calendar-icon'
@@ -12,6 +12,7 @@ import { MailIcon } from '@/components/icons/mail-icon'
 import { MapPinIcon } from '@/components/icons/map-pin-icon'
 import { WhatsAppIcon } from '@/components/icons/social/whatsapp-icon'
 import { UserCircleIcon } from '@/components/icons/user-circle-icon'
+import { applicationQuestions, initialApplicationFormState } from '@/lib/applications/form'
 import type { ComponentProps, ReactNode } from 'react'
 
 type TextFieldProps = {
@@ -26,11 +27,6 @@ function TextField({ icon, label, required, className, id, ...props }: TextField
     <div className={className}>
       <label htmlFor={id} className="block text-sm/6 font-semibold text-green-950">
         {label}
-        {required ? (
-          <span className="ml-1 text-orange-700" aria-hidden="true">
-            *
-          </span>
-        ) : null}
       </label>
       <div className="group relative mt-2">
         <span
@@ -57,16 +53,11 @@ function OptionGroup({
 }: {
   label: ReactNode
   name: string
-  options: Array<{ value: string; label: ReactNode }>
+  options: readonly { value: string; label: ReactNode }[]
 }) {
   return (
     <fieldset className="min-w-0">
-      <legend className="max-w-2xl text-base/7 font-medium text-green-950 sm:text-lg/7">
-        {label}{' '}
-        <span className="text-orange-700" aria-hidden="true">
-          *
-        </span>
-      </legend>
+      <legend className="max-w-2xl text-base/7 font-medium text-green-950 sm:text-lg/7">{label}</legend>
       <div className="mt-5 grid gap-3">
         {options.map((option) => (
           <label
@@ -102,17 +93,16 @@ export function ApplicationForm() {
   const [state, formAction] = useActionState(submitApplication, initialApplicationFormState)
 
   return (
-    <form action={formAction} className="flex min-w-0 flex-col gap-12 text-green-950 sm:gap-16">
+    <form action={formAction} className="flex min-w-0 flex-col gap-8 text-green-950 sm:gap-10">
       <fieldset className="min-w-0">
         <legend className="font-serif text-2xl text-green-950 sm:text-3xl">Completa estos campos</legend>
-        <p className="border-b border-green-200 pb-6 text-sm text-green-700">
-          Los campos marcados con <span className="text-orange-700">*</span> son obligatorios.
-        </p>
+        <p className="mt-2 border-b border-green-200 pb-4 text-sm text-green-700">Todos los campos son obligatorios.</p>
         <div className="mt-8 grid gap-x-6 gap-y-6 sm:grid-cols-2 sm:gap-y-8">
           <TextField
             id="name"
             name="name"
             label="Nombre completo"
+            maxLength={150}
             required
             autoComplete="name"
             icon={<UserCircleIcon className="size-5" />}
@@ -124,6 +114,7 @@ export function ApplicationForm() {
             type="email"
             autoComplete="email"
             label="Correo electrónico"
+            maxLength={254}
             required
             icon={<MailIcon className="size-5" />}
             placeholder="tu@email.com"
@@ -134,6 +125,7 @@ export function ApplicationForm() {
             type="tel"
             autoComplete="tel"
             label="Teléfono / WhatsApp"
+            maxLength={25}
             required
             icon={<WhatsAppIcon className="size-5" />}
             placeholder="+52 55 0000 0000"
@@ -143,8 +135,11 @@ export function ApplicationForm() {
             name="age"
             type="number"
             min="0"
+            max="120"
+            step="1"
             inputMode="numeric"
             label="Edad"
+            required
             icon={<CalendarIcon className="size-5" />}
             placeholder="35"
           />
@@ -152,6 +147,8 @@ export function ApplicationForm() {
             id="location"
             name="location"
             label="Ciudad y país de residencia"
+            required
+            maxLength={200}
             className="sm:col-span-2"
             icon={<MapPinIcon className="size-5" />}
             placeholder="Ciudad de México, México"
@@ -166,94 +163,39 @@ export function ApplicationForm() {
         </legend>
 
         <div className="flex flex-col gap-10 sm:gap-12">
-          <OptionGroup
-            name="commitment"
-            label={
-              <>
-                <strong>EON BioSystem</strong> trabaja sobre un <em>proceso continuo</em> de{' '}
-                <strong>evaluación, seguimiento y ajustes</strong>. ¿Qué tipo de <em>acompañamiento</em> estás buscando?
-              </>
-            }
-            options={[
-              {
-                value: 'high',
-                label: (
-                  <>
-                    <strong>Integral:</strong> quiero entender mi <em>situación actual</em> y trabajar de forma{' '}
-                    <strong>estructurada en nutrición, fuerza, salud y hábitos</strong> a lo largo del tiempo.
-                  </>
-                ),
-              },
-              {
-                value: 'medium',
-                label: (
-                  <>
-                    <strong>Parcial:</strong> me interesa mejorar, pero por ahora podría comprometerme solo con{' '}
-                    <em>algunas áreas del sistema</em>.
-                  </>
-                ),
-              },
-              {
-                value: 'low',
-                label: (
-                  <>
-                    <strong>Puntual:</strong> busco principalmente una <em>consulta aislada</em>, una dieta o una{' '}
-                    solución específica <strong>sin seguimiento continuo</strong>.
-                  </>
-                ),
-              },
-            ]}
-          />
-
-          <OptionGroup
-            name="biomarkers"
-            label="EON BioSystem se basa en la lectura y el análisis de biomarcadores. ¿Estás dispuesto(a) a realizar analíticas de laboratorio de forma periódica?"
-            options={[
-              {
-                value: 'yes',
-                label: 'Sí: entiendo que el laboratorio es parte central del sistema.',
-              },
-              {
-                value: 'conditional',
-                label: 'Sí, con ciertas limitaciones: dependería del contexto o de la indicación.',
-              },
-              {
-                value: 'no',
-                label: 'No: prefiero no realizar estudios de laboratorio de forma periódica.',
-              },
-            ]}
-          />
+          {applicationQuestions.map((question) => (
+            <OptionGroup key={question.name} {...question} />
+          ))}
         </div>
       </fieldset>
 
-      <div className="rounded-xl border border-green-200 bg-green-50/50 p-5 sm:p-6">
-        <label className="grid cursor-pointer grid-cols-[1.25rem_minmax(0,1fr)] items-start gap-3">
-          <input type="checkbox" name="consent" required className="mt-1 size-5 accent-green-800" />
-          <span className="text-sm/6 text-green-900">
-            Entiendo que este formulario corresponde a una solicitud de evaluación inicial y que el envío no garantiza
-            el ingreso al sistema.
-          </span>
-        </label>
-      </div>
+      <div className="flex flex-col gap-4">
+        <div className="rounded-xl border border-green-200 bg-green-50/50 p-4">
+          <label className="grid cursor-pointer grid-cols-[1.25rem_minmax(0,1fr)] items-start gap-3">
+            <input type="checkbox" name="consent" required className="mt-1 size-5 accent-green-800" />
+            <span className="text-sm/6 text-green-900">
+              Entiendo que este formulario corresponde a una solicitud de evaluación inicial y que el envío no garantiza
+              el ingreso al sistema.
+            </span>
+          </label>
+        </div>
 
-      {state.status !== 'idle' ? (
-        <p
-          role={state.status === 'error' ? 'alert' : 'status'}
-          className={
-            state.status === 'success'
-              ? 'rounded-xl border border-green-300 bg-green-50 p-5 text-green-950'
-              : 'rounded-xl border border-orange-300 bg-orange-50 p-5 text-orange-900'
-          }
-        >
-          {state.message}
-        </p>
-      ) : null}
+        {state.status !== 'idle' && state.message ? (
+          <p
+            role={state.status === 'error' ? 'alert' : 'status'}
+            className={
+              state.status === 'success'
+                ? 'rounded-xl border border-green-300 bg-green-50 p-5 text-green-950'
+                : 'rounded-xl border border-orange-300 bg-orange-50 p-5 text-orange-900'
+            }
+          >
+            {state.message}
+          </p>
+        ) : null}
 
-      <div className="flex flex-col items-start justify-between gap-6 border-t border-green-200 pt-8 sm:gap-8 md:flex-row md:items-center">
-        <p className="max-w-md text-sm/7 text-green-700">
-          Revisaremos tu solicitud y te contactaremos si el sistema es compatible con tu contexto actual.
-        </p>
-        <SubmitButton />
+        <div className="flex justify-end">
+          <SubmitButton />
+        </div>
       </div>
     </form>
   )

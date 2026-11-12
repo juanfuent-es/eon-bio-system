@@ -1,5 +1,7 @@
 'use server'
 
+import { sendEmail } from '@/lib/email/resend'
+
 import { objectives, sources, type AssessmentState } from './options'
 
 export async function submitAssessment(_: AssessmentState, data: FormData): Promise<AssessmentState> {
@@ -34,19 +36,10 @@ export async function submitAssessment(_: AssessmentState, data: FormData): Prom
   }
   if (modality === 'remota' && (!value('location') || value('location').length > 200))
     return { status: 'error', message: 'Indica tu ciudad y país.' }
-  const apiKey = process.env.MAILJET_API_KEY,
-    secret = process.env.MAILJET_API_SECRET,
-    from = process.env.MAILJET_FROM_EMAIL
-  const recipients = (process.env.MAILJET_TO_EMAIL ?? '')
-    .split(',')
-    .map((email) => email.trim())
-    .filter(Boolean)
-    .map((Email) => ({ Email }))
   const failure: AssessmentState = {
     status: 'error',
     message: 'No pudimos enviar tu pre-evaluación. Intenta nuevamente en unos minutos.',
   }
-  if (!apiKey || !secret || !from || !recipients.length) return failure
   const fields = {
     Modalidad: modality,
     Nombre: name,
@@ -62,31 +55,13 @@ export async function submitAssessment(_: AssessmentState, data: FormData): Prom
     'Aviso de privacidad': 'Aceptado',
   }
   try {
-    const response = await fetch('https://api.mailjet.com/v3.1/send', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        Authorization: `Basic ${Buffer.from(`${apiKey}:${secret}`).toString('base64')}`,
-      },
-      body: JSON.stringify({
-        Messages: [
-          {
-            From: { Email: from, Name: process.env.MAILJET_FROM_NAME ?? 'EON BioSystem' },
-            To: recipients,
-            ReplyTo: { Email: email, Name: name },
-            Subject: `EON Muscle Assessment — ${modality}`,
-            TextPart: Object.entries(fields)
-              .map(([key, content]) => `${key}: ${content}`)
-              .join('\n'),
-          },
-        ],
-      }),
-      cache: 'no-store',
-      signal: AbortSignal.timeout(15000),
+    await sendEmail({
+      replyTo: email,
+      subject: `EON Muscle Assessment — ${modality}`,
+      text: Object.entries(fields)
+        .map(([key, content]) => `${key}: ${content}`)
+        .join('\n'),
     })
-    if (!response.ok) return failure
-    const result = await response.json()
-    if (result.Messages?.[0]?.Status !== 'success') return failure
     return {
       status: 'success',
       modality: modality as 'presencial' | 'remota',

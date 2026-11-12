@@ -8,7 +8,7 @@ Todas las rutas heredan el header de `src/app/layout.tsx`, con el símbolo EON c
 
 ## Operación
 
-Configurar las variables MAILJET existentes en `.env.example`. Cada envío se clasifica como presencial o remota y se entrega al correo interno con los datos y la fecha UTC. La confirmación sólo aparece cuando Mailjet informa éxito. El registro de interés remoto se conserva en el correo recibido; no hay base de datos, sincronización con Google Sheets ni notificación automática por WhatsApp.
+Configurar las variables `RESEND_API_KEY`, `RESEND_FROM_EMAIL` y `RESEND_TO_EMAIL` (`RESEND_FROM_NAME` es opcional). Cada envío se clasifica como presencial o remota y se entrega al correo interno con los datos y la fecha UTC. La confirmación sólo aparece cuando Resend informa éxito. El registro de interés remoto se conserva en el correo recibido; no hay base de datos, sincronización con Google Sheets ni notificación automática por WhatsApp.
 
 Configurar `NEXT_PUBLIC_GA_MEASUREMENT_ID` para cargar GA4 en esta ruta. Eventos: `assessment_request_click` (placement), `assessment_form_start`, `assessment_form_submit` (modality), `assessment_lead_cdmx`, `assessment_lead_remote`, `assessment_whatsapp_click`, `assessment_qr_visit` (source). No se envían datos del formulario a Analytics. Marcar los eventos de prospectos como eventos clave en la propiedad GA4.
 
@@ -30,7 +30,7 @@ Se utiliza el retrato existente de Ricardo como fondo fullscreen del componente 
 1. Usar el CTA del hero principal y el CTA de `#footer-muscle` para comenzar la pre-evaluación.
 2. Completar presencial: revisar validaciones, correo recibido y confirmación.
 3. Completar remoto: sólo solicitar nombre, WhatsApp, correo, ciudad/país y objetivo; comprobar clasificación en el correo.
-4. Simular fallo de Mailjet: conservar datos y permitir reintentar, sin mostrar éxito.
+4. Simular fallo de Resend: conservar datos y permitir reintentar, sin mostrar éxito.
 5. Abrir cada enlace QR y comprobar eventos en GA4 DebugView, sin datos personales.
 
 El endpoint requiere protección adicional contra abuso si las campañas generan spam; la validación y el bloqueo durante envío no equivalen a un límite de solicitudes en servidor.

@@ -36,30 +36,21 @@ export default function Aplica() {
       <section
         id="solicitud"
         aria-labelledby="solicitud-heading"
-        className="text-section min-h-0 w-full py-20 text-green-950 sm:py-28"
+        className="text-section min-h-0 w-full pt-10 pb-6 text-green-950 sm:pt-14 sm:pb-8"
       >
         <Container className="max-sm:px-0">
-          <header className="mx-auto flex w-[90%] max-w-4xl flex-col items-center gap-8 text-center sm:gap-10">
+          <header className="mx-auto flex w-[90%] max-w-4xl flex-col items-center gap-4 text-center sm:gap-5">
             <Subheading id="solicitud-heading">
               Solicitud de <i>evaluación</i>
             </Subheading>
-            <div className="flex max-w-2xl flex-col gap-6 text-balance text-green-900">
-              <p>Completa esta solicitud inicial y revisaremos si EON BioSystem es adecuado para ti.</p>
-              <p>
-                Cuéntanos brevemente sobre ti. Tus respuestas nos ayudarán a comprender qué buscas y si el sistema se
-                ajusta a tu contexto actual.
-              </p>
-            </div>
-            <p className="text-sm text-green-700">Acceso mediante evaluación previa.</p>
+            <p className="max-w-2xl text-balance text-green-900">
+              Comparte tus datos de contacto y elige tu nivel de compromiso y el acompañamiento que buscas.
+            </p>
           </header>
         </Container>
       </section>
 
-      <section
-        id="form"
-        aria-labelledby="solicitud-heading"
-        className="min-h-0 scroll-mt-28 px-4 pt-0 pb-20 sm:pb-28"
-      >
+      <section id="form" aria-labelledby="solicitud-heading" className="min-h-0 scroll-mt-28 px-4 pt-0 pb-10 sm:pb-14">
         <Container>
           <div className="mx-auto w-full max-w-4xl">
             <ApplicationForm />

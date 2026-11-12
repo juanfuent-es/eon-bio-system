@@ -6,9 +6,7 @@ import { Container } from '../elements/container'
 import { Heading } from '../elements/heading'
 import { Wallpaper } from '../elements/wallpaper'
 
-type HeroIdentity =
-  | { logo: { src: string; alt: string }; headline?: never }
-  | { logo?: never; headline: ReactNode }
+type HeroIdentity = { logo: { src: string; alt: string }; headline?: never } | { logo?: never; headline: ReactNode }
 
 export function Hero({
   align = 'center',
@@ -40,7 +38,8 @@ export function Hero({
   imageClassName?: string
   imageUnoptimized?: boolean
   imagePriority?: boolean
-} & HeroIdentity & ComponentProps<'section'>) {
+} & HeroIdentity &
+  ComponentProps<'section'>) {
   const alignmentClasses = {
     left: 'items-start text-left',
     center: 'items-center text-center',
@@ -48,12 +47,8 @@ export function Hero({
   }
 
   return (
-    <section className={clsx('hero text-white flex-col p-4', className)} {...props}>
-      <Wallpaper
-        className="wallpaper w-full"
-        color="green-copper"
-        style={{ backgroundImage: 'none' }}
-      >
+    <section className={clsx('hero flex-col p-4 text-white', className)} {...props}>
+      <Wallpaper className="wallpaper w-full" color="green-copper" style={{ backgroundImage: 'none' }}>
         <div className="absolute inset-0 -z-20 rounded-[inherit] bg-black" aria-hidden="true" />
         <Image
           src={imageSrc}
@@ -80,10 +75,7 @@ export function Hero({
         />
         <div className="relative z-10 mx-auto flex w-full items-end sm:px-6 md:px-12 lg:px-0">
           <Container
-            className={clsx(
-              'flex flex-col justify-end gap-4 md:gap-8 lg:gap-12 xl:gap-16',
-              alignmentClasses[align],
-            )}
+            className={clsx('flex flex-col justify-end gap-4 md:gap-8 lg:gap-12 xl:gap-16', alignmentClasses[align])}
           >
             <div
               className={clsx(
@@ -95,7 +87,11 @@ export function Hero({
               {eyebrow}
               {logo ? (
                 // Match Sistema's desktop logo height; each SVG keeps its own aspect ratio.
-                <Heading level={headingLevel} className="relative w-full h-44 md:h-48 lg:h-52 xl:h-56 2xl:h-64" color="light">
+                <Heading
+                  level={headingLevel}
+                  className="relative h-44 w-full md:h-48 lg:h-52 xl:h-56 2xl:h-64"
+                  color="light"
+                >
                   <Image
                     src={logo.src}
                     alt={logo.alt}
@@ -112,7 +108,7 @@ export function Hero({
               ) : typeof headline === 'string' ? (
                 <Heading
                   level={headingLevel}
-                  className="w-full min-w-0 max-w-7xl"
+                  className="w-full max-w-7xl min-w-0"
                   color="light"
                   dangerouslySetInnerHTML={{
                     __html: sanitizeHtml(headline, {
@@ -122,19 +118,16 @@ export function Hero({
                   }}
                 />
               ) : (
-                <Heading level={headingLevel} className="w-full min-w-0 max-w-7xl" color="light">
+                <Heading level={headingLevel} className="w-full max-w-7xl min-w-0" color="light">
                   {headline}
                 </Heading>
               )}
-              {subtitle && (
-                <p className="hero-subtitle max-w-3xl text-white py-4">
-                  {subtitle}
-                </p>
-              )}
+              {subtitle && <p className="hero-subtitle mt-4 max-w-3xl pb-4 text-white sm:mt-6">{subtitle}</p>}
               {subheadline && (
                 <div
                   className={clsx(
-                    'mt-0 flex max-w-xl flex-col gap-4 text-left text-white pb-4',
+                    'flex max-w-xl flex-col gap-4 pb-4 text-left text-white',
+                    subtitle ? 'mt-0' : 'mt-4 sm:mt-6',
                     align === 'center' && 'sm:text-center',
                     align === 'right' && 'sm:text-right',
                   )}
