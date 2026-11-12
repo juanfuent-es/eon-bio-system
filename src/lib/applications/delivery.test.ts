@@ -17,22 +17,33 @@ const payload: ApplicationPayload = {
   submitted_at: '2026-11-11T18:00:00.000Z',
 }
 
-test('delivery verifies API persistence, fails closed, and retains Resend when unconfigured', async (t) => {
+test('delivery requires the dashboard API and confirms a persisted UUID', async (t) => {
   t.mock.method(globalThis, 'fetch', async (_input: unknown, init?: RequestInit) => {
     assert.equal(init?.method, 'POST')
     assert.equal((init?.headers as Record<string, string>).Authorization, 'Bearer test-token')
+    assert.equal(_input, 'https://example.com/api/aplica')
+    assert.equal((init?.headers as Record<string, string>)['Content-Type'], 'application/json')
+    assert.equal(init?.cache, 'no-store')
+    assert.equal(init?.redirect, 'error')
+    assert.ok(init?.signal instanceof AbortSignal)
     assert.deepEqual(JSON.parse(String(init?.body)), payload)
-    return Response.json({ id: 'app-1' }, { status: 201 })
+    return Response.json({ id: '123e4567-e89b-42d3-a456-426614174000' }, { status: 201 })
   })
   const savedEnv = { ...process.env }
   try {
-    process.env.APPLICATION_API_URL = 'https://example.com/applications'
+    process.env.APPLICATION_API_URL = 'https://example.com/api/aplica'
     process.env.APPLICATION_API_TOKEN = 'test-token'
-    await sendApplication(payload)
+    assert.equal(await sendApplication(payload), '123e4567-e89b-42d3-a456-426614174000')
 
     for (const response of [
-      Response.json({ id: 'app-1' }),
+      Response.json({ id: '123e4567-e89b-42d3-a456-426614174000' }),
       Response.json({}, { status: 201 }),
+      Response.json(null, { status: 201 }),
+      Response.json({ id: 'email-1' }, { status: 201 }),
+      new Response('invalid JSON', { status: 201 }),
+      Response.json({}, { status: 401 }),
+      Response.json({}, { status: 429, headers: { 'Retry-After': '60' } }),
+      Response.json({}, { status: 503 }),
       Response.json({ error: 'invalid' }, { status: 422 }),
       Response.json({}, { status: 500 }),
     ]) {
@@ -55,30 +66,19 @@ test('delivery verifies API persistence, fails closed, and retains Resend when u
     delete process.env.APPLICATION_API_URL
     await assert.rejects(sendApplication(payload))
 
-    assert.equal(partialConfigRequests, 0)
-
+    // Even valid Resend credentials must never bypass dashboard persistence.
     delete process.env.APPLICATION_API_TOKEN
     process.env.RESEND_API_KEY = 'test-key'
     process.env.RESEND_FROM_EMAIL = 'from@example.com'
-    process.env.RESEND_TO_EMAIL = 'to@example.com, second@example.com'
-    t.mock.method(globalThis, 'fetch', async (input: unknown, init?: RequestInit) => {
-      assert.equal(input, 'https://api.resend.com/emails')
-      assert.equal((init?.headers as Record<string, string>).Authorization, 'Bearer test-key')
-      const message = JSON.parse(String(init?.body))
-      assert.deepEqual(message.to, ['to@example.com', 'second@example.com'])
-      assert.equal(message.reply_to, payload.email)
-      assert.match(message.text, /Nivel de compromiso: Alto:/)
-      assert.match(message.text, /Tipo de acompañamiento: Integral:/)
-      assert.doesNotMatch(message.text, /Biomarcadores/)
-      return Response.json({ id: 'email-1' })
-    })
-    await sendApplication(payload)
-    for (const response of [Response.json({ message: 'Invalid email' }, { status: 422 }), Response.json({})]) {
-      t.mock.method(globalThis, 'fetch', async () => response)
+    process.env.RESEND_TO_EMAIL = 'to@example.com'
+    await assert.rejects(sendApplication(payload))
+
+    process.env.APPLICATION_API_TOKEN = 'test-token'
+    for (const url of ['http://example.com/api/aplica', 'invalid-url']) {
+      process.env.APPLICATION_API_URL = url
       await assert.rejects(sendApplication(payload))
     }
-    delete process.env.RESEND_API_KEY
-    await assert.rejects(sendApplication(payload))
+    assert.equal(partialConfigRequests, 0)
   } finally {
     for (const key of Object.keys(process.env)) if (!(key in savedEnv)) delete process.env[key]
     Object.assign(process.env, savedEnv)

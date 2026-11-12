@@ -37,9 +37,9 @@ Se elimina `biomarkers`. `commitment` antes representaba acompañamiento: si exi
 
 “Entiendo que este formulario corresponde a una solicitud de evaluación inicial y que el envío no garantiza el ingreso al sistema.”
 
-## Contrato propuesto para aonbyon.com
+## Contrato con el dashboard
 
-Implementar un endpoint HTTPS que reciba `POST` JSON y autentique `Authorization: Bearer <token>`. La ruta final la defines en la otra plataforma; no se presupone que exista actualmente.
+El dashboard implementa `POST /api/aplica` sobre HTTPS, con `Content-Type: application/json` y `Authorization: Bearer <APPLICATION_API_TOKEN>`. La implementación receptora y su activación están descritas en [aplica.md](aplica.md).
 
 ```json
 {
@@ -59,8 +59,8 @@ Implementar un endpoint HTTPS que reciba `POST` JSON y autentique `Authorization
 
 Validar de nuevo en la API y persistir antes de responder. `submitted_at` llega en UTC; guardar también la fecha de recepción del servidor. Aceptar `source: "/aplica"` y `schema_version: 1`.
 
-- Registro confirmado: **201** con `{"id":"identificador-del-registro"}` (ID no vacío, de tipo string).
-- Datos inválidos: **422**. Credenciales inválidas: **401/403**. Límite de solicitudes: **429**. Fallo interno: **5xx**.
+- Registro confirmado: **201** con `{"id":"uuid"}`. El sitio valida el UUID y lo muestra como comprobante.
+- Datos inválidos: **422**. Credenciales inválidas: **401**. Límite de solicitudes: **429** con `Retry-After`. Receptor sin token: **503**. Fallo de persistencia: **500**. El cuerpo admite hasta 16 KiB.
 - La interfaz muestra errores genéricos de envío; no expone respuestas internas del servidor.
 
 ## Activación en este sitio
@@ -68,21 +68,21 @@ Validar de nuevo en la API y persistir antes de responder. `submitted_at` llega 
 Configurar únicamente en el servidor Next.js y reiniciar o volver a desplegar:
 
 ```dotenv
-APPLICATION_API_URL=https://aonbyon.com/RUTA_POR_DEFINIR
+APPLICATION_API_URL=https://<dominio-real-del-dashboard>/api/aplica
 APPLICATION_API_TOKEN=TOKEN_PRIVADO
 ```
 
-No usar el prefijo `NEXT_PUBLIC_`. El navegador llama a una Server Action y Next.js llama a la API; no se requiere CORS entre navegador y aonbyon.com.
+No usar el prefijo `NEXT_PUBLIC_`. El navegador llama a una Server Action y Next.js llama a la API; no se requiere CORS entre navegador y dashboard.
 
-Sin ambas variables, el envío se realiza por Resend. Con URL y token, solo se utiliza la API. Una configuración parcial produce error; un fallo de API no dispara un correo alternativo. El límite de espera es de 15 segundos y no hay reintentos automáticos.
+Ambas variables son obligatorias. El token debe coincidir con el del dashboard. Si falta configuración o falla la API, el sitio no confirma recepción ni envía un correo alternativo. El límite de espera es de 15 segundos y no hay reintentos automáticos, incluido ante `429`; se invita a reintentar manualmente en unos minutos.
 
-Después de un envío confirmado se muestra: “Recibimos tu solicitud. Revisaremos tu información y te contactaremos si el sistema es compatible con tu contexto actual.” No hay alerta ni este texto en el estado inicial.
+Después de un envío confirmado se muestra: “Recibimos tu solicitud. Revisaremos tu información y te contactaremos si el sistema es compatible con tu contexto actual.” Se muestra también el ID devuelto por el dashboard. No hay alerta ni este texto en el estado inicial.
 
-Pendiente para conectar: ruta real, token y una prueba conjunta de registro. Ante un timeout, el registro podría haberse guardado: prever deduplicación en la API para reenvíos manuales. Las notificaciones posteriores al registro quedan a cargo de Ombio.
+Para activar: aplicar primero la migración del dashboard, configurar URL y token en este servidor y verificar con una solicitud de prueba que el ID aparezca en `/admin/solicitudes`. Ante un timeout, el registro podría haberse guardado. El receptor deduplica reenvíos exactos y respuestas normalizadas idénticas con fecha nueva dentro de 15 minutos; después puede crear otra solicitud. Las evaluaciones y sus correos quedan a cargo del dashboard. Este sitio no necesita claves de Supabase, agenda ni credenciales de Resend para `/aplica`.
 
 ## Correo con Resend
 
-Ambos formularios (`/aplica` y `/muscle-assessment`) utilizan el mismo servicio de correo. Configurar en el servidor:
+El formulario `/muscle-assessment` conserva el servicio de correo directo. Estas variables corresponden a ese flujo en este sitio; el dashboard configura sus propias credenciales según [aplica.md](aplica.md):
 
 ```dotenv
 RESEND_API_KEY=CLAVE_PRIVADA

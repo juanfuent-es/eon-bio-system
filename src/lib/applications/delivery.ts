@@ -1,42 +1,10 @@
-import { sendEmail } from '../email/resend'
-import { accompanimentQuestion, commitmentQuestion, type ApplicationPayload } from './form'
+import type { ApplicationPayload } from './form'
 
-function optionLabel(question: { options: readonly { value: string; label: string }[] }, value: string) {
-  return question.options.find((option) => option.value === value)!.label
-}
-
-async function sendApplicationEmail(payload: ApplicationPayload) {
-  const fields = {
-    Fecha: payload.submitted_at,
-    'Nombre completo': payload.name,
-    'Correo electrónico': payload.email,
-    'Teléfono / WhatsApp': payload.phone,
-    Edad: payload.age,
-    'Ciudad y país': payload.location,
-    'Nivel de compromiso': optionLabel(commitmentQuestion, payload.commitment),
-    'Tipo de acompañamiento': optionLabel(accompanimentQuestion, payload.accompaniment),
-    Consentimiento: 'Aceptado',
-  }
-  await sendEmail({
-    replyTo: payload.email,
-    subject: `Nueva solicitud EON BioSystem - ${payload.name}`,
-    text:
-      'Nueva solicitud desde /aplica\n\n' +
-      Object.entries(fields)
-        .map(([label, value]) => `${label}: ${value}`)
-        .join('\n'),
-  })
-}
-
-export async function sendApplication(payload: ApplicationPayload) {
+export async function sendApplication(payload: ApplicationPayload): Promise<string> {
   const url = process.env.APPLICATION_API_URL
-  if (!url) {
-    if (process.env.APPLICATION_API_TOKEN) throw new Error('Falta APPLICATION_API_URL.')
-    return sendApplicationEmail(payload)
-  }
-
   const token = process.env.APPLICATION_API_TOKEN
-  if (!token || new URL(url).protocol !== 'https:') throw new Error('Configuración de API incompleta.')
+  if (!url || !token) throw new Error('Configuración de API incompleta.')
+  if (new URL(url).protocol !== 'https:') throw new Error('La API requiere HTTPS.')
 
   const response = await fetch(url, {
     method: 'POST',
@@ -47,6 +15,15 @@ export async function sendApplication(payload: ApplicationPayload) {
     redirect: 'error',
   })
   if (response.status !== 201) throw new Error('La API no confirmó el registro.')
-  const result = await response.json()
-  if (typeof result.id !== 'string' || !result.id.trim()) throw new Error('Respuesta de API inválida.')
+  const result: unknown = await response.json()
+  if (
+    !result ||
+    typeof result !== 'object' ||
+    !('id' in result) ||
+    typeof result.id !== 'string' ||
+    !/^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(result.id)
+  )
+    throw new Error('Respuesta de API inválida.')
+
+  return result.id
 }

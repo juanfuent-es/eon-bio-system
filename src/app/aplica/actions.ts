@@ -18,9 +18,10 @@ export async function submitApplication(
   }
 
   try {
-    await sendApplication(payload)
+    const applicationId = await sendApplication(payload)
     return {
       status: 'success',
+      applicationId,
       message:
         'Recibimos tu solicitud. Revisaremos tu información y te contactaremos si el sistema es compatible con tu contexto actual.',
     }

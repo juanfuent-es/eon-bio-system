@@ -190,6 +190,9 @@ export function ApplicationForm() {
             }
           >
             {state.message}
+            {state.status === 'success' && state.applicationId ? (
+              <span className="mt-2 block break-all text-sm">ID de solicitud: {state.applicationId}</span>
+            ) : null}
           </p>
         ) : null}
 
