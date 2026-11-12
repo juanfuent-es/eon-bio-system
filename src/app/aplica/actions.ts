@@ -1,7 +1,12 @@
 'use server'
 
 import { sendApplication } from '@/lib/applications/delivery'
-import { parseApplication, type ApplicationFormState, type ApplicationPayload } from '@/lib/applications/form'
+import {
+  applicationDeliveryError,
+  parseApplication,
+  type ApplicationFormState,
+  type ApplicationPayload,
+} from '@/lib/applications/form'
 
 export async function submitApplication(
   _previousState: ApplicationFormState,
@@ -13,24 +18,24 @@ export async function submitApplication(
   } catch (error) {
     return {
       status: 'error',
+      title: 'Revisemos tus respuestas',
       message: error instanceof Error ? error.message : 'Revisa tus respuestas para continuar.',
     }
   }
 
   try {
-    const applicationId = await sendApplication(payload)
+    await sendApplication(payload)
     return {
       status: 'success',
-      applicationId,
+      name: payload.name,
+      email: payload.email,
+      title: 'Tu primer paso está dado',
       message:
-        'Recibimos tu solicitud. Revisaremos tu información y te contactaremos si el sistema es compatible con tu contexto actual.',
+        'Gracias por compartir tu contexto con EON BioSystem. Revisaremos tus respuestas para evaluar cómo podemos acompañarte. Te enviaremos el resultado de la evaluación por correo electrónico.',
     }
   } catch {
     // No exponer credenciales, datos personales ni respuestas del proveedor.
     console.error('No se pudo confirmar el envío de /aplica.')
-    return {
-      status: 'error',
-      message: 'No pudimos confirmar el envío de tu solicitud. Intenta nuevamente en unos minutos.',
-    }
+    return applicationDeliveryError
   }
 }

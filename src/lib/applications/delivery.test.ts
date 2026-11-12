@@ -8,12 +8,14 @@ const payload: ApplicationPayload = {
   email: 'persona@example.com',
   phone: '+52 55 0000 0000',
   age: 35,
-  location: 'Ciudad de México, México',
+  city: 'Ciudad de México',
+  country_code: 'MX',
+  state_code: 'MX-CMX',
   commitment: 'high',
   accompaniment: 'integral',
   consent: true,
   source: '/aplica',
-  schema_version: 1,
+  schema_version: 2,
   submitted_at: '2026-11-11T18:00:00.000Z',
 }
 

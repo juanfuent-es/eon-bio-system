@@ -1,10 +1,21 @@
+import { parseResidence, type Residence } from './residence'
+
 export type ApplicationFormState = {
   status: 'idle' | 'success' | 'error'
   message: string
-  applicationId?: string
+  title?: string
+  name?: string
+  email?: string
 }
 
 export const initialApplicationFormState: ApplicationFormState = { status: 'idle', message: '' }
+
+export const applicationDeliveryError: ApplicationFormState = {
+  status: 'error',
+  title: 'No pudimos confirmar tu solicitud',
+  message:
+    'Hubo un problema al confirmar el envío. Tus respuestas siguen aquí: puedes volver al formulario e intentarlo en unos minutos.',
+}
 
 export const commitmentQuestion = {
   name: 'commitment',
@@ -40,17 +51,16 @@ export const accompanimentQuestion = {
 
 export const applicationQuestions = [commitmentQuestion, accompanimentQuestion] as const
 
-export type ApplicationPayload = {
+export type ApplicationPayload = Residence & {
   name: string
   email: string
   phone: string
   age: number
-  location: string
   commitment: (typeof commitmentQuestion.options)[number]['value']
   accompaniment: (typeof accompanimentQuestion.options)[number]['value']
   consent: true
   source: '/aplica'
-  schema_version: 1
+  schema_version: 2
   submitted_at: string
 }
 
@@ -69,7 +79,6 @@ export function parseApplication(data: FormData): ApplicationPayload {
   const email = value('email')
   const phone = value('phone')
   const age = value('age')
-  const location = value('location')
 
   if (!name || name.length > 150) throw new Error('Ingresa tu nombre completo (máximo 150 caracteres).')
   if (email.length > 254 || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email))
@@ -77,8 +86,6 @@ export function parseApplication(data: FormData): ApplicationPayload {
   if (!/^[+\d\s()-]{7,25}$/.test(phone) || phone.replace(/\D/g, '').length < 7)
     throw new Error('Ingresa un teléfono válido con código de país.')
   if (!/^\d{1,3}$/.test(age) || Number(age) > 120) throw new Error('Ingresa una edad entera entre 0 y 120 años.')
-  if (!location || location.length > 200)
-    throw new Error('Ingresa tu ciudad y país de residencia (máximo 200 caracteres).')
   if (value('consent') !== 'on') throw new Error('Debes aceptar el consentimiento para enviar tu solicitud.')
 
   return {
@@ -86,12 +93,12 @@ export function parseApplication(data: FormData): ApplicationPayload {
     email,
     phone,
     age: Number(age),
-    location,
+    ...parseResidence(value),
     commitment: parseOption(value('commitment'), commitmentQuestion.options),
     accompaniment: parseOption(value('accompaniment'), accompanimentQuestion.options),
     consent: true,
     source: '/aplica',
-    schema_version: 1,
+    schema_version: 2,
     submitted_at: new Date().toISOString(),
   }
 }

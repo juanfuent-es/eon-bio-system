@@ -9,7 +9,9 @@ function validForm() {
     email: 'persona@example.com',
     phone: '+52 55 0000 0000',
     age: '35',
-    location: ' Ciudad de México, México ',
+    residence: 'mexico',
+    city: ' Ciudad de México ',
+    state_code: 'MX-CMX',
     commitment: 'high',
     accompaniment: 'integral',
     consent: 'on',
@@ -18,16 +20,19 @@ function validForm() {
   return data
 }
 
-test('payload separates commitment from accompaniment and requires age and location', () => {
+test('payload separates commitment from accompaniment and requires structured residence', () => {
   const result = parseApplication(validForm())
   assert.equal(result.name, 'Persona de ejemplo')
   assert.equal(result.commitment, 'high')
   assert.equal(result.accompaniment, 'integral')
   assert.equal(result.age, 35)
-  assert.equal(result.location, 'Ciudad de México, México')
+  assert.equal(result.city, 'Ciudad de México')
+  assert.equal(result.country_code, 'MX')
+  assert.equal(result.state_code, 'MX-CMX')
+  assert.ok(!('location' in result))
   assert.equal(result.consent, true)
   assert.equal(result.source, '/aplica')
-  assert.equal(result.schema_version, 1)
+  assert.equal(result.schema_version, 2)
   assert.ok(!Number.isNaN(Date.parse(result.submitted_at)))
   assert.ok(!('biomarkers' in result))
   assert.deepEqual(
@@ -43,12 +48,16 @@ test('rejects missing, legacy, forged and invalid field values', () => {
     ['email', 'invalid'],
     ['phone', 'abcdefg'],
     ['age', ''],
-    ['location', ''],
-    ['location', '   '],
+    ['residence', ''],
+    ['residence', 'forged'],
+    ['city', ''],
+    ['city', '   '],
+    ['state_code', ''],
+    ['state_code', 'CA'],
     ['age', '-1'],
     ['age', '2.5'],
     ['age', '121'],
-    ['location', 'x'.repeat(201)],
+    ['city', 'x'.repeat(101)],
     ['commitment', 'toString'],
     ['accompaniment', 'high'],
     ['accompaniment', ''],
@@ -70,4 +79,21 @@ test('accepts all radio combinations and integer age including zero', () => {
       assert.equal(parseApplication(data).age, 0)
     }
   }
+})
+
+test('foreign residence validates country and discards a stale Mexican state', () => {
+  const data = validForm()
+  data.set('residence', 'abroad')
+  data.set('country_code', 'ES')
+  data.set('city', ' Madrid ')
+  const result = parseApplication(data)
+  assert.equal(result.city, 'Madrid')
+  assert.equal(result.country_code, 'ES')
+  assert.equal(result.state_code, null)
+  for (const code of ['', 'MX', 'ZZ', 'es', 'España']) {
+    data.set('country_code', code)
+    assert.throws(() => parseApplication(data))
+  }
+  data.set('residence', 'mexico')
+  assert.equal(parseApplication(data).country_code, 'MX')
 })
