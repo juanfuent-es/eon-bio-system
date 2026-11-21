@@ -233,12 +233,10 @@
     font-size: var(--type-h1);
     line-height: 1;
   }
-  .editorial-content.prose :where(p, li, blockquote),
   .document :where(p, li) {
     font-size: var(--type-body);
     line-height: var(--leading-body);
   }
-  .editorial-content.prose :where(h2),
   .document h2 {
     font-size: var(--type-h3);
   }

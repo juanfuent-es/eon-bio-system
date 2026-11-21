@@ -5,6 +5,7 @@ import { ArrowNarrowLeftIcon } from '@/components/icons/arrow-narrow-left-icon'
 import { Hero } from '@/components/sections/hero'
 import { getArticleBySlug, getCanonicalArticleUrl, isSafeSlug } from '@/lib/blog/articles'
 import type { Metadata } from 'next'
+import Image from 'next/image'
 import { notFound } from 'next/navigation'
 
 type PageProps = {
@@ -71,6 +72,7 @@ export default async function ArticlePage({ params }: PageProps) {
   return (
     <>
       <Hero
+        data-full-height
         imageSrc={article.cover_image_url || '/eon-publicaciones.jpg'}
         imageAlt={article.title}
         imageUnoptimized={Boolean(article.cover_image_url)}
@@ -83,7 +85,7 @@ export default async function ArticlePage({ params }: PageProps) {
         className="mx-4 rounded-lg bg-neutral-100 py-10 text-green-900 sm:py-16 lg:rounded-xl xl:rounded-2xl 2xl:rounded-3xl"
       >
         <Container>
-          <div className="mx-auto mb-8 flex max-w-3xl flex-wrap items-center justify-between gap-4 border-b border-green-900/15 pb-6">
+          <div className="mx-auto mb-8 flex max-w-2xl flex-wrap items-center justify-between gap-4 border-b border-green-900/15 pb-6">
             <PlainButtonLink href="/publicaciones" className="w-fit">
               <ArrowNarrowLeftIcon className="size-5" />
               Publicaciones
@@ -101,7 +103,7 @@ export default async function ArticlePage({ params }: PageProps) {
           <Container>
             <ul
               aria-label="Temas del artículo"
-              className="mx-auto mt-10 flex max-w-3xl flex-wrap gap-2 border-t border-green-900/15 pt-6"
+              className="mx-auto mt-10 flex max-w-2xl flex-wrap gap-2 border-t border-green-900/15 pt-6"
             >
               {article.tags.map((tag) => (
                 <li key={tag} className="rounded-full bg-green-900/8 px-3 py-1 text-xs/6 font-medium text-green-900">
@@ -111,6 +113,34 @@ export default async function ArticlePage({ params }: PageProps) {
             </ul>
           </Container>
         ) : null}
+        <Container>
+          <footer className="mx-auto mt-10 max-w-2xl border-t border-green-900/15 pt-8">
+            <p className="mb-4 text-xs/4 font-semibold tracking-[0.14em] text-green-700 uppercase">Autor</p>
+            <a
+              href="https://www.instagram.com/ricardo.sanchez.mx/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group flex w-fit max-w-full items-center gap-4 rounded-lg focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-orange-500 sm:gap-5"
+            >
+              <Image
+                src="/lic-ricardo-sanchez.jpg"
+                alt="Lic. Ricardo Sánchez"
+                width={96}
+                height={96}
+                sizes="(min-width: 640px) 96px, 80px"
+                className="size-20 shrink-0 rounded-full object-cover sm:size-24"
+              />
+              <div className="min-w-0">
+                <p className="font-serif text-xl/6 text-green-950 transition-colors group-hover:text-orange-600 sm:text-2xl/7">
+                  Lic. Ricardo Sánchez
+                </p>
+                <p className="mt-1 max-w-sm text-sm/5 text-green-700">
+                  Especialista en Optimización Fisiometabólica y Longevidad
+                </p>
+              </div>
+            </a>
+          </footer>
+        </Container>
       </article>
     </>
   )

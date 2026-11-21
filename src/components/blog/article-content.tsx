@@ -1,16 +1,23 @@
 import { Container } from '@/components/elements/container'
 import { getArticleBlocks } from '@/lib/blog/content'
 
-const editorialTypography =
-  'editorial-content prose max-w-none font-sans text-green-900 prose-headings:font-serif prose-headings:font-normal prose-headings:text-green-900 prose-p:text-green-900 prose-a:text-green-800 prose-strong:text-green-950 prose-blockquote:text-green-900 prose-code:font-sans prose-pre:font-sans prose-pre:bg-green-50 prose-pre:text-green-900 prose-li:marker:text-green-600 prose-th:text-green-900 prose-figcaption:font-sans prose-figcaption:text-green-700'
+const editorialTypography = [
+  'prose prose-base max-w-none font-sans text-green-900 sm:prose-lg',
+  'prose-headings:mt-6 prose-headings:mb-3 prose-headings:font-serif prose-headings:font-normal prose-headings:leading-tight prose-headings:text-green-900',
+  'prose-h1:text-3xl prose-h2:text-2xl prose-h3:text-xl prose-h4:text-lg sm:prose-h1:text-4xl sm:prose-h2:text-3xl sm:prose-h3:text-2xl sm:prose-h4:text-xl',
+  'prose-p:my-3 prose-p:text-base prose-p:leading-relaxed prose-p:text-green-900 sm:prose-p:text-lg',
+  'prose-ul:my-3 prose-ul:pl-5 prose-ol:my-3 prose-ol:pl-5 prose-li:my-1 prose-li:py-0 prose-li:text-base prose-li:leading-relaxed prose-li:marker:text-green-600 prose-li:prose-p:my-1 sm:prose-li:text-lg',
+  'prose-a:text-green-800 prose-strong:text-green-950 prose-blockquote:my-4 prose-blockquote:pl-4 prose-blockquote:text-base prose-blockquote:leading-relaxed prose-blockquote:text-green-900 sm:prose-blockquote:text-lg',
+  'prose-code:font-sans prose-pre:font-sans prose-pre:bg-green-50 prose-pre:text-green-900 prose-th:text-green-900 prose-figcaption:font-sans prose-figcaption:text-sm prose-figcaption:text-green-700',
+].join(' ')
 
 export function ArticleContent({ content }: { content: string }) {
   return (
-    <div className="space-y-10">
+    <div className="space-y-6">
       {getArticleBlocks(content).map((block, index) =>
         block.kind === 'text' ? (
           <Container key={index}>
-            <div className="mx-auto max-w-3xl">
+            <div className="mx-auto max-w-2xl">
               <div
                 className={`${editorialTypography} break-words [&_pre]:overflow-x-auto [&_table]:block [&_table]:overflow-x-auto`}
                 dangerouslySetInnerHTML={{ __html: block.html }}
@@ -20,7 +27,7 @@ export function ArticleContent({ content }: { content: string }) {
         ) : (
           <div
             key={index}
-            className={`${editorialTypography} prose-figure:m-0 prose-figcaption:mx-auto prose-figcaption:max-w-3xl prose-figcaption:px-4 prose-figcaption:text-center sm:prose-figcaption:px-6 prose-img:m-0 prose-img:w-full prose-img:rounded-lg prose-video:m-0 prose-video:w-full [&_picture]:block`}
+            className={`${editorialTypography} prose-figure:m-0 prose-figcaption:mx-auto prose-figcaption:max-w-2xl prose-figcaption:px-4 prose-figcaption:text-center sm:prose-figcaption:px-6 prose-img:m-0 prose-img:w-full prose-img:rounded-lg prose-video:m-0 prose-video:w-full [&_picture]:block`}
             dangerouslySetInnerHTML={{ __html: block.html }}
           />
         ),
