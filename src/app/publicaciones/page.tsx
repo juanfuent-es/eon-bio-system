@@ -44,6 +44,7 @@ export default async function BlogPage({ searchParams }: PageProps) {
   return (
     <>
       <Hero
+        data-full-height
         imageSrc="/eon-publicaciones.jpg"
         imageAlt="Ricardo Sánchez"
         logo={{ src: '/logos/eon-publicaciones-logo.svg', alt: 'EON Publicaciones' }}
@@ -81,13 +82,13 @@ export default async function BlogPage({ searchParams }: PageProps) {
                     />
                   ) : null}
                   <div className="flex flex-1 flex-col gap-4 p-5">
-                    <div className="flex flex-wrap items-center gap-2 text-xs/6 font-semibold tracking-[0.14em] text-orange-600 uppercase">
+                    <div className="flex flex-col items-start gap-0 text-xs/4 font-semibold tracking-[0.14em] text-orange-600 uppercase">
                       <span>{article.category}</span>
                       {formatDate(article.published_at) ? <span>{formatDate(article.published_at)}</span> : null}
                     </div>
                     <h2 className="article-card-title">{article.title}</h2>
-                    {article.excerpt ? <p className="text-green-900/72">{article.excerpt}</p> : null}
-                    <span className="mt-auto inline-flex items-center gap-2 pt-2 text-sm/7 font-semibold text-green-800">
+                    {article.excerpt ? <p className="leading-snug text-green-900/72">{article.excerpt}</p> : null}
+                    <span className="mt-auto inline-flex items-center gap-2 self-end pt-2 text-sm/7 font-semibold text-green-800">
                       Leer nota <ArrowNarrowRightIcon className="size-5" />
                     </span>
                   </div>
