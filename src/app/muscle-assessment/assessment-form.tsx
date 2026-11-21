@@ -23,7 +23,7 @@ function track(event: string, parameters: Record<string, string> = {}) {
 export function AssessmentLink({
   placement,
   className,
-  label = 'Solicitar mi pre-evaluación',
+  label = 'Aplica',
 }: {
   placement: string
   className?: string
@@ -31,11 +31,9 @@ export function AssessmentLink({
 }) {
   return (
     <ButtonLink
-      href="https://wa.me/+525549562488"
+      href="/aplica"
       size="lg"
       className={className}
-      target="_blank"
-      rel="noopener noreferrer"
       onClick={() => track('assessment_request_click', { placement })}
     >
       {label} <ArrowNarrowRightIcon />

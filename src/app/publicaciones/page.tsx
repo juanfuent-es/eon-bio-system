@@ -3,14 +3,15 @@ import { Container } from '@/components/elements/container'
 import { ArrowNarrowRightIcon } from '@/components/icons/arrow-narrow-right-icon'
 import { Hero } from '@/components/sections/hero'
 import { listArticles } from '@/lib/blog/articles'
+import { pageMetadata } from '@/lib/metadata'
 import type { Metadata } from 'next'
 import Link from 'next/link'
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: 'Publicaciones | EON BioSystem',
   description:
     'Artículos, evidencia y casos clínicos explicados con claridad para ayudarte a comprender mejor tu metabolismo, tu fuerza y tu salud, y tomar decisiones con más criterio.',
-}
+})
 
 type PageProps = {
   searchParams: Promise<{

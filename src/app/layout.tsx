@@ -8,11 +8,17 @@ import {
   SocialLink,
 } from '@/components/sections/footer-with-newsletter-form-categories-and-social-icons'
 import { SiteHeader } from '@/components/site-header'
+import { pageMetadata } from '@/lib/metadata'
 import type { Metadata } from 'next'
 import './globals.css'
 
 export const metadata: Metadata = {
-  title: 'EON BioSystem',
+  ...pageMetadata({
+    title: 'EON BioSystem',
+    description:
+      'Evaluación, fuerza, nutrición y seguimiento biológico para construir tu salud, autonomía y longevidad.',
+  }),
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? 'https://eonbiosystem.com'),
   icons: {
     icon: [{ url: '/favicon.svg', type: 'image/svg+xml' }],
     apple: '/apple-touch-icon.png',

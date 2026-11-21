@@ -90,6 +90,10 @@ Para activar: aplicar primero la migración del dashboard, configurar URL y toke
 
 ## Correo con Resend
 
+La cabecera gráfica de los correos de Aplica es `https://eonbiosystem.com/eon-mailer.jpg`, servida por este sitio e incluida en el HTML del dashboard. Desplegar el archivo público antes de generar correos con esa cabecera. Las imágenes `eon-share.png` y `muscle-assessment-share.png` son exclusivas de metadatos sociales y no se usan como cabecera de correo.
+
+El aviso interno de una nueva solicitud de `/aplica` se implementa en el dashboard EON Vyon, después de guardar la solicitud. Su destinatario es `hola@eonbiosystem.com`, con asunto «Tienes una nueva solicitud que revisar» y enlace a `/admin/solicitudes`. El sitio público conserva únicamente el envío a la API. Antes de activar este aviso, aplicar la migración y desplegar el cambio del receptor; las credenciales de correo de este sitio no habilitan el aviso del dashboard.
+
 El formulario `/muscle-assessment` conserva el servicio de correo directo. Estas variables corresponden a ese flujo en este sitio; el dashboard configura sus propias credenciales según [aplica.md](aplica.md):
 
 ```dotenv

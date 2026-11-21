@@ -4,12 +4,20 @@ import { Container } from '@/components/elements/container'
 import { Subheading } from '@/components/elements/subheading'
 import { ArrowNarrowRightIcon } from '@/components/icons/arrow-narrow-right-icon'
 import { Hero } from '@/components/sections/hero'
+import { pageMetadata } from '@/lib/metadata'
+
+export const metadata = pageMetadata({
+  title: 'Aplica | EON BioSystem',
+  description:
+    'Comparte tu contexto, tus objetivos y tu disponibilidad para solicitar una evaluación inicial en EON BioSystem.',
+})
 
 export default function Aplica() {
   return (
     <>
       <Hero
         id="hero"
+        data-full-height
         imageSrc="/eon-biosystem-aplica.jpg"
         imageAlt="Ricardo Sánchez recibiendo a dos personas en consulta en EON BioSystem"
         headline={

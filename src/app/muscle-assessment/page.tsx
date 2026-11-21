@@ -3,6 +3,7 @@ import { Subheading } from '@/components/elements/subheading'
 import { SectionScrollSnap } from '@/components/elements/section-scroll-snap'
 import { Hero } from '@/components/sections/hero'
 import { YouTubeVideo } from '@/components/sections/youtube-video'
+import { pageMetadata } from '@/lib/metadata'
 import type { Metadata } from 'next'
 import Image from 'next/image'
 import { createHash } from 'node:crypto'
@@ -10,11 +11,17 @@ import { readFileSync } from 'node:fs'
 import path from 'node:path'
 import { AssessmentLink } from './assessment-form'
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: 'EON Muscle Assessment™ | EON BioSystem',
   description:
     'Conoce tu edad muscular estimada, fuerza, estabilidad y composición corporal. Solicita una pre-evaluación para confirmar modalidad y disponibilidad.',
-}
+  image: {
+    url: '/muscle-assessment-share.png',
+    width: 1280,
+    height: 640,
+    alt: 'EON Muscle Assessment',
+  },
+})
 
 function versionedPublicAsset(src: string) {
   const cleanSrc = src.replace(/^\/+/, '')
@@ -219,7 +226,7 @@ export default function MuscleAssessmentPage() {
         headline="Conoce tu punto de partida."
         subheadline={
           <p>
-            Agenda tu evaluación y recibe un reporte con tu edad muscular estimada, nivel EON, fortalezas, áreas de
+            Aplica para agendar tu evaluación y recibir un reporte con tu edad muscular estimada, nivel EON, fortalezas, áreas de
             atención y una recomendación inicial.
           </p>
         }
@@ -227,7 +234,7 @@ export default function MuscleAssessmentPage() {
           <div className="flex max-w-full flex-col items-center gap-3 text-center" id="footer-muscle">
             <AssessmentLink
               placement="footer-muscle"
-              label="Agendar evaluación"
+              label="Aplica para agendar tu evaluación"
               className="max-w-full shrink text-center"
             />
             <p className="text-sm text-white/80">Evaluación presencial · 15 minutos</p>

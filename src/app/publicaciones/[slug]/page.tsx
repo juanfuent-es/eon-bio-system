@@ -4,6 +4,7 @@ import { Container } from '@/components/elements/container'
 import { ArrowNarrowLeftIcon } from '@/components/icons/arrow-narrow-left-icon'
 import { Hero } from '@/components/sections/hero'
 import { getArticleBySlug, getCanonicalArticleUrl, isSafeSlug } from '@/lib/blog/articles'
+import { pageMetadata } from '@/lib/metadata'
 import type { Metadata } from 'next'
 import Image from 'next/image'
 import { notFound } from 'next/navigation'
@@ -39,20 +40,25 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     }
   }
 
-  return {
+  const socialMetadata = pageMetadata({
     title: `${article.title} | EON BioSystem`,
     description: article.excerpt ?? undefined,
+    image: article.cover_image_url ? { url: article.cover_image_url, alt: article.title } : undefined,
+  })
+
+  return {
+    ...socialMetadata,
     alternates: {
       canonical: getCanonicalArticleUrl(article.slug),
     },
     openGraph: {
+      ...socialMetadata.openGraph,
       title: article.title,
       description: article.excerpt ?? undefined,
       type: 'article',
       publishedTime: article.published_at ?? undefined,
       modifiedTime: article.updated_at ?? undefined,
       url: getCanonicalArticleUrl(article.slug),
-      images: article.cover_image_url ? [{ url: article.cover_image_url }] : undefined,
     },
   }
 }

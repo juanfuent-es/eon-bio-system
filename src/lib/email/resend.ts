@@ -4,7 +4,7 @@ type EmailMessage = {
   text: string
 }
 
-// HTTP directo: ambos formularios comparten configuración y confirmación de envío.
+// Correo directo del formulario heredado de Muscle Assessment. Aplica usa el dashboard.
 export async function sendEmail({ replyTo, subject, text }: EmailMessage): Promise<void> {
   const apiKey = process.env.RESEND_API_KEY
   const fromEmail = process.env.RESEND_FROM_EMAIL

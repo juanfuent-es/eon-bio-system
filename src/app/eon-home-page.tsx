@@ -66,7 +66,7 @@ export default function Page() {
         cta={
           <>
             <div className="flex w-full flex-wrap justify-center gap-3">
-              <ButtonLink href="https://wa.me/525549562488" size="lg">
+              <ButtonLink href="/aplica" size="lg">
                 Aplica al sistema <ArrowNarrowRightIcon />
               </ButtonLink>
               <PlainButtonLink href="/sistema" size="lg">

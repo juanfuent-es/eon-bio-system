@@ -6,14 +6,15 @@ import { Subheading } from '@/components/elements/subheading'
 import { ArrowNarrowRightIcon } from '@/components/icons/arrow-narrow-right-icon'
 import { Hero } from '@/components/sections/hero'
 import { TestimonialLargeQuote } from '@/components/sections/testimonial-with-large-quote'
+import { pageMetadata } from '@/lib/metadata'
 import type { Metadata } from 'next'
 import Image from 'next/image'
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: 'El sistema | EON BioSystem',
   description:
     'La ciencia detrás de EON BioSystem: evaluación, entrenamiento, nutrición y seguimiento en una estrategia guiada por tu biología.',
-}
+})
 
 const steps = [
   {
@@ -66,10 +67,10 @@ const steps = [
   },
 ]
 
-function AppointmentButton() {
+function ApplicationButton() {
   return (
-    <ButtonLink href="https://wa.me/525549562488" size="lg">
-      Agenda tu cita <ArrowNarrowRightIcon />
+    <ButtonLink href="/aplica" size="lg">
+      Aplica al sistema <ArrowNarrowRightIcon />
     </ButtonLink>
   )
 }
@@ -102,7 +103,7 @@ export default function Sistema() {
             </p>
           </>
         }
-        cta={<AppointmentButton />}
+        cta={<ApplicationButton />}
       />
 
       <section
@@ -283,7 +284,7 @@ export default function Sistema() {
         }
         cta={
           <>
-            <AppointmentButton />
+            <ApplicationButton />
             <p className="mt-3 text-sm text-green-200 italic">
               <small>*Acceso mediante evaluación previa.</small>
             </p>
