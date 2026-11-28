@@ -22,6 +22,7 @@ export function Hero({
   imageAlt = 'Imagen de portada de EON BioSystem',
   imageClassName,
   imageUnoptimized = false,
+  imageSrcSet,
   imagePriority = true,
   className,
   ...props
@@ -37,6 +38,8 @@ export function Hero({
   imageAlt?: string
   imageClassName?: string
   imageUnoptimized?: boolean
+  /** Versiones ya generadas por el servidor (p. ej. portadas del CMS): se usa <img srcset> sin el optimizador. */
+  imageSrcSet?: string
   imagePriority?: boolean
 } & HeroIdentity &
   ComponentProps<'section'>) {
@@ -50,19 +53,36 @@ export function Hero({
     <section className={clsx('hero flex-col p-4 text-white', className)} {...props}>
       <Wallpaper className="wallpaper w-full" color="green-copper" style={{ backgroundImage: 'none' }}>
         <div className="absolute inset-0 -z-20 rounded-[inherit] bg-black" aria-hidden="true" />
-        <Image
-          src={imageSrc}
-          alt={imageAlt}
-          width={1920}
-          height={1280}
-          className={clsx(
-            'absolute inset-0 -z-10 h-full w-full rounded-[inherit] object-cover opacity-75',
-            imageClassName,
-          )}
-          sizes="100vw"
-          unoptimized={imageUnoptimized}
-          priority={imagePriority}
-        />
+        {imageSrcSet ? (
+          // eslint-disable-next-line @next/next/no-img-element
+          <img
+            src={imageSrc}
+            srcSet={imageSrcSet}
+            sizes="100vw"
+            alt={imageAlt}
+            width={1920}
+            height={1080}
+            fetchPriority={imagePriority ? 'high' : 'auto'}
+            className={clsx(
+              'absolute inset-0 -z-10 h-full w-full rounded-[inherit] object-cover opacity-75',
+              imageClassName,
+            )}
+          />
+        ) : (
+          <Image
+            src={imageSrc}
+            alt={imageAlt}
+            width={1920}
+            height={1280}
+            className={clsx(
+              'absolute inset-0 -z-10 h-full w-full rounded-[inherit] object-cover opacity-75',
+              imageClassName,
+            )}
+            sizes="100vw"
+            unoptimized={imageUnoptimized}
+            priority={imagePriority}
+          />
+        )}
         <div
           className="pointer-events-none absolute inset-0 z-0 rounded-[inherit] bg-cover bg-center bg-no-repeat mix-blend-multiply"
           style={{ backgroundImage: 'url("/gradients/orange-green.svg")' }}

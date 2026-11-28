@@ -1,6 +1,7 @@
 import { Main } from '@/components/elements/main'
 import { FacebookIcon } from '@/components/icons/social/facebook-icon'
 import { InstagramIcon } from '@/components/icons/social/instagram-icon'
+import { OuroborosPreloader, OuroborosScrollBackground } from '@/components/ouroboros'
 import {
   FooterCategory,
   FooterLink,
@@ -11,6 +12,8 @@ import { SiteHeader } from '@/components/site-header'
 import { pageMetadata } from '@/lib/metadata'
 import type { Metadata } from 'next'
 import './globals.css'
+
+const GTM_ID = 'GTM-5MQ3H94G'
 
 export const metadata: Metadata = {
   ...pageMetadata({
@@ -35,13 +38,31 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="es" className="bg-neutral-200 text-neutral-50">
+    <html lang="es" className="bg-neutral-200 text-neutral-50" data-preloader="active" suppressHydrationWarning>
       <head>
+        {/* Google Tag Manager: inline y primero en <head>, tal como lo indica el snippet oficial. */}
+        {/* eslint-disable-next-line @next/next/next-script-for-ga */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','${GTM_ID}');`,
+          }}
+        />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="theme-color" content="#000000" />
         <link rel="stylesheet" href="https://use.typekit.net/xsn1nhj.css" />
       </head>
       <body className="w-full overflow-x-hidden">
+        {/* Google Tag Manager (noscript) */}
+        <noscript>
+          <iframe
+            src={`https://www.googletagmanager.com/ns.html?id=${GTM_ID}`}
+            height="0"
+            width="0"
+            style={{ display: 'none', visibility: 'hidden' }}
+          />
+        </noscript>
+        <OuroborosPreloader />
+        <OuroborosScrollBackground />
         <SiteHeader />
         <Main id="main-content">
           {children}

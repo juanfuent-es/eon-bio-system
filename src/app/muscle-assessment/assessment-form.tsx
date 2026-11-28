@@ -6,18 +6,17 @@ import { useActionState, useEffect, useState, type ComponentProps } from 'react'
 import { submitAssessment } from './actions'
 import { objectives, sources, type AssessmentState } from './options'
 
+type DataLayerEvent = { event: string } & Record<string, string | number>
+
+function pushToDataLayer(payload: DataLayerEvent) {
+  const w = window as Window & { dataLayer?: unknown[] }
+  w.dataLayer = w.dataLayer || []
+  w.dataLayer.push(payload)
+}
+
+/** Eventos de interacción, disponibles en GTM como "Evento personalizado". */
 function track(event: string, parameters: Record<string, string> = {}) {
-  const analytics = window as Window & {
-    dataLayer?: unknown[]
-    gtag?: (command: string, event: string, parameters: Record<string, string>) => void
-  }
-  analytics.dataLayer ??= []
-  analytics.gtag ??= function () {
-    // gtag queues Arguments objects, as required by its command interface.
-    // eslint-disable-next-line prefer-rest-params
-    analytics.dataLayer!.push(arguments)
-  }
-  analytics.gtag('event', event, parameters)
+  pushToDataLayer({ event, ...parameters })
 }
 
 export function AssessmentLink({
@@ -92,6 +91,16 @@ export function AssessmentForm() {
     if (state.status === 'success') {
       track('assessment_form_submit', { modality: state.modality! })
       track(state.modality === 'presencial' ? 'assessment_lead_cdmx' : 'assessment_lead_remote')
+      // Conversión de Google Ads: solo tras validar y guardar la solicitud en el servidor, y solo
+      // para la modalidad presencial (la remota es registro de interés, aún no es un servicio vendible).
+      if (state.modality === 'presencial') {
+        pushToDataLayer({
+          event: 'eon_assessment_lead',
+          service_name: 'EON Muscle Assessment',
+          currency: 'MXN',
+          value: 1490,
+        })
+      }
     }
   }, [state])
   if (state.status === 'success')

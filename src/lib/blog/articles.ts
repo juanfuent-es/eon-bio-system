@@ -1,18 +1,53 @@
-export type PublicArticleListItem = {
-  id: string
-  title: string
+export type ArticleCategory = {
   slug: string
-  excerpt: string | null
-  cover_image_url: string | null
-  category: string
-  tags: string[]
-  published_at: string | null
-  created_at: string | null
-  updated_at: string | null
+  name: string
 }
 
-export type PublicArticleDetail = PublicArticleListItem & {
+export type ImageVariant = {
+  url: string
+  width: number
+  height: number
+  type: 'image/webp' | 'image/jpeg'
+}
+
+export type ArticleCoverImage = {
+  alt: string
+  width: number
+  height: number
+  /** = variants.desktop.url */
+  url: string
+  variants: {
+    desktop: ImageVariant // 1920×1080
+    tablet: ImageVariant // 1280×720
+    mobile: ImageVariant // 768×432
+  }
+  /** 1200×630 JPG, solo para metadata social. */
+  og: ImageVariant
+}
+
+export type ArticleSummary = {
+  id: string
+  slug: string
+  title: string
+  /** ≤ 256, visible en tarjeta y bajo el título. */
+  synopsis: string
+  /** ≤ 164, solo metadata. */
+  description: string
+  category: ArticleCategory
+  tags: string[]
+  cover_image: ArticleCoverImage | null
+  published_at: string
+  created_at: string
+  updated_at: string
+}
+
+export type Article = ArticleSummary & {
   content: string
+}
+
+export type BlogCategory = ArticleCategory & {
+  sort_order: number
+  article_count: number
 }
 
 export type ArticleQuery = {
@@ -24,7 +59,7 @@ export type ArticleQuery = {
 }
 
 export type ArticleListResult = {
-  items: PublicArticleListItem[]
+  items: ArticleSummary[]
   total: number
   page: number
   pageSize: number
@@ -35,7 +70,7 @@ export type BlogApiResult<T> = {
   status: number
 }
 
-const BLOG_API_BASE_URL = process.env.BLOG_API_BASE_URL ?? 'https://eonvyon.com/blog/api/v1'
+const BLOG_API_BASE_URL = process.env.BLOG_API_BASE_URL ?? 'https://eonbiosystem.com/blog/api/v1'
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://eonbiosystem.com'
 const REVALIDATE_SECONDS = 300
 const REQUEST_TIMEOUT_MS = 5000
@@ -112,7 +147,26 @@ export function listArticles(query: ArticleQuery = {}) {
 }
 
 export function getArticleBySlug(slug: string) {
-  return fetchBlogApi<{ article: PublicArticleDetail }>(getApiUrl(`/articles/${encodeURIComponent(slug)}`))
+  return fetchBlogApi<{ article: Article }>(getApiUrl(`/articles/${encodeURIComponent(slug)}`))
+}
+
+export async function listCategories(): Promise<BlogCategory[]> {
+  const { data } = await fetchBlogApi<{ items: BlogCategory[] }>(getApiUrl('/categories'))
+  return [...(data?.items ?? [])].sort((a, b) => a.sort_order - b.sort_order)
+}
+
+/** Texto alternativo de la portada: el CMS puede mandar `alt` vacío. */
+export function coverAlt(article: Pick<ArticleSummary, 'title' | 'cover_image'>) {
+  return article.cover_image?.alt.trim() || article.title
+}
+
+export function formatArticleDate(value: string | null | undefined) {
+  if (!value) return null
+  const date = new Date(value)
+  if (Number.isNaN(date.getTime())) return null
+  return new Intl.DateTimeFormat('es-MX', { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'UTC' }).format(
+    date,
+  )
 }
 
 export function getCanonicalArticleUrl(slug: string) {

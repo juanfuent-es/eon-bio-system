@@ -19,7 +19,7 @@ export function ArticleContent({ content }: { content: string }) {
           <Container key={index}>
             <div className="mx-auto max-w-2xl">
               <div
-                className={`${editorialTypography} break-words [&_pre]:overflow-x-auto [&_table]:block [&_table]:overflow-x-auto`}
+                className={`${editorialTypography} break-words [&_pre]:overflow-x-auto [&_.article-table]:my-6 [&_.article-table]:overflow-x-auto [&_.article-table_table]:my-0 [&_table]:tabular-nums [&_td_p]:my-0 [&_th_p]:my-0 [&_figure:not(.article-table)_table]:block [&_figure:not(.article-table)_table]:overflow-x-auto`}
                 dangerouslySetInnerHTML={{ __html: block.html }}
               />
             </div>
@@ -27,7 +27,7 @@ export function ArticleContent({ content }: { content: string }) {
         ) : (
           <div
             key={index}
-            className={`${editorialTypography} prose-figure:m-0 prose-figcaption:mx-auto prose-figcaption:max-w-2xl prose-figcaption:px-4 prose-figcaption:text-center sm:prose-figcaption:px-6 prose-img:m-0 prose-img:w-full prose-img:rounded-lg prose-video:m-0 prose-video:w-full [&_picture]:block`}
+            className={`${editorialTypography} prose-figure:m-0 prose-figcaption:mx-auto prose-figcaption:max-w-2xl prose-figcaption:px-4 prose-figcaption:text-center sm:prose-figcaption:px-6 prose-img:m-0 prose-img:w-full prose-img:rounded-lg prose-video:m-0 prose-video:w-full [&_picture]:block [&_iframe]:aspect-video [&_iframe]:h-auto [&_iframe]:w-full [&_iframe]:rounded-lg [&_iframe]:border-0`}
             dangerouslySetInnerHTML={{ __html: block.html }}
           />
         ),

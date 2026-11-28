@@ -618,3 +618,56 @@
     scroll-snap-type: none;
   }
 }
+
+/* Preloader ouroboros
+ * <html data-preloader="active">  → el contenido espera oculto (opacidad 0, 30px abajo).
+ * <html data-preloader="leaving"> → el preloader sube (-100%) y el contenido entra.
+ * Sin atributo                    → estado normal (sin transform, para no afectar elementos fixed).
+ * Si el JS nunca llega, las animaciones de respaldo hacen lo mismo a los 6 s. */
+.ouroboros-preloader {
+  transition: transform 0.8s cubic-bezier(0.7, 0, 0.2, 1);
+  animation: ouroboros-preloader-out 0.8s cubic-bezier(0.7, 0, 0.2, 1) 6s forwards;
+}
+html[data-preloader='leaving'] .ouroboros-preloader {
+  transform: translateY(-100%);
+  animation: none;
+}
+
+html[data-preloader='active'] body > :not(.ouroboros-preloader) {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: ouroboros-content-in 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) 6.2s forwards;
+}
+html[data-preloader='leaving'] body > :not(.ouroboros-preloader) {
+  opacity: 1;
+  transform: translateY(0);
+  transition:
+    opacity 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) 0.25s,
+    transform 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) 0.25s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html[data-preloader] body > :not(.ouroboros-preloader) {
+    transform: none;
+  }
+  html[data-preloader='leaving'] .ouroboros-preloader {
+    transform: none;
+    opacity: 0;
+    transition: opacity 0.4s ease-out;
+  }
+}
+
+@keyframes ouroboros-preloader-out {
+  to {
+    transform: translateY(-100%);
+    visibility: hidden;
+    pointer-events: none;
+  }
+}
+
+@keyframes ouroboros-content-in {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

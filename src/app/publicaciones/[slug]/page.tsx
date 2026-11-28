@@ -3,10 +3,18 @@ import { PlainButtonLink } from '@/components/elements/button'
 import { Container } from '@/components/elements/container'
 import { ArrowNarrowLeftIcon } from '@/components/icons/arrow-narrow-left-icon'
 import { Hero } from '@/components/sections/hero'
-import { getArticleBySlug, getCanonicalArticleUrl, isSafeSlug } from '@/lib/blog/articles'
+import {
+  coverAlt,
+  formatArticleDate,
+  getArticleBySlug,
+  getCanonicalArticleUrl,
+  isSafeSlug,
+  type Article,
+} from '@/lib/blog/articles'
 import { pageMetadata } from '@/lib/metadata'
 import type { Metadata } from 'next'
 import Image from 'next/image'
+import Link from 'next/link'
 import { notFound } from 'next/navigation'
 
 type PageProps = {
@@ -15,24 +23,34 @@ type PageProps = {
   }>
 }
 
-function formatDate(value: string | null) {
-  if (!value) {
-    return null
-  }
+async function loadArticle(params: PageProps['params']) {
+  const { slug: encodedSlug } = await params
+  const slug = decodeURIComponent(encodedSlug)
+  if (!isSafeSlug(slug)) return null
+  const response = await getArticleBySlug(slug).catch(() => ({ data: null, status: 500 }))
+  return response.data?.article ?? null
+}
 
-  return new Intl.DateTimeFormat('es-MX', {
-    day: 'numeric',
-    month: 'long',
-    year: 'numeric',
-    timeZone: 'UTC',
-  }).format(new Date(value))
+function jsonLd(article: Article) {
+  const cover = article.cover_image
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'BlogPosting',
+    headline: article.title,
+    description: article.description,
+    image: cover ? [cover.variants.desktop.url, cover.og.url] : undefined,
+    datePublished: article.published_at,
+    dateModified: article.updated_at,
+    articleSection: article.category.name,
+    keywords: article.tags.join(', ') || undefined,
+    mainEntityOfPage: getCanonicalArticleUrl(article.slug),
+    author: { '@type': 'Person', name: 'Ricardo Sánchez' },
+    publisher: { '@type': 'Organization', name: 'EON BioSystem' },
+  }
 }
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
-  const { slug: encodedSlug } = await params
-  const slug = decodeURIComponent(encodedSlug)
-  const response = isSafeSlug(slug) ? await getArticleBySlug(slug).catch(() => ({ data: null, status: 500 })) : null
-  const article = response?.data?.article ?? null
+  const article = await loadArticle(params)
 
   if (!article) {
     return {
@@ -40,50 +58,79 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     }
   }
 
-  const socialMetadata = pageMetadata({
+  const url = getCanonicalArticleUrl(article.slug)
+  const og = article.cover_image?.og
+  // `description` es solo para buscadores y vistas previas; nunca se muestra en la página.
+  const image = og
+    ? { url: og.url, secureUrl: og.url, type: og.type, width: og.width, height: og.height, alt: coverAlt(article) }
+    : undefined
+  const base = pageMetadata({
     title: `${article.title} | EON BioSystem`,
-    description: article.excerpt ?? undefined,
-    image: article.cover_image_url ? { url: article.cover_image_url, alt: article.title } : undefined,
+    description: article.description,
+    image,
   })
 
   return {
-    ...socialMetadata,
-    alternates: {
-      canonical: getCanonicalArticleUrl(article.slug),
-    },
+    ...base,
+    alternates: { canonical: url },
     openGraph: {
-      ...socialMetadata.openGraph,
-      title: article.title,
-      description: article.excerpt ?? undefined,
+      ...base.openGraph,
       type: 'article',
-      publishedTime: article.published_at ?? undefined,
-      modifiedTime: article.updated_at ?? undefined,
-      url: getCanonicalArticleUrl(article.slug),
+      title: article.title,
+      description: article.description,
+      url,
+      publishedTime: article.published_at,
+      modifiedTime: article.updated_at,
+      section: article.category.name,
+      tags: article.tags,
+    },
+    twitter: {
+      ...base.twitter,
+      title: article.title,
+      description: article.description,
     },
   }
 }
 
 export default async function ArticlePage({ params }: PageProps) {
-  const { slug: encodedSlug } = await params
-  const slug = decodeURIComponent(encodedSlug)
-  const response = isSafeSlug(slug) ? await getArticleBySlug(slug).catch(() => ({ data: null, status: 500 })) : null
-  const article = response?.data?.article ?? null
+  const article = await loadArticle(params)
 
   if (!article) {
     notFound()
   }
 
-  const publishedDate = formatDate(article.published_at)
+  const publishedDate = formatArticleDate(article.published_at)
+  const cover = article.cover_image
+  const categoryHref = `/publicaciones?category=${encodeURIComponent(article.category.slug)}#articulos`
 
   return (
     <>
+      <script
+        type="application/ld+json"
+        // `<` escapado para que el contenido del CMS no pueda cerrar la etiqueta <script>.
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd(article)).replace(/</g, '\\u003c') }}
+      />
       <Hero
         data-full-height
-        imageSrc={article.cover_image_url || '/eon-publicaciones.jpg'}
-        imageAlt={article.title}
-        imageUnoptimized={Boolean(article.cover_image_url)}
+        imageSrc={cover?.variants.desktop.url ?? '/eon-publicaciones.jpg'}
+        imageSrcSet={
+          cover
+            ? (['mobile', 'tablet', 'desktop'] as const)
+                .map((size) => `${cover.variants[size].url} ${cover.variants[size].width}w`)
+                .join(', ')
+            : undefined
+        }
+        imageAlt={coverAlt(article)}
+        eyebrow={
+          <Link
+            href={categoryHref}
+            className="mb-4 w-fit rounded-full bg-white/15 px-4 py-1.5 text-xs/5 font-semibold tracking-[0.08em] text-white uppercase ring-1 ring-white/30 backdrop-blur-sm transition-colors hover:bg-white/25"
+          >
+            {article.category.name}
+          </Link>
+        }
         headline={article.title}
-        subheadline={article.excerpt ? <p>{article.excerpt}</p> : null}
+        subheadline={article.synopsis ? <p>{article.synopsis}</p> : null}
       />
 
       <article
@@ -97,8 +144,10 @@ export default async function ArticlePage({ params }: PageProps) {
               Publicaciones
             </PlainButtonLink>
             <div className="flex flex-wrap gap-x-4 gap-y-1 text-sm text-green-700">
-              <span>{article.category}</span>
-              {publishedDate ? <time dateTime={article.published_at!}>{publishedDate}</time> : null}
+              <Link href={categoryHref} className="hover:text-orange-600">
+                {article.category.name}
+              </Link>
+              {publishedDate ? <time dateTime={article.published_at}>{publishedDate}</time> : null}
             </div>
           </div>
         </Container>
@@ -112,8 +161,13 @@ export default async function ArticlePage({ params }: PageProps) {
               className="mx-auto mt-10 flex max-w-2xl flex-wrap gap-2 border-t border-green-900/15 pt-6"
             >
               {article.tags.map((tag) => (
-                <li key={tag} className="rounded-full bg-green-900/8 px-3 py-1 text-xs/6 font-medium text-green-900">
-                  {tag}
+                <li key={tag}>
+                  <Link
+                    href={`/publicaciones?tag=${encodeURIComponent(tag)}#articulos`}
+                    className="block rounded-full bg-green-900/8 px-3 py-1 text-xs/6 font-medium text-green-900 transition-colors hover:bg-green-900/15"
+                  >
+                    #{tag}
+                  </Link>
                 </li>
               ))}
             </ul>
