@@ -633,6 +633,21 @@ html[data-preloader='leaving'] .ouroboros-preloader {
   animation: none;
 }
 
+/* Sin scroll mientras carga: al revelar, la página siempre está en scrollTop 0. */
+html[data-preloader] {
+  overflow: hidden;
+  /* Reserva el espacio de la barra de scroll para que nada brinque de lado al revelar. */
+  scrollbar-gutter: stable;
+  /* Respaldo: si el JS nunca quita el atributo, el scroll se libera a los 6 s. */
+  animation: ouroboros-unlock-scroll 0s linear 6s forwards;
+}
+
+@keyframes ouroboros-unlock-scroll {
+  to {
+    overflow: visible;
+  }
+}
+
 html[data-preloader='active'] body > :not(.ouroboros-preloader) {
   opacity: 0;
   transform: translateY(30px);

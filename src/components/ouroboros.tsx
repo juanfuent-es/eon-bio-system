@@ -41,42 +41,54 @@ function svgId(raw: string) {
 
 /* ------------------------------------------------------------------------------------------------
  * Preloader: animación 100 % SVG (SMIL), corre antes de que hidrate React.
+ *
+ * Ciclo de dos vueltas, sin guía de fondo:
+ *  1. Se forma: la cola queda fija y la cabeza dibuja el infinito hasta casi morderla.
+ *  2. Se deshace: la cabeza sigue avanzando y la cola la persigue hasta desaparecer.
+ * Al final de la vuelta 2 todo vuelve a cero, así que el ciclo se repite sin saltos.
  * --------------------------------------------------------------------------------------------- */
 
+/** Largo del cuerpo ya formado (de 1000): el hueco que queda es la boca a punto de morder la cola. */
+const FORMED_BODY = 960
+
 export function OuroborosLoop({
-  duration = 2.4,
-  bodyLength = 560,
-  showTrack = true,
+  lapDuration = 1.4,
   className,
   ...props
-}: { duration?: number; bodyLength?: number; showTrack?: boolean } & ComponentProps<'svg'>) {
+}: {
+  /** Segundos por vuelta; el ciclo completo (formarse + deshacerse) dura el doble. */
+  lapDuration?: number
+} & ComponentProps<'svg'>) {
   const id = svgId(useId())
-  const dur = `${duration}s`
+  const cycle = `${lapDuration * 2}s`
 
   return (
     <svg viewBox="0 0 1000 500" fill="none" aria-hidden="true" className={className} {...props}>
       <path id={id} d={OUROBOROS_PATH} pathLength={LOOP} stroke="none" />
-      {showTrack && (
-        <path d={OUROBOROS_PATH} stroke="currentColor" strokeOpacity={0.1} strokeWidth={STROKE * 0.5} />
-      )}
       <g stroke="currentColor" strokeLinecap="round">
         {TAPER.map(([lenFactor, widthFactor]) => {
-          const len = bodyLength * lenFactor
-          const start = dash(len, 0)
+          const formed = FORMED_BODY * lenFactor
           return (
             <path
               key={lenFactor}
               d={OUROBOROS_PATH}
               pathLength={LOOP}
               strokeWidth={STROKE * widthFactor}
-              strokeDasharray={start.dasharray}
-              strokeDashoffset={start.dashoffset}
+              strokeDasharray={`0 ${LOOP}`}
             >
               <animate
+                attributeName="stroke-dasharray"
+                values={`0 ${LOOP}; ${formed} ${LOOP - formed}; 0 ${LOOP}`}
+                keyTimes="0; 0.5; 1"
+                dur={cycle}
+                repeatCount="indefinite"
+              />
+              {/* dashoffset = largo − posición de la cabeza (0 → 1000 → 2000). */}
+              <animate
                 attributeName="stroke-dashoffset"
-                from={start.dashoffset}
-                to={start.dashoffset - LOOP}
-                dur={dur}
+                values={`0; ${formed - LOOP}; ${-2 * LOOP}`}
+                keyTimes="0; 0.5; 1"
+                dur={cycle}
                 repeatCount="indefinite"
               />
             </path>
@@ -85,7 +97,7 @@ export function OuroborosLoop({
       </g>
       <g fill="currentColor">
         <path d={HEAD_PATH} />
-        <animateMotion dur={dur} repeatCount="indefinite" rotate="auto" calcMode="paced">
+        <animateMotion dur={`${lapDuration}s`} repeatCount="indefinite" rotate="auto" calcMode="paced">
           <mpath href={`#${id}`} />
         </animateMotion>
       </g>
@@ -93,22 +105,29 @@ export function OuroborosLoop({
   )
 }
 
+const PRELOADER_LAP_S = 1.4
 /** Duración de la salida: sube el preloader (0.8 s) y entra el contenido (0.25 s de retraso + 0.9 s). */
 const PRELOADER_EXIT_MS = 1200
 
 /**
  * La coreografía vive en globals.css y se controla con `data-preloader` en <html>
  * (el layout lo renderiza en "active" para que el contenido nazca oculto desde el servidor).
+ * El preloader sale justo cuando el infinito termina de formarse y lo congela así mientras sube.
  */
-export function OuroborosPreloader({ minDuration = 1200 }: { minDuration?: number }) {
+export function OuroborosPreloader() {
   const [gone, setGone] = useState(false)
+  const svgRef = useRef<SVGSVGElement>(null)
 
   useEffect(() => {
     const root = document.documentElement
-    const started = performance.now()
     let timer: ReturnType<typeof setTimeout>
 
+    // La página siempre arranca desde arriba (evita que el navegador restaure un scroll previo).
+    window.scrollTo(0, 0)
+
     function leave() {
+      svgRef.current?.pauseAnimations()
+      window.scrollTo(0, 0)
       root.dataset.preloader = 'leaving'
       timer = setTimeout(() => {
         delete root.dataset.preloader
@@ -117,7 +136,13 @@ export function OuroborosPreloader({ minDuration = 1200 }: { minDuration?: numbe
     }
 
     function onLoad() {
-      timer = setTimeout(leave, Math.max(0, minDuration - (performance.now() - started)))
+      // Espera al siguiente momento en que el infinito queda formado (final de cada vuelta impar).
+      const svg = svgRef.current
+      const now = svg?.getCurrentTime?.()
+      if (typeof now !== 'number') return leave()
+      const phase = now % (PRELOADER_LAP_S * 2)
+      const wait = phase <= PRELOADER_LAP_S ? PRELOADER_LAP_S - phase : PRELOADER_LAP_S * 3 - phase
+      timer = setTimeout(leave, wait * 1000)
     }
 
     if (document.readyState === 'complete') onLoad()
@@ -127,7 +152,7 @@ export function OuroborosPreloader({ minDuration = 1200 }: { minDuration?: numbe
       clearTimeout(timer)
       window.removeEventListener('load', onLoad)
     }
-  }, [minDuration])
+  }, [])
 
   if (gone) return null
 
@@ -137,7 +162,7 @@ export function OuroborosPreloader({ minDuration = 1200 }: { minDuration?: numbe
       aria-label="Cargando"
       className="ouroboros-preloader fixed inset-0 z-[100] flex items-center justify-center bg-neutral-100 text-green-800"
     >
-      <OuroborosLoop className="w-[clamp(120px,30vw,180px)]" />
+      <OuroborosLoop ref={svgRef} lapDuration={PRELOADER_LAP_S} className="w-[clamp(80px,20vw,120px)]" />
     </div>
   )
 }
